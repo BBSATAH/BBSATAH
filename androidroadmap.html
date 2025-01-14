@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة تعلم تطوير تطبيقات الأندرويد</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* تنسيق الصفحة */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .stage {
+      background-color: #fff;
+      border: 5px solid #ddd;
+      border-radius:108px;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .stage h2 {
+      color: #11088a;
+      margin-bottom: 10px;
+    }
+
+    .stage p {
+      color: #555;
+    }
+
+    .download-btn {
+      margin: 20px;
+      background-color: #11088a;
+      color: #fff;
+      border: none;
+      padding:5px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .download-btn:hover {
+      background-color: #140683;
+    }
+  </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="/images/0.png" alt="الشعار" class="header-logo">
+            </a>
+        </div>
+        <div class="header-icons">
+          <a href="#" id="toggle-dark-mode" class="icon-link">
+              <img src="/images/dark-mode.png" alt="Dark Mode Icon" class="header-icon">
+          </a>
+         
+      </div>
+  </header>
+      </header>
+      <h1>خريطة تعلم تطوير تطبيقات الأندرويد</h1>
+
+  <main class="roadmap" id="content">
+    <div class="stage">
+      <h2>1. أساسيات البرمجة</h2>
+      <p>تعلم المفاهيم الأساسية مثل المتغيرات، الجمل الشرطية، الحلقات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>2. تعلم لغة Java أو Kotlin</h2>
+      <p>ابدأ بتعلم لغة برمجة مثل Java أو Kotlin التي تستخدم في تطوير تطبيقات الأندرويد.</p>
+    </div>
+
+    <div class="stage">
+      <h2>3. تعلم Android Studio</h2>
+      <p>تعلم كيفية استخدام Android Studio، بيئة التطوير المتكاملة (IDE) الرسمية لتطوير تطبيقات الأندرويد.</p>
+    </div>
+
+    <div class="stage">
+      <h2>4. تعلم أساسيات تطوير الأندرويد</h2>
+      <p>تعلم أساسيات تطوير تطبيقات الأندرويد مثل الأنشطة (Activities)، الخدمات (Services)، والمكونات الأخرى.</p>
+    </div>
+
+    <div class="stage">
+      <h2>5. تعلم واجهة المستخدم (UI)</h2>
+      <p>تعلم كيفية تصميم واجهة المستخدم باستخدام XML وتصميم الواجهات المتجاوبة.</p>
+    </div>
+
+    <div class="stage">
+      <h2>6. تعلم إدارة البيانات</h2>
+      <p>تعلم كيفية إدارة البيانات باستخدام SQLite أو Room لتخزين البيانات محليًا.</p>
+    </div>
+
+    <div class="stage">
+      <h2>7. تعلم الشبكات والواجهات البرمجية (APIs)</h2>
+      <p>تعلم كيفية التفاعل مع الواجهات البرمجية (APIs) واستخدام Retrofit أو Volley للطلبات الشبكية.</p>
+    </div>
+
+    <div class="stage">
+      <h2>8. تعلم التنسيقات المتقدمة</h2>
+      <p>تعلم استخدام التنسيقات المتقدمة مثل ConstraintLayout وRecyclerView لتحسين واجهة المستخدم.</p>
+    </div>
+
+    <div class="stage">
+      <h2>9. تعلم الاختبارات</h2>
+      <p>تعلم كيفية كتابة اختبارات وحدة واختبارات تكامل باستخدام JUnit وEspresso.</p>
+    </div>
+
+    <div class="stage">
+      <h2>10. تعلم إدارة الحالات</h2>
+      <p>تعلم كيفية إدارة حالات التطبيق باستخدام LiveData وViewModel.</p>
+    </div>
+
+    <div class="stage">
+      <h2>11. تعلم الأمان</h2>
+      <p>تعلم أساسيات الأمان مثل المصادقة، التحقق من الهوية، وحماية البيانات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>12. تعلم نشر التطبيقات</h2>
+      <p>تعلم كيفية نشر تطبيقاتك على Google Play Store وإدارة الإصدارات.</p>
+    </div>
+
+  </main>
+
+  <button class="download-btn" onclick="downloadPDF()">📄 تنزيل كملف PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+
+      // التقاط محتوى الصفحة كصورة باستخدام html2canvas
+      const content = document.getElementById("content");
+      const canvas = await html2canvas(content);
+      const imgData = canvas.toDataURL("image/png");
+
+      // إنشاء مستند PDF
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = pageWidth;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      // إضافة الصورة إلى PDF
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+      // حفظ ملف PDF
+      pdf.save("roadmap.pdf");
+    }
+  </script>
+  <script src = "script.js"></script>
+</body>
+</html>

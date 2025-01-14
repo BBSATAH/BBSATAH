@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #3e0292;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #3e0292;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-left: 6px solid #3e0292;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #3e0292;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #3e0292;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-left: 6px solid #3e0292;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3e0292;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات CSS</h1>
+
+        <div class="course-description">
+            <p>في هذه الدورة، سنتعلم أساسيات لغة HTML، التي تعتبر الأساس لبناء صفحات الويب. سنغطي على المفاهيم الأساسية مثل بنية الوثيقة، العناصر، الصيغ، وكيفية استخدامها لإنشاء صفحات ويب تفاعلية وجذابة. سنبدأ بالمفاهيم النظرية وننتقل إلى أمثلة عملية لتسهيل التطبيق.</p>
+        </div>
+
+        <div class="lessons">
+            <div class="lesson">
+                <h2>الدرس الأول: أساسيات CSS</h2>
+                <p>CSS (Cascading Style Sheets) هي لغة تنسيق تُستخدم لتحديد مظهر عناصر HTML. تُستخدم CSS لتحديد الألوان، الأحجام، الخطوط، وغيرها من الخصائص البصرية.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>ما هي CSS؟</strong> CSS هي لغة تنسيق تُستخدم لتحديد مظهر عناصر HTML.</li>
+                        <li><strong>لماذا نحتاج CSS؟</strong> CSS تُستخدم لتحسين مظهر الصفحات الويبية وتحديد مظهر العناصر بشكل موحد.</li>
+                        <li><strong>كيفية استخدام CSS:</strong> يمكن استخدام CSS بواسطة عنصر &lt;style&gt; داخل وثيقة HTML أو بواسطة ملف CSS خارجي.</li>
+                        <li><strong>أمثلة على خصائص CSS:</strong>
+                            <ul>
+                                <li><strong>color:</strong> لتحديد لون النص.</li>
+                                <li><strong>font-size:</strong> لتحديد حجم الخط.</li>
+                                <li><strong>background-color:</strong> لتحديد لون الخلفية.</li>
+                                <li><strong>margin:</strong> لتحديد المسافة خارج العنصر.</li>
+                                <li><strong>padding:</strong> لتحديد المسافة داخل العنصر.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        body {<br>
+                        font-family: Arial, sans-serif;<br>
+                        background-color: #f0f0f0;<br>
+                        color: #333;<br>
+                        margin: 0;<br>
+                        padding: 20px;<br>
+                        }<br>
+                        h1 {<br>
+                        color: #ff0000;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثاني: المحددات في CSS</h2>
+                <p>المحددات في CSS تُستخدم لتحديد قيم محددة للخصائص. يمكن أن تكون المحددات قيمًا مطلقة مثل px (بكسل) أو % (نسبة) أو em (وحدة الخط).</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>المحددات المطلقة:</strong>
+                            <ul>
+                                <li><strong>px (بكسل):</strong> وحدة قياس مطلقة تُستخدم لتحديد الأحجام والمسافات.</li>
+                                <li><strong>% (نسبة):</strong> نسبة من الحجم الكلي للعنصر الأب.</li>
+                                <li><strong>em (وحدة الخط):</strong> وحدة قياس نسبية تعتمد على حجم الخط الحالي.</li>
+                            </ul>
+                        </li>
+                        <li><strong>أمثلة على استخدام المحددات:</strong>
+                            <ul>
+                                <li><strong>width: 100px;</strong> تحديد عرض العنصر بـ 100 بكسل.</li>
+                                <li><strong>margin: 20%;</strong> تحديد المسافة الخارجية للعنصر بنسبة 20% من الحجم الكلي للعنصر الأب.</li>
+                                <li><strong>padding: 1em;</strong> تحديد المسافة الداخلية للعنصر بوحدة الخط الحالية.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        .container {<br>
+                        width: 80%;<br>
+                        margin: 20px;<br>
+                        padding: 1em;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثالث: التصفح في CSS</h2>
+                <p>التصفح في CSS تُستخدم لتحديد كيفية عرض العناصر على الشاشة. يمكن أن تكون التصفح إما عادية أو ناعمة أو مطبوعة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التصفح العادية:</strong> تُستخدم لعرض العناصر بشكل عادي على الشاشة.</li>
+                        <li><strong>التصفح الناعمة:</strong> تُستخدم لعرض العناصر بشكل ناعم على الشاشة.</li>
+                        <li><strong>التصفح المطبوعة:</strong> تُستخدم لعرض العناصر بشكل مطبوع على الشاشة.</li>
+                        <li><strong>أمثلة على التصفح:</strong>
+                            <ul>
+                                <li><strong>display: block;</strong> تحديد التصفح العادية.</li>
+                                <li><strong>display: inline;</strong> تحديد التصفح الناعمة.</li>
+                                <li><strong>display: none;</strong> تحديد التصفح المطبوعة.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        .hidden {<br>
+                        display: none;<br>
+                        }<br>
+                        .inline {<br>
+                        display: inline;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الرابع: الترابط في CSS</h2>
+                <p>الترابط في CSS تُستخدم لتحديد كيفية تفاعل العناصر مع الفأرة. يمكن أن تكون الترابط إما داخلية أو خارجية.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الترابط الداخلية:</strong> تُستخدم لتحديد كيفية تفاعل العناصر مع بعضها البعض.</li>
+                        <li><strong>الترابط الخارجية:</strong> تُستخدم لتحديد كيفية تفاعل العناصر مع العناصر الأخرى.</li>
+                        <li><strong>أمثلة على الترابط:</strong>
+                            <ul>
+                                <li><strong>margin-top: 20px;</strong> تحديد المسافة العلوية للعنصر بـ 20 بكسل.</li>
+                                <li><strong>padding-left: 10px;</strong> تحديد المسافة اليسرى الداخلية للعنصر بـ 10 بكسل.</li>
+                                <li><strong>border: 1px solid #000;</strong> تحديد حد حول العنصر بسمك 1 بكسل ولون أسود.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        .box {<br>
+                        margin-top: 20px;<br>
+                        padding-left: 10px;<br>
+                        border: 1px solid #000;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الخامس: الأنماط المتقدمة</h2>
+                <p>CSS توفر مجموعة من الأنماط المتقدمة التي تتيح لك تحديد عناصر بطرق دقيقة ومرنة. هذه الأنماط تشمل الأنماط النسبية والأنماط المستندة إلى السمات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>محددات النسب (Child/Descendant Selectors):</strong> تُستخدم لتحديد العناصر النسبية داخل عنصر آخر.</li>
+                        <li><strong>محددات السمات (Attribute Selectors):</strong> تُستخدم لتحديد العناصر بناءً على السمات الخاصة بها.</li>
+                        <li><strong>محددات الأنماط الافتراضية:</strong> مثل `:hover`, `:focus` التي تُستخدم لتحديد التفاعلات مع العناصر.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        /* محدد النسب */<br>
+                        ul li {<br>
+                            color: blue;<br>
+                        }<br>
+                        /* محدد السمات */<br>
+                        input[type="text"] {<br>
+                            border: 1px solid green;<br>
+                        }<br>
+                        /* محدد عند التفاعل */<br>
+                        button:hover {<br>
+                            background-color: yellow;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس السادس: العمل مع الخطوط</h2>
+                <p>التحكم في الخطوط هو جزء مهم في تصميم الويب. باستخدام CSS، يمكن تغيير نوع الخط، حجمه، وزخرفته.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>font-family:</strong> لتحديد نوع الخط.</li>
+                        <li><strong>font-size:</strong> لتحديد حجم الخط.</li>
+                        <li><strong>font-weight:</strong> لتحديد وزن الخط (خفيف، عادي، عريض).</li>
+                        <li><strong>text-decoration:</strong> لتحديد زخارف النص مثل الخط السفلي أو العلوي.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        h1 {<br>
+                            font-family: 'Arial', sans-serif;<br>
+                            font-size: 24px;<br>
+                            font-weight: bold;<br>
+                            text-decoration: underline;<br>
+                        }<br>
+                        p {<br>
+                            font-family: 'Times New Roman', serif;<br>
+                            font-size: 18px;<br>
+                            font-weight: normal;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس السابع: الألوان والخلفيات</h2>
+                <p>CSS تتيح التحكم في الألوان والخلفيات لجعل التصميمات أكثر جاذبية وتفاعلية.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>color:</strong> لتحديد لون النص.</li>
+                        <li><strong>background-color:</strong> لتحديد لون خلفية العنصر.</li>
+                        <li><strong>background-image:</strong> لإضافة صورة كخلفية.</li>
+                        <li><strong>background-repeat:</strong> للتحكم بتكرار الصورة الخلفية.</li>
+                        <li><strong>background-position:</strong> لتحديد موضع الصورة الخلفية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        body {<br>
+                            background-color: #e0f7fa;<br>
+                            color: #004d40;<br>
+                        }<br>
+                        .box {<br>
+                            background-image: url('background.jpg');<br>
+                            background-repeat: no-repeat;<br>
+                            background-position: center;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثامن: التخطيطات باستخدام Flexbox</h2>
+                <p>Flexbox نظام قوي في CSS يُستخدم لإنشاء تخطيطات مرنة ومتكيفة مع مختلف أحجام الشاشات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>display: flex;</strong> تفعيل Flexbox على العنصر الأب.</li>
+                        <li><strong>justify-content:</strong> محاذاة العناصر أفقيًا (start, center, space-between).</li>
+                        <li><strong>align-items:</strong> محاذاة العناصر عموديًا.</li>
+                        <li><strong>flex-direction:</strong> تحديد اتجاه العناصر (row, column).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        .container {<br>
+                            display: flex;<br>
+                            justify-content: center;<br>
+                            align-items: center;<br>
+                            height: 100vh;<br>
+                            background-color: #f0f0f0;<br>
+                        }<br>
+                        .item {<br>
+                            margin: 10px;<br>
+                            padding: 20px;<br>
+                            background-color: #3e0292;<br>
+                            color: white;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس التاسع: التخطيطات باستخدام Grid</h2>
+                <p>CSS Grid هو نظام تصميم تخطيطي ثنائي الأبعاد لإنشاء تخطيطات معقدة بسهولة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>display: grid;</strong> تفعيل Grid على العنصر الأب.</li>
+                        <li><strong>grid-template-columns:</strong> تحديد أعمدة الشبكة.</li>
+                        <li><strong>grid-template-rows:</strong> تحديد صفوف الشبكة.</li>
+                        <li><strong>gap:</strong> تحديد المسافة بين الأعمدة والصفوف.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        .grid-container {<br>
+                            display: grid;<br>
+                            grid-template-columns: repeat(3, 1fr);<br>
+                            gap: 20px;<br>
+                        }<br>
+                        .grid-item {<br>
+                            background-color: #6200ea;<br>
+                            color: white;<br>
+                            padding: 20px;<br>
+                            text-align: center;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس العاشر: الظلال</h2>
+                <p>CSS تتيح إضافة الظلال إلى النصوص والعناصر لجعل التصميم أكثر تميزًا.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>text-shadow:</strong> لإضافة ظل إلى النصوص.</li>
+                        <li><strong>box-shadow:</strong> لإضافة ظل إلى المربعات والعناصر.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        h1 {<br>
+                            text-shadow: 2px 2px 5px #888;<br>
+                        }<br>
+                        .box {<br>
+                            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الحادي عشر: الحركات والتحولات</h2>
+                <p>الحركات والتحولات تُستخدم لجعل العناصر تتغير بطريقة سلسة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>transition:</strong> لإضافة تأثيرات سلسة عند تغيير الخصائص.</li>
+                        <li><strong>transform:</strong> لتدوير أو تكبير أو تصغير العناصر.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        .box {<br>
+                            transition: transform 0.5s;<br>
+                        }<br>
+                        .box:hover {<br>
+                            transform: scale(1.2) rotate(10deg);<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثاني عشر: الرسوم المتحركة</h2>
+                <p>الرسوم المتحركة في CSS تُستخدم لإنشاء حركات مخصصة على العناصر.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>@keyframes:</strong> لتحديد مراحل الحركة.</li>
+                        <li><strong>animation:</strong> لتطبيق الحركة على العنصر.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        @keyframes bounce {<br>
+                            0%, 100% { transform: translateY(0); }<br>
+                            50% { transform: translateY(-20px); }<br>
+                        }<br>
+                        .box {<br>
+                            animation: bounce 1s infinite;<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثالث عشر: الإعلامات والاستعلامات</h2>
+                <p>الإعلامات تُستخدم لجعل التصميم مستجيبًا ويتكيف مع أحجام الشاشات المختلفة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>@media:</strong> لتطبيق أنماط محددة بناءً على حجم الشاشة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;style&gt;<br>
+                        body {<br>
+                            background-color: lightblue;<br>
+                        }<br>
+                        @media (max-width: 600px) {<br>
+                            body {<br>
+                                background-color: lightcoral;<br>
+                            }<br>
+                        }<br>
+                        &lt;/style&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الرابع عشر: تحسين الأداء</h2>
+                <p>تحسين الأداء يُساعد في تسريع تحميل الصفحات وتحسين تجربة المستخدم.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>تجنب الأنماط المعقدة:</strong> استخدم أنماط بسيطة لتجنب التأثير على الأداء.</li>
+                        <li><strong>استخدام ملفات خارجية:</strong> قم بتخزين CSS في ملفات خارجية لتسريع التحميل.</li>
+                        <li><strong>تقليل CSS غير المستخدم:</strong> قم بإزالة الأنماط التي لا تحتاجها.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الأول: ما هو Bootstrap وكيفية إضافته؟</h2>
+                <p>Bootstrap هو إطار عمل لتصميم واجهات المستخدم بشكل سريع وسهل باستخدام مكونات CSS وJavaScript جاهزة.</p>
+                <div class="lesson-details">
+                    <strong>كيفية إضافة Bootstrap:</strong>
+                    <ul>
+                        <li>يمكنك إضافة Bootstrap عبر شبكة CDN باستخدام الرابط التالي داخل عنصر <code>&lt;head&gt;</code> في HTML:</li>
+                    </ul>
+                    <div class="example">
+                        <code>
+                        &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;<br>
+                        &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثاني: نظام الشبكة (Grid System) في Bootstrap</h2>
+                <p>نظام الشبكة هو أساس Bootstrap، ويُستخدم لتقسيم الصفحة إلى أعمدة وصفوف لإنشاء تصميمات مستجيبة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>يتكون النظام من 12 عمودًا.</li>
+                        <li>يمكنك استخدام الفئات <code>.row</code> و <code>.col</code> لتحديد الأعمدة.</li>
+                        <li>يدعم الأحجام المختلفة مثل <code>.col-sm</code>، <code>.col-md</code>، <code>.col-lg</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <code>
+                        &lt;div class="container"&gt;<br>
+                            &lt;div class="row"&gt;<br>
+                                &lt;div class="col-sm-6"&gt;نصف العرض&lt;/div&gt;<br>
+                                &lt;div class="col-sm-6"&gt;نصف العرض&lt;/div&gt;<br>
+                            &lt;/div&gt;<br>
+                        &lt;/div&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثالث: الألوان والخطوط في Bootstrap</h2>
+                <p>Bootstrap يحتوي على مجموعة من الفئات لتنسيق النصوص والعناصر باستخدام ألوان وخطوط مدمجة.</p>
+                <div class="lesson-details">
+                    <strong>الألوان الأساسية:</strong>
+                    <ul>
+                        <li><code>.text-primary</code>: لون أزرق.</li>
+                        <li><code>.text-danger</code>: لون أحمر.</li>
+                        <li><code>.bg-success</code>: خلفية خضراء.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <code>
+                        &lt;p class="text-primary"&gt;هذا نص أزرق&lt;/p&gt;<br>
+                        &lt;div class="bg-success text-white"&gt;خلفية خضراء مع نص أبيض&lt;/div&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الرابع: المكونات (Components) الشائعة في Bootstrap</h2>
+                <p>Bootstrap يوفر مكونات جاهزة مثل بطاقات، أزرار، قوائم منسدلة، وغيرها.</p>
+                <div class="lesson-details">
+                    <strong>أمثلة:</strong>
+                    <ul>
+                        <li>البطاقات (Cards).</li>
+                        <li>القوائم (Lists).</li>
+                        <li>الأيقونات (Icons).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <code>
+                        &lt;div class="card"&gt;<br>
+                            &lt;div class="card-body"&gt;محتوى البطاقة&lt;/div&gt;<br>
+                        &lt;/div&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الخامس: الأزرار (Buttons)</h2>
+                <p>الأزرار في Bootstrap توفر تصميمات جاهزة ومتناسقة.</p>
+                <div class="lesson-details">
+                    <strong>أمثلة على الأزرار:</strong>
+                    <ul>
+                        <li><code>.btn-primary</code>: زر أزرق.</li>
+                        <li><code>.btn-danger</code>: زر أحمر.</li>
+                        <li><code>.btn-outline-success</code>: زر بخط أخضر فقط.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <code>
+                        &lt;button class="btn btn-primary"&gt;زر أزرق&lt;/button&gt;<br>
+                        &lt;button class="btn btn-danger"&gt;زر أحمر&lt;/button&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

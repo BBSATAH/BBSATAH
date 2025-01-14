@@ -1,0 +1,825 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+:root {
+    --primary-color: #3c028d;
+    --secondary-color: #6d00fc;
+    --background-color: #f3f4f6;
+    --text-color: #222;
+    --text-color-light: #666;
+    --white: #ffffff;
+    --black: #000000;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f3f4f6;
+    color: #222;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    
+}
+p{
+    color: black;
+    text-align: center;
+}
+
+/*Header*/
+.top-header {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: var(--shadow);
+}
+
+.header-icon {
+    width: 30px;
+    height: 30px;
+    transition: var(--transition);
+}
+
+.header-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Menu icon&Animations*/
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: transparent; /* لون الخلفية الافتراضي */
+    padding: 10px; /* إضافة بعض المسافة داخل الزر */
+    border-radius: 5px; /* جعل الزر بأطراف مستديرة */
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+/* Animation for menu icon */
+.change .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.change .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+/*Top nav*/
+.top-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.top-nav a:hover {
+    color: #6d00fc;
+}
+
+.header-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/*Dark Theme*/
+.dark-theme .top-nav {
+    background: linear-gradient(90deg, #000 0%, #444 100%);
+}
+body.dark-theme {
+    background-color: #222;
+    color: #fff;
+}
+
+.dark-theme .section-card {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .top-header {
+    background: linear-gradient(90deg, #000 0%, #444 100%);
+}
+
+.dark-theme .section-card h3 {
+    color: #fff;
+}
+.dark-theme .section-card p {
+    color: #fff;
+}
+
+.dark-theme .site-footer {
+    background: linear-gradient(90deg, #000 0%, #222 100%);
+}
+
+.dark-theme a {
+    color: #ffc107;
+}
+
+.dark-theme a:hover {
+    color: #fff;
+}
+
+.dark-theme .menu-icon .bar {
+    background-color: #fffb00; /* لون أرمادي */
+}
+.dark-theme .header-icon {
+    filter: invert(1);
+}
+.dark-theme.top-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.dark-theme.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.dark-theme.top-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.dark-theme.top-nav a:hover {
+    color: #6d00fc;
+}
+
+.icon-link {
+    display: inline-block;
+}
+.dark-theme .course-card,
+.dark-theme .section-card,
+.dark-theme .game-card,
+.dark-theme .book-card {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .course-card h3,
+.dark-theme .section-card h3,
+.dark-theme .game-card h3,
+.dark-theme .book-card h3 {
+    color: #fff;
+}
+
+.dark-theme .course-card p,
+.dark-theme .section-card p,
+.dark-theme .game-card p,
+.dark-theme .book-card p {
+    color: #ccc;
+}
+
+.dark-theme .course-card a,
+.dark-theme .section-card button,
+.dark-theme .game-card a,
+.dark-theme .book-card a {
+    background-color: #6d00fc;
+    color: #fff;
+}
+
+.dark-theme .course-card a:hover,
+.dark-theme .section-card button:hover,
+.dark-theme .game-card a:hover,
+.dark-theme .book-card a:hover {
+    background-color: #4c1d95;
+}
+.logo-container {
+    flex-shrink: 0;
+}
+
+.header-logo {
+    width: 30px;
+    height: 30px;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+/*coursesstyle*/
+header input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  main {
+    padding: 20px;
+  }
+  .section-title {
+    margin: 20px 0;
+    font-size: 1.5em;
+    color: #ae9cc9; /* أرجواني داكن */
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .course-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+.course-card a{
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 10px; /* Adjusted button size */
+    background-color:#3c028d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Adjusted font size */
+    position: relative;
+
+
+}
+  .course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .course-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  .course-card-content {
+    padding: 15px;
+  }
+  .course-card-content h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #4c1d95; /* أرجواني داكن */
+  }
+  .course-card-content p {
+    margin: 10px 0;
+    color: #666;
+  }
+  .course-card-content button {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%); /* أرجواني داكن */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .course-card-content button:hover {
+    background-color: #3a156e; /* لون أغمق للأزرار عند التمرير */
+  }
+  footer {
+    margin-top: 20px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+/*sections*/
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.section-card img {
+    max-width: 150px; /* Increased image size */
+    margin-bottom: 15px;
+}
+
+.section-card h3 {
+    margin-bottom: 10px;
+    color: #283e51;
+}
+
+.section-card .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adjust the gap between buttons */
+}
+
+.section-card button {
+    padding: 6px 10px; /* Adjusted button size */
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; /* Adjusted font size */
+}
+
+.section-card button:hover {
+    background-color: #190357;
+}
+
+.section-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/*games*/
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card img {
+    max-width: 150px; /* Increased image size */
+    margin-bottom: 15px;
+}
+
+.game-card h3 {
+    margin-bottom: 10px;
+    color: #283e51;
+}
+.game-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 10px; /* Adjusted button size */
+    background-color:#3c028d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Adjusted font size */
+  }
+  .book-card a:hover {
+    background-color:#3c028d;
+  }
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;.games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px; /* Added padding for better spacing */
+    }
+    
+    .game-card {
+        background-color: white;
+        border-radius: 15px; /* Increased border radius for rounded corners */
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 1px solid #ddd; /* Added border for better definition */
+    }
+    
+    .game-card img {
+        max-width: 100%; /* Ensure image fits within the card */
+        height: auto;
+        border-radius: 10px; /* Rounded corners for the image */
+        margin-bottom: 15px;
+    }
+    
+    .game-card h2 {
+        font-size: 1.5em; /* Increased font size for the game title */
+        margin-bottom: 10px;
+        color: #3c028d; /* Changed title color to match the button */
+    }
+    
+    .game-card h3 {
+        margin-bottom: 10px;
+        color: #555; /* Changed subtitle color for better contrast */
+    }
+    
+    .game-card p {
+        font-size: 1em; /* Adjusted font size for better readability */
+        color: #777; /* Changed paragraph color for better contrast */
+    }
+    
+    .game-card a {
+        display: inline-block;
+        margin-top: 15px; /* Increased margin for better spacing */
+        padding: 10px 20px; /* Adjusted button size */
+        background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 25px; /* Rounded button corners */
+        cursor: pointer;
+        font-size: 16px; /* Adjusted font size */
+        transition: background-color 0.3s; /* Added transition for hover effect */
+    }
+    
+    .game-card a:hover {
+        background-color: #2a005e; /* Darker hover color */
+    }
+    
+    .game-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  /*Books pages*/
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .book-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .book-card img {
+    max-width: 150px; /* Increased image size */
+    margin-bottom: 15px;
+  }
+
+  .book-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #3d063d;
+  }
+
+  .book-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .book-card .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adjust the gap between buttons */
+}
+
+  .book-card a {
+    display: inline-block;
+        margin-top: 15px; /* Increased margin for better spacing */
+        padding: 10px 20px; /* Adjusted button size */
+        background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 25px; /* Rounded button corners */
+        cursor: pointer;
+        font-size: 16px; /* Adjusted font size */
+        transition: background-color 0.3s; /* Added transition for hover effect */
+  }
+
+  .book-card a:hover {
+    background-color: #190357;
+  }
+/* Animation */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.section-card, .course-card, .game-card, .book-card {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
+    animation: slideInRight 0.8s ease-in;
+}
+
+.header-icon, .menu-icon, .header-logo {
+    animation: bounceIn 0.5s ease-in-out;
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.section-card, .course-card, .game-card, .book-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
+    animation: fadeIn 0.8s ease-in;
+}
+
+.header-icon, .menu-icon, .header-logo {
+    animation: scaleUp 0.5s ease-in-out;
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+
+    .top-nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        height: 100vh;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 20px;
+    }
+
+    .top-nav ul {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .top-nav.active {
+        transform: translateX(0);
+    }
+
+    .sections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-icons {
+        margin-left: 0;
+    }
+
+    .header-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .section-card img {
+        max-width: 120px; /* Adjusted image size for smaller screens */
+    }
+
+    .section-card h3 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-nav {
+        margin-top: 10px;
+    }
+
+    .header-icons {
+        margin-top: 10px;
+    }
+
+    .section-card {
+        padding: 15px;
+    }
+
+    .section-card img {
+        max-width: 100px; /* Adjusted image size for smaller screens */
+    }
+
+    .section-card h3 {
+        font-size: 1em;
+    }
+}
+
+
+/*search .container*/
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  #search-box {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+  }
+  
+  .search-container button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #11088a;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  .search-container button:hover {
+    background-color: #140683;
+  }
+  /*Footer &الهدف من الموقع*/
+.site-footer {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #eaeaea;
+    padding: 30px 20px;
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9em;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    color: #ccc;
+}
+.footer-content a {
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-content a:hover {
+    color: #ffffff;
+}
+
+.logo-goal-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: right;
+    margin-bottom: 15px;
+}
+.footer-logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+.goal-text h2 {
+    color: #ffc107;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-align: right;
+}
+
+.goal-text p {
+    color: #eaeaea;
+    line-height: 1.6;
+    font-size: 1rem;
+}

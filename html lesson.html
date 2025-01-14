@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات HTML</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #3e0292;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #3e0292;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-left: 6px solid #3e0292;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #3e0292;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #3e0292;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-left: 6px solid #3e0292;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3e0292;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات HTML</h1>
+
+        <div class="course-description">
+            <p>في هذه الدورة، سنتعلم أساسيات لغة HTML، التي تعتبر الأساس لبناء صفحات الويب. سنغطي على المفاهيم الأساسية مثل بنية الوثيقة، العناصر، الصيغ، وكيفية استخدامها لإنشاء صفحات ويب تفاعلية وجذابة. سنبدأ بالمفاهيم النظرية وننتقل إلى أمثلة عملية لتسهيل التطبيق.</p>
+        </div>
+
+        <div class="lessons">
+            <!-- درس 1 -->
+            <div class="lesson">
+                <h2>الدرس الأول: مقدمة في HTML</h2>
+                <p>HTML (HyperText Markup Language) هي لغة ترميز تُستخدم لإنشاء صفحات الويب. تُستخدم HTML لتنسيق العناصر مثل النصوص، الصور، الفيديوهات، والروابط على صفحات الويب.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>ما هي HTML؟</strong> HTML هي لغة ترميز تُستخدم لإنشاء وتنسيق عناصر صفحات الويب.</li>
+                        <li><strong>لماذا نحتاج HTML؟</strong> HTML هي الأساس لبناء أي صفحة ويب. بدون HTML، لن نتمكن من عرض المحتوى على الإنترنت.</li>
+                        <li><strong>بنية وثيقة HTML:</strong> وثيقة HTML تتكون من عناصر مثل &lt;html&gt;، &lt;head&gt;، و&lt;body&gt;. كل عنصر يمكن أن يحتوي على عناصر أخرى.</li>
+                        <li><strong>أول برنامج HTML:</strong> برنامج "Hello, World!" يعتبر أول تجربة لأي مبرمج HTML.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html lang="ar"&gt;<br>
+                        &lt;head&gt;<br>
+                        &lt;meta charset="UTF-8"&gt;<br>
+                        &lt;title&gt;أول صفحة ويب&lt;/title&gt;<br>
+                        &lt;/head&gt;<br>
+                        &lt;body&gt;<br>
+                        &lt;h1&gt;مرحباً بكم في عالم HTML!&lt;/h1&gt;<br>
+                        &lt;/body&gt;<br>
+                        &lt;/html&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <!-- درس 2 -->
+            <div class="lesson">
+                <h2>الدرس الثاني: العناصر والصيغ في HTML</h2>
+                <p>العناصر هي الوحدات الأساسية لبناء صفحات الويب. كل عنصر يتكون من صيغة افتتاحية وصيغة إغلاقية، ويمكن أن يحتوي على محتوى أو صفات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>العناصر:</strong> العناصر هي الوحدات الأساسية لبناء صفحات الويب. مثال: &lt;p&gt;، &lt;a&gt;، &lt;img&gt;.</li>
+                        <li><strong>الصيغ:</strong> الصيغ هي الأقواس التي تحيط بالعناصر. مثال: &lt;p&gt; هذا نص &lt;/p&gt;.</li>
+                        <li><strong>الصفات:</strong> الصفات تُستخدم لتحديد خصائص العناصر. مثال: &lt;a href="https://example.com"&gt;رابط&lt;/a&gt;.</li>
+                        <li><strong>العناصر الشائعة:</strong>
+                            <ul>
+                                <li>&lt;p&gt;: فقرة نص.</li>
+                                <li>&lt;a&gt;: رابط تشعبي.</li>
+                                <li>&lt;img&gt;: صورة.</li>
+                                <li>&lt;h1&gt; - &lt;h6&gt;: عناوين.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;p&gt;هذا فقرة نص.&lt;/p&gt;<br>
+                        &lt;a href="https://example.com"&gt;زر هنا&lt;/a&gt;<br>
+                        &lt;img src="image.jpg" alt="صورة"&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <!-- درس 3 -->
+            <div class="lesson">
+                <h2>الدرس الثالث: بنية وثيقة HTML</h2>
+                <p>وثيقة HTML تتكون من عناصر منظمة بشكل هرمي. العناصر الرئيسية هي &lt;html&gt;، &lt;head&gt;، و&lt;body&gt;.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>&lt;html&gt;:</strong> العنصر الجذري الذي يحتوي على جميع العناصر الأخرى.</li>
+                        <li><strong>&lt;head&gt;:</strong> يحتوي على البيانات الوصفية للوثيقة مثل العنوان والميتاداتا.</li>
+                        <li><strong>&lt;body&gt;:</strong> يحتوي على محتوى الوثيقة الذي يُعرض في متصفح الويب.</li>
+                        <li><strong>العناصر الفرعية:</strong> يمكن أن تحتوي العناصر على عناصر فرعية داخلها. مثال: &lt;ul&gt; يمكن أن يحتوي على عدة عناصر &lt;li&gt;.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html lang="ar"&gt;<br>
+                        &lt;head&gt;<br>
+                        &lt;meta charset="UTF-8"&gt;<br>
+                        &lt;title&gt;بنية وثيقة HTML&lt;/title&gt;<br>
+                        &lt;/head&gt;<br>
+                        &lt;body&gt;<br>
+                        &lt;h1&gt;بنية وثيقة HTML&lt;/h1&gt;<br>
+                        &lt;p&gt;هذا فقرة نص داخل جسم الوثيقة.&lt;/p&gt;<br>
+                        &lt;/body&gt;<br>
+                        &lt;/html&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <!-- درس 4 -->
+            <div class="lesson">
+                <h2>الدرس الرابع: القوائم في HTML</h2>
+                <p>القوائم في HTML تُستخدم لتنظيم العناصر بشكل مرتب أو غير مرتب. هناك نوعان من القوائم: مرتبة وغير مرتبة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>القائمة المرتبة (Ordered List):</strong> تُستخدم لتنظيم العناصر بشكل مرتب. تُستخدم عنصر &lt;ol&gt; لإنشاء قائمة مرتبة.</li>
+                        <li><strong>القائمة غير المرتبة (Unordered List):</strong> تُستخدم لتنظيم العناصر بشكل غير مرتب. تُستخدم عنصر &lt;ul&gt; لإنشاء قائمة غير مرتبة.</li>
+                        <li><strong>عنصر القائمة (List Item):</strong> يُستخدم عنصر &lt;li&gt; لإنشاء عنصر قائمة داخل قائمة مرتبة أو غير مرتبة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;!-- قائمة مرتبة --&gt;<br>
+                        &lt;ol&gt;<br>
+                        &lt;li&gt;عنصر 1&lt;/li&gt;<br>
+                        &lt;li&gt;عنصر 2&lt;/li&gt;<br>
+                        &lt;li&gt;عنصر 3&lt;/li&gt;<br>
+                        &lt;/ol&gt;<br>
+                        &lt;!-- قائمة غير مرتبة --&gt;<br>
+                        &lt;ul&gt;<br>
+                        &lt;li&gt;عنصر أ&lt;/li&gt;<br>
+                        &lt;li&gt;عنصر ب&lt;/li&gt;<br>
+                        &lt;li&gt;عنصر ج&lt;/li&gt;<br>
+                        &lt;/ul&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <!-- درس 5 -->
+            <div class="lesson">
+                <h2>الدرس الخامس: الجداول في HTML</h2>
+                <p>الجداول في HTML تُستخدم لعرض البيانات بشكل منظم في صفوف وأعمدة. تُستخدم عناصر &lt;table&gt;، &lt;tr&gt;، &lt;th&gt;، و&lt;td&gt; لإنشاء الجداول.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>&lt;table&gt;:</strong> يُستخدم لإنشاء الجدول.</li>
+                        <li><strong>&lt;tr&gt;:</strong> يُستخدم لإنشاء صف في الجدول.</li>
+                        <li><strong>&lt;th&gt;:</strong> يُستخدم لإنشاء خلية عنوان في الجدول.</li>
+                        <li><strong>&lt;td&gt;:</strong> يُستخدم لإنشاء خلية بيانات في الجدول.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;table border="1"&gt;<br>
+                        &lt;tr&gt;<br>
+                        &lt;th&gt;رأس العمود 1&lt;/th&gt;<br>
+                        &lt;th&gt;رأس العمود 2&lt;/th&gt;<br>
+                        &lt;/tr&gt;<br>
+                        &lt;tr&gt;<br>
+                        &lt;td&gt;خلية 1&lt;/td&gt;<br>
+                        &lt;td&gt;خلية 2&lt;/td&gt;<br>
+                        &lt;/tr&gt;<br>
+                        &lt;tr&gt;<br>
+                        &lt;td&gt;خلية 3&lt;/td&gt;<br>
+                        &lt;td&gt;خلية 4&lt;/td&gt;<br>
+                        &lt;/tr&gt;<br>
+                        &lt;/table&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <!-- درس 6 -->
+            <div class="lesson">
+                <h2>الدرس السادس: النماذج في HTML</h2>
+                <p>النماذج في HTML تُستخدم لجمع البيانات من المستخدمين. تُستخدم عناصر &lt;form&gt;، &lt;input&gt;، &lt;textarea&gt;، و&lt;button&gt; لإنشاء النماذج.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>&lt;form&gt;:</strong> يُستخدم لإنشاء النموذج.</li>
+                        <li><strong>&lt;input&gt;:</strong> يُستخدم لإنشاء حقول إدخال مثل حقول النصوص، الكلمات المرورية، والأزرار الإشعارية.</li>
+                        <li><strong>&lt;textarea&gt;:</strong> يُستخدم لإنشاء منطقة نصوص متعددة الأسطر.</li>
+                        <li><strong>&lt;button&gt;:</strong> يُستخدم لإنشاء زر لإرسال النموذج.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                        &lt;form action="/submit" method="post"&gt;<br>
+                        &lt;label for="name"&gt;الاسم:&lt;/label&gt;<br>
+                        &lt;input type="text" id="name" name="name"&gt;<br>
+                        &lt;label for="email"&gt;البريد الإلكتروني:&lt;/label&gt;<br>
+                        &lt;input type="email" id="email" name="email"&gt;<br>
+                        &lt;label for="message"&gt;الرسالة:&lt;/label&gt;<br>
+                        &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;<br>
+                        &lt;button type="submit"&gt;إرسال&lt;/button&gt;<br>
+                        &lt;/form&gt;
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

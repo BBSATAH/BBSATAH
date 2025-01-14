@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة تعلم تطوير تطبيقات iOS</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* تنسيق الصفحة */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .stage {
+      background-color: #fff;
+      border: 5px solid #ddd;
+      border-radius: 10px;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    .stage h2 {
+      color: #11088a;
+      margin-bottom: 10px;
+    }
+
+    .stage p {
+      color: #555;
+    }
+
+    .sub-stage {
+      background-color: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      padding:20px;
+      margin: px 0;
+      text-align: right;
+    }
+
+    .sub-stage h3 {
+      color: #11088a;
+      margin-bottom: 5px;
+    }
+
+    .sub-stage p {
+      color: #555;
+    }
+
+    .download-btn {
+      margin: 20px;
+      background-color: #11088a;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #140683;
+    }
+  </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="/images/0.png" alt="الشعار" class="header-logo">
+            </a>
+        </div>
+        <div class="header-icons">
+          <a href="#" id="toggle-dark-mode" class="icon-link">
+              <img src="/images/dark-mode.png" alt="Dark Mode Icon" class="header-icon">
+          </a>
+         
+      </div>
+      </header>
+      <h1>خريطة تعلم تطوير تطبيقات iOS</h1>
+
+  <main class="roadmap" id="content">
+    <div class="stage">
+      <h2>1. أساسيات البرمجة</h2>
+      <p>تعلم المفاهيم الأساسية مثل المتغيرات، الجمل الشرطية، الحلقات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>2. تعلم لغة Swift</h2>
+      <p>ابدأ بتعلم لغة Swift، لغة البرمجة الرسمية لتطوير تطبيقات iOS.</p>
+      <div class="sub-stage">
+        <h3>المتغيرات والثوابت</h3>
+        <p>تعلم كيفية إنشاء واستخدام المتغيرات والثوابت.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>الدوال والمنهجيات</h3>
+        <p>تعلم كيفية تعريف واستدعاء الدوال والمنهجيات.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>الفئات والكائنات</h3>
+        <p>تعلم كيفية إنشاء واستخدام الفئات والكائنات.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>الوراثة والبرمجة الكائنية</h3>
+        <p>تعلم كيفية استخدام الوراثة والبرمجة الكائنية.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>3. تعلم Xcode</h2>
+      <p>تعلم كيفية استخدام Xcode، بيئة التطوير المتكاملة (IDE) الرسمية لتطوير تطبيقات iOS.</p>
+      <div class="sub-stage">
+        <h3>تثبيت وتهيئة Xcode</h3>
+        <p>تعلم كيفية تثبيت وتهيئة Xcode على جهازك.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>إنشاء مشروع جديد</h3>
+        <p>تعلم كيفية إنشاء مشروع جديد في Xcode.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام Interface Builder</h3>
+        <p>تعلم كيفية استخدام Interface Builder لتصميم واجهات المستخدم.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام المحاكي</h3>
+        <p>تعلم كيفية استخدام المحاكي لاختبار تطبيقاتك.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>4. تعلم أساسيات تطوير iOS</h2>
+      <p>تعلم أساسيات تطوير تطبيقات iOS مثل UIKit، والمكونات الأساسية مثل UILabel، UIButton، وUITableView.</p>
+      <div class="sub-stage">
+        <h3>فهم دورة حياة التطبيق</h3>
+        <p>تعلم كيفية إدارة دورة حياة التطبيق.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام UIKit</h3>
+        <p>تعلم كيفية استخدام UIKit لبناء واجهات المستخدم.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>إنشاء واجهات المستخدم</h3>
+        <p>تعلم كيفية إنشاء واجهات المستخدم البسيطة.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>التفاعل مع المستخدم</h3>
+        <p>تعلم كيفية إضافة التفاعل مع المستخدم.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>5. تعلم واجهة المستخدم (UI)</h2>
+      <p>تعلم كيفية تصميم واجهة المستخدم باستخدام Interface Builder وAuto Layout.</p>
+      <div class="sub-stage">
+        <h3>استخدام Auto Layout</h3>
+        <p>تعلم كيفية استخدام Auto Layout لتصميم واجهات متجاوبة.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>تصميم واجهات متجاوبة</h3>
+        <p>تعلم كيفية تصميم واجهات متجاوبة لجميع الأجهزة.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام Stack Views</h3>
+        <p>تعلم كيفية استخدام Stack Views لتنظيم المكونات.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>تخصيص المكونات</h3>
+        <p>تعلم كيفية تخصيص المكونات لتحقيق تصميم مميز.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>6. تعلم إدارة البيانات</h2>
+      <p>تعلم كيفية إدارة البيانات باستخدام Core Data أو SQLite لتخزين البيانات محليًا.</p>
+      <div class="sub-stage">
+        <h3>فهم Core Data</h3>
+        <p>تعلم كيفية استخدام Core Data لإدارة البيانات.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>إنشاء نماذج البيانات</h3>
+        <p>تعلم كيفية إنشاء نماذج البيانات في Core Data.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>العمليات الأساسية (CRUD)</h3>
+        <p>تعلم كيفية إجراء العمليات الأساسية مثل الإضافة، القراءة، التحديث، والحذف.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام SQLite</h3>
+        <p>تعلم كيفية استخدام SQLite لتخزين البيانات محليًا.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>7. تعلم الشبكات والواجهات البرمجية (APIs)</h2>
+      <p>تعلم كيفية التفاعل مع الواجهات البرمجية (APIs) واستخدام URLSession للطلبات الشبكية.</p>
+      <div class="sub-stage">
+        <h3>فهم HTTP وREST</h3>
+        <p>تعلم كيفية استخدام HTTP وREST للتفاعل مع الواجهات البرمجية.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام URLSession</h3>
+        <p>تعلم كيفية استخدام URLSession لإجراء الطلبات الشبكية.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>معالجة الاستجابات</h3>
+        <p>تعلم كيفية معالجة الاستجابات من الواجهات البرمجية.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>التحقق من البيانات</h3>
+        <p>تعلم كيفية التحقق من البيانات المستلمة من الواجهات البرمجية.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>8. تعلم SwiftUI</h2>
+      <p>تعلم استخدام SwiftUI، إطار عمل جديد لبناء واجهات المستخدم بشكل تعريفي.</p>
+      <div class="sub-stage">
+        <h3>فهم أساسيات SwiftUI</h3>
+        <p>تعلم كيفية استخدام SwiftUI لبناء واجهات المستخدم.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>إنشاء واجهات المستخدم</h3>
+        <p>تعلم كيفية إنشاء واجهات المستخدم باستخدام SwiftUI.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام الحالات والروابط</h3>
+        <p>تعلم كيفية استخدام الحالات والروابط في SwiftUI.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>تكامل SwiftUI مع UIKit</h3>
+        <p>تعلم كيفية تكامل SwiftUI مع UIKit.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>9. تعلم الاختبارات</h2>
+      <p>تعلم كيفية كتابة اختبارات وحدة واختبارات تكامل باستخدام XCTest.</p>
+      <div class="sub-stage">
+        <h3>فهم XCTest</h3>
+        <p>تعلم كيفية استخدام XCTest لكتابة الاختبارات.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>كتابة اختبارات الوحدة</h3>
+        <p>تعلم كيفية كتابة اختبارات الوحدة للمكونات الفردية.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>كتابة اختبارات التكامل</h3>
+        <p>تعلم كيفية كتابة اختبارات التكامل لاختبار التفاعل بين المكونات.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام المحاكي للاختبار</h3>
+        <p>تعلم كيفية استخدام المحاكي لاختبار تطبيقاتك.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>10. تعلم إدارة الحالات</h2>
+      <p>تعلم كيفية إدارة حالات التطبيق باستخدام Combine وSwiftUI.</p>
+      <div class="sub-stage">
+        <h3>فهم Combine</h3>
+        <p>تعلم كيفية استخدام Combine لإدارة الحالات.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام الناشرين والمشتركين</h3>
+        <p>تعلم كيفية استخدام الناشرين والمشتركين في Combine.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>إدارة الحالات في SwiftUI</h3>
+        <p>تعلم كيفية إدارة الحالات في SwiftUI باستخدام Combine.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>تكامل Combine مع SwiftUI</h3>
+        <p>تعلم كيفية تكامل Combine مع SwiftUI لإدارة الحالات.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>11. تعلم الأمان</h2>
+      <p>تعلم أساسيات الأمان مثل المصادقة، التحقق من الهوية، وحماية البيانات.</p>
+      <div class="sub-stage">
+        <h3>فهم المصادقة والتحقق من الهوية</h3>
+        <p>تعلم كيفية تنفيذ المصادقة والتحقق من الهوية في تطبيقاتك.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام Touch ID وFace ID</h3>
+        <p>تعلم كيفية استخدام Touch ID وFace ID للمصادقة.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>تشفير البيانات</h3>
+        <p>تعلم كيفية تشفير البيانات لحمايتها.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>حماية التطبيق</h3>
+        <p>تعلم كيفية حماية تطبيقاتك من الهجمات الأمنية.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <h2>12. تعلم نشر التطبيعات</h2>
+      <p>تعلم كيفية نشر تطبيقاتك على Apple App Store وإدارة الإصدارات.</p>
+      <div class="sub-stage">
+        <h3>فهم عملية النشر</h3>
+        <p>تعلم كيفية إعداد تطبيقك للنشر على Apple App Store.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>إعداد التطبيق للنشر</h3>
+        <p>تعلم كيفية إعداد تطبيقك للنشر على Apple App Store.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>استخدام App Store Connect</h3>
+        <p>تعلم كيفية استخدام App Store Connect لنشر تطبيقاتك.</p>
+      </div>
+      <div class="sub-stage">
+        <h3>إدارة الإصدارات والتحديثات</h3>
+        <p>تعلم كيفية إدارة الإصدارات والتحديثات لتطبيقاتك.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <button class="download-btn" onclick="downloadPDF()">📄 تنزيل كملف PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+
+      // التقاط محتوى الصفحة كصورة باستخدام html2canvas
+      const content = document.getElementById("content");
+      const canvas = await html2canvas(content);
+      const imgData = canvas.toDataURL("image/png");
+
+      // إنشاء مستند PDF
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = pageWidth;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      // إضافة الصورة إلى PDF
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+      // حفظ ملف PDF
+      pdf.save("roadmap.pdf");
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

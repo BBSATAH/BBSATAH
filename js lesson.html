@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات javascript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #222;
+            padding: 20px;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #3e0292;
+            margin-bottom: 30px;
+            font-size: 2.4em;
+            font-weight: 700;
+        }
+        .course-description {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 4px solid #3e0292;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .lesson {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .lesson:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #3e0292;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        .lesson-details {
+            margin-top: 10px;
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.6;
+        }
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3e0292;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 8px;
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<div class="container">
+    <h1>شرح دورة أساسيات js</h1>
+    <div class="course-description">
+   <p>JavaScript (JS) هي لغة برمجة قوية تُستخدم لتطوير تطبيقات الويب، سواء على جانب العميل (Frontend) أو الخادم (Backend). إذا كنت مبتدئًا، هنا الأساسيات التي يجب أن تعرفها:   </p>
+
+</div>
+<div class="lessons">
+    <div class="lesson">
+    <h2>لدرس الأول: أساسياتjs</h2>
+    <p>المتغيرات (Variables)
+        المتغيرات تُستخدم لتخزين القيم. في JavaScript، يمكنك تعريف المتغيرات باستخدام var (قديمة)، أو let (مُفضّلة)، أو const (للثوابت).</p>
+        <div class="lesson-details">
+            <strong>شرح مفصل:</strong>
+            <ul>
+                <li><strong>ما هي js؟</strong>هي لغة برمجة قوية تُستخدم لتطوير تطبيقات الويب،  .</li>
+                <li><strong>لماذا نحتاج js؟</strong> لأنها تعتبر الركيزة الأساسية في تطوير تطبيقات الويب الحديثة</li>
+                <li><strong>كيفية استخدام js:</strong> يمكن استخدام JavaScript بسهولة لأنها تُدمج مع صفحات الويب</li>
+                <li><strong>أمثلة على خصائص js:</strong>
+                    <ul>
+                        <li>طباعة رسالة في وحدة التحكم <code>console.log("مرحبًا بك في JavaScript!");
+                        </code></li>
+                        <li>التعامل مع المتغيرات<code>let name = "علي";
+                            let age = 25;
+                            let isStudent = true;
+                            
+                            console.log(`الاسم: ${name}, العمر: ${age}, طالب: ${isStudent}`);
+                            </code></li>
+                        <li>استخدام الشروط<code>let score = 85;
+
+                            if (score >= 90) {
+                                console.log("ممتاز!");
+                            } else if (score >= 75) {
+                                console.log("جيد جدًا");
+                            } else {
+                                console.log("حاول مرة أخرى!");
+                            }
+                            </code></li>
+                    </ul>
+                    <div class="lesson">
+                        <h2>الدرس الثاني: المحددات في js</h2>
+                        <p>المحددات (Selectors) تُستخدم للتفاعل مع عناصر صفحة HTML باستخدام JavaScript. هذه المحددات تتيح لك الوصول إلى العناصر وتغيير خصائصها أو محتواها، مما يجعل صفحات الويب أكثر ديناميكية وتفاعلية.
+                        </p>
+                        <div class="lesson-details">
+                            <strong>شرح مفصل:</strong>
+                            <ul>
+                                <li><strong>أنواع المحددات الأساسية في JavaScript
+                                </strong>
+
+                                    <ul>
+                                        <li>1. تحديد العناصر باستخدام</li>
+                                        <li>2. تحديد العناصر باستخدام class</li>
+                                        <li>3. تحديد العناصر باستخدام اسم الوسم (Tag Name)</li>
+                                    </ul>
+                                    <div class="example">
+                                        <strong>مثال:</strong>
+                                        <br>
+                                        <code><p class="myClass">الفقرة الأولى</p>
+                                            <p class="myClass">الفقرة الثانية</p>
+                                            <button onclick="highlight()">تمييز العناصر</button>
+                                        </code>
+                                        <br>
+                                        <code>
+                                            function highlight() {
+                                                let elements = document.getElementsByClassName("myClass");
+                                                for (let i = 0; i < elements.length; i++) {
+                                                    elements[i].style.color = "red";
+                                                }
+                                            }
+                                            
+                                        </code>                    
+                                    </div>
+                                    <div class="lesson">
+                                        <h2>الدرس الثالث: التصفح في js</h2>
+                                        <p>التصفح في JavaScript (Navigation) يشير إلى كيفية التنقل والتفاعل مع الصفحة الحالية أو الصفحات الأخرى في المتصفح باستخدام الكود. JavaScript توفر واجهة قوية تُعرف بـ واجهة كائن المتصفح (Browser Object Model - BOM)، والتي تتيح التحكم الكامل في التصفح.
+                                        </p>
+                                        <div class="lesson-details">
+                                            <strong>شرح مفصل:</strong>   
+                                            <ul>
+                                                <li>1. الانتقال إلى صفحة أخرى<code>window.location.href = "https://www.example.com";</code></li>
+                                                <li>إعادة توجيه الصفحة (Redirect):<code>window.location.replace("https://www.example.com");
+                                                </code>
+                                                    javascript
+                                                    نسخ الكود
+                                                    </li>
+                                                    <li>إعادة تحميل الصفحة:
+                                                        javascript
+                                                        نسخ الكود<code>window.location.reload(); // يعيد تحميل الصفحة الحالية
+                                                        </code>
+                                                        </li>
+                                            </ul>
+                                            <div class="example">
+                                                <strong>مثال:</strong>
+                                                <br>
+                                                <code>
+                                                    window.history.forward();
+                                                </code>
+                                                window.history.go(-2); // الرجوع صفحتين للخلف
+window.history.go(2);  // التقدم صفحتين للأمام
+                                            </div>
+                                        </div>
+                                    </div>
+                                       
+                                    <div class="lesson">
+                                        <h2>الدرس الرابع: الترابط في js</h2>
+                                        <p>الترابط في JavaScript يشير إلى كيفية ربط الكائنات والدوال والقيم ببعضها البعض، وكيف يمكن التحكم في نطاق التنفيذ وسياق الدوال (context). الترابط يعتبر من المفاهيم الأساسية لفهم كيفية عمل JavaScript بشكل عميق.
+
+                                        </p>
+                                        <div class="lesson-details">
+                                            <strong>شرح مفصل:</strong>
+                                            <ul>
+                                                <li>1. الترابط الضمني (Implicit Binding)
+                                                </li>
+                                            <li>2. الترابط الصريح (Explicit Binding)
+                                            </li>
+                                                <li>3. الترابط الافتراضي (Default Binding)
+                                                </li>
+                                                <ul>
+                                                    <li><strong>يحدث عندما يتم استدعاء الدالة عبر كائن (object).
+                                                        الكائن الذي يسبق النقطة (.) هو الذي يُعتبر سياق التنفيذ (this).
+                                                        </strong></li>
+                                                        <li><strong>يتم تحديد قيمة this بشكل صريح باستخدام الدوال: call، apply، و bind.
+                                                        </strong></li>
+                                                        <li><strong>إذا لم يكن هناك سياق (كائن) محدد، فإن this تشير إلى الكائن global (في المتصفح: window).
+                                                        </strong></li>
+                                                </ul>
+                                            </ul>
+                                            <div class="example">
+                                                <strong>مثال:</strong>
+                                                <br>
+                                                <code>
+                                                    const user = {
+                                                        name: "علي",
+                                                        greet: function () {
+                                                            console.log(`مرحبًا، ${this.name}`);
+                                                        }
+                                                    };
+                                                    
+                                                    user.greet(); // مرحبًا، علي
+                                                </code>
+                                                <br>
+                                                <code>
+                                                    const user = {
+                                                        name: "سارة"
+                                                    };
+                                                    
+                                                    function greet() {
+                                                        console.log(`مرحبًا، ${this.name}`);
+                                                    }
+                                                    
+                                                    greet.call(user); // مرحبًا، سارة
+                                                    
+                                                </code>              
+                                                <br>
+                                                <code>
+                                                    function greet() {
+                                                        console.log(this);
+                                                    }
+                                                    
+                                                    greet(); // في المتصفح: Window، في Node.js: global
+                                                    
+                                                </code>          
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <h1 id="title">الدرس الخامس: ماذا تقدم JavaScript؟</h1>
+                                    <p id="intro">
+                                        JavaScript هي لغة برمجة تمكننا من إضافة ديناميكية وتفاعل إلى صفحات الويب. هنا سنتعرف على بعض ما تقدمه JavaScript:
+                                    </p>
+                                    <ul>
+                                        <li id="feature1">إضافة التفاعلات مع المستخدم.</li>
+                                        <li id="feature2">التعامل مع عناصر الصفحة DOM.</li>
+                                        <li id="feature3">التعامل مع البيانات باستخدام JSON.</li>
+                                        <li id="feature4">التحكم في التنقل بين الصفحات.</li>
+                                    </ul>
+                                    <div class="example">
+                                        <strong>مثال:</strong>
+                                        <br>
+                                        <code>
+                                            <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مثال 1: طباعة النص</title>
+</head>
+<body>
+    <h1>JavaScript Example</h1>
+    <script>
+        // طباعة النص في نافذة التنبيه
+        alert("مرحبًا بك في JavaScript!");
+
+        // طباعة النص في الـ HTML باستخدام document.write
+        document.write("مرحبًا، هذه أول تجربة في JavaScript!");
+
+        // طباعة النص في الـ Console
+        console.log("مرحبًا من Console!");
+    </script>
+</body>
+</html>
+
+                                </div>
+
+                                <div class="lesson">
+                                    <h2>الدرس الخامس: الأنماط المتقدمة</h2>
+                                    <p>تعتبر الأنماط المتقدمة في JavaScript من المواضيع المهمة التي تسمح للمطورين بالعمل مع مفاهيم معقدة لتحسين الأداء وتنظيم الكود. في هذه المقالة، سنتعرف على بعض الأنماط المتقدمة في JavaScript مع أمثلة عملية.
+
+                                    </p>
+                                    <div class="lesson-details">
+                                        <strong>شرح مفصل:</strong>
+                                        <ul>
+                                            <li><strong>1. الدوال ذات التمرير المتغير (Rest Parameters)
+                                            </strong></li>
+                                            <li><strong>2. الدوال التلقائية (Default Parameters)
+                                            </strong></li>
+                                            <li><strong>3. الوعود (Promises)
+                                            </strong></li>
+                                        </ul>
+                                        <div class="example">
+                                            <strong>مثال:</strong>
+                                            <br>
+                                            <code>
+                                                function sum(...numbers) {
+                                                    return numbers.reduce((total, num) => total + num, 0);
+                                                }
+                                                
+                                                console.log(sum(1, 2, 3, 4));  // الناتج: 10
+                                                console.log(sum(5, 10));       // الناتج: 15
+                                            </code>
+                                            <br>
+                                            <code>
+                                                function greet(name = "مجهول") {
+                                                    console.log("مرحبًا، " + name);
+                                                }
+                                                
+                                                greet();           // مرحبًا، مجهول
+                                                greet("أحمد");     // مرحبًا، أحمد
+                                                
+                                            </code>                
+                                        </div>
+                                    </div>
+                                </div>
+                            
+
+                                </body>
+                                </html>                                
+                            
+                            
+                                                
+                                    

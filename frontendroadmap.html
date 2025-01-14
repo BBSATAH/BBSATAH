@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة تعلم البرمجة</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* تنسيق الصفحة */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+   .stage {
+      background-color: #fff;
+      border: 5px solid #ddd;
+      border-radius:108px;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .stage h2 {
+      color: #11088a;
+      margin-bottom: 10px;
+    }
+
+    .stage p {
+      color: #555;
+    }
+
+    .download-btn {
+      margin: 20px;
+      background-color: #11088a;
+      color: #fff;
+      border: none;
+      padding:5px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .download-btn:hover {
+      background-color: #140683;
+    }
+  </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="/images/0.png" alt="الشعار" class="header-logo">
+            </a>
+        </div>
+        <div class="header-icons">
+          <a href="#" id="toggle-dark-mode" class="icon-link">
+              <img src="/images/dark-mode.png" alt="Dark Mode Icon" class="header-icon">
+          </a>
+         
+      </div>
+      </header>
+      <h1>خريطة تعلم  الواجهات الاماميه</h1>
+
+  <main class="roadmap" id="content">
+    <div class="stage">
+      <h2>1. أساسيات البرمجة</h2>
+      <p>تعلم المفاهيم الأساسية مثل المتغيرات، الجمل الشرطية، الحلقات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>2. البرمجة الكائنية (OOP)</h2>
+      <p>فهم الكائنات، الفئات (Classes)، الوراثة، والتغليف.</p>
+    </div>
+
+    <div class="stage">
+      <h2>3. قواعد البيانات</h2>
+      <p>تعلم كيفية إنشاء قواعد البيانات وربطها بالتطبيقات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>4. تطوير الويب</h2>
+      <p>تعلم أساسيات HTML، CSS، JavaScript لتطوير صفحات ويب تفاعلية.</p>
+    </div>
+
+    <div class="stage">
+      <h2>5. مشاريع عملية</h2>
+      <p>تطبيق ما تعلمته في بناء مشاريع برمجية بسيطة.</p>
+    </div>
+
+    <div class="stage">
+      <h2>6. تعلم HTML</h2>
+      <p>ابدأ بتعلم هيكل صفحات الويب وإنشاء النصوص، الروابط، الصور، القوائم، والجداول باستخدام HTML.</p>
+    </div>
+
+    <div class="stage">
+      <h2>7. تعلم CSS</h2>
+      <p>تعلم كيفية تنسيق النصوص، الألوان، التخطيطات، واستخدام تقنيات مثل Flexbox وGrid لتصميم الصفحات المتجاوبة.</p>
+    </div>
+
+    <div class="stage">
+      <h2>8. تعلم JavaScript</h2>
+      <p>ابدأ بتعلم البرمجة التفاعلية باستخدام JavaScript مثل التعامل مع DOM، الأحداث، والتحقق من النماذج.</p>
+    </div>
+
+    <div class="stage">
+      <h2>9. تعلم jQuery</h2>
+      <p>استخدم jQuery لتسريع التفاعل مع صفحات الويب وتطبيق التأثيرات مثل التلاشي والانزلاق.</p>
+    </div>
+
+    <div class="stage">
+      <h2>10. تعلم React.js</h2>
+      <p>تعلم إنشاء واجهات مستخدم تفاعلية وقابلة لإعادة الاستخدام باستخدام React.js.</p>
+    </div>
+
+    <div class="stage">
+      <h2>11. تعلم Bootstrap</h2>
+      <p>استخدم Bootstrap لتصميم الصفحات المتجاوبة بسهولة باستخدام مكونات جاهزة مثل الأزرار والقوائم.</p>
+    </div>
+
+    <div class="stage">
+      <h2>12. تعلم Git و GitHub</h2>
+      <p>تعلم كيفية استخدام Git لإدارة الإصدارات وGitHub لتخزين ومشاركة المشاريع البرمجية.</p>
+    </div>
+
+  </main>
+
+  <button class="download-btn" onclick="downloadPDF()">📄 تنزيل كملف PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+
+      // التقاط محتوى الصفحة كصورة باستخدام html2canvas
+      const content = document.getElementById("content");
+      const canvas = await html2canvas(content);
+      const imgData = canvas.toDataURL("image/png");
+
+      // إنشاء مستند PDF
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = pageWidth;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      // إضافة الصورة إلى PDF
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+      // حفظ ملف PDF
+      pdf.save("roadmap.pdf");
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

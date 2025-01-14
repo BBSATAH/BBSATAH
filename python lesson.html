@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم لغة Python</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #222;
+            padding: 20px;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #3e0292;
+            margin-bottom: 30px;
+            font-size: 2.4em;
+            font-weight: 700;
+        }
+        .course-description {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 4px solid #3e0292;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .lesson {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .lesson:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #3e0292;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        .lesson-details {
+            margin-top: 10px;
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.6;
+        }
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3e0292;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 8px;
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }  ul {
+            margin: 0;
+            padding: 0 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+       
+        
+        </style>
+        </head>
+
+<body>
+    <div class="container">
+        <h1>اساسيات لغه python</h1>
+        <div class="course-description">
+       <p>لغة Python هي واحدة من أشهر لغات البرمجة في العالم، وتُستخدم في العديد من المجالات مثل تطوير الويب، وتحليل البيانات، والذكاء الاصطناعي، وتعلم الآلة، وأتمتة العمليات، والكثير غيرها. تتميز Python بسهولة تعلمها وقراءتها، مما يجعلها اختيارًا مثاليًا للمبتدئين والمحترفين على حد سواء. </p>
+    </div>
+     
+    <div class="lessons">
+        <div class="lesson">
+            <h2>الدرس الثاني:المحددات في python</h2>
+            <p>المحددات في Python ليست مصطلحًا مباشرًا مثلما هو الحال في لغات الويب (HTML/CSS)، لكنها تشير إلى الطرق والأساليب التي تُستخدم للوصول إلى عناصر داخل البيانات (مثل قوائم، قواميس، نصوص). تعتمد "المحددات" على نوع البيانات الذي تعمل عليه.
+
+            </p>
+
+                دعم مكتبات ضخمة: Python تحتوي على مكتبات ومجموعات أدوات جاهزة تساعد في تسريع عملية تطوير البرمجيات في مختلف المجالات مثل (NumPy, Pandas, Matplotlib للبيانات، TensorFlow, PyTorch للذكاء الاصطناعي، Django, Flask لتطوير الويب).
+            </p>
+            <div class="lesson-details">
+                <strong>شرح مفصل:</strong>
+                <ul>
+                    <li><strong>1. الوصول إلى عناصر القوائم (Lists)
+                    </strong> القوائم في Python تُخزن مجموعة من العناصر ويمكن الوصول إلى هذه العناصر باستخدام الفهارس (Indexes).
+
+                </li>
+                        <li><strong>2. الوصول إلى عناصر القواميس (Dictionaries)
+                        </strong>؟</strong>القواميس في Python تُستخدم لتخزين أزواج المفتاح والقيمة. يمكن استخدام المفتاح لتحديد القيمة.
+
+
+                        </li>
+                        <li><strong>3. الوصول إلى عناصر النصوص (Strings)
+                        </strong> النصوص تُعتبر سلسلة من الأحرف، ويمكن الوصول إلى كل حرف باستخدام الفهرسة.
+
+
+                        </li>
+                </ul>
+                <div class="example">
+                    <strong>شرح مفصل</strong>
+                    <code>
+                        my_list = [10, 20, 30, 40, 50]
+
+                        # الوصول إلى العنصر الأول
+                        print(my_list[0])  # الناتج: 10
+                        
+                        # الوصول إلى العنصر الأخير
+                        print(my_list[-1])  # الناتج: 50
+                        
+
+                    </code>
+                    <br>
+                    <div class="example">
+                        <strong>شرح مفصل</strong>
+                        <code>
+                            my_dict = {"name": "أحمد", "age": 25, "city": "القاهرة"}
+
+# الوصول إلى قيمة باستخدام المفتاح
+print(my_dict["name"])  # الناتج: أحمد
+
+# التحقق من وجود مفتاح قبل الوصول إليه
+if "age" in my_dict:
+    print(my_dict["age"])  # الناتج: 25
+
+
+                        </code>
+                        <div class="example">
+                            <strong>شرح مفصل</strong>
+                            <code>
+                                my_string = "Python"
+
+# الوصول إلى أول حرف
+print(my_string[0])  # الناتج: P
+
+# الوصول إلى آخر حرف
+print(my_string[-1])  # الناتج: n
+                            </code>
+
+                    </div>
+                </div>
+        </div>
+        <div class="lesson">
+            <h2>الدرس التالت:التصفح في python</h2>
+            <p>التصفح في Python يشير إلى عملية المرور على العناصر أو البيانات داخل هياكل البيانات المختلفة مثل القوائم (Lists)، القواميس (Dictionaries)، النصوص (Strings)، أو حتى الملفات (Files). يتم ذلك باستخدام الحلقات مثل for أو while.
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                       <li>1. التصفح باستخدام حلقة for</li>
+                    <li>2. التصفح باستخدام حلقة while</li>
+                     <li>3. التصفح على النصوص (Strings)</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            fruits = ["تفاح", "موز", "عنب"]
+
+for fruit in fruits:
+    print(fruit)
+# الناتج:
+# تفاح
+# موز
+# عنب
+                        </code>
+ <br>
+ <div class="example">
+    <strong>مثال:</strong>
+    <br>
+    <code>
+        i = 0
+while i < len(fruits):
+    print(fruits[i])
+    i += 1
+# الناتج:
+# تفاح
+# موز
+# عنب
+    </code>
+    <br>
+    <div class="example">
+        <strong>مثال:</strong>
+        <br>
+        <code>
+            text = "Python"
+
+for char in text:
+    print(char)
+# الناتج:
+# P
+# y
+# t
+# h
+# o
+# n
+        </code>
+        
+        </div>
+        <div class="lesson">
+            <h2>الدرس الرابع :الترابط في بايثون</h2>
+            <p>الترابط (Threading) هو مفهوم يتيح تشغيل مهام متعددة (Threads) بشكل متزامن داخل عملية واحدة. في Python، يمكن استخدام مكتبة threading لإنشاء وإدارة الخيوط (Threads). يساعد الترابط في تحسين كفاءة البرامج من خلال تنفيذ المهام المتعددة في وقت واحد، خاصةً عند التعامل مع مهام إدخال/إخراج (I/O) مثل قراءة الملفات أو الشبكات.
+
+            </p>
+            
+            <div class="lesson-details">
+                <strong>شرح مفصل:</strong>
+                  <ul>
+                    <li><strong>متى نستخدم الترابط؟</strong>عند الحاجة إلى تنفيذ عدة مهام في وقت واحد.
+                        لتجنب تعطيل البرنامج أثناء تنفيذ عمليات طويلة.
+                        لتحسين الأداء في التطبيقات ذات المهام المتزامنة.</li>
+                  <div class="example">
+                    <strong>مثال:</strong>
+                   <br>
+                   <code>
+                    import threading
+
+                    def print_numbers():
+                        for i in range(5):
+                            print(f"Thread 1: {i}")
+                    
+                    # إنشاء وتشغيل الخيط
+                    thread = threading.Thread(target=print_numbers)
+                    thread.start()
+                    
+                    # تنفيذ التعليمات الرئيسية أثناء تشغيل الخيط
+                    for i in range(5):
+                        print(f"Main Thread: {i}")
+                    
+                   </code>
+        </div>
+            </div>
+            <div class="lesson">
+            <h2>الدرس الخامس:الانماط المتقدمه</h2>
+            <P>Python تقدم أدوات وأنماط برمجية متقدمة لتسهيل العمل مع البيانات وتنظيم الأكواد. يمكن لهذه الأنماط تحسين الأداء، زيادة المرونة، وجعل الكود أكثر وضوحًا وقابلية لإعادة الاستخدام.
+
+            </P>
+            <div class="lesson-details">
+              <strong>شرح مفصل</strong>
+              <UL>
+                <LI><strong>1. البرمجة الوظيفية (Functional Programming)
+                </strong>أ) استخدام الدوال من المرتبة الأولى (First-Class Functions):
+            </LI>
+            <LI><strong>ب) الدوال المجهولة (Lambda Functions):
+            </strong>دوال قصيرة تُستخدم غالبًا مع دوال مثل map وfilter.
+
+            python
+            نسخ الكود
+            </LI>
+              </UL>
+            <div class="example">
+                <strong>مثال:</strong>
+                <code>
+                    def greet(name):
+                    return f"Hello, {name}!"
+                
+                def execute_function(func, value):
+                    return func(value)
+                
+                print(execute_function(greet, "أحمد"))  # Hello, أحمد!
+                
+
+                </code>
+                <BR>
+                    <code>
+                        squared = lambda x: x ** 2
+print(squared(5))  # 25
+
+numbers = [1, 2, 3, 4]
+squared_numbers = map(lambda x: x ** 2, numbers)
+print(list(squared_numbers))  # [1, 4, 9, 16]
+
+                    </code>
+            </div>
+            </div>
+            <div class="lesson">
+                <H2>الدرس السادس:وظايف بايثون</H2>
+                <P>Python هي واحدة من أكثر لغات البرمجة شيوعًا وانتشارًا بسبب سهولة استخدامها، وتنوع مكتباتها، ومرونتها. تُستخدم في العديد من المجالات والوظائف، مما يجعلها أداة قوية لحل المشكلات في قطاعات مختلفة.
+
+                </P>
+                <div class="lesson-details">
+                    <strong>شرح مفصل</strong>
+                    <UL>
+                        <LI><strong>1. تطوير الويب (Web Development)
+                        </strong>Python تُستخدم لتطوير تطبيقات الويب باستخدام أطر عمل مثل:
+
+                        Django: إطار عمل قوي ومتكامل لبناء تطبيقات ويب ديناميكية.
+                        Flask: إطار عمل خفيف لتطوير تطبيقات ويب بسيطة وسريعة.
+                        FastAPI: إطار عمل حديث لتطوير واجهات برمجية (APIs</LI>
+             
+                        <LI><strong>2. تحليل البيانات (Data Analysis)</strong>Python تُعدّ خيارًا مثاليًا لتحليل البيانات بفضل مكتباتها القوية مثل:
+
+                            Pandas: لتحليل البيانات ومعالجتها.
+                            NumPy: للعمليات الرياضية وتحليل البيانات العددية.
+                            Matplotlib و Seaborn: لرسم وتحليل البيانات بصريًا.</LI>
+
+                            <LI><strong>3. التعلم الآلي والذكاء الاصطناعي (Machine Learning & AI)
+                            </strong>TensorFlow و PyTorch: لبناء نماذج تعلم عميق (Deep Learning).
+                            Scikit-learn: للتعلم الآلي التقليدي.
+                            Keras: لتطوير الشبكات العصبية بسهولة.</LI>
+                    </UL>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <code>
+                            # تثبيت Django أولاً
+# pip install django
+
+# إنشاء مشروع جديد:
+# django-admin startproject mywebsite
+
+# انتقل إلى المشروع وأنشئ تطبيقًا جديدًا:
+# cd mywebsite
+# python manage.py startapp myapp
+
+# ملف views.py في التطبيق:
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("مرحبًا بك في موقعي!")
+
+# تحديث ملف urls.py في المشروع:
+from django.contrib import admin
+from django.urls import path
+from myapp.views import home
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home),  # الصفحة الرئيسية
+]
+
+# تشغيل الخادم:
+# python manage.py runserver
+                        </code>
+                        <BR>
+                            <code>
+                                import pandas as pd
+
+# قراءة ملف CSV
+data = pd.read_csv("data.csv")
+
+# عرض أول 5 صفوف من البيانات
+print(data.head())
+
+# عرض إحصائيات البيانات
+print(data.describe())
+
+# التعامل مع القيم المفقودة
+data.fillna(0, inplace=True)
+
+                            </code>
+                    </div>
+                </div>
+                <div class="lesson">
+                    <H2>الدرس السابع:بايثون في الذكاء الاصطناعي</H2>
+                    <P>Python تُعتبر اللغة الأكثر استخدامًا في مجال الذكاء الاصطناعي نظرًا لسهولة استخدامها، مجموعة المكتبات القوية، وتنوع أطر العمل التي تدعم تطبيقات التعلم الآلي، التعلم العميق، والرؤية الحاسوبية.
+
+                    </P>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل</strong>
+                        <UL>
+                            <LI>TensorFlow: لتطوير نماذج التعلم العميق</LI>
+                            <LI>إطار عمل مرن للتعلم العميق</LI>
+                            <LI>Scikit-learn: مكتبة للتعلم الآلي والتعلم الإحصائي.
+                            </LI>
+                            <LI>Keras: واجهة سهلة لبناء الشبكات العصبية.
+                            </LI>
+                        </UL>
+                        <div class="example">
+                            <strong>مثال:</strong>
+                            <code>
+                                from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# تحميل بيانات Iris
+data = load_iris()
+X = data.data
+y = data.target
+
+# تقسيم البيانات إلى تدريب واختبار
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# تدريب نموذج Random Forest
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# التنبؤ بالاختبار
+y_pred = model.predict(X_test)
+
+# حساب الدقة
+accuracy = accuracy_score(y_test, y_pred)
+print("دقة النموذج:", accuracy)
+                            </code>
+                            <BR>
+                                <CODE>
+                                    import tensorflow as tf
+from tensorflow.keras import layers, models
+
+# بناء نموذج بسيط
+model = models.Sequential([
+    layers.Flatten(input_shape=(28, 28)),
+    layers.Dense(128, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+
+# تجميع النموذج
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# تدريب النموذج على بيانات MNIST
+(X_train, y_train), (X_test, y_test) = tf.keras.datasets.mnist.load_data()
+model.fit(X_train, y_train, epochs=5, validation_data=(X_test, y_test))
+
+# تقييم النموذج
+test_loss, test_acc = model.evaluate(X_test, y_test)
+print("دقة الاختبار:", test_acc)
+
+                                </CODE>
+                                <div class="lesson">
+                               <H2>الدرس التامن :باثون في الالعاب</H2>  
+                               <P>Python تُعتبر من اللغات الشائعة لتطوير الألعاب البسيطة والمتوسطة، بفضل سهولة تعلمها وتوفر مكتبات مخصصة لتطوير الألعاب. تُستخدم Python لبناء ألعاب ثنائية الأبعاد (2D)، النمذجة، المحاكاة، وحتى التحكم في محركات الألعاب الكبيرة مثل Unity (باستخدام مكتبة Unity ML-Agents).
+
+                               </P>
+                               div class="lesson-details">
+                        <strong>شرح مفصل</strong>
+                        <UL>
+                            <LI>Pygame: مكتبة شاملة لتطوير الألعاب ثنائية الأبعاد.
+                            </LI>
+                            <li>Arcade: مكتبة بسيطة وحديثة لتطوير الألعاب ثنائية الأبعاد.
+                            </li>
+                            <li>Panda3D: مكتبة مفتوحة المصدر للألعاب ثلاثية الأبعاد.
+                            </li>
+                            <li>Godot Engine (Python API): لدعم تطوير الألعاب باستخدام Python.
+                            </li>
+                        </UL>
+                        <div class="example">
+                            <strong>مثال:</strong>
+                            <code>
+                                import pygame
+import sys
+
+# تهيئة Pygame
+pygame.init()
+
+# إعداد نافذة اللعبة
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("لعبة الكرة")
+
+# إعدادات الكرة
+ball_color = (255, 0, 0)
+ball_pos = [400, 300]
+ball_speed = [2, 2]
+ball_radius = 20
+
+# حلقة اللعبة
+clock = pygame.time.Clock()
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    # تحديث موقع الكرة
+    ball_pos[0] += ball_speed[0]
+    ball_pos[1] += ball_speed[1]
+
+    # منع الكرة من الخروج من الشاشة
+    if ball_pos[0] <= ball_radius or ball_pos[0] >= 800 - ball_radius:
+        ball_speed[0] = -ball_speed[0]
+    if ball_pos[1] <= ball_radius or ball_pos[1] >= 600 - ball_radius:
+        ball_speed[1] = -ball_speed[1]
+
+    # رسم الكرة
+    screen.fill((0, 0, 0))
+    pygame.draw.circle(screen, ball_color, ball_pos, ball_radius)
+    pygame.display.flip()
+
+    clock.tick(60)  # التحكم في سرعة اللعبة
+                            </code>
+                            <br>
+                            <code>
+                                import pygame
+import random
+import sys
+
+# تهيئة Pygame
+pygame.init()
+
+# إعداد نافذة اللعبة
+width, height = 600, 400
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("لعبة الثعبان")
+
+# إعدادات الثعبان والطعام
+snake_pos = [100, 50]
+snake_body = [[100, 50], [90, 50], [80, 50]]
+food_pos = [random.randrange(1, (width // 10)) * 10, random.randrange(1, (height // 10)) * 10]
+food_spawn = True
+direction = 'RIGHT'
+change_to = direction
+speed = 15
+
+# حلقة اللعبة
+clock = pygame.time.Clock()
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+        # التحكم بالحركة
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP and direction != 'DOWN':
+                change_to = 'UP'
+            elif event.key == pygame.K_DOWN and direction != 'UP':
+                change_to = 'DOWN'
+            elif event.key == pygame.K_LEFT and direction != 'RIGHT':
+                change_to = 'LEFT'
+            elif event.key == pygame.K_RIGHT and direction != 'LEFT':
+                change_to = 'RIGHT'
+
+    direction = change_to
+
+    # تحديث موقع الثعبان
+    if direction == 'UP':
+        snake_pos[1] -= 10
+    if direction == 'DOWN':
+        snake_pos[1] += 10
+    if direction == 'LEFT':
+        snake_pos[0] -= 10
+    if direction == 'RIGHT':
+        snake_pos[0] += 10
+
+    # نمو الثعبان عند أكل الطعام
+    if snake_pos == food_pos:
+        food_spawn = False
+    else:
+        snake_body.pop()
+
+    if not food_spawn:
+        food_pos = [random.randrange(1, (width // 10)) * 10, random.randrange(1, (height // 10)) * 10]
+
+    food_spawn = True
+    snake_body.insert(0, list(snake_pos))
+
+    # شروط انتهاء اللعبة
+    if snake_pos[0] < 0 or snake_pos[0] > width - 10 or snake_pos[1] < 0 or snake_pos[1] > height - 10:
+        pygame.quit()
+        sys.exit()
+
+    for block in snake_body[1:]:
+        if snake_pos == block:
+            pygame.quit()
+            sys.exit()
+
+    # رسم الشاشة
+    screen.fill((0, 0, 0))
+    for block in snake_body:
+        pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(block[0], block[1], 10, 10))
+    pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+
+    pygame.display.flip()
+    clock.tick(speed)
+
+                            </code>
+                            <br>
+                            <code>from direct.showbase.ShowBase import ShowBase
+
+                                # إنشاء نافذة اللعبة
+                                class MyGame(ShowBase):
+                                    def __init__(self):
+                                        ShowBase.__init__(self)
+                                
+                                        # تحميل نموذج ثلاثي الأبعاد
+                                        self.model = self.loader.loadModel("models/panda")
+                                        self.model.reparentTo(self.render)
+                                
+                                        # وضع الكاميرا
+                                        self.model.setPos(0, 50, 0)
+                                
+                                # تشغيل اللعبة
+                                game = MyGame()
+                                game.run()
+                                </code>
+
+                                <div class="lesson">
+                                    <h2>الدرس التاسع:التنبؤ بالسلاسل الزمنية باستخدام Python</h2>
+                                    <p>التنبؤ بالسلاسل الزمنية هو مجال في التحليل الإحصائي يستخدم لتحليل البيانات المتسلسلة زمنياً (مثل أسعار الأسهم أو درجات الحرارة) من أجل التنبؤ بالقيم المستقبلية. Python توفر العديد من الأدوات والمكتبات التي يمكن استخدامها للتنبؤ بالسلاسل الزمنية مثل Prophet، ARIMA، وLSTM.
+
+                                    </p>
+                                    <div class="lesson-details">
+                                        <strong>شرح مفصل:</strong>
+                                        <ul>
+                                            <li><strong> استخدام مكتبة Prophet للتنبؤ بالسلاسل الزمنية</strong>Prophet هي مكتبة مفتوحة المصدر تم تطويرها بواسطة Facebook، وهي سهلة الاستخدام وتسمح بالتنبؤ بالسلاسل الزمنية بشكل دقيق، حتى في حالة وجود بيانات مفقودة أو اتجاهات موسمية.
+
+                                            </li>
+                                            <li><strong>2. استخدام ARIMA للتنبؤ بالسلاسل الزمنية
+                                            </strong>ARIMA (AutoRegressive Integrated Moving Average) هو نموذج يستخدم للتنبؤ بالسلاسل الزمنية بناءً على القيم السابقة (التلقائية) والفروقات والتناوب.
+
+                                        </li>
+                                        </ul>
+                                        <div class="example">
+                                            <strong>مثال:</strong>
+                                            <code>
+                                                # تثبيت المكتبة
+# pip install prophet
+
+import pandas as pd
+from prophet import Prophet
+import matplotlib.pyplot as plt
+
+# إنشاء بيانات السلسلة الزمنية (على سبيل المثال: بيانات شهرية)
+data = {
+    "ds": ["2023-01-01", "2023-02-01", "2023-03-01", "2023-04-01", "2023-05-01", "2023-06-01"],
+    "y": [10, 15, 13, 18, 22, 25]
+}
+
+# تحويل البيانات إلى DataFrame
+df = pd.DataFrame(data)
+df['ds'] = pd.to_datetime(df['ds'])  # تأكد من أن الأعمدة بتنسيق تاريخ
+
+# إنشاء نموذج Prophet
+model = Prophet()
+
+# تدريب النموذج
+model.fit(df)
+
+# إنشاء بيانات مستقبلية للتنبؤ
+future = model.make_future_dataframe(df, periods=3, freq='M')  # إضافة 3 أشهر للتنبؤ
+
+# التنبؤ بالقيم المستقبلية
+forecast = model.predict(future)
+
+# عرض النتائج
+model.plot(forecast)
+plt.show()
+                                            </code>
+                                            <br>
+                                            <code>
+                                                # تثبيت المكتبة
+# pip install statsmodels
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from statsmodels.tsa.arima.model import ARIMA
+
+# إنشاء بيانات السلسلة الزمنية (على سبيل المثال: بيانات شهرية)
+data = [10, 15, 13, 18, 22, 25, 30, 35, 40, 45]
+
+# تحويل البيانات إلى DataFrame
+df = pd.DataFrame(data, columns=['y'])
+df['ds'] = pd.date_range(start='2023-01-01', periods=len(df), freq='M')
+
+# تحديد نموذج ARIMA
+model = ARIMA(df['y'], order=(1,1,1))  # p=1, d=1, q=1
+
+# تدريب النموذج
+model_fit = model.fit()
+
+# التنبؤ بالقيم المستقبلية
+forecast = model_fit.forecast(steps=3)  # التنبؤ بـ 3 فترات زمنية قادمة
+
+# عرض النتائج
+print("التنبؤات المستقبلية:", forecast)
+
+# رسم البيانات والتنبؤات
+plt.plot(df['ds'], df['y'], label='البيانات الأصلية')
+plt.plot(pd.date_range(start='2023-11-01', periods=3, freq='M'), forecast, label='التنبؤات', color='red')
+plt.legend()
+plt.show()
+
+                                            </code>
+
+                                </div>
+                               
+
+        </diV>
+
+  
+</html>

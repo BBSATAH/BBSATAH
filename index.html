@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        * {
+               * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -131,6 +131,74 @@
             }
             100% {
                 transform: scale(1);
+            }
+        }
+
+        /* التعديلات الخاصة بالهاتف المحمول */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem; /* تقليل حجم العنوان */
+            }
+
+            header p {
+                font-size: 1rem; /* تقليل حجم النص */
+            }
+
+            .cta-button {
+                font-size: 1rem; /* تقليل حجم زر الـ CTA */
+                padding: 10px 20px; /* تقليل حجم الزر */
+            }
+
+            .logo {
+                width: 20px; /* تقليل حجم الشعار */
+            }
+
+            .content {
+                padding: 30px 15px; /* تقليل المسافات الداخلية */
+            }
+
+            .content h2 {
+                font-size: 1.5rem; /* تقليل حجم العنوان */
+            }
+
+            .content p {
+                font-size: 1rem; /* تقليل حجم النص */
+            }
+
+            .features {
+                flex-direction: column; /* جعل الـ Features تظهر بشكل عمودي */
+            }
+
+            .feature {
+                width: 100%; /* جعل الـ Feature يأخذ العرض الكامل */
+                margin: 10px 0; /* تعديل الـ Margin */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem; /* تقليل حجم العنوان أكثر */
+            }
+
+            header p {
+                font-size: 0.9rem; /* تقليل حجم النص أكثر */
+            }
+
+            .cta-button {
+                font-size: 0.9rem; /* تقليل حجم زر الـ CTA أكثر */
+                padding: 8px 16px; /* تقليل حجم الزر أكثر */
+            }
+
+            .logo {
+                width: 15px; /* تقليل حجم الشعار أكثر */
+            }
+
+            .content h2 {
+                font-size: 1.2rem; /* تقليل حجم العنوان أكثر */
+            }
+
+            .content p {
+                font-size: 0.9rem; /* تقليل حجم النص أكثر */
             }
         }
     </style>

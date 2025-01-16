@@ -44,13 +44,21 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 10px 20px; /* تقليل الحشوة */
     box-shadow: var(--shadow);
+    position: relative; /* لإضافة القائمة المنسدلة */
+}
+
+/* الأيقونات في الهيدر */
+.header-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
 .header-icon {
-    width: 30px;
-    height: 30px;
+    width: 24px; /* حجم أصغر للأيقونات */
+    height: 24px;
     transition: var(--transition);
 }
 
@@ -58,13 +66,13 @@ p {
     transform: scale(1.2);
 }
 
-/* Menu icon & Animations */
+/* أيقونة القائمة (Menu Icon) */
 .menu-icon {
-    display: none;
+    display: none; /* مخفية بشكل افتراضي */
     flex-direction: column;
     cursor: pointer;
     background-color: transparent;
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
 }
 
@@ -76,7 +84,7 @@ p {
     transition: 0.4s;
 }
 
-/* Animation for menu icon */
+/* تحريك أيقونة القائمة عند النقر */
 .change .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -89,17 +97,18 @@ p {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Top nav */
+/* القائمة العلوية (Top Nav) */
 .top-nav {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .top-nav ul {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
 
 .top-nav a {
@@ -111,13 +120,6 @@ p {
 
 .top-nav a:hover {
     color: var(--secondary-color);
-}
-
-.header-icons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    margin-left: 20px;
 }
 
 /* Dark Theme */
@@ -611,35 +613,38 @@ h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
 
     .top-nav {
         position: absolute;
-        top: 70px;
+        top: 100%; /* وضع القائمة تحت الهيدر */
         right: 0;
         background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-        height: 100vh;
-        justify-content: flex-start;
+        width: 100%; /* عرض كامل */
+        height: auto;
         flex-direction: column;
         align-items: center;
-        transform: translateX(100%);
+        transform: translateX(100%); /* إخفاء القائمة */
         transition: transform 0.3s ease-in-out;
-        padding-top: 20px;
+        padding: 10px 0;
+    }
+
+    .top-nav.active {
+        transform: translateX(0); /* إظهار القائمة */
     }
 
     .top-nav ul {
         flex-direction: column;
-        gap: 15px;
-        width: 100%;
-        text-align: center;
+        gap: 10px;
     }
 
-    .top-nav.active {
-        transform: translateX(0);
+    .header-icons {
+        gap: 10px; /* تقليل المسافة بين الأيقونات */
+    }
+
+    .header-icon {
+        width: 20px; /* تصغير حجم الأيقونات */
+        height: 20px;
     }
 
     .sections-grid {
         grid-template-columns: 1fr;
-    }
-
-    .header-icons {
-        margin-left: 0;
     }
 
     .header-logo {
@@ -658,16 +663,23 @@ h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
 
 @media (max-width: 480px) {
     .top-header {
-        flex-direction: column;
+        flex-direction: row; /* الحفاظ على تخطيط أفقي */
         align-items: center;
+        padding: 8px;
     }
 
-    .top-nav {
-        margin-top: 10px;
+    .header-logo {
+        width: 20px; /* تصغير حجم الشعار */
+        height: 20px;
     }
 
     .header-icons {
-        margin-top: 10px;
+        gap: 8px; /* تقليل المسافة بين الأيقونات */
+    }
+
+    .header-icon {
+        width: 18px; /* تصغير حجم الأيقونات */
+        height: 18px;
     }
 
     .section-card {

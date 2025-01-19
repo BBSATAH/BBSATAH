@@ -12,6 +12,194 @@
     --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2); /* ظل عند التمرير */
     --transition: all 0.3s ease; /* انتقال سلس */
 }
+/*home page*/ 
+header {
+    padding: 80px 20px;
+    background: linear-gradient(90deg, #2C3E50 0%, #3498DB 100%); /* تدرج لوني أزرق */
+    color: #fff;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+header img {
+   cursor: pointer;
+} 
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e0e0e0; /* لون رمادي فاتح */
+    animation: fadeIn 1.5s ease-in-out;
+}
+.cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #3498DB; /* لون أزرق فاتح */
+    color: #fff; /* لون النص /أبيض */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1s ease-in-out;
+}
+.dark-theme .cta-button {
+    background-color: #e0e4e7; /* لون أزرق فاتح */
+}
+.cta-button:hover {
+    background-color: #2980B9; /* لون أزرق أغمق عند التمرير */
+    transform: scale(1.05);
+}
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width:30px;
+    animation: fadeIn 1s ease-in-out;
+}
+.content {
+    padding: 50px 20px;
+    background-color: #fff; /* لون خلفية أبيض */
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2C3E50; /* لون النص داكن */
+}
+.content p {
+    font-size: 1.1rem;
+    color: #333; /* لون النص داكن */
+    margin-bottom: 20px;
+}
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.feature {
+    background-color: #3498DB; /* لون أزرق فاتح */
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+.feature:hover {
+    background-color: #2980B9; /* لون أزرق أغمق عند التمرير */
+    transform: translateY(-10px);
+}
+.feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.feature p {
+    font-size: 1rem;
+    color: #e0e0e0; /* لون رمادي فاتح */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* التعديلات الخاصة بالهاتف المحمول */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem; /* تقليل حجم العنوان */
+    }
+
+    header p {
+        font-size: 1rem; /* تقليل حجم النص */
+    }
+
+    .cta-button {
+        font-size: 1rem; /* تقليل حجم زر الـ CTA */
+        padding: 10px 20px; /* تقليل حجم الزر */
+    }
+
+    .logo {
+        width: 20px; /* تقليل حجم الشعار */
+    }
+
+    .content {
+        padding: 30px 15px; /* تقليل المسافات الداخلية */
+    }
+
+    .content h2 {
+        font-size: 1.5rem; /* تقليل حجم العنوان */
+    }
+
+    .content p {
+        font-size: 1rem; /* تقليل حجم النص */
+    }
+
+    .features {
+        flex-direction: column; /* جعل الـ Features تظهر بشكل عمودي */
+    }
+
+    .feature {
+        width: 100%; /* جعل الـ Feature يأخذ العرض الكامل */
+        margin: 10px 0; /* تعديل الـ Margin */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem; /* تقليل حجم العنوان أكثر */
+    }
+
+    header p {
+        font-size: 0.9rem; /* تقليل حجم النص أكثر */
+    }
+
+    .cta-button {
+        font-size: 0.9rem; /* تقليل حجم زر الـ CTA أكثر */
+        padding: 8px 16px; /* تقليل حجم الزر أكثر */
+    }
+
+    .logo {
+        width: 15px; /* تقليل حجم الشعار أكثر */
+    }
+
+    .content h2 {
+        font-size: 1.2rem; /* تقليل حجم العنوان أكثر */
+    }
+
+    .content p {
+        font-size: 0.9rem; /* تقليل حجم النص أكثر */
+    }
+}
 
 * {
     margin: 0;
@@ -57,8 +245,8 @@ p {
 }
 
 .header-icon {
-    width: 24px; /* حجم أصغر للأيقونات */
-    height: 24px;
+    width: 20px; /* حجم أصغر للأيقونات */
+    height: 20px;
     transition: var(--transition);
 }
 
@@ -163,7 +351,7 @@ body.dark-theme {
 }
 
 .dark-theme .menu-icon .bar {
-    background-color: #3498DB; /* اللون الأزرق في الوضع الليلي */
+    background-color: #ffffff; /* اللون الأزرق في الوضع الليلي */
 }
 
 .dark-theme .header-icon {
@@ -186,7 +374,9 @@ body.dark-theme {
 .dark-theme .top-nav a:hover {
     color: var(--secondary-color);
 }
-
+.dark-theme h1, h2 {
+    color: #ffffff;
+}
 .icon-link {
     display: inline-block;
 }

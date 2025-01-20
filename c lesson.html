@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرح دورة Python من الصفر إلى الاحتراف</title>
+    <title>شرح دورة أساسيات C#</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -145,23 +145,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>شرح دورة Python من الصفر إلى الاحتراف</h1>
+        <h1>شرح دورة أساسيات #C</h1>
         <div class="course-description">
-            <p>بايثون هي لغة برمجة قوية وسهلة التعلم تُستخدم في تطوير الويب، تحليل البيانات، الذكاء الاصطناعي، وغيرها. في هذه الدورة، سنتعرف على أساسيات Python مع أمثلة عملية.</p>
+            <p>C# هي لغة برمجة قوية ومتعددة الاستخدامات طورتها Microsoft. تُستخدم في تطوير تطبيقات الويب، تطبيقات سطح المكتب، والألعاب. في هذه الدورة، سنتعرف على أساسيات C# مع أمثلة عملية.</p>
         </div>
         <div class="lessons">
             <!-- الدرس الأول -->
             <div class="lesson">
-                <h2>الدرس الأول: تثبيت Python والبدء</h2>
+                <h2>الدرس الأول: تثبيت Visual Studio والبدء</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>تثبيت Python:</strong> يمكنك تنزيل Python من الموقع الرسمي <a href="https://www.python.org/" target="_blank">python.org</a>.</li>
-                        <li><strong>تشغيل Python:</strong> يمكنك استخدام Terminal أو Command Prompt لتشغيل Python.</li>
+                        <li><strong>تثبيت Visual Studio:</strong> يمكنك تنزيل Visual Studio من الموقع الرسمي لـ Microsoft.</li>
+                        <li><strong>إنشاء مشروع جديد:</strong> بعد تثبيت Visual Studio، قم بإنشاء مشروع جديد باستخدام قالب Console App.</li>
                         <li><strong>كتابة أول برنامج:</strong> اكتب برنامجًا بسيطًا لطباعة "مرحبًا بالعالم".
                             <div class="example">
                                 <code>
-                                    print("مرحبًا بالعالم!")
+                                    using System;
+
+                                    class Program
+                                    {
+                                        static void Main()
+                                        {
+                                            Console.WriteLine("مرحبًا بالعالم!");
+                                        }
+                                    }
                                 </code>
                             </div>
                         </li>
@@ -175,21 +183,21 @@
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>المتغيرات:</strong> تُستخدم لتخزين البيانات. في Python، لا تحتاج إلى تحديد نوع المتغير.
+                        <li><strong>المتغيرات:</strong> تُستخدم لتخزين البيانات. في C#، يجب تحديد نوع المتغير.
                             <div class="example">
                                 <code>
-                                    name = "علي"
-                                    age = 25
-                                    is_student = True
+                                    int age = 25;
+                                    string name = "علي";
+                                    bool isStudent = true;
                                 </code>
                             </div>
                         </li>
-                        <li><strong>الأنواع الأساسية:</strong> تشمل `int`, `str`, `bool`, `float`, وغيرها.</li>
-                        <li><strong>التحويل بين الأنواع:</strong> يمكنك تحويل أنواع البيانات باستخدام `int()`, `str()`, `float()`.
+                        <li><strong>الأنواع الأساسية:</strong> تشمل `int`, `string`, `bool`, `double`, وغيرها.</li>
+                        <li><strong>التحويل بين الأنواع:</strong> يمكنك تحويل أنواع البيانات باستخدام `Convert` أو `Parse`.
                             <div class="example">
                                 <code>
-                                    number = int("123")
-                                    text = str(123)
+                                    string input = "123";
+                                    int number = int.Parse(input);
                                 </code>
                             </div>
                         </li>
@@ -206,22 +214,30 @@
                         <li><strong>الشروط (if-else):</strong> تُستخدم لاتخاذ قرارات بناءً على شروط معينة.
                             <div class="example">
                                 <code>
-                                    score = 85
+                                    int score = 85;
 
-                                    if score >= 90:
-                                        print("ممتاز!")
-                                    elif score >= 75:
-                                        print("جيد جدًا")
-                                    else:
-                                        print("حاول مرة أخرى!")
+                                    if (score >= 90)
+                                    {
+                                        Console.WriteLine("ممتاز!");
+                                    }
+                                    else if (score >= 75)
+                                    {
+                                        Console.WriteLine("جيد جدًا");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("حاول مرة أخرى!");
+                                    }
                                 </code>
                             </div>
                         </li>
-                        <li><strong>الحلقات (Loops):</strong> تشمل `for`, `while`.
+                        <li><strong>الحلقات (Loops):</strong> تشمل `for`, `while`, و `foreach`.
                             <div class="example">
                                 <code>
-                                    for i in range(5):
-                                        print("الرقم:", i)
+                                    for (int i = 0; i < 5; i++)
+                                    {
+                                        Console.WriteLine("الرقم: " + i);
+                                    }
                                 </code>
                             </div>
                         </li>
@@ -231,23 +247,25 @@
 
             <!-- الدرس الرابع -->
             <div class="lesson">
-                <h2>الدرس الرابع: القوائم والقواميس</h2>
+                <h2>الدرس الرابع: المصفوفات والقوائم</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>القوائم (Lists):</strong> تُستخدم لتخزين مجموعة من العناصر.
+                        <li><strong>المصفوفات (Arrays):</strong> تُستخدم لتخزين مجموعة من العناصر من نفس النوع.
                             <div class="example">
                                 <code>
-                                    fruits = ["تفاح", "موز", "برتقال"]
-                                    print(fruits[0])  # Output: تفاح
+                                    int[] numbers = { 1, 2, 3, 4, 5 };
+                                    Console.WriteLine(numbers[0]); // Output: 1
                                 </code>
                             </div>
                         </li>
-                        <li><strong>القواميس (Dictionaries):</strong> تُستخدم لتخزين البيانات في أزواج مفتاح-قيمة.
+                        <li><strong>القوائم (Lists):</strong> توفر مرونة أكبر من المصفوفات.
                             <div class="example">
                                 <code>
-                                    person = {"name": "علي", "age": 25}
-                                    print(person["name"])  # Output: علي
+                                    List&lt;string&gt; names = new List&lt;string&gt;();
+                                    names.Add("علي");
+                                    names.Add("سارة");
+                                    Console.WriteLine(names[0]); // Output: علي
                                 </code>
                             </div>
                         </li>
@@ -257,27 +275,31 @@
 
             <!-- الدرس الخامس -->
             <div class="lesson">
-                <h2>الدرس الخامس: الدوال (Functions)</h2>
+                <h2>الدرس الخامس: الدوال (Methods)</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
                         <li><strong>تعريف الدوال:</strong> تُستخدم لتنظيم الكود وإعادة استخدامه.
                             <div class="example">
                                 <code>
-                                    def greet(name):
-                                        print("مرحبًا، " + name)
+                                    static void Greet(string name)
+                                    {
+                                        Console.WriteLine("مرحبًا، " + name);
+                                    }
 
-                                    greet("علي")  # Output: مرحبًا، علي
+                                    Greet("علي"); // Output: مرحبًا، علي
                                 </code>
                             </div>
                         </li>
                         <li><strong>الدوال ذات القيمة المرجعة:</strong> يمكن للدوال إرجاع قيم باستخدام `return`.
                             <div class="example">
                                 <code>
-                                    def add(x, y):
-                                        return x + y
+                                    static int Add(int x, int y)
+                                    {
+                                        return x + y;
+                                    }
 
-                                    result = add(5, 10)  # result = 15
+                                    int result = Add(5, 10); // result = 15
                                 </code>
                             </div>
                         </li>
@@ -294,29 +316,36 @@
                         <li><strong>تعريف الفئات:</strong> الفئات هي أساس البرمجة الكائنية (OOP).
                             <div class="example">
                                 <code>
-                                    class Person:
-                                        def __init__(self, name, age):
-                                            self.name = name
-                                            self.age = age
+                                    class Person
+                                    {
+                                        public string Name;
+                                        public int Age;
 
-                                        def display_info(self):
-                                            print(f"الاسم: {self.name}, العمر: {self.age}")
+                                        public void DisplayInfo()
+                                        {
+                                            Console.WriteLine($"الاسم: {Name}, العمر: {Age}");
+                                        }
+                                    }
 
-                                    person = Person("علي", 25)
-                                    person.display_info()  # Output: الاسم: علي, العمر: 25
+                                    Person person = new Person();
+                                    person.Name = "علي";
+                                    person.Age = 25;
+                                    person.DisplayInfo(); // Output: الاسم: علي, العمر: 25
                                 </code>
                             </div>
                         </li>
                         <li><strong>الوراثة (Inheritance):</strong> تسمح لك بإنشاء فئات جديدة بناءً على فئات موجودة.
                             <div class="example">
                                 <code>
-                                    class Student(Person):
-                                        def __init__(self, name, age, major):
-                                            super().__init__(name, age)
-                                            self.major = major
+                                    class Student : Person
+                                    {
+                                        public string Major;
 
-                                        def display_major(self):
-                                            print("التخصص: " + self.major)
+                                        public void DisplayMajor()
+                                        {
+                                            Console.WriteLine("التخصص: " + Major);
+                                        }
+                                    }
                                 </code>
                             </div>
                         </li>
@@ -330,20 +359,18 @@
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>قراءة الملفات:</strong> يمكنك قراءة الملفات باستخدام `open()`.
+                        <li><strong>قراءة الملفات:</strong> يمكنك قراءة الملفات باستخدام `System.IO`.
                             <div class="example">
                                 <code>
-                                    with open("file.txt", "r") as file:
-                                        content = file.read()
-                                        print(content)
+                                    string text = File.ReadAllText("file.txt");
+                                    Console.WriteLine(text);
                                 </code>
                             </div>
                         </li>
                         <li><strong>كتابة الملفات:</strong> يمكنك كتابة البيانات إلى ملفات.
                             <div class="example">
                                 <code>
-                                    with open("file.txt", "w") as file:
-                                        file.write("مرحبًا بالعالم!")
+                                    File.WriteAllText("file.txt", "مرحبًا بالعالم!");
                                 </code>
                             </div>
                         </li>
@@ -357,13 +384,17 @@
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>التعامل مع الأخطاء:</strong> يمكنك استخدام `try-except` للتعامل مع الأخطاء.
+                        <li><strong>التعامل مع الأخطاء:</strong> يمكنك استخدام `try-catch` للتعامل مع الأخطاء.
                             <div class="example">
                                 <code>
-                                    try:
-                                        result = 10 / 0
-                                    except ZeroDivisionError:
-                                        print("حدث خطأ: القسمة على صفر!")
+                                    try
+                                    {
+                                        int result = 10 / 0;
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine("حدث خطأ: " + ex.Message);
+                                    }
                                 </code>
                             </div>
                         </li>
@@ -373,13 +404,13 @@
 
             <!-- الدرس التاسع -->
             <div class="lesson">
-                <h2>الدرس التاسع: المكتبات القياسية</h2>
+                <h2>الدرس التاسع: أفضل الممارسات</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>مكتبة `os`:</strong> للتعامل مع نظام التشغيل.</li>
-                        <li><strong>مكتبة `math`:</strong> للعمليات الرياضية.</li>
-                        <li><strong>مكتبة `datetime`:</strong> للتعامل مع التواريخ والأوقات.</li>
+                        <li><strong>تنظيم الكود:</strong> قسّم الكود إلى فئات ووظائف صغيرة.</li>
+                        <li><strong>استخدام التعليقات:</strong> قم بتوثيق الكود باستخدام التعليقات.</li>
+                        <li><strong>اختبار الكود:</strong> استخدم أدوات الاختبار لضمان جودة الكود.</li>
                     </ul>
                 </div>
             </div>

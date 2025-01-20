@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرح دورة Python من الصفر إلى الاحتراف</title>
+    <title>شرح دورة أساسيات EJS</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -145,23 +145,35 @@
 </head>
 <body>
     <div class="container">
-        <h1>شرح دورة Python من الصفر إلى الاحتراف</h1>
+        <h1>شرح دورة أساسيات EJS</h1>
         <div class="course-description">
-            <p>بايثون هي لغة برمجة قوية وسهلة التعلم تُستخدم في تطوير الويب، تحليل البيانات، الذكاء الاصطناعي، وغيرها. في هذه الدورة، سنتعرف على أساسيات Python مع أمثلة عملية.</p>
+            <p>EJS (Embedded JavaScript Templates) هي لغة قوالب تُستخدم مع Node.js لإنشاء صفحات HTML ديناميكية. تسمح لك بدمج JavaScript مباشرة داخل HTML، مما يجعلها أداة قوية لبناء تطبيقات الويب.</p>
         </div>
         <div class="lessons">
             <!-- الدرس الأول -->
             <div class="lesson">
-                <h2>الدرس الأول: تثبيت Python والبدء</h2>
+                <h2>الدرس الأول: تثبيت EJS والبدء</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>تثبيت Python:</strong> يمكنك تنزيل Python من الموقع الرسمي <a href="https://www.python.org/" target="_blank">python.org</a>.</li>
-                        <li><strong>تشغيل Python:</strong> يمكنك استخدام Terminal أو Command Prompt لتشغيل Python.</li>
-                        <li><strong>كتابة أول برنامج:</strong> اكتب برنامجًا بسيطًا لطباعة "مرحبًا بالعالم".
+                        <li><strong>تثبيت EJS:</strong> يمكنك تثبيت EJS باستخدام npm عبر الأمر التالي:
+                            <div class="example">
+                                <code>npm install ejs</code>
+                            </div>
+                        </li>
+                        <li><strong>إنشاء ملف EJS:</strong> قم بإنشاء ملف بامتداد `.ejs`، على سبيل المثال `index.ejs`.</li>
+                        <li><strong>ربط EJS مع Express:</strong> يمكنك استخدام EJS مع إطار عمل Express.js لإنشاء تطبيقات ويب.
                             <div class="example">
                                 <code>
-                                    print("مرحبًا بالعالم!")
+                                    const express = require('express');
+                                    const app = express();
+                                    app.set('view engine', 'ejs');
+                                    app.get('/', (req, res) => {
+                                        res.render('index', { title: 'مرحبًا بكم' });
+                                    });
+                                    app.listen(3000, () => {
+                                        console.log('الخادم يعمل على http://localhost:3000');
+                                    });
                                 </code>
                             </div>
                         </li>
@@ -171,25 +183,33 @@
 
             <!-- الدرس الثاني -->
             <div class="lesson">
-                <h2>الدرس الثاني: المتغيرات والأنواع</h2>
+                <h2>الدرس الثاني: بناء القوالب الأساسية</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>المتغيرات:</strong> تُستخدم لتخزين البيانات. في Python، لا تحتاج إلى تحديد نوع المتغير.
+                        <li><strong>إنشاء قالب بسيط:</strong> يمكنك إنشاء قالب EJS بسيط باستخدام العلامات الأساسية.
                             <div class="example">
                                 <code>
-                                    name = "علي"
-                                    age = 25
-                                    is_student = True
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html lang="ar"&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="UTF-8"&gt;
+                                        &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+                                        &lt;p&gt;مرحبًا بكم في موقعنا!&lt;/p&gt;
+                                    &lt;/body&gt;
+                                    &lt;/html&gt;
                                 </code>
                             </div>
                         </li>
-                        <li><strong>الأنواع الأساسية:</strong> تشمل `int`, `str`, `bool`, `float`, وغيرها.</li>
-                        <li><strong>التحويل بين الأنواع:</strong> يمكنك تحويل أنواع البيانات باستخدام `int()`, `str()`, `float()`.
+                        <li><strong>تمرير البيانات:</strong> يمكنك تمرير البيانات من الخادم إلى القالب باستخدام الكائن `res.render`.
                             <div class="example">
                                 <code>
-                                    number = int("123")
-                                    text = str(123)
+                                    app.get('/', (req, res) => {
+                                        res.render('index', { title: 'مرحبًا بكم' });
+                                    });
                                 </code>
                             </div>
                         </li>
@@ -199,29 +219,30 @@
 
             <!-- الدرس الثالث -->
             <div class="lesson">
-                <h2>الدرس الثالث: العمليات الشرطية والحلقات</h2>
+                <h2>الدرس الثالث: استخدام العلامات الخاصة بـ EJS</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>الشروط (if-else):</strong> تُستخدم لاتخاذ قرارات بناءً على شروط معينة.
+                        <li><strong>علامة &lt;%= %&gt;:</strong> تُستخدم لعرض القيم في القالب.
                             <div class="example">
                                 <code>
-                                    score = 85
-
-                                    if score >= 90:
-                                        print("ممتاز!")
-                                    elif score >= 75:
-                                        print("جيد جدًا")
-                                    else:
-                                        print("حاول مرة أخرى!")
+                                    &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
                                 </code>
                             </div>
                         </li>
-                        <li><strong>الحلقات (Loops):</strong> تشمل `for`, `while`.
+                        <li><strong>علامة &lt;% %&gt;:</strong> تُستخدم لتنفيذ كود JavaScript دون عرض الناتج.
                             <div class="example">
                                 <code>
-                                    for i in range(5):
-                                        print("الرقم:", i)
+                                    &lt;% if (user) { %&gt;
+                                        &lt;p&gt;مرحبًا، &lt;%= user.name %&gt;&lt;/p&gt;
+                                    &lt;% } %&gt;
+                                </code>
+                            </div>
+                        </li>
+                        <li><strong>علامة &lt;%- %&gt;:</strong> تُستخدم لعرض HTML دون تحويله إلى نصوص آمنة.
+                            <div class="example">
+                                <code>
+                                    &lt;%- someHTML %&gt;
                                 </code>
                             </div>
                         </li>
@@ -231,23 +252,23 @@
 
             <!-- الدرس الرابع -->
             <div class="lesson">
-                <h2>الدرس الرابع: القوائم والقواميس</h2>
+                <h2>الدرس الرابع: التضمين (Includes) في EJS</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>القوائم (Lists):</strong> تُستخدم لتخزين مجموعة من العناصر.
+                        <li><strong>تضمين ملفات EJS:</strong> يمكنك تقسيم القوالب إلى أجزاء صغيرة وإعادة استخدامها.
                             <div class="example">
                                 <code>
-                                    fruits = ["تفاح", "موز", "برتقال"]
-                                    print(fruits[0])  # Output: تفاح
+                                    &lt;%- include('header') %&gt;
+                                    &lt;h1&gt;مرحبًا بكم&lt;/h1&gt;
+                                    &lt;%- include('footer') %&gt;
                                 </code>
                             </div>
                         </li>
-                        <li><strong>القواميس (Dictionaries):</strong> تُستخدم لتخزين البيانات في أزواج مفتاح-قيمة.
+                        <li><strong>تمرير البيانات إلى الملفات المضمنة:</strong> يمكنك تمرير البيانات إلى الملفات المضمنة.
                             <div class="example">
                                 <code>
-                                    person = {"name": "علي", "age": 25}
-                                    print(person["name"])  # Output: علي
+                                    &lt;%- include('header', { title: 'مرحبًا بكم' }) %&gt;
                                 </code>
                             </div>
                         </li>
@@ -257,27 +278,29 @@
 
             <!-- الدرس الخامس -->
             <div class="lesson">
-                <h2>الدرس الخامس: الدوال (Functions)</h2>
+                <h2>الدرس الخامس: التكرار والشروط في EJS</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>تعريف الدوال:</strong> تُستخدم لتنظيم الكود وإعادة استخدامه.
+                        <li><strong>استخدام الحلقات:</strong> يمكنك استخدام الحلقات لعرض قوائم البيانات.
                             <div class="example">
                                 <code>
-                                    def greet(name):
-                                        print("مرحبًا، " + name)
-
-                                    greet("علي")  # Output: مرحبًا، علي
+                                    &lt;ul&gt;
+                                        &lt;% users.forEach(user => { %&gt;
+                                            &lt;li&gt;&lt;%= user.name %&gt;&lt;/li&gt;
+                                        &lt;% }) %&gt;
+                                    &lt;/ul&gt;
                                 </code>
                             </div>
                         </li>
-                        <li><strong>الدوال ذات القيمة المرجعة:</strong> يمكن للدوال إرجاع قيم باستخدام `return`.
+                        <li><strong>استخدام الشروط:</strong> يمكنك استخدام الشروط لعرض محتوى بناءً على شروط معينة.
                             <div class="example">
                                 <code>
-                                    def add(x, y):
-                                        return x + y
-
-                                    result = add(5, 10)  # result = 15
+                                    &lt;% if (isLoggedIn) { %&gt;
+                                        &lt;p&gt;مرحبًا، &lt;%= user.name %&gt;&lt;/p&gt;
+                                    &lt;% } else { %&gt;
+                                        &lt;p&gt;يرجى تسجيل الدخول&lt;/p&gt;
+                                    &lt;% } %&gt;
                                 </code>
                             </div>
                         </li>
@@ -287,36 +310,33 @@
 
             <!-- الدرس السادس -->
             <div class="lesson">
-                <h2>الدرس السادس: الكائنات والفئات (OOP)</h2>
+                <h2>الدرس السادس: استخدام التخطيطات (Layouts)</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>تعريف الفئات:</strong> الفئات هي أساس البرمجة الكائنية (OOP).
+                        <li><strong>إنشاء تخطيط:</strong> يمكنك إنشاء تخطيط رئيسي وإعادة استخدامه في الصفحات الأخرى.
                             <div class="example">
                                 <code>
-                                    class Person:
-                                        def __init__(self, name, age):
-                                            self.name = name
-                                            self.age = age
-
-                                        def display_info(self):
-                                            print(f"الاسم: {self.name}, العمر: {self.age}")
-
-                                    person = Person("علي", 25)
-                                    person.display_info()  # Output: الاسم: علي, العمر: 25
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html lang="ar"&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="UTF-8"&gt;
+                                        &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;%- include('header') %&gt;
+                                        &lt;%- body %&gt;
+                                        &lt;%- include('footer') %&gt;
+                                    &lt;/body&gt;
+                                    &lt;/html&gt;
                                 </code>
                             </div>
                         </li>
-                        <li><strong>الوراثة (Inheritance):</strong> تسمح لك بإنشاء فئات جديدة بناءً على فئات موجودة.
+                        <li><strong>استخدام التخطيط:</strong> يمكنك استخدام التخطيط في الصفحات الأخرى.
                             <div class="example">
                                 <code>
-                                    class Student(Person):
-                                        def __init__(self, name, age, major):
-                                            super().__init__(name, age)
-                                            self.major = major
-
-                                        def display_major(self):
-                                            print("التخصص: " + self.major)
+                                    &lt;% layout('layout') %&gt;
+                                    &lt;h1&gt;مرحبًا بكم&lt;/h1&gt;
                                 </code>
                             </div>
                         </li>
@@ -326,24 +346,27 @@
 
             <!-- الدرس السابع -->
             <div class="lesson">
-                <h2>الدرس السابع: التعامل مع الملفات</h2>
+                <h2>الدرس السابع: التعامل مع النماذج (Forms)</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>قراءة الملفات:</strong> يمكنك قراءة الملفات باستخدام `open()`.
+                        <li><strong>إنشاء نموذج:</strong> يمكنك إنشاء نماذج باستخدام HTML وجمع البيانات باستخدام Express.
                             <div class="example">
                                 <code>
-                                    with open("file.txt", "r") as file:
-                                        content = file.read()
-                                        print(content)
+                                    &lt;form action="/submit" method="POST"&gt;
+                                        &lt;input type="text" name="username" placeholder="اسم المستخدم"&gt;
+                                        &lt;button type="submit"&gt;إرسال&lt;/button&gt;
+                                    &lt;/form&gt;
                                 </code>
                             </div>
                         </li>
-                        <li><strong>كتابة الملفات:</strong> يمكنك كتابة البيانات إلى ملفات.
+                        <li><strong>معالجة البيانات:</strong> يمكنك معالجة البيانات المرسلة من النموذج في Express.
                             <div class="example">
                                 <code>
-                                    with open("file.txt", "w") as file:
-                                        file.write("مرحبًا بالعالم!")
+                                    app.post('/submit', (req, res) => {
+                                        const username = req.body.username;
+                                        res.send(`مرحبًا، ${username}`);
+                                    });
                                 </code>
                             </div>
                         </li>
@@ -353,17 +376,25 @@
 
             <!-- الدرس الثامن -->
             <div class="lesson">
-                <h2>الدرس الثامن: التعامل مع الاستثناءات (Exceptions)</h2>
+                <h2>الدرس الثامن: استخدام Middleware مع EJS</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>التعامل مع الأخطاء:</strong> يمكنك استخدام `try-except` للتعامل مع الأخطاء.
+                        <li><strong>تثبيت Middleware:</strong> يمكنك استخدام Middleware مثل `body-parser` لمعالجة البيانات.
                             <div class="example">
                                 <code>
-                                    try:
-                                        result = 10 / 0
-                                    except ZeroDivisionError:
-                                        print("حدث خطأ: القسمة على صفر!")
+                                    const bodyParser = require('body-parser');
+                                    app.use(bodyParser.urlencoded({ extended: true }));
+                                </code>
+                            </div>
+                        </li>
+                        <li><strong>تمرير البيانات إلى القوالب:</strong> يمكنك تمرير البيانات من Middleware إلى القوالب.
+                            <div class="example">
+                                <code>
+                                    app.use((req, res, next) => {
+                                        res.locals.user = req.user;
+                                        next();
+                                    });
                                 </code>
                             </div>
                         </li>
@@ -373,13 +404,13 @@
 
             <!-- الدرس التاسع -->
             <div class="lesson">
-                <h2>الدرس التاسع: المكتبات القياسية</h2>
+                <h2>الدرس التاسع: أفضل الممارسات</h2>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>مكتبة `os`:</strong> للتعامل مع نظام التشغيل.</li>
-                        <li><strong>مكتبة `math`:</strong> للعمليات الرياضية.</li>
-                        <li><strong>مكتبة `datetime`:</strong> للتعامل مع التواريخ والأوقات.</li>
+                        <li><strong>تنظيم القوالب:</strong> قسّم القوالب إلى أجزاء صغيرة لإعادة الاستخدام.</li>
+                        <li><strong>استخدام التخطيطات:</strong> استخدم التخطيطات لتجنب تكرار الكود.</li>
+                        <li><strong>اختبار القوالب:</strong> تأكد من أن القوالب تعمل بشكل صحيح مع البيانات المختلفة.</li>
                     </ul>
                 </div>
             </div>
@@ -392,9 +423,9 @@
                     <ul>
                         <li><strong>بناء تطبيق To-Do List:</strong>
                             <ol>
-                                <li>إنشاء واجهة مستخدم بسيطة.</li>
+                                <li>إنشاء واجهة مستخدم بسيطة باستخدام EJS.</li>
                                 <li>إضافة وظائف لإضافة وحذف المهام.</li>
-                                <li>حفظ المهام في ملف نصي.</li>
+                                <li>ربط التطبيق مع قاعدة بيانات بسيطة.</li>
                             </ol>
                         </li>
                     </ul>

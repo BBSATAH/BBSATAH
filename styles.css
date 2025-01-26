@@ -59,7 +59,8 @@ header p {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 100px; /* تكبير حجم الشعار */
+    width: 100px; /* حجم ثابت للشعار */
+    height: auto; /* الحفاظ على النسبة بين العرض والارتفاع */
 }
 .content {
     padding: 50px 20px;
@@ -209,11 +210,17 @@ header p {
             margin-top: 10px;
         }
         .social-links a {
-            margin: 0 5px;
-            text-decoration: none;
-            color: #0077b5;
+            margin: 0 10px;
             font-size: 20px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
+        
+        .social-links a:hover {
+            color: #0072b1; /* لون التمرير */
+        }
+        
 /* Animations */
 @keyframes fadeIn {
     0% {
@@ -906,6 +913,7 @@ h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
         display: flex;
     }
 
+
     .top-nav {
         position: absolute;
         top: 100%; /* وضع القائمة تحت الهيدر */
@@ -954,6 +962,11 @@ h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
     .section-card h3 {
         font-size: 1.2em;
     }
+    @media (max-width: 768px) {
+        .logo {
+            width: 100px; /* الحفاظ على نفس الحجم للشعار */
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -987,5 +1000,10 @@ h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
 
     .section-card h3 {
         font-size: 1em;
+    }
+    @media (max-width: 768px) {
+        .logo {
+            width: 100px; /* الحفاظ على نفس الحجم للشعار */
+        }
     }
 }

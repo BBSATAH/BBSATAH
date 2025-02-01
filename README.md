@@ -15,8 +15,7 @@ Hi there 👋
 😄 Pronouns: He/Him
 ⚡ Fun fact: I love solving coding challenges and always strive to make learning programming fun and accessible.
 
-
-
+![Image](https://github.com/user-attachments/assets/d808eacf-905b-4356-9845-30e8f13ce7b5)
 Discover the Power of AI with BBasata!
 Looking for smart, simple solutions? At BBasata, we bring the future to your fingertips with cutting-edge AI tools designed to make your life easier.
 
@@ -25,6 +24,9 @@ Looking for smart, simple solutions? At BBasata, we bring the future to your fin
 ✅ Get results, effortlessly
 
 Whether it's for work, study, or everyday life, our AI solutions are here to simplify it all – just as our name suggests, "BBasata"!
+
+
+
 
 Visit us now and experience the simplicity of AI!
 [https://bbsatah.github.io/BBSATAH/]

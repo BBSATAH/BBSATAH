@@ -30,3 +30,18 @@ Whether it's for work, study, or everyday life, our AI solutions are here to sim
 
 Visit us now and experience the simplicity of AI!
 [https://bbsatah.github.io/BBSATAH/]
+
+
+![Image](https://github.com/user-attachments/assets/50e4b21e-dd7e-4a81-913d-d1b66b8b3719)
+BBSATAH</> Your Clear Path to Mastering Coding!
+
+Not sure where to start? At BBSATAH, we don’t just teach you to code—we give you a clear plan to follow in any track you love!
+
+📌 Structured and guided learning path
+📌 Hands-on projects and real-world challenges
+📌 Step-by-step guidance to help you master the field
+
+Choose your track and follow your plan to success with BBSATAH! 🚀
+
+Start now!
+https://bbsatah.github.io/BBSATAH/

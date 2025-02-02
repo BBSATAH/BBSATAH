@@ -27,6 +27,7 @@ header h1 {
     font-size: 3rem;
     margin-bottom: 15px;
     animation: fadeIn 1s ease-in-out;
+    color: black;
 }
 header p {
     font-size: 1.2rem;
@@ -975,7 +976,20 @@ h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
         align-items: center;
         padding: 8px;
     }
-
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: row; /* الحفاظ على تخطيط أفقي */
+            align-items: center;
+            padding: 8px;
+        }
+    }
+    @media (max-width: 768px) {
+        .site-footer {
+            flex-direction: row; /* الحفاظ على تخطيط أفقي */
+            align-items: center;
+            padding: 8px;
+        }
+    }
     .header-logo {
         width: 20px; /* تصغير حجم الشعار */
         height: 20px;

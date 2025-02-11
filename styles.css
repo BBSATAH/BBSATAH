@@ -32,16 +32,16 @@ header h1 {
 header p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #e0e0e0; /* لون رمادي فاتح */
+    color: #e0e0e0; 
     animation: fadeIn 1.5s ease-in-out;
 }
 .cta-button {
     display: inline-block;
     margin-top: 30px;
     padding: 12px 30px;
-    background-color: #3498DB; /* لون أزرق فاتح */
-    color: #fff; /* لون النص /أبيض */
+    background-color: #3498DB;
     text-decoration: none;
+    color: #fff;
     font-size: 1.2rem;
     font-weight: bold;
     border-radius: 8px;
@@ -50,36 +50,49 @@ header p {
     animation: bounceIn 1s ease-in-out;
 }
 .dark-theme .cta-button {
-    background-color: #e0e4e7; /* لون أزرق فاتح */
+    background-color: #237bbe;
+    color: white;
+    
 }
 .cta-button:hover {
-    background-color: #2980B9; /* لون أزرق أغمق عند التمرير */
+    background-color: #2980B9; 
     transform: scale(1.05);
 }
 .logo {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 100px; /* حجم ثابت للشعار */
-    height: auto; /* الحفاظ على النسبة بين العرض والارتفاع */
+    width: 100px;
+    height: auto; 
 }
 .content {
     padding: 50px 20px;
-    background-color: #fff; /* لون خلفية أبيض */
+    background-color: #fff;
     margin: 20px auto;
     max-width: 800px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.dark-theme .content {
+    background-color: #1E1E1E;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
 .content h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #2C3E50; /* لون النص داكن */
+    color: #2C3E50; 
+}
+.dark-theme .content h2 {
+    color: #ffffff;
 }
 .content p {
     font-size: 1.1rem;
-    color: #333; /* لون النص داكن */
+    color: #333;
     margin-bottom: 20px;
+}
+.dark-theme .content p {
+    color: #cccccc;
 }
 .features {
     display: flex;
@@ -88,7 +101,7 @@ header p {
     margin-top: 30px;
 }
 .feature {
-    background-color: #3498DB; /* لون أزرق فاتح */
+    background-color: #3498DB;
     color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -98,7 +111,7 @@ header p {
     transition: transform 0.3s, background-color 0.3s;
 }
 .feature:hover {
-    background-color: #2980B9; /* لون أزرق أغمق عند التمرير */
+    background-color: #2980B9;
     transform: translateY(-10px);
 }
 .feature h3 {
@@ -107,7 +120,7 @@ header p {
 }
 .feature p {
     font-size: 1rem;
-    color: #e0e0e0; /* لون رمادي فاتح */
+    color: #e0e0e0;
 }
 /* Footer */
 .site-footer {
@@ -173,11 +186,28 @@ header p {
             padding: 50px;
             background-color: #f9f9f9;
         }
+        .team-section h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+        }
+        .dark-theme .team-section h2 {
+            color: #ffffff;
+        }
+        .dark-theme .team-section {
+            background-color: #121212;
+            color: #ffffff;
+        }
         .team-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+        }
+        .dark-theme .team-container {
+            background-color: #121212;
+            color: #ffffff;
         }
         .team-card {
             background-color: #fff;
@@ -188,6 +218,11 @@ header p {
             width: 250px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
+        }
+        .dark-theme .team-card {
+            background-color: #1E1E1E;
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
         }
         .team-card:hover {
             transform: translateY(-5px);
@@ -203,9 +238,15 @@ header p {
             color: #333;
             margin: 10px 0;
         }
+        .dark-theme .team-card h3 {
+            color: #ffffff;
+        }
         .team-card p {
             font-size: 14px;
             color: #666;
+        }
+        .dark-theme .team-card p {
+            color: #cccccc;
         }
         .social-links {
             margin-top: 10px;
@@ -219,7 +260,7 @@ header p {
         }
         
         .social-links a:hover {
-            color: #0072b1; /* لون التمرير */
+            color: #0072b1; 
         }
         
 /* Animations */
@@ -249,32 +290,32 @@ header p {
 /* التعديلات الخاصة بالهاتف المحمول */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2rem; /* تقليل حجم العنوان */
+        font-size: 2rem; 
     }
 
     header p {
-        font-size: 1rem; /* تقليل حجم النص */
+        font-size: 1rem;
     }
 
     .cta-button {
-        font-size: 1rem; /* تقليل حجم زر الـ CTA */
-        padding: 10px 20px; /* تقليل حجم الزر */
+        font-size: 1rem; 
+        padding: 10px 20px;
     }
 
     .logo {
-        width: 20px; /* تقليل حجم الشعار */
+        width: 20px; 
     }
 
     .content {
-        padding: 30px 15px; /* تقليل المسافات الداخلية */
+        padding: 30px 15px; 
     }
 
     .content h2 {
-        font-size: 1.5rem; /* تقليل حجم العنوان */
+        font-size: 1.5rem;
     }
 
     .content p {
-        font-size: 1rem; /* تقليل حجم النص */
+        font-size: 1rem; 
     }
 
     .features {
@@ -330,7 +371,7 @@ body {
 
 h1, h2 {
     text-align: center;
-    color: var(--primary-color); /* استخدام اللون الأساسي للعناوين */
+    color: var(--primary-color);
 }
 
 p {
@@ -487,7 +528,10 @@ body.dark-theme {
 .dark-theme .top-nav a:hover {
     color: var(--secondary-color);
 }
-.dark-theme h1, h2 {
+.dark-theme h1{
+    color: #ffffff;
+}
+.dark-theme h2{
     color: #ffffff;
 }
 .icon-link {
@@ -531,6 +575,7 @@ body.dark-theme {
 .dark-theme .book-card a:hover {
     background-color: #2980B9; /* لون أزرق أغمق */
 }
+
 
 .logo-container {
     flex-shrink: 0;

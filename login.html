@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول وإنشاء حساب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(90deg, #2C3E50 0%, #3498DB 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+            outline: none;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 18px;
+            transition: background 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .switch {
+            color: white;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="Logo" class="logo">
+    </header>
+    
+    <div class="container" id="auth-container">
+        <h2 id="form-title">تسجيل الدخول</h2>
+        <input type="text" id="username" placeholder="اسم المستخدم">
+        <input type="password" id="password" placeholder="كلمة المرور">
+        <p class="error-message" id="error" style="color:#ff4d4d; display:none;">خطأ في البيانات</p>
+        <button class="btn" onclick="authenticate()" id="auth-btn">تسجيل الدخول</button>
+        <p class="switch" onclick="toggleForm()" id="switch-text">ليس لديك حساب؟ إنشاء حساب</p>
+    </div>
+
+    <script>
+        let isLogin = true;
+
+        function toggleForm() {
+            isLogin = !isLogin;
+            document.getElementById("form-title").innerText = isLogin ? "تسجيل الدخول" : "إنشاء حساب";
+            document.getElementById("auth-btn").innerText = isLogin ? "تسجيل الدخول" : "إنشاء حساب";
+            document.getElementById("switch-text").innerText = isLogin ? "ليس لديك حساب؟ إنشاء حساب" : "لديك حساب؟ تسجيل الدخول";
+            document.getElementById("error").style.display = "none";
+        }
+
+        function authenticate() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error");
+            
+            if (isLogin) {
+                // تسجيل الدخول
+                const storedUser = localStorage.getItem(username);
+                if (storedUser && JSON.parse(storedUser).password === password) {
+                    localStorage.setItem("loggedIn", "true");
+                    alert("تم تسجيل الدخول بنجاح!");
+                    window.location.href = "Lessons.html";
+                } else {
+                    errorMessage.innerText = "اسم المستخدم أو كلمة المرور غير صحيحة";
+                    errorMessage.style.display = "block";
+                }
+            } else {
+                // إنشاء حساب
+                if (localStorage.getItem(username)) {
+                    errorMessage.innerText = "اسم المستخدم مسجل بالفعل";
+                    errorMessage.style.display = "block";
+                } else {
+                    localStorage.setItem(username, JSON.stringify({ password: password }));
+                    alert("تم إنشاء الحساب بنجاح! يمكنك الآن تسجيل الدخول.");
+                    toggleForm();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

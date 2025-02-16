@@ -7,7 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
+     <style>
         * {
             margin: 0;
             padding: 0;
@@ -20,6 +20,21 @@
             text-align: center;
             line-height: 1.6;
         }
+        
+
+        .header-icons {
+    position: absolute;
+    left: 20px; /* وضع الأيقونات في أقصى اليسار */
+    top: 60px; /* زيادة القيمة لتحريك الأيقونات أسفل أكثر */
+    display: flex;
+    gap: 10px; /* تقليل المسافة بين الأيقونات */
+}
+
+        .header-icon, .header-logo {
+            width: 24px;
+            height: 24px;
+            
+        }
        
         
     </style>
@@ -27,6 +42,14 @@
 <body>
     <header>
         <img src="logo.png" alt="Logo" class="logo">
+         <div class="header-icons">
+            <a href="#" id="toggle-dark-mode" class="icon-link">
+                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+            </a>
+            <a href="login.html">
+                <img src="user.png" alt="User Icon" class="header-logo" loading="lazy">
+            </a>
+        </div>     
         <h1>مرحبًا بك في موقع ببساطة - عالم الكود العربي</h1>
         <p>
             موقعنا هو منصة تعليمية تهدف إلى تقديم محتوى برمجي عالي الجودة بطريقة مبسطة

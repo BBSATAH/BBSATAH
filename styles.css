@@ -399,8 +399,8 @@ p {
 }
 
 .header-icon {
-    width: 20px; /* حجم أصغر للأيقونات */
-    height: 20px;
+    width: 30px; /* حجم أصغر للأيقونات */
+    height:30px;
     transition: var(--transition);
 }
 
@@ -849,7 +849,109 @@ footer {
 .book-card a:hover {
     background-color: #2980B9; /* لون أزرق أغمق */
 }
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block; /* لجعل العرض يتناسب مع المحتوى */
+}
 
+/* Dropdown Button */
+.dropdown-btn {
+    background: linear-gradient(90deg, #2C3E50 0%, #3498DB 100%);
+    color: white;
+    padding: 12px 40px;
+    width: 640px; /* عرض ثابت للزر */
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    display: inline-block; /* إبقائه بحجم المحتوى */
+}
+
+.dark-theme .dropdown-btn {
+    background-color: #151515;
+}
+
+.dropdown-btn:hover {
+    background-color: #2980b9;
+}
+
+.dark-theme .dropdown-btn:hover {
+    background-color: #1E1E1E;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 640px; /* نفس عرض dropdown-btn */
+    background-color: white;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+}
+
+.dark-theme .dropdown-content {
+    background-color: #222;
+    color: white;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s ease-in-out;
+}
+
+.dark-theme .dropdown-content a {
+    color: white;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dark-theme .dropdown-content a:hover {
+    background-color: #121212;
+}
+
+.dropdown.active .dropdown-content {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .dropdown-btn {
+        width: 100%; /* جعل الزر يأخذ العرض الكامل */
+        padding: 10px 20px; /* تقليل الحشو */
+        font-size: 16px; /* تصغير حجم الخط */
+    }
+
+    .dropdown-content {
+        width: 100%; /* جعل العرض يتناسب مع الشاشة */
+        left: 0; /* محاذاة إلى اليسار */
+        right: 0; /* محاذاة إلى اليمين */
+    }
+
+    .dropdown-content a {
+        padding: 10px; /* تقليل الحشو */
+        font-size: 14px; /* تصغير حجم الخط */
+    }
+
+    .dropdown.active .dropdown-content {
+        max-height: 200px; /* تقليل الارتفاع الأقصى */
+        overflow-y: auto; /* إضافة scroll إذا كان المحتوى طويلًا */
+    }
+}
 /* Animations */
 @keyframes slideInLeft {
     0% {
@@ -1045,8 +1147,8 @@ h1, h2, p, .top-header, .top-nav, .footer-content, .footer-bottom {
     }
 
     .header-icon {
-        width: 18px; /* تصغير حجم الأيقونات */
-        height: 18px;
+        width: 30px; /* تصغير حجم الأيقونات */
+        height: 30px;
     }
 
     .section-card {

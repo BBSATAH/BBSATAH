@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>امتحان Java</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
-    <style>
-             body {
+   <style>
+              body {
     font-family: 'Cairo', sans-serif;
     background-color: #f3f4f6;
     color: #222;
@@ -26,12 +26,12 @@
 
 h1 {
     text-align: center;
-    color: #3e0292;
+    color: #20638D;
     margin-bottom: 30px;
 }
 
 .level-title {
-    color: #3e0292;
+    color: #20638D;
     margin-top: 40px;
     text-align: center;
 }
@@ -55,7 +55,7 @@ button {
     display: block;
     width: 100%;
     padding: 15px;
-    background-color: #3e0292;
+    background-color: #20638D;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #6d00fc;
+    background-color: #20638D;
 }
 
 .result {
@@ -73,7 +73,7 @@ button:hover {
     font-size: 24px;
     font-weight: bold;
     margin-top: 30px;
-    color: #333;
+    color: #20638D;
 }
 
 .evaluation-popup {
@@ -83,7 +83,7 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    color: #3e0292;
+    color: #20638D;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -92,7 +92,7 @@ button:hover {
 }
 
 .evaluation-popup button {
-    background-color: #3e0292;
+    background-color: #20638D;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -103,7 +103,7 @@ button:hover {
 }
 
 .evaluation-popup button:hover {
-    background-color: #6d00fc;
+    background-color: #20638D;
 }
 
 .hidden {
@@ -111,27 +111,44 @@ button:hover {
 }
 
 select {
-    background-color: #333;
-    color: #fff;
-    border: 2px solid #3e0292;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
+    background-color: #20638D; /* لون خلفية أنيق */
+    color: #fff; /* لون النص */
+    border: 2px solid #20638D; /* حدود بتأثير أكثر جاذبية */
+    border-radius: 8px; /* زوايا مستديرة */
+    padding: 12px;
+    font-size: 18px;
     font-family: 'Cairo', sans-serif;
     width: 100%;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    appearance: none; /* إخفاء السهم الافتراضي */
+    text-align: center;
+    font-weight: bold;
 }
 
 select:hover {
-    background-color: #444;
-    border-color: #6d00fc;
+    background-color: #6d00fc; /* تأثير عند تمرير الماوس */
+    border-color: #20638D;
+}
+
+select:focus {
+    background-color: #20638D; /* لون مختلف عند التحديد */
+    border-color: #fff;
+    box-shadow: 0 0 8px  #20638D;
 }
 
 option {
-    background-color: #222;
+    background-color: #20638D; /* لون عناصر القائمة */
     color: #fff;
+    padding: 10px;
+    font-size: 16px;
 }
+
+option:hover {
+    background-color: #20638D; /* تأثير عند التحديد */
+}
+
 
 select:focus {
     animation: expand 0.3s ease-in-out;

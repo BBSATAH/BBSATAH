@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مرحبا بك في عالم الكود العربي</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-     <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -15,47 +14,43 @@
             font-family: 'Cairo', sans-serif;
         }
         body {
-            background-color: #ECF0F1; /* لون خلفية فاتح */
-            color: #2C3E50; /* لون النص داكن */
+            background-color: #ECF0F1; 
+            color: #2C3E50; 
             text-align: center;
             line-height: 1.6;
         }
-        
-
         .header-icons {
-    position: absolute;
-    left: 20px; /* وضع الأيقونات في أقصى اليسار */
-    top: 60px; /* زيادة القيمة لتحريك الأيقونات أسفل أكثر */
-    display: flex;
-    gap: 10px; /* تقليل المسافة بين الأيقونات */
-}
-
-        .header-icon, .header-logo {
-            width: 24px;
-            height: 24px;
-            
+            position: absolute;
+            left: 20px;
+            top: 10px; /* عدلته من 0px لـ 5px عشان الزر ينزل حته بسيطة تحت الـ logo */
+            display: flex;
+            gap: 10px;
         }
-       
-        
+        .login-button {
+            background-color: #2C3E50; /* لون الخلفية */
+            color: white; /* لون النص */
+            padding: 8px 16px; /* حجم الزر من جوا */
+            text-decoration: none; /* عشان يشيل الخط تحت النص */
+            border-radius: 5px; /* عشان الزر يبقى مدور شوية */
+            font-size: 14px; /* حجم الخط */
+        }
+        .login-button:hover {
+            background-color: #34495E; /* لون الخلفية لما تمرر الماوس */
+        }
+     
     </style>
 </head>
 <body>
     <header>
         <img src="logo.png" alt="Logo" class="logo">
-         <div class="header-icons">
-            <a href="#" id="toggle-dark-mode" class="icon-link">
-                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
-            </a>
-            <a href="login.html">
-                <img src="user.png" alt="User Icon" class="header-logo" loading="lazy">
-            </a>
-        </div>     
+        <div class="header-icons">
+            <a href="login.html" class="login-button">تسجيل دخول</a>
+        </div>      
         <h1>مرحبًا بك في موقع ببساطة - عالم الكود العربي</h1>
         <p>
             موقعنا هو منصة تعليمية تهدف إلى تقديم محتوى برمجي عالي الجودة بطريقة مبسطة
             ومفهومة، لتساعد الجميع على تعلم البرمجة والتميز في المجال الرقمي.
         </p>
-        
         <a href="Lessons.html" class="cta-button">ابدأ رحلتك البرمجية الآن</a>
     </header>
 
@@ -82,7 +77,6 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="about-site">
-                <!-- إضافة الشعار بجانب الهدف -->
                 <div class="logo-goal-container">
                     <img src="logo.png" alt="شعار الموقع" class="footer-logo">
                     <div class="goal-text">
@@ -94,9 +88,8 @@
                         <p class="centered-text">
                             هدفنا أن نجعل التعلم ممتعًا ومتاحًا للجميع، مع تقديم محتوى عالي الجودة باللغة العربية. انطلق الآن واكتشف أقسام الموقع لتبدأ ببناء مستقبلك البرمجي معنا. 🚀نحن هنا لنرافقك في رحلتك لتعلم البرمجة والشبكات بكل سهولة واحترافية. سواء كنت مبتدئًا تخطو أولى خطواتك في عالم البرمجة، أو مبرمجًا يسعى لتطوير مهاراته، ستجد لدينا كل ما تحتاجه من دورات، مقالات، كتب، وأسئلة تفاعلية.
                         </p>
-
                         <p class="centered-text">
-                            معًا نحو مستقبل رقمي أكثر إبداعًا! 💻✨
+                            معًا نحو مستقبل رقمي أكثر إبداعًا! 
                         </p>
                     </div>
                 </div>
@@ -104,8 +97,7 @@
         </div>
     </footer>
     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
-<script src="script.js"></script>
-
+    <script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

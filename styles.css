@@ -12,8 +12,8 @@
     --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2); /* ظل عند التمرير */
     --transition: all 0.3s ease; /* انتقال سلس */
 }
-/*home page*/ 
-header {
+   /* home page */ 
+   header {
     padding: 80px 20px;
     background: linear-gradient(90deg, #2C3E50 0%, #3498DB 100%); /* تدرج لوني أزرق */
     color: #fff;
@@ -21,7 +21,7 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 header img {
-   cursor: pointer;
+    cursor: pointer;
 } 
 header h1 {
     font-size: 3rem;
@@ -52,7 +52,6 @@ header p {
 .dark-theme .cta-button {
     background-color: #237bbe;
     color: white;
-    
 }
 .cta-button:hover {
     background-color: #2980B9; 
@@ -60,7 +59,7 @@ header p {
 }
 .logo {
     position: absolute;
-    top: 20px;
+    top: 0px; /* الـ logo لسه على 0px */
     right: 20px;
     width: 100px;
     height: auto; 

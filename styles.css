@@ -319,39 +319,39 @@ header p {
     }
 
     .features {
-        flex-direction: column; /* جعل الـ Features تظهر بشكل عمودي */
+        flex-direction: column; /*features (عمودي)*/
     }
 
     .feature {
         width: 100%; /* جعل الـ Feature يأخذ العرض الكامل */
-        margin: 10px 0; /* تعديل الـ Margin */
+        margin: 10px 0;
     }
 }
-
+/* التعديلات الخاصة بالهاتف  */
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.5rem; /* تقليل حجم العنوان أكثر */
+        font-size: 1.5rem;
     }
 
     header p {
-        font-size: 0.9rem; /* تقليل حجم النص أكثر */
+        font-size: 0.9rem; 
     }
 
     .cta-button {
-        font-size: 0.9rem; /* تقليل حجم زر الـ CTA أكثر */
-        padding: 8px 16px; /* تقليل حجم الزر أكثر */
+        font-size: 0.9rem; 
+        padding: 8px 16px; 
     }
 
     .logo {
-        width: 15px; /* تقليل حجم الشعار أكثر */
+        width: 15px;
     }
 
     .content h2 {
-        font-size: 1.2rem; /* تقليل حجم العنوان أكثر */
+        font-size: 1.2rem;
     }
 
     .content p {
-        font-size: 0.9rem; /* تقليل حجم النص أكثر */
+        font-size: 0.9rem;
     }
 }
 
@@ -783,7 +783,7 @@ footer {
 }
 
 .game-card a:hover {
-    background-color: #2980B9; /* لون أزرق أغمق */
+    background-color: #2980B9; 
 }
 
 .game-card:hover {
@@ -926,10 +926,34 @@ footer {
 .dropdown.active .dropdown-content {
     max-height: 300px;
     opacity: 1;
+    overflow: auto;/*اضافة scroll*/
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .dropdown-btn {
+        width: 100%; /* جعل الزر يأخذ العرض الكامل */
+        padding: 10px 20px; /* تقليل الحشو */
+        font-size: 16px; /* تصغير حجم الخط */
+    }
+
+    .dropdown-content {
+        width: 100%; /* جعل العرض يتناسب مع الشاشة */
+        left: 0; /* محاذاة إلى اليسار */
+        right: 0; /* محاذاة إلى اليمين */
+    }
+
+    .dropdown-content a {
+        padding: 10px; /* تقليل الحشو */
+        font-size: 14px; /* تصغير حجم الخط */
+    }
+
+    .dropdown.active .dropdown-content {
+        max-height: 200px; /* تقليل الارتفاع الأقصى */
+        overflow-y: auto; /* إضافة scroll إذا كان المحتوى طويلًا */
+    }
+}
+@media (max-width: 480px) {
     .dropdown-btn {
         width: 100%; /* جعل الزر يأخذ العرض الكامل */
         padding: 10px 20px; /* تقليل الحشو */

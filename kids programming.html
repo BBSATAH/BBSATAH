@@ -10,6 +10,13 @@
             text-align: center;
             color: rgb(5, 10, 48);
         }
+        .dark-mode h2 {
+            color: white;
+        }
+        .dark-mode p {
+            color: white;
+           
+        }
  
     </style>
 </head>
@@ -51,7 +58,6 @@
     <h1>برمجة للأطفال - تعلم بمتعة! 💻✨</h1>
     <main>
         <section class="filters">
-            <button class="filter-btn" data-filter="all">الكل</button>
             <button class="filter-btn" data-filter="courses">دورات</button>
             <button class="filter-btn" data-filter="tutorials">كورسات</button>
             <button class="filter-btn" data-filter="games">ألعاب</button>
@@ -127,23 +133,27 @@
         const filterButtons = document.querySelectorAll('.filter-btn');
         const items = document.querySelectorAll('.item');
 
-        // إظهار كل المحتوى افتراضيًا عند تحميل الصفحة
-        items.forEach(item => item.classList.add('visible'));
+        // إظهار "دورات" افتراضيًا عند تحميل الصفحة
+        items.forEach(item => {
+            if (item.getAttribute('data-category') === 'courses') {
+                item.classList.add('visible', 'courses');
+            }
+        });
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.getAttribute('data-filter');
 
-                // إخفاء كل المحتوى أولاً
-                items.forEach(item => item.classList.remove('visible'));
+                // إخفاء كل المحتوى وإزالة الألوان أولاً
+                items.forEach(item => {
+                    item.classList.remove('visible', 'courses', 'tutorials', 'games', 'books');
+                });
 
-                // إظهار المحتوى المرتبط بالفلتر فقط
+                // إظهار المحتوى المرتبط بالفلتر وإضافة اللون المناسب
                 items.forEach(item => {
                     const category = item.getAttribute('data-category');
-                    if (filter === 'all') {
-                        item.classList.add('visible'); // إظهار الكل
-                    } else if (category === filter) {
-                        item.classList.add('visible'); // إظهار المحتوى المحدد
+                    if (category === filter) {
+                        item.classList.add('visible', category);
                     }
                 });
             });

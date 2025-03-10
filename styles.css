@@ -928,6 +928,10 @@ footer {
     overflow: auto;/*اضافة scroll*/
 }
 /*kids programming*/
+h2 {
+    text-align: center;
+    color: rgb(5, 10, 48);
+}
 .filters {
     text-align: center;
     margin: 30px 0;
@@ -943,9 +947,6 @@ footer {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-.filter-btn[data-filter="all"] {
-    background: linear-gradient(45deg, #ff6b6b, #ffcc00);
 }
 .filter-btn[data-filter="courses"] {
     background: linear-gradient(45deg, #4ecdc4, #45b7d1);
@@ -970,26 +971,39 @@ footer {
     gap: 20px;
     max-width: 1200px;
     margin: 20px auto;
-    padding: 0 20px;
+    padding: 30px; /* زيادة المسافة الداخلية */
+    background-color: #eaeef3; /* لون خلفية متناسق */
+    border-radius: 15px; /* حواف دائرية */
 }
 .item {
     width: 220px;
     padding: 20px;
-    background-color: #fff;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: none;
-    text-decoration: none; /* إزالة الخط تحت الرابط */
-    color: #333; /* لون النص */
+    text-decoration: none;
+    color: #fff;
     transition: transform 0.2s ease;
 }
 .item.visible {
     display: block;
 }
 .item:hover {
-    transform: scale(1.05); /* تكبير الكارت عند التمرير */
+    transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.item.courses {
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+}
+.item.tutorials {
+    background: linear-gradient(45deg, #96c93d, #00b09b);
+}
+.item.games {
+    background: linear-gradient(45deg, #ff9f43, #ee5253);
+}
+.item.books {
+    background: linear-gradient(45deg, #a29bfe, #6c5ce7);
 }
 .dark-theme .item {
     background-color: #1E1E1E;

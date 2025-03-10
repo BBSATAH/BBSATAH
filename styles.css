@@ -8,14 +8,14 @@
     --text-color-light: #7F8C8D; /* لون نص فاتح */
     --white: #ffffff; /* أبيض */
     --black: #000000; /* أسود */
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    --shadow: 0 4px 8px hwb(0 0% 100% / 0.1); /* ظل خفيف */
     --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2); /* ظل عند التمرير */
     --transition: all 0.3s ease; /* انتقال سلس */
 }
    /* home page */ 
    header {
     padding: 80px 20px;
-    background: linear-gradient(90deg, #2C3E50 0%, #3498DB 100%); /* تدرج لوني أزرق */
+    background: linear-gradient(90deg, #2C3E50 0%, #3498db 100%); /* تدرج لوني أزرق */
     color: #fff;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -926,6 +926,75 @@ footer {
     max-height: 300px;
     opacity: 1;
     overflow: auto;/*اضافة scroll*/
+}
+/*kids programming*/
+.filters {
+    text-align: center;
+    margin: 30px 0;
+}
+.filter-btn {
+    padding: 12px 25px;
+    margin: 8px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.filter-btn[data-filter="all"] {
+    background: linear-gradient(45deg, #ff6b6b, #ffcc00);
+}
+.filter-btn[data-filter="courses"] {
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+}
+.filter-btn[data-filter="tutorials"] {
+    background: linear-gradient(45deg, #96c93d, #00b09b);
+}
+.filter-btn[data-filter="games"] {
+    background: linear-gradient(45deg, #ff9f43, #ee5253);
+}
+.filter-btn[data-filter="books"] {
+    background: linear-gradient(45deg, #a29bfe, #6c5ce7);
+}
+.filter-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+.item {
+    width: 220px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    text-decoration: none; /* إزالة الخط تحت الرابط */
+    color: #333; /* لون النص */
+    transition: transform 0.2s ease;
+}
+.item.visible {
+    display: block;
+}
+.item:hover {
+    transform: scale(1.05); /* تكبير الكارت عند التمرير */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.dark-theme .item {
+    background-color: #1E1E1E;
+    color: #ffffff;
+    box-shadow: 0 2px 8px #ffffff1a;
 }
 
 /* Mobile Responsive */

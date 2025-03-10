@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برمجة للأطفال</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        h2 {
+            text-align: center;
+            color: rgb(5, 10, 48);
+        }
+ 
+    </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="/images/0.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+        <nav class="top-nav" id="top-nav">
+            <ul>
+                <li><a href="roadmaps.html">خرائط التعلم</a></li>
+                <li><a href="Lessons.html">الدورات</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="games.html">ألعاب للتعلم</a></li>
+                <li><a href="books.html">كتب</a></li>
+                <li><a href="questions.html">أسئلة</a></li>
+                <li><a href="projects.html">مشاريع</a></li>
+                <li><a href="websitestocourses.html">مواقع لتعلم البرمجة</a></li>
+                <li><a href="kids programming.html">برمجة للأطفال</a></li>
+                <li><a href="about us.html">من نحن</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" id="toggle-dark-mode" class="icon-link">
+                <img src="/images/dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+            </a>
+            <a href="login.html">
+                <img src="/images/user.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+    </header>
+    <h1>برمجة للأطفال - تعلم بمتعة! 💻✨</h1>
+    <main>
+        <section class="filters">
+            <button class="filter-btn" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="courses">دورات</button>
+            <button class="filter-btn" data-filter="tutorials">كورسات</button>
+            <button class="filter-btn" data-filter="games">ألعاب</button>
+            <button class="filter-btn" data-filter="books">كتب</button>
+        </section>
+
+        <section class="content">
+            <!-- دورات -->
+            <a href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted" target="_blank" class="item" data-category="courses">
+                <h3>دورة برمجة Scratch</h3>
+                <p>تعلم البرمجة باستخدام Scratch من الموقع الرسمي!</p>
+            </a>
+            <a href="https://www.coursera.org/learn/programming-with-scratch" target="_blank" class="item" data-category="courses">
+                <h3>دورة Scratch على Coursera</h3>
+                <p>دورة مجانية من جامعة هارفارد لتعليم الأطفال!</p>
+            </a>
+
+            <!-- كورسات -->
+            <a href="https://www.youtube.com/@LittleCoder/playlists" target="_blank" class="item" data-category="tutorials">
+                <h3>قوائم تشغيل لتعلم البرمجة للأطفال</h3>
+                <p>Playlists لكل مايخص تعلم البرمحة للأطفال</p>
+            </a>
+            <a href="https://www.codecademy.com/learn/learn-python-3" target="_blank" class="item" data-category="tutorials">
+                <h3>كورس Python من Codecademy</h3>
+                <p>مقدمة مجانية لتعليم Python للمبتدئين.</p>
+            </a>
+
+            <!-- ألعاب -->
+            <a href="https://www.code.org/learn" target="_blank" class="item" data-category="games">
+                <h3>Code.org - ألعاب تعليمية</h3>
+                <p>تعلم البرمجة من خلال ألعاب ممتعة مثل Minecraft!</p>
+            </a>
+            <a href="https://codemonkey.com/" target="_blank" class="item" data-category="games">
+                <h3>لعبة Code Monkey</h3>
+                <p>لعبة تفاعلية لتعليم البرمجة للأطفال.</p>
+            </a>
+
+            <!-- كتب -->
+            <a href="https://www.dk.com/uk/book/9780241286135-coding-for-kids/" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Coding for Kids"</h3>
+                <p>كتاب من DK يشرح أساسيات البرمجة بطريقة ملونة.</p>
+            </a>
+            <a href="https://www.mediafire.com/file/bb8m9arobx8ic5l/كتاب+تعلم+البرمجة+مع+القط+سكراتش.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "ScratchJr Coding"</h3>
+                <p>كتاب PDF لتعليم ScratchJr للأطفال الصغار.</p>
+            </a>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="about-site">
+                <div class="logo-goal-container">
+                    <img src="/images/logo.png" alt="شعار الموقع" class="footer-logo">
+                    <div class="goal-text">
+                        <h2>هدف الموقع</h2>
+                        <p>
+                            موقعنا هو منصة تعليمية تهدف إلى تقديم محتوى برمجي عالي الجودة بطريقة مبسطة
+                            ومفهومة، لتساعد الجميع على تعلم البرمجة والتميز في المجال الرقمي.
+                        </p>
+                        <p class="centered-text">
+                            هدفنا أن نجعل التعلم ممتعًا ومتاحًا للجميع، مع تقديم محتوى عالي الجودة باللغة العربية. انطلق الآن واكتشف أقسام الموقع لتبدأ ببناء مستقبلك البرمجي معنا. 🚀نحن هنا لنرافقك في رحلتك لتعلم البرمجة والشبكات بكل سهولة واحترافية. سواء كنت مبتدئًا تخطو أولى خطواتك في عالم البرمجة، أو مبرمجًا يسعى لتطوير مهاراته، ستجد لدينا كل ما تحتاجه من دورات، مقالات، كتب، وأسئلة تفاعلية.
+                        </p>
+                        <p class="centered-text">
+                            معًا نحو مستقبل رقمي أكثر إبداعًا! 💻✨
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.item');
+
+        // إظهار كل المحتوى افتراضيًا عند تحميل الصفحة
+        items.forEach(item => item.classList.add('visible'));
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                // إخفاء كل المحتوى أولاً
+                items.forEach(item => item.classList.remove('visible'));
+
+                // إظهار المحتوى المرتبط بالفلتر فقط
+                items.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all') {
+                        item.classList.add('visible'); // إظهار الكل
+                    } else if (category === filter) {
+                        item.classList.add('visible'); // إظهار المحتوى المحدد
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+</body>
+</html>

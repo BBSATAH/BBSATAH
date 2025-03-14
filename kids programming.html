@@ -6,12 +6,21 @@
     <title>برمجة للأطفال</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-   
         h2 {
             text-align: center;
             color: rgb(5, 10, 48);
         }
-
+        .dark-mode h2 {
+            color: white;
+        }
+        .dark-mode p {
+            color: white;
+        }
+        h2 {
+            text-align: center;
+            color: rgb(5, 10, 48);
+        }
+       
     </style>
 </head>
 <body>
@@ -23,7 +32,7 @@
         </div>
         <div class="logo-container">
             <a href="index.html">
-                <img src="0.png" alt="الشعار" class="header-logo" loading="lazy">
+                <img src="/images/0.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
         <nav class="top-nav" id="top-nav">
@@ -42,10 +51,10 @@
         </nav>
         <div class="header-icons">
             <a href="#" id="toggle-dark-mode" class="icon-link">
-                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+                <img src="/images/dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
             </a>
             <a href="login.html">
-                <img src="user.png" alt="الشعار" class="header-logo" loading="lazy">
+                <img src="/images/user.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
     </header>
@@ -145,7 +154,7 @@
         <div class="footer-content">
             <div class="about-site">
                 <div class="logo-goal-container">
-                    <img src="logo.png" alt="شعار الموقع" class="footer-logo">
+                    <img src="/images/logo.png" alt="شعار الموقع" class="footer-logo">
                     <div class="goal-text">
                         <h2>هدف الموقع</h2>
                         <p>
@@ -193,7 +202,7 @@
             });
         });
 
-        // كود Three.js لثلاث شخصيات مبهجة
+        // كود Three.js لشخصيات مبهجة منتشرة في الصفحة
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -205,200 +214,231 @@
         light.position.set(10, 10, 10);
         scene.add(light);
 
-        // 1. الدبدوب (أصفر)
-        const teddy = new THREE.Group();
-        const teddyBody = new THREE.Mesh(
-            new THREE.SphereGeometry(1.5, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0xffff00 }) // أصفر
-        );
-        teddy.add(teddyBody);
-        const teddyHead = new THREE.Mesh(
-            new THREE.SphereGeometry(1, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0xffff00 })
-        );
-        teddyHead.position.y = 2;
-        teddy.add(teddyHead);
-        const teddyEar1 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.4, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0xffff00 })
-        );
-        teddyEar1.position.set(-0.8, 2.8, 0);
-        teddy.add(teddyEar1);
-        const teddyEar2 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.4, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0xffff00 })
-        );
-        teddyEar2.position.set(0.8, 2.8, 0);
-        teddy.add(teddyEar2);
-        const teddyEye1 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.15, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x000000 })
-        );
-        teddyEye1.position.set(-0.4, 2.2, 0.8);
-        teddy.add(teddyEye1);
-        const teddyEye2 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.15, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x000000 })
-        );
-        teddyEye2.position.set(0.4, 2.2, 0.8);
-        teddy.add(teddyEye2);
-        const teddyArm1 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.5, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0xffff00 })
-        );
-        teddyArm1.position.set(-1.8, 1, 0);
-        teddy.add(teddyArm1);
-        const teddyArm2 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.5, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0xffff00 })
-        );
-        teddyArm2.position.set(1.8, 1, 0);
-        teddy.add(teddyArm2);
-        teddy.position.x = -5; // على اليسار
-        scene.add(teddy);
+        // دالة لإنشاء دبدوب
+        function createTeddy(x, y, z) {
+            const teddy = new THREE.Group();
+            const teddyBody = new THREE.Mesh(
+                new THREE.SphereGeometry(2.25, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 }) // أصفر
+            );
+            teddy.add(teddyBody);
+            const teddyHead = new THREE.Mesh(
+                new THREE.SphereGeometry(1.5, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyHead.position.y = 3;
+            teddy.add(teddyHead);
+            const teddyEar1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.6, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyEar1.position.set(-1.2, 4.2, 0);
+            teddy.add(teddyEar1);
+            const teddyEar2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.6, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyEar2.position.set(1.2, 4.2, 0);
+            teddy.add(teddyEar2);
+            const teddyEye1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            teddyEye1.position.set(-0.6, 3.3, 1.2);
+            teddy.add(teddyEye1);
+            const teddyEye2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            teddyEye2.position.set(0.6, 3.3, 1.2);
+            teddy.add(teddyEye2);
+            const teddyArm1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyArm1.position.set(-2.7, 1.5, 0);
+            teddy.add(teddyArm1);
+            const teddyArm2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyArm2.position.set(2.7, 1.5, 0);
+            teddy.add(teddyArm2);
+            teddy.position.set(x, y, z);
+            scene.add(teddy);
+            return { group: teddy, arm1: teddyArm1, arm2: teddyArm2 };
+        }
 
-        // 2. القطة (أزرق فاتح)
-        const cat = new THREE.Group();
-        const catBody = new THREE.Mesh(
-            new THREE.SphereGeometry(1.5, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x87ceeb }) // أزرق فاتح
-        );
-        cat.add(catBody);
-        const catHead = new THREE.Mesh(
-            new THREE.SphereGeometry(1, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x87ceeb })
-        );
-        catHead.position.y = 2;
-        cat.add(catHead);
-        const catEar1 = new THREE.Mesh(
-            new THREE.CylinderGeometry(0.2, 0.2, 1, 32),
-            new THREE.MeshPhongMaterial({ color: 0x87ceeb })
-        );
-        catEar1.position.set(-0.6, 2.8, 0);
-        catEar1.rotation.z = -0.3;
-        cat.add(catEar1);
-        const catEar2 = new THREE.Mesh(
-            new THREE.CylinderGeometry(0.2, 0.2, 1, 32),
-            new THREE.MeshPhongMaterial({ color: 0x87ceeb })
-        );
-        catEar2.position.set(0.6, 2.8, 0);
-        catEar2.rotation.z = 0.3;
-        cat.add(catEar2);
-        const catEye1 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.15, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x000000 })
-        );
-        catEye1.position.set(-0.4, 2.2, 0.8);
-        cat.add(catEye1);
-        const catEye2 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.15, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x000000 })
-        );
-        catEye2.position.set(0.4, 2.2, 0.8);
-        cat.add(catEye2);
-        const catArm1 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.5, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x87ceeb })
-        );
-        catArm1.position.set(-1.8, 1, 0);
-        cat.add(catArm1);
-        const catArm2 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.5, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x87ceeb })
-        );
-        catArm2.position.set(1.8, 1, 0);
-        cat.add(catArm2);
-        cat.position.x = 0; // في المنتصف
-        scene.add(cat);
+        // دالة لإنشاء قطة
+        function createCat(x, y, z) {
+            const cat = new THREE.Group();
+            const catBody = new THREE.Mesh(
+                new THREE.SphereGeometry(2.25, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb }) // أزرق فاتح
+            );
+            cat.add(catBody);
+            const catHead = new THREE.Mesh(
+                new THREE.SphereGeometry(1.5, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catHead.position.y = 3;
+            cat.add(catHead);
+            const catEar1 = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.3, 0.3, 1.5, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catEar1.position.set(-0.9, 4.2, 0);
+            catEar1.rotation.z = -0.3;
+            cat.add(catEar1);
+            const catEar2 = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.3, 0.3, 1.5, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catEar2.position.set(0.9, 4.2, 0);
+            catEar2.rotation.z = 0.3;
+            cat.add(catEar2);
+            const catEye1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            catEye1.position.set(-0.6, 3.3, 1.2);
+            cat.add(catEye1);
+            const catEye2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            catEye2.position.set(0.6, 3.3, 1.2);
+            cat.add(catEye2);
+            const catArm1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catArm1.position.set(-2.7, 1.5, 0);
+            cat.add(catArm1);
+            const catArm2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catArm2.position.set(2.7, 1.5, 0);
+            cat.add(catArm2);
+            cat.position.set(x, y, z);
+            scene.add(cat);
+            return { group: cat, arm1: catArm1, arm2: catArm2 };
+        }
 
-        // 3. الديناصور (أخضر)
-        const dino = new THREE.Group();
-        const dinoBody = new THREE.Mesh(
-            new THREE.SphereGeometry(1.5, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x00ff00 }) // أخضر
-        );
-        dino.add(dinoBody);
-        const dinoHead = new THREE.Mesh(
-            new THREE.SphereGeometry(1, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x00ff00 })
-        );
-        dinoHead.position.y = 2;
-        dino.add(dinoHead);
-        const dinoEye1 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.15, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x000000 })
-        );
-        dinoEye1.position.set(-0.4, 2.2, 0.8);
-        dino.add(dinoEye1);
-        const dinoEye2 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.15, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x000000 })
-        );
-        dinoEye2.position.set(0.4, 2.2, 0.8);
-        dino.add(dinoEye2);
-        const dinoArm1 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.3, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x00ff00 })
-        );
-        dinoArm1.position.set(-1.5, 1, 0);
-        dino.add(dinoArm1);
-        const dinoArm2 = new THREE.Mesh(
-            new THREE.SphereGeometry(0.3, 32, 32),
-            new THREE.MeshPhongMaterial({ color: 0x00ff00 })
-        );
-        dinoArm2.position.set(1.5, 1, 0);
-        dino.add(dinoArm2);
-        const dinoTail = new THREE.Mesh(
-            new THREE.CylinderGeometry(0.2, 0.5, 1.5, 32),
-            new THREE.MeshPhongMaterial({ color: 0x00ff00 })
-        );
-        dinoTail.position.set(0, 0, -1.5);
-        dinoTail.rotation.x = 0.5;
-        dino.add(dinoTail);
-        dino.position.x = 5; // على اليمين
-        scene.add(dino);
+        // دالة لإنشاء ديناصور
+        function createDino(x, y, z) {
+            const dino = new THREE.Group();
+            const dinoBody = new THREE.Mesh(
+                new THREE.SphereGeometry(2.25, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 }) // أخضر
+            );
+            dino.add(dinoBody);
+            const dinoHead = new THREE.Mesh(
+                new THREE.SphereGeometry(1.5, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoHead.position.y = 3;
+            dino.add(dinoHead);
+            const dinoEye1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            dinoEye1.position.set(-0.6, 3.3, 1.2);
+            dino.add(dinoEye1);
+            const dinoEye2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            dinoEye2.position.set(0.6, 3.3, 1.2);
+            dino.add(dinoEye2);
+            const dinoArm1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.45, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoArm1.position.set(-2.25, 1.5, 0);
+            dino.add(dinoArm1);
+            const dinoArm2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.45, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoArm2.position.set(2.25, 1.5, 0);
+            dino.add(dinoArm2);
+            const dinoTail = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.3, 0.75, 2.25, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoTail.position.set(0, 0, -2.25);
+            dinoTail.rotation.x = 0.5;
+            dino.add(dinoTail);
+            dino.position.set(x, y, z);
+            scene.add(dino);
+            return { group: dino, arm1: dinoArm1, arm2: dinoArm2 };
+        }
+
+        // إنشاء الشخصيات بمواضع مختلفة
+        const teddies = [
+            createTeddy(-10, 5, -2),  // أعلى يسار
+            createTeddy(12, -3, 3),   // أسفل يمين
+            createTeddy(8, 7, 0)      // أعلى يمين
+        ];
+        const cats = [
+            createCat(-8, -5, 2),     // أسفل يسار
+            createCat(4, 3, -3),      // أعلى يمين قريب
+            createCat(-12, 2, 4)      // أعلى يسار بعيد
+        ];
+        const dinos = [
+            createDino(10, -7, -1),   // أسفل يمين
+            createDino(-4, -2, 5)     // أسفل يسار بعيد
+        ];
 
         // نجوم صغيرة
         const stars = [];
         function createStar() {
-            const geometry = new THREE.IcosahedronGeometry(0.1);
+            const geometry = new THREE.IcosahedronGeometry(0.15);
             const material = new THREE.MeshPhongMaterial({ color: Math.random() * 0xffffff });
             const star = new THREE.Mesh(geometry, material);
             star.position.set(
-                (Math.random() - 0.5) * 15,
-                (Math.random() - 0.5) * 10,
-                (Math.random() - 0.5) * 5
+                (Math.random() - 0.5) * 30, // نطاق أوسع على المحور x
+                (Math.random() - 0.5) * 20, // نطاق أوسع على المحور y
+                (Math.random() - 0.5) * 10  // نطاق أوسع على المحور z
             );
             scene.add(star);
             stars.push({ mesh: star, life: 0 });
         }
 
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 30; i++) {
             createStar();
         }
 
-        camera.position.z = 15;
+        camera.position.z = 20;
 
         function animate() {
             requestAnimationFrame(animate);
 
-            // حركة الدبدوب
-            teddy.rotation.y += 0.02;
-            teddy.position.y = Math.sin(Date.now() * 0.003) * 1;
-            teddyArm1.rotation.z = Math.sin(Date.now() * 0.005) * 0.5;
-            teddyArm2.rotation.z = Math.sin(Date.now() * 0.005 + 1) * 0.5;
+            // حركة الدباديب
+            teddies.forEach(teddy => {
+                teddy.group.rotation.y += 0.02;
+                teddy.group.position.y += Math.sin(Date.now() * 0.003) * 0.05;
+                teddy.arm1.rotation.z = Math.sin(Date.now() * 0.005) * 0.5;
+                teddy.arm2.rotation.z = Math.sin(Date.now() * 0.005 + 1) * 0.5;
+            });
 
-            // حركة القطة
-            cat.rotation.y += 0.01;
-            cat.position.y = Math.sin(Date.now() * 0.002) * 0.8;
-            catArm1.rotation.z = Math.cos(Date.now() * 0.004) * 0.4;
-            catArm2.rotation.z = Math.cos(Date.now() * 0.004 + 1) * 0.4;
+            // حركة القطط
+            cats.forEach(cat => {
+                cat.group.rotation.y += 0.01;
+                cat.group.position.y += Math.sin(Date.now() * 0.002) * 0.04;
+                cat.arm1.rotation.z = Math.cos(Date.now() * 0.004) * 0.4;
+                cat.arm2.rotation.z = Math.cos(Date.now() * 0.004 + 1) * 0.4;
+            });
 
-            // حركة الديناصور
-            dino.rotation.y += 0.015;
-            dino.position.y = Math.sin(Date.now() * 0.0035) * 1.2;
-            dinoArm1.rotation.z = Math.sin(Date.now() * 0.006) * 0.3;
-            dinoArm2.rotation.z = Math.sin(Date.now() * 0.006 + 1) * 0.3;
+            // حركة الديناصورات
+            dinos.forEach(dino => {
+                dino.group.rotation.y += 0.015;
+                dino.group.position.y += Math.sin(Date.now() * 0.0035) * 0.06;
+                dino.arm1.rotation.z = Math.sin(Date.now() * 0.006) * 0.3;
+                dino.arm2.rotation.z = Math.sin(Date.now() * 0.006 + 1) * 0.3;
+            });
 
             // تحريك النجوم
             stars.forEach((star, index) => {

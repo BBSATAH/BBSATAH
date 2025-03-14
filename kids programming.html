@@ -11,13 +11,12 @@
             color: rgb(5, 10, 48);
         }
         .dark-mode h2 {
-            color: white;
+            color: rgb(24, 23, 23);
         }
-        .dark-mode p {
-            color: white;
-           
+        .dark-theme p {
+            color: rgb(11, 10, 10);
         }
- 
+      
     </style>
 </head>
 <body>
@@ -29,7 +28,7 @@
         </div>
         <div class="logo-container">
             <a href="index.html">
-                <img src="0.png" alt="الشعار" class="header-logo" loading="lazy">
+                <img src="/images/0.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
         <nav class="top-nav" id="top-nav">
@@ -48,14 +47,15 @@
         </nav>
         <div class="header-icons">
             <a href="#" id="toggle-dark-mode" class="icon-link">
-                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+                <img src="/images/dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
             </a>
             <a href="login.html">
-                <img src="user.png" alt="الشعار" class="header-logo" loading="lazy">
+                <img src="/images/user.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
     </header>
     <h1>برمجة للأطفال - تعلم بمتعة! 💻✨</h1>
+    <div id="three-js-container"></div>
     <main>
         <section class="filters">
             <button class="filter-btn" data-filter="courses">دورات</button>
@@ -64,7 +64,7 @@
             <button class="filter-btn" data-filter="books">كتب</button>
         </section>
 
-           <section class="content">
+        <section class="content">
             <!-- دورات -->
             <a href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted" target="_blank" class="item" data-category="courses">
                 <h3>دورة برمجة Scratch</h3>
@@ -120,40 +120,37 @@
             </a>
         
             <!-- كتب -->
-            <!-- كتب موجودة سابقًا -->
-<a href="https://www.mediafire.com/file/45haub0a9aj3x56/Noor-Book.com__%D8%AA%D8%B9%D9%84%D9%8A%D9%85_%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84_%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9.pdf/file" target="_blank" class="item" data-category="books">
-    <h3>كتاب "Coding for Kids"</h3>
-    <p>كتاب من DK يشرح أساسيات البرمجة بطريقة ملونة وممتعة!</p>
-</a>
-<a href="https://www.mediafire.com/file/nohkfe84qymuq9l/scratch.junior.1pp.pdf/file" target="_blank" class="item" data-category="books">
-    <h3>كتاب "ScratchJr Coding"</h3>
-    <p>كتاب من No Starch Press لتعليم ScratchJr للأطفال الصغار!</p>
-</a>
-<a href="https://www.mediafire.com/file/9dgcwx61lvkegrt/Hello_Scratch.pdf/file" target="_blank" class="item" data-category="books">
-    <h3>كتاب "Hello Scratch!"</h3>
-    <p>كتاب من Manning يقدم دروسًا ممتعة لتعليم Scratch للأطفال!</p>
-</a>
-
-<!-- كتب جديدة -->
-<a href="https://www.mediafire.com/file/mfy6u9056e1w9rf/Python_for_Kids_Solutions__Briggs.pdf/file" target="_blank" class="item" data-category="books">
-    <h3>كتاب "Python for Kids"</h3>
-    <p>كتاب من No Starch Press يقدم تعليم Python بطريقة ممتعة مع أمثلة تفاعلية للأطفال!</p>
-</a>
-<a href="https://www.mediafire.com/file/19tqaonymwozsie/Coding_Games_in_Scratch_2016.pdf/file" target="_blank" class="item" data-category="books">
-    <h3>كتاب "Coding Games in Scratch"</h3>
-    <p>كتاب من DK يعلم الأطفال تصميم ألعاب باستخدام Scratch بخطوات مرئية وممتعة!</p>
-</a>
-<a href="https://www.mediafire.com/file/y6s3cgeigewcmh4/Scratch-in-Easy-Steps-PDF-Sampler.pdf/file" target="_blank" class="item" data-category="books">
-    <h3>كتاب "Scratch Programming Playground"</h3>
-    <p>كتاب من No Starch Press يقدم مشاريع ممتعة للأطفال لتطوير مهاراتهم في Scratch!</p>
-</a>
+            <a href="https://www.mediafire.com/file/45haub0a9aj3x56/Noor-Book.com__%D8%AA%D8%B9%D9%84%D9%8A%D9%85_%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84_%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Coding for Kids"</h3>
+                <p>كتاب من DK يشرح أساسيات البرمجة بطريقة ملونة وممتعة!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/nohkfe84qymuq9l/scratch.junior.1pp.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "ScratchJr Coding"</h3>
+                <p>كتاب من No Starch Press لتعليم ScratchJr للأطفال الصغار!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/9dgcwx61lvkegrt/Hello_Scratch.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Hello Scratch!"</h3>
+                <p>كتاب من Manning يقدم دروسًا ممتعة لتعليم Scratch للأطفال!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/mfy6u9056e1w9rf/Python_for_Kids_Solutions__Briggs.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Python for Kids"</h3>
+                <p>كتاب من No Starch Press يقدم تعليم Python بطريقة ممتعة مع أمثلة تفاعلية للأطفال!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/19tqaonymwozsie/Coding_Games_in_Scratch_2016.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Coding Games in Scratch"</h3>
+                <p>كتاب من DK يعلم الأطفال تصميم ألعاب باستخدام Scratch بخطوات مرئية وممتعة!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/y6s3cgeigewcmh4/Scratch-in-Easy-Steps-PDF-Sampler.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Scratch Programming Playground"</h3>
+                <p>كتاب من No Starch Press يقدم مشاريع ممتعة للأطفال لتطوير مهاراتهم في Scratch!</p>
+            </a>
         </section>
     </main>
     <footer class="site-footer">
         <div class="footer-content">
             <div class="about-site">
                 <div class="logo-goal-container">
-                    <img src="logo.png" alt="شعار الموقع" class="footer-logo">
+                    <img src="/images/logo.png" alt="شعار الموقع" class="footer-logo">
                     <div class="goal-text">
                         <h2>هدف الموقع</h2>
                         <p>
@@ -172,6 +169,7 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script>
         const filterButtons = document.querySelectorAll('.filter-btn');
         const items = document.querySelectorAll('.item');
@@ -187,12 +185,10 @@
             button.addEventListener('click', () => {
                 const filter = button.getAttribute('data-filter');
 
-                // إخفاء كل المحتوى وإزالة الألوان أولاً
                 items.forEach(item => {
                     item.classList.remove('visible', 'courses', 'tutorials', 'games', 'books');
                 });
 
-                // إظهار المحتوى المرتبط بالفلتر وإضافة اللون المناسب
                 items.forEach(item => {
                     const category = item.getAttribute('data-category');
                     if (category === filter) {
@@ -200,6 +196,137 @@
                     }
                 });
             });
+        });
+
+        // كود Three.js لأرنب مبهج مع نجوم
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('three-js-container').appendChild(renderer.domElement);
+
+        // إضاءة
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        // مجموعة للأرنب
+        const bunny = new THREE.Group();
+
+        // الجسم
+        const bodyGeometry = new THREE.SphereGeometry(1.5, 32, 32);
+        const bodyMaterial = new THREE.MeshPhongMaterial({ color: 0xff69b4 }); // وردي زاهي
+        const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+        bunny.add(body);
+
+        // الرأس
+        const headGeometry = new THREE.SphereGeometry(1, 32, 32);
+        const headMaterial = new THREE.MeshPhongMaterial({ color: 0xff69b4 });
+        const head = new THREE.Mesh(headGeometry, headMaterial);
+        head.position.y = 2;
+        bunny.add(head);
+
+        // الأذنين (ممدودة زي الأرنب)
+        const earGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1.5, 32);
+        const earMaterial = new THREE.MeshPhongMaterial({ color: 0xff69b4 });
+        const leftEar = new THREE.Mesh(earGeometry, earMaterial);
+        leftEar.position.set(-0.6, 3, 0);
+        leftEar.rotation.z = -0.3;
+        bunny.add(leftEar);
+        const rightEar = new THREE.Mesh(earGeometry, earMaterial);
+        rightEar.position.set(0.6, 3, 0);
+        rightEar.rotation.z = 0.3;
+        bunny.add(rightEar);
+
+        // العينين
+        const eyeGeometry = new THREE.SphereGeometry(0.15, 32, 32);
+        const eyeMaterial = new THREE.MeshPhongMaterial({ color: 0x000000 });
+        const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+        leftEye.position.set(-0.4, 2.2, 0.8);
+        bunny.add(leftEye);
+        const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+        rightEye.position.set(0.4, 2.2, 0.8);
+        bunny.add(rightEye);
+
+        // الأنف
+        const noseGeometry = new THREE.SphereGeometry(0.2, 32, 32);
+        const noseMaterial = new THREE.MeshPhongMaterial({ color: 0xff1493 }); // وردي غامق
+        const nose = new THREE.Mesh(noseGeometry, noseMaterial);
+        nose.position.set(0, 1.8, 1);
+        bunny.add(nose);
+
+        // الذراعين
+        const armGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const armMaterial = new THREE.MeshPhongMaterial({ color: 0xff69b4 });
+        const leftArm = new THREE.Mesh(armGeometry, armMaterial);
+        leftArm.position.set(-1.8, 1, 0);
+        bunny.add(leftArm);
+        const rightArm = new THREE.Mesh(armGeometry, armMaterial);
+        rightArm.position.set(1.8, 1, 0);
+        bunny.add(rightArm);
+
+        // الساقين
+        const legGeometry = new THREE.SphereGeometry(0.6, 32, 32);
+        const legMaterial = new THREE.MeshPhongMaterial({ color: 0xff69b4 });
+        const leftLeg = new THREE.Mesh(legGeometry, legMaterial);
+        leftLeg.position.set(-0.8, -0.5, 0);
+        bunny.add(leftLeg);
+        const rightLeg = new THREE.Mesh(legGeometry, legMaterial);
+        rightLeg.position.set(0.8, -0.5, 0);
+        bunny.add(rightLeg);
+
+        scene.add(bunny);
+
+        // إضافة نجوم صغيرة
+        const stars = [];
+        function createStar() {
+            const geometry = new THREE.IcosahedronGeometry(0.1);
+            const material = new THREE.MeshPhongMaterial({ color: Math.random() * 0xffffff });
+            const star = new THREE.Mesh(geometry, material);
+            star.position.set(
+                (Math.random() - 0.5) * 10,
+                (Math.random() - 0.5) * 10,
+                (Math.random() - 0.5) * 5
+            );
+            scene.add(star);
+            stars.push({ mesh: star, life: 0 });
+        }
+
+        for (let i = 0; i < 10; i++) {
+            createStar();
+        }
+
+        camera.position.z = 10;
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // حركة الأرنب
+            bunny.rotation.y += 0.02; // دوران
+            bunny.position.y = Math.sin(Date.now() * 0.003) * 1; // قفز
+            leftArm.rotation.z = Math.sin(Date.now() * 0.005) * 0.5; // تلويح بالذراع الأيسر
+            rightArm.rotation.z = Math.sin(Date.now() * 0.005 + 1) * 0.5; // تلويح بالذراع الأيمن
+
+            // تحريك النجوم
+            stars.forEach((star, index) => {
+                star.mesh.position.y += 0.05;
+                star.life += 0.05;
+                if (star.life > 5) {
+                    scene.remove(star.mesh);
+                    stars.splice(index, 1);
+                    createStar();
+                }
+            });
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // تعديل الحجم عند تغيير الشاشة
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
         });
     </script>
     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>

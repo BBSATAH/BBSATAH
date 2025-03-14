@@ -933,6 +933,14 @@ h2 {
     text-align: center;
     color: rgb(5, 10, 48);
 }
+.dark-theme h2 {
+    color: #ffffff;
+}
+.dark-theme .section-card {
+    background-color: #1E1E1E;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
 .filters {
     text-align: center;
     margin: 30px 0;
@@ -1016,7 +1024,6 @@ h2 {
     z-index: -1;
     opacity: 0.8;
 }
-
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .dropdown-btn {

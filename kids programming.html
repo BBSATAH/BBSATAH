@@ -10,20 +10,12 @@
             text-align: center;
             color: rgb(5, 10, 48);
         }
-        .dark-mode h2 {
-            color: white;
-        }
-        .dark-mode p {
-            color: white;
-        }
-        h2 {
-            text-align: center;
-            color: rgb(5, 10, 48);
-        }
-       
+      
+     
     </style>
 </head>
 <body>
+    
     <header class="top-header">
         <div class="menu-icon" id="menu-icon">
             <div class="bar"></div>
@@ -32,7 +24,7 @@
         </div>
         <div class="logo-container">
             <a href="index.html">
-                <img src="0.png" alt="الشعار" class="header-logo" loading="lazy">
+                <img src="/images/0.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
         <nav class="top-nav" id="top-nav">
@@ -51,10 +43,10 @@
         </nav>
         <div class="header-icons">
             <a href="#" id="toggle-dark-mode" class="icon-link">
-                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+                <img src="/images/dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
             </a>
             <a href="login.html">
-                <img src="user.png" alt="الشعار" class="header-logo" loading="lazy">
+                <img src="/images/user.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
     </header>
@@ -154,7 +146,7 @@
         <div class="footer-content">
             <div class="about-site">
                 <div class="logo-goal-container">
-                    <img src="logo.png" alt="شعار الموقع" class="footer-logo">
+                    <img src="/images/logo.png" alt="شعار الموقع" class="footer-logo">
                     <div class="goal-text">
                         <h2>هدف الموقع</h2>
                         <p>
@@ -202,7 +194,7 @@
             });
         });
 
-        // كود Three.js لشخصيات مبهجة منتشرة في الصفحة
+        // كود Three.js لتوزيع الشخصيات في كل الصفحة
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -376,20 +368,20 @@
             return { group: dino, arm1: dinoArm1, arm2: dinoArm2 };
         }
 
-        // إنشاء الشخصيات بمواضع مختلفة
+        // إنشاء الشخصيات بتوزيع في كل أجزاء الصفحة
         const teddies = [
-            createTeddy(-10, 5, -2),  // أعلى يسار
-            createTeddy(12, -3, 3),   // أسفل يمين
-            createTeddy(8, 7, 0)      // أعلى يمين
+            createTeddy(-20, 10, 5),   // أعلى يسار قريب
+            createTeddy(20, -10, -5),  // أسفل يمين بعيد
+            createTeddy(-15, -5, 0)    // أسفل يسار متوسط
         ];
         const cats = [
-            createCat(-8, -5, 2),     // أسفل يسار
-            createCat(4, 3, -3),      // أعلى يمين قريب
-            createCat(-12, 2, 4)      // أعلى يسار بعيد
+            createCat(15, 8, 3),      // أعلى يمين قريب
+            createCat(-10, -12, -3),  // أسفل يسار بعيد
+            createCat(10, 5, -2)      // أعلى يمين متوسط
         ];
         const dinos = [
-            createDino(10, -7, -1),   // أسفل يمين
-            createDino(-4, -2, 5)     // أسفل يسار بعيد
+            createDino(-18, 12, -4),  // أعلى يسار بعيد
+            createDino(18, -8, 4)     // أسفل يمين قريب
         ];
 
         // نجوم صغيرة
@@ -399,9 +391,9 @@
             const material = new THREE.MeshPhongMaterial({ color: Math.random() * 0xffffff });
             const star = new THREE.Mesh(geometry, material);
             star.position.set(
-                (Math.random() - 0.5) * 30, // نطاق أوسع على المحور x
-                (Math.random() - 0.5) * 20, // نطاق أوسع على المحور y
-                (Math.random() - 0.5) * 10  // نطاق أوسع على المحور z
+                (Math.random() - 0.5) * 50, // نطاق أوسع على المحور x
+                (Math.random() - 0.5) * 30, // نطاق أوسع على المحور y
+                (Math.random() - 0.5) * 15  // نطاق أوسع على المحور z
             );
             scene.add(star);
             stars.push({ mesh: star, life: 0 });
@@ -411,7 +403,8 @@
             createStar();
         }
 
-        camera.position.z = 20;
+        // ضبط موقع الكاميرا لعرض كل الصفحة
+        camera.position.set(0, 0, 25); // زيادة المسافة لتغطية الصفحة كلها
 
         function animate() {
             requestAnimationFrame(animate);

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات Kotlin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl; /* جعل النصوص من اليمين إلى اليسار */
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color:#20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid#20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px; /* ضبط الحشو للتوافق مع RTL */
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0; /* تعديل الموضع للتوافق مع RTL */
+            color:#20638D;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+
+        /* تحسين العرض على الهواتف */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .lesson {
+                padding: 15px;
+            }
+            .lesson h2 {
+                font-size: 1.5em;
+            }
+            .lesson-details {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات Kotlin</h1>
+        <div class="course-description">
+            <p>Kotlin هي لغة برمجة حديثة تم تطويرها بواسطة JetBrains. تُستخدم بشكل أساسي لتطوير تطبيقات Android، لكنها أيضًا تُستخدم في تطوير تطبيقات الويب وسيرفرات الخلفية (Back-end) وحتى تطبيقات سطح المكتب.</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس الأول -->
+            <div class="lesson">
+                <h2>الدرس الأول: أساسيات Kotlin</h2>
+                <p>Kotlin هي لغة برمجة حديثة تم تطويرها بواسطة JetBrains. تُستخدم بشكل أساسي لتطوير تطبيقات Android، لكنها أيضًا تُستخدم في تطوير تطبيقات الويب وسيرفرات الخلفية (Back-end) وحتى تطبيقات سطح المكتب.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. تشغيل أول برنامج في Kotlin:</strong> يمكنك تشغيل أول برنامج في Kotlin باستخدام دالة `main`.</li>
+                        <li><strong>2. المتغيرات في Kotlin:</strong> يمكن تعريف المتغيرات باستخدام `val` (ثابت لا يتغير) أو `var` (متغير يمكن تغييره لاحقًا).</li>
+                        <li><strong>3. أنواع البيانات (Data Types):</strong> مثل `Int` للأعداد الصحيحة، `Double` للأرقام العشرية، `String` للنصوص، و `Boolean` للقيم المنطقية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            fun main() {
+                                println("مرحبًا بك في Kotlin!")
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            val name = "Ali"  // لا يمكن تغيير قيمته
+var age = 25      // يمكن تغييره لاحقًا
+
+age = 26  // ✅ هذا مسموح
+// name = "Omar"  ❌ سيؤدي إلى خطأ لأنه val
+                        </code>
+                        <br>
+                        <code>
+                            val number: Int = 10
+val price: Double = 19.99
+val message: String = "Hello Kotlin"
+val isStudent: Boolean = true
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الثاني -->
+            <div class="lesson">
+                <h2>الدرس الثاني: المحددات في Kotlin</h2>
+                <p>المحددات (Modifiers) في Kotlin تُستخدم للتحكم في سلوك المتغيرات، الدوال، والصفوف. هناك أنواع مختلفة من المحددات، مثل محددات الوصول، محددات الأصناف والدوال، ومحددات التغير.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. محددات الوصول:</strong> مثل `private`، `protected`، و `public`.</li>
+                        <li><strong>2. محددات الأصناف والدوال:</strong> مثل `open`، `override`، و `final`.</li>
+                        <li><strong>3. محددات التغير:</strong> مثل `const`.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            class Person {
+                                private val secret = "هذه معلومة خاصة"
+                                internal val age = 30
+                                protected val name = "أحمد"
+                            }
+                            
+                            fun main() {
+                                val person = Person()
+                                println(person.age) // ✅ مسموح (لأنه internal)
+                                // println(person.secret) ❌ غير مسموح (لأنه private)
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            open class Animal {
+                                open fun makeSound() {
+                                    println("صوت غير محدد")
+                                }
+                            }
+                            
+                            class Dog : Animal() {
+                                override fun makeSound() {
+                                    println("Woof! Woof!")
+                                }
+                            }
+                            
+                            fun main() {
+                                val dog = Dog()
+                                dog.makeSound()  // Woof! Woof!
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            object Constants {
+                                const val PI = 3.14
+                            }
+                            
+                            fun main() {
+                                println(Constants.PI)
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الثالث -->
+            <div class="lesson">
+                <h2>الدرس الثالث: التصفح في Kotlin</h2>
+                <p>التنقل بين الشاشات في تطبيقات Android باستخدام Kotlin، فهناك عدة طرق للتصفح بين الأنشطة (Activities) أو الواجهات (Fragments).</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. التنقل بين الأنشطة:</strong> باستخدام `Intent`.</li>
+                        <li><strong>2. تمرير البيانات بين الأنشطة:</strong> باستخدام `Extras` داخل `Intent`.</li>
+                        <li><strong>3. التنقل بين الـ Fragments باستخدام FragmentManager:</strong> يمكنك التنقل بين Fragments باستخدام `FragmentManager`.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
+    }
+}
+                        </code>
+                        <br>
+                        <code>
+                            val intent = Intent(this, SecondActivity::class.java)
+intent.putExtra("USERNAME", "Ahmed")
+startActivity(intent)
+                        </code>
+                        <br>
+                        <code>
+                            import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
+class NewFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_new, container, false)
+    }
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الرابع -->
+            <div class="lesson">
+                <h2>الدرس الرابع: الأنماط المتقدمة</h2>
+                <p>إذا كنت تبحث عن أنماط البرمجة المتقدمة في Kotlin، فإليك بعض المفاهيم القوية التي تساعد في كتابة كود نظيف وفعال.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. البرمجة الوظيفية:</strong> Kotlin تدعم البرمجة الوظيفية، مما يعني أنه يمكنك التعامل مع الدوال ككائنات وتمريرها كمعاملات.</li>
+                        <li><strong>2. البرمجة الكائنية المتقدمة:</strong> Kotlin توفر ميزات قوية مثل التفويض (Delegation) والميراث (Inheritance) والبيانات غير القابلة للتغيير (Immutable Objects).</li>
+                        <li><strong>3. الأصناف المتقدمة:</strong> تستخدم `sealed class` لإنشاء تسلسل هرمي من الكائنات بطريقة آمنة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            fun operateOnNumbers(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+                                return operation(a, b)
+                            }
+                            
+                            fun main() {
+                                val sum = operateOnNumbers(5, 3) { x, y -> x + y }
+                                println(sum) // 8
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            interface Logger {
+                                fun log(message: String)
+                            }
+                            
+                            class ConsoleLogger : Logger {
+                                override fun log(message: String) = println("Log: $message")
+                            }
+                            
+                            class UserService(logger: Logger) : Logger by logger
+                            
+                            fun main() {
+                                val service = UserService(ConsoleLogger())
+                                service.log("تم إنشاء مستخدم جديد") // Log: تم إنشاء مستخدم جديد
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            sealed class Result
+class Success(val data: String) : Result()
+class Error(val message: String) : Result()
+
+fun handleResult(result: Result) {
+    when (result) {
+        is Success -> println("نجاح: ${result.data}")
+        is Error -> println("خطأ: ${result.message}")
+    }
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الخامس -->
+            <div class="lesson">
+                <h2>الدرس الخامس: مشروع عملي - تطبيق آلة حاسبة بسيطة</h2>
+                <p>المشروع سيكون تطبيق آلة حاسبة يحتوي على واجهة مستخدم (UI) يمكن للمستخدم من خلالها إجراء العمليات الحسابية الأساسية (الجمع، الطرح، الضرب، القسمة).</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الفكرة: تطبيق آلة حاسبة بسيطة:</strong> سنقوم بإنشاء تطبيق آلة حاسبة بسيطة باستخدام Kotlin.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            @IBOutlet weak var displayLabel: UILabel!
+@IBAction func numberPressed(_ sender: UIButton) {
+    let number = sender.titleLabel?.text
+    displayLabel.text = displayLabel.text! + number!
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس السادس -->
+            <div class="lesson">
+                <h2>الدرس السادس: الجمل الشرطية والحلقات</h2>
+                <p>الجمل الشرطية والحلقات هي أدوات أساسية في البرمجة تسمح باتخاذ القرارات وتكرار العمليات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. الجمل الشرطية:</strong> مثل `if`، `else`، و `else if`.</li>
+                        <li><strong>2. الحلقات:</strong> مثل `for`، `while`، و `do-while`.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            val age = 18
+if (age >= 18) {
+    println("أنت بالغ.")
+} else {
+    println("أنت قاصر.")
+}
+                        </code>
+                        <br>
+                        <code>
+                            for (i in 0..<5) {
+    println("الرقم: $i")
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس السابع -->
+            <div class="lesson">
+                <h2>الدرس السابع: الدوال (Functions)</h2>
+                <p>الدوال هي كتل من الكود يمكن استدعاؤها لتنفيذ مهمة محددة. تساعد في تنظيم الكود وإعادة استخدامه.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. تعريف الدوال:</strong> يتم تعريف الدوال باستخدام الكلمة المفتاحية `fun`.</li>
+                        <li><strong>2. استدعاء الدوال:</strong> يمكن استدعاء الدوال باستخدام اسمها.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            fun greet(name: String) {
+                                println("مرحبًا، $name!")
+                            }
+                            
+                            fun main() {
+                                greet("علي")  // ✅ مرحبًا، علي!
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الثامن -->
+            <div class="lesson">
+                <h2>الدرس الثامن: المصفوفات (Arrays)</h2>
+                <p>المصفوفات هي هياكل بيانات تخزن مجموعة من العناصر في ترتيب معين. يمكن الوصول إلى العناصر باستخدام الفهرس.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. إنشاء المصفوفات:</strong> يتم إنشاء المصفوفات باستخدام الأقواس المربعة `[]`.</li>
+                        <li><strong>2. الوصول إلى العناصر:</strong> يمكن الوصول إلى العناصر باستخدام الفهرس.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            val numbers = arrayOf(1, 2, 3, 4, 5)
+println(numbers[0])  // ✅ 1
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس التاسع -->
+            <div class="lesson">
+                <h2>الدرس التاسع: الهاش (Hashes)</h2>
+                <p>الهاش هو هيكل بيانات يخزن البيانات في أزواج مفتاح-قيمة. يمكن استخدامه لتخزين البيانات المرتبطة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. إنشاء الهاش:</strong> يتم إنشاء الهاش باستخدام الأقواس المعقوفة `{}`.</li>
+                        <li><strong>2. الوصول إلى القيم:</strong> يمكن الوصول إلى القيم باستخدام المفتاح.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            val person = mapOf("name" to "علي", "age" to "25")
+println(person["name"])  // ✅ علي
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس العاشر -->
+            <div class="lesson">
+                <h2>الدرس العاشر: الاستثناءات (Exceptions)</h2>
+                <p>الاستثناءات هي أخطاء تحدث أثناء تنفيذ البرنامج. يمكن التعامل معها باستخدام `try`، `catch`، و `finally`.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. التعامل مع الاستثناءات:</strong> يتم استخدام `try` و `catch` للتعامل مع الأخطاء.</li>
+                        <li><strong>2. الكود النهائي:</strong> يتم استخدام `finally` لتنفيذ كود بغض النظر عن حدوث استثناء أم لا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            try {
+    val result = 10 / 0
+} catch (e: ArithmeticException) {
+    println("حدث خطأ: ${e.message}")
+} finally {
+    println("هذا الكود سيتم تنفيذه دائمًا.")
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

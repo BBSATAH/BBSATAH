@@ -109,35 +109,39 @@
             font-size: 0.95em;
             color: #777;
         }
-                /* New button styles */
-                .buttons-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            margin-bottom: 20px;
+        .buttons-container {
+            text-align: center;
+            margin-top: 30px;
         }
-        .custom-button {
-            background-color: #20638D;
-            color: #ffffff;
-            padding: 12px 25px;
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
             border: none;
-            border-radius: 10px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 1.1em;
-            font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
-        .custom-button:hover {
-            background-color: #1a4f70;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        .test-button {
+            background-color: #20638D;
         }
-        .custom-button:active {
-            transform: translateY(0);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .test-button:hover {
+            background-color: #184c6e;
+        }
+
+        .code-button {
+            background-color: #28A745;
+        }
+
+        .code-button:hover {
+            background-color: #1e7d34;
         }
         @media (max-width: 768px) {
             .container { padding: 20px; }
@@ -763,10 +767,10 @@
                 </div>
             </div>
              <!-- New buttons section -->
-        <div class="buttons-container">
-            <button class="custom-button">اختبر نفسك  </button>
-            <button class="custom-button">جرب الكود </button>
-        </div>
+       <div class="button-container">
+                <a href="css.html" class="button test-button">اختبار</a>
+                <a href="https://akcode55.github.io/best-compi-Html-css-js/" class="button code-button">التطبيق</a>
+            </div>
         </div>
     </div>
 </body>

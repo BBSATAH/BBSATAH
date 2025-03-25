@@ -109,12 +109,58 @@
             font-size: 0.95em;
             color: #777;
         }
+        .buttons-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .test-button {
+            background-color: #20638D;
+        }
+
+        .test-button:hover {
+            background-color: #184c6e;
+        }
+
+        .code-button {
+            background-color: #28A745;
+        }
+
+        .code-button:hover {
+            background-color: #1e7d34;
+        }
+
+        /* تحسين العرض على الهواتف */
         @media (max-width: 768px) {
-            .container { padding: 20px; }
-            h1 { font-size: 2em; }
-            .lesson { padding: 15px; }
-            .lesson h2 { font-size: 1.5em; }
-            .lesson-details { font-size: 0.95em; }
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .lesson {
+                padding: 15px;
+            }
+            .lesson h2 {
+                font-size: 1.5em;
+            }
+            .lesson-details {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>

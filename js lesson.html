@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شرح دورة أساسيات JavaScript</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
-    <style>
+      <style>
         body {
             font-family: 'Cairo', sans-serif;
             background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
@@ -16,8 +16,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            direction: rtl;
+            direction: rtl; /* جعل النصوص من اليمين إلى اليسار */
         }
+
         .container {
             background: #ffffff;
             border-radius: 15px;
@@ -27,29 +28,33 @@
             width: 100%;
             overflow: hidden;
         }
+
         h1 {
             text-align: center;
-            color: #20638D;
+            color:#20638D;
             margin-bottom: 30px;
             font-size: 2.5em;
             font-weight: 700;
-            border-bottom: 4px solid #20638D;
+            border-bottom: 4px solid#20638D;
             display: inline-block;
             padding-bottom: 10px;
         }
+
         .course-description {
             background-color: #f9f9f9;
-            border-right: 6px solid #20638D;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .lessons {
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
+
         .lesson {
             background-color: #ffffff;
             border-radius: 10px;
@@ -57,10 +62,12 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .lesson:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+
         .lesson h2 {
             color: #20638D;
             margin-bottom: 15px;
@@ -70,15 +77,17 @@
             display: inline-block;
             padding-bottom: 5px;
         }
+
         .lesson-details {
             margin-top: 15px;
             font-size: 1.05em;
             color: #555;
             line-height: 1.7;
         }
+
         .example {
             background-color: #f2f2f2;
-            border-right: 6px solid #20638D;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
             padding: 15px;
             margin: 20px 0;
             font-family: monospace;
@@ -86,35 +95,85 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         ul {
             margin: 0;
             padding: 0 20px;
             list-style-type: none;
         }
+
         ul li {
             margin-bottom: 12px;
             position: relative;
-            padding-right: 20px;
+            padding-right: 20px; /* ضبط الحشو للتوافق مع RTL */
         }
+
         ul li::before {
             content: "•";
             position: absolute;
-            right: 0;
-            color: #20638D;
+            right: 0; /* تعديل الموضع للتوافق مع RTL */
+            color:#20638D;
             font-size: 1.2em;
         }
+
         .footer {
             text-align: center;
             margin-top: 30px;
             font-size: 0.95em;
             color: #777;
         }
+        .buttons-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .test-button {
+            background-color: #20638D;
+        }
+
+        .test-button:hover {
+            background-color: #184c6e;
+        }
+
+        .code-button {
+            background-color: #28A745;
+        }
+
+        .code-button:hover {
+            background-color: #1e7d34;
+        }
+
+        /* تحسين العرض على الهواتف */
         @media (max-width: 768px) {
-            .container { padding: 20px; }
-            h1 { font-size: 2em; }
-            .lesson { padding: 15px; }
-            .lesson h2 { font-size: 1.5em; }
-            .lesson-details { font-size: 0.95em; }
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .lesson {
+                padding: 15px;
+            }
+            .lesson h2 {
+                font-size: 1.5em;
+            }
+            .lesson-details {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>

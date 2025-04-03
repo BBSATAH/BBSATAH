@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .team-container .team-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #fff; /* حدود بيضاء حول الصورة */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل خفيف */
-}
-        </style>
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <header class="top-header">
@@ -43,10 +44,9 @@
                 <li><a href="games.html">ألعاب للتعلم</a></li>
                 <li><a href="books.html">كتب</a></li>
                 <li><a href="questions.html">أسئلة</a></li>
-                <li><a href="projects.html">مشاريع</a></li>
-                <li><a href="websitestocourses.html">مواقع لتعلم البرمجة</a></li>
-                <li><a href="kids programming.html">برمجة للأطفال</a></li>
-                <li><a href="about us.html">من نحن</a></li>
+                <li><a href="projects.html"> مشاريع</a></li>
+                <li><a href="about us.html"> من نحن</a></li>
+                <li><a href="websitestocourses.html">مواقع لتعلم البرمجه</a></li>
             </ul>
         </nav>
         <div class="header-icons">
@@ -62,83 +62,99 @@
     <h1>مرحبًا بك في موقع ببساطة - عالم الكود العربي! 💻✨</h1>
 
     <!-- محتوى الصفحة -->
-   
     <main>
         <h1>من نحن</h1>
         <section class="team-section">
             <h2>فريق العمل</h2>
-            <p style="text-align: center;">مجموعة من المطورين والمصممين الشغوفين بتقديم مشاريع مفتوحة المصدر.</p>
-            <div class="team-container">
-                <div class="team-card">
-                    <img src="Ahmed.jpg" alt="Member 1">
-                    <h3>احمد قنديل</h3>
-                    <p> Frontend Engineer </p>
-                    <div class="social-links">
-                        <!-- أيقونة GitHub -->
-                        <a href="https://github.com/akcode55" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <!-- أيقونة LinkedIn -->
-                        <a href="https://www.linkedin.com/in/ahmed-ak-code-24a7b228b/?locale=ar_AE" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://wa.me/201208462622" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+            <p class="subtitle">مجموعة من المطورين والمصممين الشغوفين بتقديم مشاريع مفتوحة المصدر.</p>
+            
+            <!-- فريق Frontend -->
+            <div class="specialty-group">
+                <h3 class="specialty-title">FrontEnd team</h3>
+                    
+                <div class="team-container">
+                    <div class="team-card">
+                        <img src="Ahmed.jpg" alt="احمد قنديل">
+                        <h3>احمد قنديل</h3>
+                        <p> Frontend Engineer</p>
+                        <div class="social-links">
+                            <a href="https://github.com/akcode55" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ahmed-ak-code-24a7b228b/?locale=ar_AE" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://wa.me/201208462622" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="انجي.jpg" alt="أنجي محمد حسن صحصاح">
+                        <h3>أنجي محمد حسن صحصاح</h3>
+                        <p> Frontend Coder</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="Basmla.jpg" alt="بسملة أحمد حسني">
+                        <h3>بسملة أحمد حسني</h3>
+                        <p> Frontend Coder</p>
                     </div>
                 </div>
-                
-               
-                <div class="team-card">
-                    <img src="Ali.jpg" alt="Member 2">
-                    <h3>علي فرج العوضي</h3>
-                    <p>Product designer, UI developer</p>
-                    <div class="social-links">
-                        <a href="https://qr.me-qr.com/ar/link-list/Vzbd4Ez2/show" target="_blank">
-                           <i class="fas fa-id-card"></i>
-                       </a>
-                   </div>
+            </div>
+            
+            <!-- فريق المصممين -->
+            <div class="specialty-group">
+                <h3 class="specialty-title">UI team</h3>
+                 
+                <div class="team-container">
+                    <div class="team-card">
+                        <img src="Ali.jpg" alt="علي فرج الغوضي">
+                        <h3>علي فرج الغوضي</h3>
+                        <p> Product designer, UI developer</p>
+                        <div class="social-links">
+                            <a href="https://qr.me-qr.com/ar/link-list/Vzbd4Ez2/show" target="_blank">
+                               <i class="fas fa-id-card"></i>
+                           </a>
+                       </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="toty.jpeg" alt="تسنيم الجندي">
+                        <h3>تسنيم الجندي</h3>
+                        <p>مطورة واجهات ومصممة منتجات | UI developer, Product designer</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="marwa.JPG" alt="مروه مالك جمال الدين">
+                        <h3>مروه مالك جمال الدين</h3>
+                        <p> UI developer</p>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <img src="toty.jpeg" alt="Member 3">
-                    <h3>تسنيم الجندي </h3>
-                    <p>  UI developer,Product designer  </p>
-                   
+            </div>
+            
+            <!-- فريق التسويق والبحث -->
+            <div class="specialty-group">
+                <h3 class="specialty-title">
+                    Marketing&Researcher team  </h3>
+                <div class="team-container">
+                    <div class="team-card">
+                        <img src="mariam.png" alt="مريم عبد السلام المليجي">
+                        <h3>مريم عبد السلام المليجي</h3>
+                        <p> Digital marketer</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="aya.jpg" alt="آيه السعيد على عبد الباري">
+                        <h3>آيه السعيد على عبد الباري</h3>
+                        <p>Researcher</p>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <img src="marwa.JPG" alt="Member 4">
-                    <h3> مروه مالك جمال الدين  </h3>
-                    <p> UI developer  </p>
-                </div>
-                <div class="team-card">
-                    <img src="انجي.jpg" alt="Member 4">
-                    <h3> أنجي محمد حسن صحصاح  </h3>
-                    <p> Frontend Coder</p>
-                   
-                </div>
-                <div class="team-card">
-                    <img src="Basmla.jpg" alt="Member 5">
-                    <h3> بسملة أحمد حسني  </h3>
-                    <p>   Frontend Coder </p>
-                   
-                </div>
-                <div class="team-card">
-                    <img src="mariam.png" alt="Member 6">
-                    <h3>مريم عبد السلام مليجي  </h3>
-                    <p> Digital marketer </p>
-                </div>
-                <div class="team-card">
-                    <img src="aya.jpg" alt="Member 7">
-                    <h3>آيه سعيد على عبد الباري  </h3>
-                    <p> Researcher </p>
-                </div>
-                
-
-                
-                
             </div>
         </section>
     </main>
+    
     <footer class="site-footer">
         <div class="footer-content">
             <div class="about-site">
@@ -163,8 +179,9 @@
             </div>
         </div>
     </footer>
+    
     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
     <!-- ملف الجافاسكريبت -->
     <script src="script.js"></script>
 </body>

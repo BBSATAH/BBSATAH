@@ -5,7 +5,7 @@
     --secondary-color: #3498DB; 
     --background-color: #ECF0F1; 
     --text-color: #2C3E50; 
-    --text-color-light: #7F8C8D; 
+    --text-color-light: #7F8C8D;
     --white: #ffffff; 
     --black: #000000; 
     --shadow: 0 4px 8px hwb(0 0% 100% / 0.1); 
@@ -181,7 +181,70 @@ header p {
     line-height: 1.6;
     font-size: 1rem;
 }
+/* Responsive Design for Footer and Goal Section */
+/* Responsive Design for Footer and Goal Section */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 15px 10px; /* تقليل الحشوة */
+        font-size: 0.9rem; /* تصغير حجم النص */
+    }
+
+    .footer-content {
+        flex-direction: column; /* جعل العناصر عمودية */
+        gap: 10px; /* تقليل المسافة بين العناصر */
+    }
+
+    .footer-logo {
+        width: 70px; /* تصغير حجم الشعار */
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .goal-text h2 {
+        font-size: 1rem; /* تصغير حجم العنوان */
+        text-align: center;
+    }
+
+    .goal-text p {
+        font-size: 0.8rem; /* تصغير حجم النص */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 10px 5px; /* تقليل الحشوة أكثر */
+        font-size: 0.8rem; /* تصغير النص أكثر */
+    }
+
+    .footer-content {
+        gap: 8px; /* تقليل المسافة بين العناصر */
+    }
+
+    .footer-logo {
+        width: 50px; /* تصغير الشعار أكثر */
+        height: auto;
+    }
+
+    .goal-text h2 {
+        font-size: 0.9rem; /* تصغير العنوان */
+    }
+
+    .goal-text p {
+        font-size: 0.7rem; /* تصغير النص */
+    }
+}
 /*team (about us)*/
+.team-container .team-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
 .team-section {
     padding: 50px;
     background-color: #f9f9f9;
@@ -195,16 +258,45 @@ header p {
 }
 
 .team-section h3.specialty-title {
-    background: linear-gradient(90deg, #2C3E50 0%, #3498db 100%); /* تدرج لوني أزرق */
+    background: linear-gradient(90deg, #2C3E50 0%, #3498db 100%);
     color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    margin: 30px auto;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px 50px;
+    margin: 40px auto;
+    font-size: 1.4rem;
     text-align: center;
-    display: block;
-    width: fit-content;
+    display: inline-block;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    z-index: 1;
+}
+
+.team-section h3.specialty-title::before,
+.team-section h3.specialty-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background: inherit;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: -1;
+}
+
+.team-section h3.specialty-title::before {
+    left: -15px;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+.team-section h3.specialty-title::after {
+    right: -15px;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.specialty-group {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .team-section h3 {
@@ -336,14 +428,9 @@ h1 {
     color: #fff;
 }
 
-.specialty-group {
-    margin-bottom: 50px;
-}
-
 .specialty-group:last-child {
     margin-bottom: 0;
 }
- 
 
 /* Animations */
 @keyframes fadeIn {
@@ -368,6 +455,17 @@ h1 {
         transform: scale(1);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /* التعديلات الخاصة بالهاتف المحمول */
 @media (max-width: 768px) {

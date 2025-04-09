@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
 :root {
-    --primary-color: #2C3E50; 
-    --secondary-color: #3498DB; 
-    --background-color: #ECF0F1; 
-    --text-color: #2C3E50; 
-    --text-color-light: #7F8C8D;
-    --white: #ffffff; 
-    --black: #000000; 
-    --shadow: 0 4px 8px hwb(0 0% 100% / 0.1); 
-    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2); 
-    --transition: all 0.3s ease; 
+    --primary-color: #2C3E50; /* لون أزرق داكن */
+    --secondary-color: #3498DB; /* لون أزرق فاتح */
+    --background-color: #ECF0F1; /* لون خلفية فاتح */
+    --text-color: #2C3E50; /* لون نص داكن */
+    --text-color-light: #7F8C8D; /* لون نص فاتح */
+    --white: #ffffff; /* أبيض */
+    --black: #000000; /* أسود */
+    --shadow: 0 4px 8px hwb(0 0% 100% / 0.1); /* ظل خفيف */
+    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2); /* ظل عند التمرير */
+    --transition: all 0.3s ease; /* انتقال سلس */
 }
    /* home page */ 
    header {
@@ -170,7 +170,7 @@ header p {
 }
 
 .goal-text h2 {
-    color: var(--secondary-color);
+    color: black;
     margin-bottom: 10px;
     font-size: 1.5rem;
     text-align: right;
@@ -181,6 +181,43 @@ header p {
     line-height: 1.6;
     font-size: 1rem;
 }
+        /* Social Media Section */
+        .social-media {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-media h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
 /* Responsive Design for Footer and Goal Section */
 /* Responsive Design for Footer and Goal Section */
 @media (max-width: 768px) {

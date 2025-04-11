@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     // إضافة CSS لمنع التحديد والظل الأزرق عند النقر
     const style = document.createElement('style');
@@ -21,25 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
   
-    // هنا بنحدد الرابط النشط بناءً على الصفحة اللي المستخدم عليها دلوقتي
+    // تحديد الرابط النشط بناءً على الصفحة الحالية
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.top-nav a');
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
-            // إضافة كلاس active للرابط اللي بيطابق الصفحة الحالية
+            // إضافة كلاس active للرابط الذي يطابق الصفحة الحالية
             link.classList.add('active');
         }
     });
-  
-    // هنا بنقرأ حالة الوضع المظلم من localStorage
-    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-  
-    // لو الوضع المظلم كان مفعّل قبل كده، بنضيف كلاس dark-theme للجسم
-    if (isDarkMode) {
-        document.body.classList.add('dark-theme');
-    }
-  
-    // هنا بنضيف وظيفة لتبديل الوضع المظلم لما نضغط على الأيقونة
+
+    // التعامل مع الوضع المظلم
+    // إضافة وظيفة لتبديل الوضع المظلم عند الضغط على الأيقونة
     const darkModeIcon = document.getElementById('toggle-dark-mode');
     darkModeIcon.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
@@ -51,43 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
   
-    
-    // Collect all searchable items
-    function getSearchableItems() {
-        return Array.from(document.querySelectorAll('.course-card, .lesson-card, .project-card, .game-card'))
-            .map(item => ({
-                element: item,
-                text: item.textContent.toLowerCase(),
-                title: item.querySelector('h2, h3, .title')?.textContent || ''
-            }));
+    // قراءة حالة الوضع المظلم من localStorage
+    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+  
+    // إذا كان الوضع المظلم مفعلًا سابقًا، نضيف كلاس dark-theme للجسم
+    if (isDarkMode) {
+        document.body.classList.add('dark-theme');
     }
-  
-    let items = getSearchableItems();
-  
-    // Navigate to item
-    function navigateToItem(element) {
-        // Remove previous highlights
-        document.querySelectorAll('.highlight').forEach(el =>
-            el.classList.remove('highlight')
-        );
-  
-        // Add highlight to selected element
-        element.classList.add('highlight');
-  
-        // Scroll to element
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  
-        // Hide search results
-        searchResults.style.display = 'none';
-        searchBox.value = '';
-    }
-  
-    // Close search results when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!searchResults.contains(e.target) && e.target !== searchBox) {
-            searchResults.style.display = 'none';
-        }
-    });
   
     // تبديل القائمة عند الضغط على زر القائمة
     const menuIcon = document.getElementById('menu-icon');
@@ -102,4 +66,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-  });
+});
+

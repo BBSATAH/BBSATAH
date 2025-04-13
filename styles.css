@@ -271,27 +271,9 @@ header p {
     }
 }
 /*team (about us)*/
-.team-container .team-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-.team-section {
-    padding: 50px;
-    background-color: #f9f9f9;
-}
 
-.team-section h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #333;
-    text-align: center;
-}
+
+
 
 .team-section h3.specialty-title {
     background: linear-gradient(90deg, #2C3E50 0%, #3498db 100%);

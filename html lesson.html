@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرح دورة أساسيات HTML</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <title>دورة شاملة في HTML</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -109,62 +109,32 @@
             font-size: 0.95em;
             color: #777;
         }
-        .buttons-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .test-button {
-            background-color: #20638D;
-        }
-        .test-button:hover {
-            background-color: #184c6e;
-        }
-        .code-button {
-            background-color: #28A745;
-        }
-        .code-button:hover {
-            background-color: #1e7d34;
-        }
         @media (max-width: 768px) {
             .container { padding: 20px; }
             h1 { font-size: 2em; }
             .lesson { padding: 15px; }
             .lesson h2 { font-size: 1.5em; }
             .lesson-details { font-size: 0.95em; }
-            .button { font-size: 1em; padding: 10px 20px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>شرح دورة أساسيات HTML</h1>
+        <h1>دورة شاملة في HTML</h1>
         <div class="course-description">
-            <p>HTML (HyperText Markup Language) هي لغة الترميز الأساسية لبناء صفحات الويب. في هذه الدورة، سنتعلم كيفية إنشاء صفحات ويب بسيطة ومنظمة باستخدام العناصر والصيغ الأساسية، مع أمثلة عملية لتطبيق المفاهيم خطوة بخطوة.</p>
+            <p>تعلم HTML من البداية إلى الاحتراف مع أمثلة عملية تغطي جميع المفاهيم الأساسية والمتقدمة.</p>
         </div>
         <div class="lessons">
             <!-- الدرس 1: مقدمة في HTML -->
             <div class="lesson">
                 <h2>الدرس الأول: مقدمة في HTML</h2>
-                <p>HTML هي لغة ترميز تُستخدم لتحديد بنية صفحات الويب وتنظيم محتواها.</p>
+                <p>HTML هي لغة ترميز تُستخدم لإنشاء هيكل صفحات الويب.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>ما هي HTML؟</strong> لغة ترميز وليست لغة برمجة، تُستخدم لإنشاء هيكل صفحات الويب.</li>
-                        <li><strong>أهميتها:</strong> الأساس لعرض النصوص، الصور، والروابط في المتصفحات.</li>
-                        <li><strong>الإصدارات:</strong> HTML5 هو الإصدار الحالي، يدعم ميزات حديثة مثل الفيديو والصوت.</li>
+                        <li>HTML ليست لغة برمجة، بل لغة ترميز.</li>
+                        <li>تُستخدم لتحديد النصوص، الصور، الروابط، وغيرها.</li>
+                        <li>الإصدار الحالي هو HTML5.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
@@ -173,7 +143,7 @@
                             <html lang="ar">
                             <head>
                                 <meta charset="UTF-8">
-                                <title>أول صفحة</title>
+                                <title>مرحبًا بالعالم</title>
                             </head>
                             <body>
                                 <h1>مرحبًا بالعالم!</h1>
@@ -187,13 +157,13 @@
             <!-- الدرس 2: بنية وثيقة HTML -->
             <div class="lesson">
                 <h2>الدرس الثاني: بنية وثيقة HTML</h2>
-                <p>كل صفحة HTML لها هيكل أساسي يتكون من عناصر محددة.</p>
+                <p>كل صفحة HTML لها هيكل أساسي.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong><!DOCTYPE html>:</strong> يُعلم المتصفح بأن الوثيقة تستخدم HTML5.</li>
-                        <li><strong><html>:</strong> العنصر الجذر الذي يحتوي كل المحتوى.</li>
-                        <li><strong><head>:</strong> يحتوي على البيانات الوصفية مثل العنوان والترميز.</li>
+                        <li><strong><!DOCTYPE html>:</strong> يُحدد الإصدار.</li>
+                        <li><strong><html>:</strong> العنصر الجذر.</li>
+                        <li><strong><head>:</strong> يحتوي على البيانات الوصفية.</li>
                         <li><strong><body>:</strong> يحتوي على المحتوى المرئي.</li>
                     </ul>
                     <div class="example">
@@ -206,7 +176,7 @@
                                 <title>صفحتي</title>
                             </head>
                             <body>
-                                <p>هذا نص داخل الصفحة.</p>
+                                <p>مرحبًا بكم في HTML.</p>
                             </body>
                             </html>
                         </code>
@@ -217,41 +187,38 @@
             <!-- الدرس 3: العناصر والصيغ -->
             <div class="lesson">
                 <h2>الدرس الثالث: العناصر والصيغ</h2>
-                <p>العناصر تُشكل لبنات البناء في HTML، وتُحاط بالصيغ لتحديد وظيفتها.</p>
+                <p>العناصر هي لبنات البناء في HTML.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>الصيغ:</strong> مثل <code><p></p></code>، تحدد بداية ونهاية العنصر.</li>
-                        <li><strong>العناصر الفارغة:</strong> مثل <code><img></code>، لا تحتاج إلى صيغة إغلاق.</li>
-                        <li><strong>أمثلة شائعة:</strong> <code><h1></h1></code> للعناوين، <code><p></p></code> للفقرات.</li>
+                        <li>العناصر تُحاط بصيغ مثل <code><p></p></code>.</li>
+                        <li>بعض العناصر لا تحتاج إلى إغلاق مثل <code><img></code>.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
                         <code>
                             <h1>عنوان رئيسي</h1>
-                            <p>هذه فقرة نصية.</p>
-                            <br>  <!-- فاصل سطر -->
+                            <p>هذه فقرة.</p>
                         </code>
                     </div>
                 </div>
             </div>
 
-            <!-- الدرس 4: السمات (Attributes) -->
+            <!-- الدرس 4: السمات -->
             <div class="lesson">
-                <h2>الدرس الرابع: السمات (Attributes)</h2>
-                <p>السمات تُضيف معلومات إضافية إلى العناصر لتحديد سلوكها أو مظهرها.</p>
+                <h2>الدرس الرابع: السمات</h2>
+                <p>السمات تُضيف معلومات إضافية للعناصر.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>الصيغة:</strong> تُكتب داخل صيغة الفتح مثل <code>id="value"</code>.</li>
-                        <li><strong>أمثلة شائعة:</strong> <code>id</code>، <code>class</code>، <code>src</code>، <code>href</code>.</li>
-                        <li><strong>الاستخدام:</strong> للربط، التنسيق، أو تحديد الهوية.</li>
+                        <li>تُكتب داخل صيغة الفتح مثل <code>id="value"</code>.</li>
+                        <li>أمثلة: <code>id</code>، <code>class</code>، <code>src</code>.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
                         <code>
-                            <p id="intro">مقدمة</p>
-                            <img src="image.jpg" alt="وصف الصورة">
+                            <p id="intro">مرحبًا</p>
+                            <img src="image.jpg" alt="صورة">
                         </code>
                     </div>
                 </div>
@@ -260,18 +227,18 @@
             <!-- الدرس 5: الروابط والصور -->
             <div class="lesson">
                 <h2>الدرس الخامس: الروابط والصور</h2>
-                <p>الروابط والصور تُضيف تفاعلية وجاذبية لصفحات الويب.</p>
+                <p>إضافة تفاعلية وجاذبية باستخدام الروابط والصور.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong><a>:</strong> لإنشاء روابط تشعبية باستخدام <code>href</code>.</li>
-                        <li><strong><img>:</strong> لعرض الصور باستخدام <code>src</code> و<code>alt</code>.</li>
+                        <li><strong><a>:</strong> لإنشاء روابط.</li>
+                        <li><strong><img>:</strong> لعرض الصور.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
                         <code>
                             <a href="https://example.com">اضغط هنا</a>
-                            <img src="photo.jpg" alt="صورة توضيحية" width="200">
+                            <img src="photo.jpg" alt="صورة">
                         </code>
                     </div>
                 </div>
@@ -280,13 +247,12 @@
             <!-- الدرس 6: القوائم -->
             <div class="lesson">
                 <h2>الدرس السادس: القوائم</h2>
-                <p>القوائم تُستخدم لتنظيم المحتوى بشكل مرتب أو غير مرتب.</p>
+                <p>تنظيم المحتوى باستخدام القوائم.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong><ul>:</strong> قائمة غير مرتبة مع نقاط.</li>
-                        <li><strong><ol>:</strong> قائمة مرتبة مع أرقام.</li>
-                        <li><strong><li>:</strong> عنصر داخل القائمة.</li>
+                        <li><strong><ul>:</strong> قائمة غير مرتبة.</li>
+                        <li><strong><ol>:</strong> قائمة مرتبة.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
@@ -304,74 +270,144 @@
                 </div>
             </div>
 
-            <!-- الدرس 7: الجداول -->
+            <!-- الدرس 7: الرسوم المتحركة باستخدام CSS -->
             <div class="lesson">
-                <h2>الدرس السابع: الجداول</h2>
-                <p>الجداول تُستخدم لعرض البيانات بشكل منظم في صفوف وأعمدة.</p>
+                <h2>الدرس السابع: الرسوم المتحركة باستخدام CSS</h2>
+                <p>تعلم كيفية إضافة الرسوم المتحركة إلى عناصر HTML باستخدام CSS.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong><table>:</strong> يُحدد الجدول.</li>
-                        <li><strong><tr>:</strong> صف جديد.</li>
-                        <li><strong><th>:</strong> رأس العمود.</li>
-                        <li><strong><td>:</strong> خلية بيانات.</li>
+                        <li>استخدام خاصية <code>@keyframes</code> لتعريف الرسوم المتحركة.</li>
+                        <li>استخدام <code>animation</code> لتطبيق الرسوم المتحركة على العناصر.</li>
+                        <li>تخصيص مدة الرسوم المتحركة باستخدام <code>animation-duration</code>.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
                         <code>
-                            <table border="1">
-                                <tr>
-                                    <th>الاسم</th>
-                                    <th>العمر</th>
-                                </tr>
-                                <tr>
-                                    <td>علي</td>
-                                    <td>25</td>
-                                </tr>
-                            </table>
+                            <style>
+                                .animated-box {
+                                    width: 100px;
+                                    height: 100px;
+                                    background-color: #20638D;
+                                    animation: move 2s infinite alternate;
+                                }
+                                @keyframes move {
+                                    from {
+                                        transform: translateX(0);
+                                    }
+                                    to {
+                                        transform: translateX(200px);
+                                    }
+                                }
+                            </style>
+                            <div class="animated-box"></div>
                         </code>
                     </div>
                 </div>
             </div>
 
-            <!-- الدرس 8: النماذج -->
+            <!-- الدرس 8: إنشاء أزرار مخصصة -->
             <div class="lesson">
-                <h2>الدرس الثامن: النماذج</h2>
-                <p>النماذج تُستخدم لجمع بيانات المستخدمين مثل النصوص وكلمات المرور.</p>
+                <h2>الدرس الثامن: إنشاء أزرار مخصصة</h2>
+                <p>تعلم كيفية تصميم أزرار مخصصة باستخدام CSS.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong><form>:</strong> يُحدد النموذج.</li>
-                        <li><strong><input>:</strong> حقل إدخال (نص، بريد، إلخ).</li>
-                        <li><strong><textarea>:</strong> منطقة نص كبيرة.</li>
-                        <li><strong><button>:</strong> زر إرسال.</li>
+                        <li>استخدام خاصيات مثل <code>border-radius</code> لجعل الأزرار مستديرة.</li>
+                        <li>إضافة تأثيرات عند التمرير باستخدام <code>:hover</code>.</li>
+                        <li>استخدام <code>box-shadow</code> لإضافة ظل للأزرار.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
                         <code>
-                            <form action="/submit" method="post">
-                                <label for="name">الاسم:</label>
-                                <input type="text" id="name" name="name">
-                                <label for="email">البريد:</label>
-                                <input type="email" id="email" name="email">
-                                <button type="submit">إرسال</button>
-                            </form>
+                            <style>
+                                .custom-button {
+                                    background-color: #20638D;
+                                    color: white;
+                                    padding: 10px 20px;
+                                    border: none;
+                                    border-radius: 25px;
+                                    cursor: pointer;
+                                    transition: background-color 0.3s, transform 0.3s;
+                                }
+                                .custom-button:hover {
+                                    background-color: #174a6e;
+                                    transform: scale(1.1);
+                                }
+                            </style>
+                            <button class="custom-button">اضغط هنا</button>
                         </code>
                     </div>
                 </div>
             </div>
 
-            <!-- الدرس 9: العناصر الدلالية (Semantic HTML) -->
+            <!-- الدرس 9: إنشاء القوائم المنسدلة -->
             <div class="lesson">
-                <h2>الدرس التاسع: العناصر الدلالية</h2>
-                <p>العناصر الدلالية تُحسن قابلية القراءة وتحسين محركات البحث.</p>
+                <h2>الدرس التاسع: إنشاء القوائم المنسدلة</h2>
+                <p>تعلم كيفية إنشاء قوائم منسدلة باستخدام HTML وCSS.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>استخدام عنصر <code>select</code> و<code>option</code> لإنشاء قائمة منسدلة.</li>
+                        <li>تخصيص مظهر القائمة باستخدام CSS.</li>
+                        <li>إضافة خيارات متعددة داخل القائمة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <style>
+                                .dropdown {
+                                    width: 200px;
+                                    padding: 10px;
+                                    border: 1px solid #ccc;
+                                    border-radius: 5px;
+                                }
+                            </style>
+                            <select class="dropdown">
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="javascript">JavaScript</option>
+                            </select>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 10: إضافة أيقونات باستخدام Font Awesome -->
+            <div class="lesson">
+                <h2>الدرس العاشر: إضافة أيقونات باستخدام Font Awesome</h2>
+                <p>تعلم كيفية استخدام مكتبة Font Awesome لإضافة أيقونات إلى صفحات الويب.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>إضافة مكتبة Font Awesome إلى المشروع باستخدام رابط CDN.</li>
+                        <li>استخدام عناصر <code>i</code> أو <code>span</code> لإضافة الأيقونات.</li>
+                        <li>تخصيص حجم ولون الأيقونات باستخدام CSS.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <head>
+                                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+                            </head>
+                            <body>
+                                <i class="fas fa-home" style="font-size: 24px; color: #20638D;"></i>
+                                <i class="fas fa-envelope" style="font-size: 24px; color: #20638D;"></i>
+                            </body>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 11: العناصر الدلالية -->
+            <div class="lesson">
+                <h2>الدرس الحادي عشر: العناصر الدلالية</h2>
+                <p>تحسين قابلية القراءة باستخدام العناصر الدلالية.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
                         <li><strong><header>:</strong> رأس الصفحة.</li>
                         <li><strong><footer>:</strong> تذييل الصفحة.</li>
-                        <li><strong><section>:</strong> قسم مستقل.</li>
-                        <li><strong><article>:</strong> محتوى مستقل.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
@@ -379,11 +415,6 @@
                             <header>
                                 <h1>مرحبًا</h1>
                             </header>
-                            <section>
-                                <article>
-                                    <p>مقالة عن HTML</p>
-                                </article>
-                            </section>
                             <footer>
                                 <p>© 2025</p>
                             </footer>
@@ -392,61 +423,220 @@
                 </div>
             </div>
 
-            <!-- الدرس 10: مشروع عملي -->
+            <!-- الدرس 12: استخدام الوسائط المتعددة -->
             <div class="lesson">
-                <h2>الدرس العاشر: مشروع عملي - صفحة شخصية</h2>
-                <p>مشروع عملي يجمع المفاهيم في صفحة ويب بسيطة.</p>
+                <h2>الدرس الثاني عشر: استخدام الوسائط المتعددة</h2>
+                <p>إضافة الفيديوهات والصوتيات إلى صفحات الويب.</p>
                 <div class="lesson-details">
                     <strong>شرح مفصل:</strong>
                     <ul>
-                        <li><strong>الهدف:</strong> إنشاء صفحة شخصية تحتوي على عنوان، صورة، قائمة، ونموذج.</li>
+                        <li><strong><video>:</strong> لعرض الفيديوهات.</li>
+                        <li><strong><audio>:</strong> لتشغيل الصوتيات.</li>
                     </ul>
                     <div class="example">
                         <strong>مثال:</strong><br>
                         <code>
-                            <!DOCTYPE html>
-                            <html lang="ar">
-                            <head>
-                                <meta charset="UTF-8">
-                                <title>صفحتي الشخصية</title>
-                            </head>
-                            <body>
-                                <header>
-                                    <h1>مرحبًا، أنا علي</h1>
-                                </header>
-                                <section>
-                                    <img src="profile.jpg" alt="صورتي" width="150">
-                                    <h2>اهتماماتي</h2>
-                                    <ul>
-                                        <li>البرمجة</li>
-                                        <li>القراءة</li>
-                                    </ul>
-                                </section>
-                                <section>
-                                    <h2>تواصل معي</h2>
-                                    <form action="/contact" method="post">
-                                        <label for="name">الاسم:</label>
-                                        <input type="text" id="name" name="name">
-                                        <label for="email">البريد:</label>
-                                        <input type="email" id="email" name="email">
-                                        <button type="submit">إرسال</button>
-                                    </form>
-                                </section>
-                                
-                            </body>
+                            <video controls width="300">
+                                <source src="video.mp4" type="video/mp4">
+                                المتصفح لا يدعم الفيديو.
+                            </video>
+                            <audio controls>
+                                <source src="audio.mp3" type="audio/mpeg">
+                                المتصفح لا يدعم الصوتيات.
+                            </audio>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- إضافة دروس جديدة -->
+            <div class="lesson">
+                <h2>الدرس 13: استخدام الألوان والخطوط</h2>
+                <p>تعلم كيفية تخصيص الألوان والخطوط في HTML باستخدام CSS.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>استخدام خاصية <code>color</code> لتغيير لون النصوص.</li>
+                        <li>استخدام خاصية <code>font-family</code> لتغيير نوع الخط.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <p style="color: red; font-family: Arial;">هذا نص أحمر بخط Arial.</p>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 14: الروابط الداخلية والخارجية</h2>
+                <p>تعلم كيفية إنشاء روابط داخلية وخارجية.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>الروابط الداخلية تُستخدم للتنقل داخل نفس الصفحة.</li>
+                        <li>الروابط الخارجية تُستخدم للتنقل إلى صفحات أخرى.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <a href="#section1">اذهب إلى القسم الأول</a>
+                            <a href="https://example.com" target="_blank">رابط خارجي</a>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 15: الصور التفاعلية</h2>
+                <p>إضافة تأثيرات تفاعلية على الصور باستخدام CSS.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>استخدام خاصية <code>hover</code> لتغيير مظهر الصورة عند التمرير.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <img src="image.jpg" alt="صورة" style="transition: transform 0.3s;">
+                            <style>
+                                img:hover {
+                                    transform: scale(1.1);
+                                }
+                            </style>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 16: النماذج المتقدمة</h2>
+                <p>تعلم كيفية إنشاء نماذج متقدمة تحتوي على قوائم منسدلة وخيارات متعددة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>استخدام <code>select</code> و<code>option</code> لإنشاء قوائم منسدلة.</li>
+                        <li>استخدام <code>checkbox</code> و<code>radio</code> لإنشاء خيارات متعددة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <form>
+                                <label for="city">اختر مدينتك:</label>
+                                <select id="city" name="city">
+                                    <option value="cairo">القاهرة</option>
+                                    <option value="alex">الإسكندرية</option>
+                                </select>
+                                <br>
+                                <label><input type="checkbox" name="hobby" value="reading"> قراءة</label>
+                                <label><input type="radio" name="gender" value="male"> ذكر</label>
+                            </form>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 17: الرسوم التوضيحية باستخدام SVG</h2>
+                <p>تعلم كيفية إنشاء رسوم توضيحية باستخدام SVG.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>SVG هي لغة لإنشاء الرسوم التوضيحية المتجهة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <svg width="100" height="100">
+                                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+                            </svg>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 18: تحسين محركات البحث (SEO)</h2>
+                <p>تعلم كيفية تحسين صفحات HTML لمحركات البحث.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>استخدام العناصر الدلالية مثل <code>header</code> و<code>article</code>.</li>
+                        <li>إضافة وصف ميتا باستخدام <code>meta</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <meta name="description" content="تعلم HTML بسهولة.">
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 19: التعامل مع الأخطاء</h2>
+                <p>تعلم كيفية اكتشاف وتصحيح الأخطاء في صفحات HTML.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>استخدام أدوات المتصفح لفحص العناصر.</li>
+                        <li>التحقق من صحة الكود باستخدام أدوات مثل W3C Validator.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 20: إنشاء صفحة تفاعلية</h2>
+                <p>تعلم كيفية إضافة تفاعلية باستخدام JavaScript.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>إضافة أحداث مثل النقر باستخدام JavaScript.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <button onclick="alert('مرحبًا!')">اضغط هنا</button>
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس 21: إنشاء صفحة متعددة اللغات</h2>
+                <p>تعلم كيفية دعم لغات متعددة في صفحات HTML.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>استخدام خاصية <code>lang</code> لتحديد اللغة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            <html lang="en">
+                                <p>Hello, World!</p>
                             </html>
                         </code>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- إضافة الأزرار -->
- <div class="buttons-container">
-            <a href="html.html" class="button test-button"target="_blank">اختبر نفسك</a>
-            <a href="https://akcode55.github.io/best-compi-Html-css-js/" class="button code-button"target="_blank">طبق على الكود</a>
+            <div class="lesson">
+                <h2>الدرس 22: مشروع نهائي</h2>
+                <p>إنشاء موقع ويب بسيط يحتوي على جميع المفاهيم التي تعلمتها.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li>إنشاء صفحة رئيسية وصفحات فرعية.</li>
+                        <li>إضافة روابط، صور، ونماذج.</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="button-container">
+                <a href="html.html" class="button test-button">اختبار</a>
+                <a href="https://akcode55.github.io/best-compi-Html-css-js/" class="button code-button">التطبيق</a>
+            </div>
         </div>
-
        
     </div>
 </body>

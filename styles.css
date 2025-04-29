@@ -870,7 +870,7 @@ footer {
 
 /*websites to learn */
 /* Dropdown Container */
-.dropdown {
+   .dropdown {
     position: relative;
     display: inline-block; /* لجعل العرض يتناسب مع المحتوى */
 }
@@ -948,7 +948,95 @@ footer {
     opacity: 1;
     overflow: auto;/*اضافة scroll*/
 }
+@media (max-width: 768px) {
+    .dropdown-btn {
+        width: 100%; 
+        padding: 10px 20px; 
+        font-size: 16px; 
+    }
 
+    .dropdown-content {
+        width: 100%; 
+        left: 0; 
+        right: 0; 
+    }
+
+    .dropdown-content a {
+        padding: 10px; 
+        font-size: 14px; 
+    }
+
+    .dropdown.active .dropdown-content {
+        max-height: 200px; 
+        overflow-y: auto; 
+    }
+}
+@media (max-width: 480px) {
+    .dropdown-btn {
+        width: 100%; 
+        padding: 10px 20px; 
+        font-size: 16px; 
+    }
+
+    .dropdown-content {
+        width: 100%; 
+        left: 0; 
+        right: 0; 
+    }
+
+    .dropdown-content a {
+        padding: 10px; 
+        font-size: 14px; 
+    }
+
+    .dropdown.active .dropdown-content {
+        max-height: 200px; 
+        overflow-y: auto; 
+    }
+}
+
+/* Replace all previous .dropdowns-container styles with this */
+.dropdowns-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    width: 100%;
+}
+
+.dropdown {
+    flex: 1 1 0; /* Change to equal flex basis */
+    width: 45%;
+    max-width: 640px;
+    min-width: 300px; /* Add minimum width */
+}
+
+.dropdown-btn {
+    width: 100%;
+    min-height: 48px; /* Add fixed height */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+@media (max-width: 768px) {
+    .dropdowns-container {
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .dropdown {
+        width: 45%;
+        min-width: 150px; /* Smaller minimum width for mobile */
+    }
+
+    .dropdown-btn {
+        min-height: 44px; /* Slightly smaller height for mobile */
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
 
 
 /*kids programming*/
@@ -1426,52 +1514,7 @@ h1 {
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
-    .dropdown-btn {
-        width: 100%; 
-        padding: 10px 20px; 
-        font-size: 16px; 
-    }
 
-    .dropdown-content {
-        width: 100%; 
-        left: 0; 
-        right: 0; 
-    }
-
-    .dropdown-content a {
-        padding: 10px; 
-        font-size: 14px; 
-    }
-
-    .dropdown.active .dropdown-content {
-        max-height: 200px; 
-        overflow-y: auto; 
-    }
-}
-@media (max-width: 480px) {
-    .dropdown-btn {
-        width: 100%; 
-        padding: 10px 20px; 
-        font-size: 16px; 
-    }
-
-    .dropdown-content {
-        width: 100%; 
-        left: 0; 
-        right: 0; 
-    }
-
-    .dropdown-content a {
-        padding: 10px; 
-        font-size: 14px; 
-    }
-
-    .dropdown.active .dropdown-content {
-        max-height: 200px; 
-        overflow-y: auto; 
-    }
-}
 /* Animations */
 @keyframes slideInLeft {
     0% {

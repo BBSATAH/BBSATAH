@@ -204,9 +204,21 @@
             
             if (isLogin) {
                 // تسجيل الدخول
+                // التحقق من اسم المستخدم وكلمة المرور لمسؤول النظام
+                if (username === "admin" && password === "mllmma2908305kc187372") {
+                    localStorage.setItem("loggedIn", "true");
+                    localStorage.setItem("isAdmin", "true");
+                    localStorage.setItem("currentUser", "admin");
+                    window.location.href = "dashboard.html";
+                    return;
+                }
+                
+                // تسجيل الدخول للمستخدمين العاديين
                 const storedUser = localStorage.getItem(username);
                 if (storedUser && JSON.parse(storedUser).password === password) {
                     localStorage.setItem("loggedIn", "true");
+                    localStorage.setItem("isAdmin", "false");
+                    localStorage.setItem("currentUser", username);
                     alert("تم تسجيل الدخول بنجاح!");
                     window.location.href = "Lessons.html";
                 } else {
@@ -221,6 +233,13 @@
                 const passwordSignup = document.getElementById("password-signup").value;
                 const confirmPassword = document.getElementById("confirm-password").value;
                 const errorSignupMessage = document.getElementById("error-signup");
+
+                // منع إنشاء حساب باسم مستخدم admin
+                if (usernameSignup.toLowerCase() === "admin") {
+                    errorSignupMessage.innerText = "اسم المستخدم هذا محجوز للنظام";
+                    errorSignupMessage.style.display = "block";
+                    return;
+                }
 
                 if (passwordSignup !== confirmPassword) {
                     errorSignupMessage.innerText = "كلمة المرور وتأكيد كلمة المرور غير متطابقتين";

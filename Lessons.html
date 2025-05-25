@@ -3,14 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lessons</title>
+    <title>Lessons</title>
     <link rel="stylesheet" href="styles.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-     <style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
         h2 {
             text-align: center;
             color: rgb(5, 10, 48);
+        }
+        
+        /* إضافة أنماط للدروس المضافة */
+        .lessons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            padding: 20px;
+        }
+        
+        .lesson-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .lesson-card h3 {
+            color: #20638D;
+            margin-bottom: 10px;
+        }
+        
+        .lesson-card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .course-name {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #20638D;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        /* أنماط للتصميم المتجاوب */
+        @media (max-width: 768px) {
+            .lessons-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -26,14 +81,14 @@
         <!-- الشعار الجديد -->
         <div class="logo-container">
             <a href="index.html">
-                <img src="0.png" alt="الشعار" class="header-logo">
+                <img src="0.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
 
         <!-- روابط التنقل -->
         <nav class="top-nav" id="top-nav">
             <ul>
-            <li><a href="roadmaps.html">خرائط التعلم</a></li>
+                <li><a href="roadmaps.html">خرائط التعلم</a></li>
                 <li><a href="Lessons.html">الدورات</a></li>
                 <li><a href="courses.html">الكورسات</a></li>
                 <li><a href="games.html">ألعاب للتعلم</a></li>
@@ -41,170 +96,156 @@
                 <li><a href="questions.html">أسئلة</a></li>
                 <li><a href="projects.html">مشاريع</a></li>
                 <li><a href="websitestocourses.html">مواقع لتعلم البرمجة</a></li>
-                <li><a href="kids programming.html">برمجة للأطفال</a></li>     
-                <li><a href="developer tools.html"> ادوات المطورين</a></li>   
-               <li><a href="about us.html">من نحن</a></li>
+                <li><a href="kids programming.html">برمجة للأطفال</a></li>
+                <li><a href="developer tools.html"> ادوات المطورين</a></li>
+                <li><a href="about us.html">من نحن</a></li>
             </ul>
         </nav>
         <div class="header-icons">
             <a href="#" id="toggle-dark-mode" class="icon-link">
-                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon">
+                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
             </a>
             <a href="login.html">
                 <img src="user.png" alt="الشعار" class="header-logo" loading="lazy">
             </a>
         </div>
     </header>
-
-    <h1>مرحبًا بك في موقع ببساطة - عالم الكود العربي! </h1>
+    <h1>مرحبًا بك في موقع ببساطة - عالم الكود العربي! 💻✨</h1>
     
     
     <!-- محتوى الصفحة -->
    
     <main>
-        <h1>الدروس</h1>
-                <h2>استمتع بتعلم البرمجة عبر دروس واضحة ومفصلة تساعدك على إتقان المفاهيم بسهولة .</h2>
-
-
-
+        <h1>الدورات</h1>
+        <h2>استمتع بتعلم البرمجة من خلال دروس مفصلة وواضحة، مصممة لمساعدتك على إتقان المفاهيم بسهولة وسرعة.</h2>
         <div class="container">
-            <div class="sections-grid">
+            <div class="sections-grid" id="all-lessons-grid">
                 <div class="section-card">
-                    <a href="basic lesson.html" >
-                    <img src="pb.png" alt="HTML">
+                    <a href="basic lesson.html" target="_blank">
+                    <img src="pb.png" alt="basic programming" loading="lazy">
                 </a>
                     <h3>اساسيات البرمجه</h3>
-                    <p>تعلم الأساسيات التي تحتاجها لبدء رحلتك في عالم البرمجة.</p>
                 </div>
                 <div class="section-card">
-                    <a href="html lesson.html">
+                    <a href="html lesson.html" target="_blank">
                     <img src="html.png" alt="HTML">
                 </a>
                     <h3>HTML</h3>
-                    <p>اكتشف كيفية بناء الهيكل الأساسي لصفحات الويب باستخدام HTML.</p>
                 </div>
                 <div class="section-card">
                     <a href="css lesson.html">
                     <img src="css.png" alt="CSS">
                 </a>
                     <h3>CSS</h3>
-                    <p>تعلم كيفية تنسيق وتزيين صفحات الويب باستخدام CSS.</p>
                 </div>
                
                 <div class="section-card">
-                    <a href="js lesson.html" >
+                    <a href="js lesson.html" target="_blank">
                     <img src="js.png" alt="JavaScript">
                 </a>
                     <h3>JavaScript</h3>
-                    <p>أضف التفاعل والديناميكية إلى مواقعك باستخدام JavaScript.</p>
                 </div>
                 <div class="section-card">
-                    <a href="type lesson.html">
+                    <a href="type lesson.html" target="_blank">
                     <img src="typescript.png" alt="typescript" loading="lazy">
                 </a>
                     <h3>Typescript</h3>
-                    <p>تعلم كيفية تحسين جودة وكفاءة كود JavaScript باستخدام TypeScript.</p>
                 </div>
                 <div class="section-card">
-                    <a href="EJS lesson.html">
+                    <a href="EJS lesson.html" target="_blank">
                     <img src="EJS.png" alt="EJS" loading="lazy">
                 </a>
                     <h3>EJS</h3>
-                    <p>استخدم EJS لإنشاء قوالب ديناميكية لصفحات الويب.</p>
                 </div>
                 <div class="section-card">
-                    <a href="c lesson.html" >
+                    <a href="c lesson.html" target="_blank">
                     <img src="c2.png" alt="C#" loading="lazy">
                 </a>
                     <h3>#C</h3>
-                    <p>تعلم لغة C# القوية لبناء تطبيقات سطح المكتب والألعاب.</p>
                 </div>
                 <div class="section-card">
-                    <a href="python lesson.html">
+                    <a href="python lesson.html" target="_blank">
                     <img src="python.png" alt="Python">
                 </a>
                     <h3>Python</h3>
-                    <p>ابدأ رحلتك في البرمجة بلغة Python البسيطة والقوية.</p>
                 </div>
                 <div class="section-card">
-                    <a href="java lesson.html">
+                    <a href="java lesson.html" target="_blank">
                     <img src="java.png" alt="Java">
                 </a>
                     <h3>Java</h3>
-                    <p>تعلم Java لبناء تطبيقات قوية ومتعددة الاستخدامات.</p>
                 </div>
                 <div class="section-card">
-                    <a href="problemsolving lesson.html">
+                    <a href="problemsolving lesson.html" target="_blank">
                     <img src="ps.png" alt="problemsolving" loading="lazy">
                 </a>
                     <h3>problemsolving</h3>
-                    <p>طور مهاراتك في حل المشكلات البرمجية باستخدام تقنيات فعالة.</p>
                 </div>
-<div class="section-card">
-    <a href="oop lesson.html" >
-        <img src="oop icon.png" alt="oop" loading="lazy">
-    </a>
-    <h3>OOP</h3>
-    <p>تعلم البرمجة الكائنية التوجه (OOP) لتصميم أنظمة برمجية قابلة للتوسيع والصيانة.</p>
-</div>
-<div class="section-card">
-    <a href="objectivelesson.html">
-        <img src="objectivelesson.png" alt="objective-c" loading="lazy">
-    </a>
-    <h3>Objective-C</h3>
-    <p>اكتشف لغة Objective-C لتطوير تطبيقات iOS و macOS بسلاسة.</p>
-</div>
-<div class="section-card">
-    <a href="Ruby lesson.html" >
-        <img src="ruby lesson.png" alt="ruby" loading="lazy">
-    </a>
-    <h3>Ruby</h3>
-    <p>استخدم Ruby لبناء تطبيقات ويب ديناميكية وسريعة التطوير.</p>
-</div>
-<div class="section-card">
-    <a href="Dart lesson.html">
-        <img src="Dart lesson.png" alt="Dart" loading="lazy">
-    </a>
-    <h3>Dart</h3>
-    <p>تعلم Dart لتطوير تطبيقات Flutter الحديثة والمبتكرة.</p>
-</div>
-<div class="section-card">
-    <a href="swift lesson.html" >
-        <img src="swift lesson.png" alt="swift" loading="lazy">
-    </a>
-    <h3>Swift</h3>
-    <p>استخدم Swift لإنشاء تطبيقات iOS و macOS بسرعة وكفاءة.</p>
-</div>
-<div class="section-card">
-    <a href="kotlin lesson.html">
-        <img src="kotlin lesson.png" alt="Kotlin" loading="lazy">
-    </a>
-    <h3>Kotlin</h3>
-    <p>تعلم Kotlin لتطوير تطبيقات Android حديثة وقابلة للتوسيع.</p>
-</div>
-<div class="section-card">
-    <a href="Go lesson.html" >
-        <img src="Go lesson.png" alt="Go" loading="lazy">
-    </a>
-    <h3>Go</h3>
-    <p>استخدم Go لبناء تطبيقات سريعة وموثوقة للخوادم والأنظمة الموزعة.</p>
-</div>
+                <div class="section-card">
+                    <a href="oop lesson.html" target="_blank">
+                    <img src="oop icon.png" alt="oop" loading="lazy">
+                </a>
+                    <h3>oop</h3>
+                </div>
+                <div class="section-card">
+                    <a href="objectivelesson.html" target="_blank">
+                    <img src="objectivelesson.png" alt="objective-c" loading="lazy">
+                </a>
+                    <h3>objective-c</h3>
+                </div>
+                <div class="section-card">
+                    <a href="Ruby lesson.html" target="_blank">
+                    <img src="ruby lesson.png" alt="ruby" loading="lazy">
+                </a>
+                    <h3>Ruby</h3>
+                </div>
+                <div class="section-card">
+                    <a href="Dart lesson.html" target="_blank">
+                    <img src="Dart lesson.png" alt="Dart" loading="lazy">
+                </a>
+                    <h3>Dart</h3>
+                </div>
+                <div class="section-card">
+                    <a href="swift lesson.html" target="_blank">
+                    <img src="swift lesson.png" alt="swift" loading="lazy">
+                </a>
+                    <h3>Swift</h3>
+                </div>
+                <div class="section-card">
+                    <a href="kotlin lesson.html"target="_blank">
+                    <img src="kotlin lesson.png" alt="Kotlin" loading="lazy">
+                </a>
+                    <h3>Kotlin</h3>
+                </div>
+                <div class="section-card">
+                    <a href="Go lesson.html" target="_blank">
+                    <img src="Go lesson.png" alt="Go" loading="lazy">
+                </a>
+                    <h3>Go</h3>
+                </div>
+                <!-- الدروس المضافة ستظهر هنا -->
             </div>
         </div>
     </main>
-      <footer class="site-footer">
-        <div class="footer-content">
-            <div class="about-site">
-                <div class="logo-goal-container">
-                    <img src="logo.png" alt="شعار الموقع" class="footer-logo">
-                    <div class="goal-text">                
-                        <p>
-                            منصة عربية لتعليم البرمجة وعلوم الكمبيوتر والشبكات بأسلوب مبسط وممتع ، ويوجد أيضا قسم خاص لتعليم البرمجة للأطفال
-                        </p>
-                       
 
+    <footer class="site-footer">
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="about-site">
+                    <div class="logo-goal-container">
+                        <img src="logo.png" alt="شعار الموقع" class="footer-logo">
+                        <div class="goal-text">
+                            <h2>هدف الموقع</h2>
+                            <p>
+                                موقعنا هو منصة تعليمية تهدف إلى تقديم محتوى برمجي عالي الجودة بطريقة مبسطة
+                                ومفهومة، لتساعد الجميع على تعلم البرمجة والتميز في المجال الرقمي.
+                            </p>
+                            <p class="centered-text">
+                                هدفنا أن نجعل التعلم ممتعًا ومتاحًا للجميع، مع تقديم محتوى عالي الجودة باللغة العربية. انطلق الآن واكتشف أقسام الموقع لتبدأ ببناء مستقبلك البرمجي معنا. 🚀نحن هنا لنرافقك في رحلتك لتعلم البرمجة والشبكات بكل سهولة واحترافية. سواء كنت مبتدئًا تخطو أولى خطواتك في عالم البرمجة، أو مبرمجًا يسعى لتطوير مهاراته، ستجد لدينا كل ما تحتاجه من دورات، مقالات، كتب، وأسئلة تفاعلية.
+                            </p>
+    
                         <p class="centered-text">
-                            ©  جميع الحقوق محفوظة لموقع ببساطة
+                            معًا نحو مستقبل رقمي أكثر إبداعًا! 💻✨
                         </p>
                     </div>
                 </div>
@@ -212,13 +253,13 @@
             <div class="social-media">
                 <h3>تابعنا على وسائل التواصل الاجتماعي</h3>
                 <div class="social-icons">
-                     <a href="https://www.facebook.com/share/1FRoaGXWeg/" target="_blank" class="social-icon">
+                    <a href="https://facebook.com" target="_blank" class="social-icon">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://x.com/Bbsath41769M" target="_blank" class="social-icon">
+                    <a href="https://twitter.com" target="_blank" class="social-icon">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://www.instagram.com/bbsa_tah?igsh=M2liZmRoMzgxNjJ5" target="_blank" class="social-icon">
+                    <a href="https://instagram.com" target="_blank" class="social-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
                     <a href="https://linkedin.com" target="_blank" class="social-icon">
@@ -229,8 +270,61 @@
         </div>
     </footer>
     <!-- ملف الجافاسكريبت -->
-   <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLessonsJSON = localStorage.getItem('mainSiteLessons');
+            if (savedLessonsJSON) {
+                const savedLessons = JSON.parse(savedLessonsJSON);
+                const lessonsGrid = document.getElementById('all-lessons-grid');
+                
+                if (lessonsGrid && savedLessons.length > 0) {
+                    // نضيف الدروس المضافة من لوحة التحكم
+                    savedLessons.forEach(lesson => {
+                        // نتحقق أولاً إذا كان الدرس موجود بالفعل في الدروس
+                        const lessonExists = Array.from(lessonsGrid.querySelectorAll('.section-card')).some(card => 
+                            card.querySelector('h3') && 
+                            card.querySelector('h3').textContent === lesson.title
+                        );
+                        
+                        // إذا لم يكن موجوداً، نضيفه
+                        if (!lessonExists) {
+                            const lessonCard = document.createElement('div');
+                            lessonCard.className = 'section-card';
+                            
+                            // إنشاء رابط للدرس
+                            const lessonLink = document.createElement('a');
+                            lessonLink.href = `${lesson.title.toLowerCase().replace(/\s+/g, '')}lesson.html`;
+                            lessonLink.target = "_blank";
+                            
+                            // إضافة صورة للدرس
+                            const img = document.createElement('img');
+                            if (lesson.image) {
+                                img.src = lesson.image;
+                            } else {
+                                // استخدام صورة افتراضية إذا لم تكن هناك صورة مخصصة
+                                img.src = "/images/lesson-default.png";
+                            }
+                            img.alt = lesson.title;
+                            img.setAttribute('loading', 'lazy');
+                            
+                            lessonLink.appendChild(img);
+                            lessonCard.appendChild(lessonLink);
+                            
+                            // إضافة عنوان الدرس
+                            const title = document.createElement('h3');
+                            title.textContent = lesson.title;
+                            lessonCard.appendChild(title);
+                            
+                            lessonsGrid.appendChild(lessonCard);
+                        }
+                    });
+                }
+            }
+        });
+    </script>
     <script src="script.js"></script>
+    
 </body>
 </html>

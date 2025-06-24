@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة تعلم البرمجة</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* تنسيق خرائط التعلم */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .stage {
+      background-color: #efeff3;
+      border: 5px solid #ddd;
+      border-radius: 108px;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .stage h2 {
+      color: #080079;
+      margin-bottom: 10px;
+    }
+
+    .stage p {
+      color: #000000;
+    }
+
+    .download-btn {
+      margin: 20px;
+      background-color: #11088a;
+      color: #fff;
+      border: none;
+      padding: 5px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .download-btn:hover {
+      background-color: #140683;
+    }
+    .download-btn:active {
+      background-color: #0f0f5c;
+    }
+    .dark-mode {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+    }
+    .dark-mode .stage {
+      background-color: #34495e;
+      border: 5px solid #2c3e50;
+      color: #ecf0f1;
+    }
+    .dark-mode .stage h2 {
+      color: #ecf0f1;
+    }
+    .dark-mode .stage p {
+      color: #ecf0f1;
+    }
+  </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="0.png" alt="الشعار" class="header-logo">
+            </a>
+        </div>
+        <div class="header-icons">
+          <a href="#" id="toggle-dark-mode" class="icon-link">
+              <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon">
+          </a>
+      </div>
+    </header>
+    <h1 style="text-align:center; color:#11088a;">خريطة تعلم أساسيات البرمجة</h1>
+
+    <main class="roadmap" id="content">
+        <div class="stage">
+          <h2>1. مقدمة إلى البرمجة</h2>
+          <p>تعرف على مفهوم البرمجة، أهميتها، وكيفية تأثيرها على حياتنا اليومية. ستتعلم أيضًا الفرق بين البرمجة والتطوير.</p>
+        </div>
+    
+        <div class="stage">
+          <h2>2. المتغيرات وأنواع البيانات</h2>
+          <p>تعلم كيفية تعريف المتغيرات واستخدامها لتخزين البيانات. اكتشف الأنواع المختلفة للبيانات مثل النصوص، الأرقام، والقيم المنطقية.</p>
+        </div>
+    
+        <div class="stage">
+          <h2>3. الجمل الشرطية</h2>
+          <p>تعرف على كيفية اتخاذ القرارات في البرامج باستخدام الجمل الشرطية مثل <code>if</code> و <code>else</code>. ستتعلم أيضًا كيفية التعامل مع الشروط المعقدة.</p>
+        </div>
+    
+        <div class="stage">
+          <h2>4. الحلقات</h2>
+          <p>تعلم كيفية تكرار العمليات باستخدام الحلقات مثل <code>for</code> و <code>while</code>. ستتعرف على كيفية تحسين الكود باستخدام الحلقات.</p>
+        </div>
+    
+        <div class="stage">
+          <h2>5. البرمجة الكائنية (OOP)</h2>
+          <p>اكتشف مفهوم البرمجة الكائنية وكيفية إنشاء الكائنات والفئات. ستتعلم كيفية استخدام الوراثة والتعددية الشكلية لتبسيط الكود.</p>
+        </div>
+    
+        <div class="stage">
+          <h2>6. قواعد البيانات</h2>
+          <p>تعرف على كيفية إنشاء قواعد بيانات بسيطة باستخدام SQL. ستتعلم كيفية تخزين البيانات واسترجاعها وربطها بالبرامج.</p>
+        </div>
+    
+        <div class="stage">
+          <h2>7. تطبيقات عملية</h2>
+          <p>قم ببناء مشروع برمجي بسيط مثل تطبيق آلة حاسبة أو قائمة مهام. ستطبق جميع المفاهيم التي تعلمتها في هذا المشروع.</p>
+        </div>
+    </main>
+
+    <button class="download-btn" onclick="downloadPDF()">📄 تنزيل كملف PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+      async function downloadPDF() {
+        const { jsPDF } = window.jspdf;/*استدعاء مكتبة jsPDF*/
+
+        //  screen shots  html2canvas
+        const content = document.getElementById("content");
+        const canvas = await html2canvas(content);
+        const imgData = canvas.toDataURL("image/png");
+
+        // إنشاء مستند PDF
+        const pdf = new jsPDF("p", "mm", "a4");
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const imgWidth = pageWidth;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        // إضافة الصورة إلى PDF
+        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+        // حفظ ملف PDF
+        pdf.save("roadmap.pdf");
+      }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

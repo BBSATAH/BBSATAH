@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كورسات HTML</title>
+ <link rel="stylesheet" href="styles.css">
+ <style>
+     .section-title {
+      margin: 20px 0;
+      font-size: 1.5em;
+      color: #000000; /* أرجواني داكن */
+    }
+ </style>
+</head>
+<body>
+  <!-- رأس الصفحة -->
+  <header class="top-header">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="0.png" alt="الشعار"  loading="lazy" class="header-logo">
+        </a>
+    </div>
+    <div class="header-icons">
+      <a href="#" id="toggle-dark-mode" class="icon-link">
+          <img src="dark-mode.png" alt="Dark Mode Icon" loading="lazy" class="header-icon">
+      </a>
+     
+  </div>
+  </header>
+  <h1>مرحبًا بك في كورسات HTML</h1>
+  <h2>ابدأ رحلتك الآن!</h2>
+
+  <!-- محتوى الصفحة -->
+  <main>
+    <!-- قسم الكورسات للمبتدئين -->
+    <section>
+      <h2 class="section-title">كورسات المبتدئين</h2>
+      <div class="courses-grid">
+        <div class="course-card">
+          <img src="اساسيات.png" alt="HTML Basics" loading="lazy">
+          <div class="course-card-content">
+            <h3>أساسيات HTML</h3>
+            <p>تعلم العناصر الأساسية لإنشاء صفحات الويب.</p>
+            <a href="https://www.youtube.com/playlist?list=PLknwEmKsW8OtLRQPTLms79499meY2D6ij">مشاهدة الكورس</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="forms.png" alt="HTML Forms" loading="lazy">
+          <div class="course-card-content">
+            <h3>النماذج في HTML</h3>
+            <p>كيفية إنشاء نماذج تفاعلية باستخدام HTML.</p>
+           <a href="https://www.youtube.com/watch?v=j2sNOdGMV6I">مشاهدة الكورس</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الكورسات المتقدمة -->
+    <section>
+      <h2 class="section-title">كورسات المتقدمين</h2>
+      <div class="courses-grid">
+        <div class="course-card">
+          <img src="html famous.png" alt="HTML5 Features" loading="lazy">
+          <div class="course-card-content">
+            <h3> كورس مميزات HTML5</h3>
+            <p> استكشف الميزات المتقدمة مثل الفيديو والرسومات.الممتعه والرائعة</p>
+            <a href="https://www.youtube.com/watch?v=uCdliQCk4lE">مشاهدة الكورس</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="SEO.png" alt="SEO Optimization" loading="lazy">
+          <div class="course-card-content">
+            <h3>(SEO)تحسين HTML لمحركات البحث</h3>
+            <p>تعرف على كيفية تحسين صفحاتك لتناسب SEO.</p>
+            <a href="https://www.youtube.com/playlist?list=PLAOJNfhkbzlW4SVFtg91kYzgTJ0KFI5uN">مشاهدة الكورس</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src ="script.js"></script>
+</body>
+</html>

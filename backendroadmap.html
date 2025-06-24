@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة تعلم البرمجة الخلفية</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* تنسيق الصفحة */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .stage {
+      background-color: #fff;
+      border: 5px solid #ddd;
+      border-radius:108px;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .stage h2 {
+      color: #11088a;
+      margin-bottom: 10px;
+    }
+
+    .stage p {
+      color: #555;
+    }
+
+    .download-btn {
+      margin: 20px;
+      background-color: #11088a;
+      color: #fff;
+      border: none;
+      padding:5px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .download-btn:hover {
+      background-color: #140683;
+    }
+  </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="0.png" alt="الشعار" class="header-logo">
+            </a>
+        </div>
+        <div class="header-icons">
+          <a href="#" id="toggle-dark-mode" class="icon-link">
+              <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon">
+          </a>
+         
+      </div>
+  </header>
+      </header>
+      <h1>خريطة تعلم أساسيات البرمجة الخلفية</h1>
+
+  <main class="roadmap" id="content">
+    <div class="stage">
+      <h2>1. أساسيات البرمجة</h2>
+      <p>تعلم المفاهيم الأساسية مثل المتغيرات، الجمل الشرطية، الحلقات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>2. البرمجة الكائنية (OOP)</h2>
+      <p>فهم الكائنات، الفئات (Classes)، الوراثة، والتغليف.</p>
+    </div>
+
+    <div class="stage">
+      <h2>3. قواعد البيانات</h2>
+      <p>تعلم كيفية إنشاء قواعد البيانات وربطها بالتطبيقات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>4. لغات البرمجة الخلفية</h2>
+      <p>تعلم لغات مثل Python، Java، Ruby، أو Node.js لتطوير الخوادم والتطبيقات الخلفية.</p>
+    </div>
+
+    <div class="stage">
+      <h2>5. إدارة قواعد البيانات</h2>
+      <p>تعلم كيفية استخدام نظام إدارة قواعد البيانات مثل MySQL، PostgreSQL، أو MongoDB.</p>
+    </div>
+
+    <div class="stage">
+      <h2>6. تطوير الواجهات البرمجية (APIs)</h2>
+      <p>تعلم كيفية إنشاء واجهات برمجية للتواصل بين العميل والخادم.</p>
+    </div>
+
+    <div class="stage">
+      <h2>7. الأمان</h2>
+      <p>تعلم أساسيات الأمان مثل المصادقة، التحقق من الهوية، وحماية البيانات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>8. تطوير الخوادم</h2>
+      <p>تعلم كيفية إعداد وإدارة الخوادم باستخدام أدوات مثل Apache، Nginx، أو Docker.</p>
+    </div>
+
+    <div class="stage">
+      <h2>9. تعلم Git و GitHub</h2>
+      <p>تعلم كيفية استخدام Git لإدارة الإصدارات وGitHub لتخزين ومشاركة المشاريع البرمجية.</p>
+    </div>
+
+    <div class="stage">
+      <h2>10. تعلم Docker</h2>
+      <p>تعلم كيفية استخدام Docker لتحسين عملية التطوير والنشر باستخدام الحاويات.</p>
+    </div>
+
+    <div class="stage">
+      <h2>11. تعلم Kubernetes</h2>
+      <p>تعلم كيفية إدارة الحاويات وتوزيعها باستخدام Kubernetes.</p>
+    </div>
+
+    <div class="stage">
+      <h2>12. تعلم الاختبارات</h2>
+      <p>تعلم كيفية كتابة اختبارات وحدة واختبارات تكامل لضمان جودة الكود.</p>
+    </div>
+
+  </main>
+
+  <button class="download-btn" onclick="downloadPDF()">📄 تنزيل كملف PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+
+      // التقاط محتوى الصفحة كصورة باستخدام html2canvas
+      const content = document.getElementById("content");
+      const canvas = await html2canvas(content);
+      const imgData = canvas.toDataURL("image/png");
+
+      // إنشاء مستند PDF
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = pageWidth;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      // إضافة الصورة إلى PDF
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+      // حفظ ملف PDF
+      pdf.save("roadmap.pdf");
+    }
+  </script>
+  <script src = "script.js"></script>
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl; /* جعل النصوص من اليمين إلى اليسار */
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color:#20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid#20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px; /* ضبط الحشو للتوافق مع RTL */
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0; /* تعديل الموضع للتوافق مع RTL */
+            color:#20638D;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+
+        .buttons-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .test-button {
+            background-color: #20638D;
+        }
+
+        .test-button:hover {
+            background-color: #184c6e;
+        }
+
+        .code-button {
+            background-color: #28A745;
+        }
+
+        .code-button:hover {
+            background-color: #1e7d34;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .lesson { padding: 15px; }
+            .lesson h2 { font-size: 1.5em; }
+            .lesson-details { font-size: 0.95em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات CSS</h1>
+
+        <div class="course-description">
+            <p>في هذه الدورة، سنتعلم أساسيات لغة HTML، التي تعتبر الأساس لبناء صفحات الويب. سنغطي على المفاهيم الأساسية مثل بنية الوثيقة، العناصر، الصيغ، وكيفية استخدامها لإنشاء صفحات ويب تفاعلية وجذابة. سنبدأ بالمفاهيم النظرية وننتقل إلى أمثلة عملية لتسهيل التطبيق.</p>
+        </div>
+
+        <div class="lessons">
+            <div class="lessons">
+                <!-- الدرس 1: مقدمة في CSS -->
+                <div class="lesson">
+                    <h2>الدرس الأول: مقدمة في CSS</h2>
+                    <p>CSS هي لغة تُستخدم لتحديد مظهر وتنسيق عناصر HTML، مما يتيح لك التحكم الكامل في التصميم البصري لصفحات الويب.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>تعريف CSS:</strong> CSS تعني "Cascading Style Sheets" (أوراق الأنماط المتتالية)، وهي لغة تُركز على فصل التنسيق (الألوان، الخطوط، التخطيط) عن المحتوى (HTML).</li>
+                            <li><strong>أهمية CSS:</strong> تُحسن الشكل البصري، تُوحد التصميم عبر الصفحات، وتدعم التصميم المتجاوب للأجهزة المختلفة.</li>
+                            <li><strong>طرق الإضافة:</strong>
+                                <ul>
+                                    <li><strong>Inline:</strong> داخل السمة <code>style</code>، مثل <code>&lt;p style="color: blue;"&gt;</code>.</li>
+                                    <li><strong>Internal:</strong> داخل <code>&lt;style&gt;</code> في <code>&lt;head&gt;</code>.</li>
+                                    <li><strong>External:</strong> ملف خارجي مرتبط بـ <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>.</li>
+                                </ul>
+                            </li>
+                            <li><strong>بنية القاعدة:</strong> تتكون من محدد (مثل <code>p</code>)، خاصية (مثل <code>color</code>)، وقيمة (مثل <code>blue</code>).</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>p { color: blue; font-size: 16px; }</code><br>
+                            <p>النتيجة: نصوص الفقرات زرقاء بحجم 16 بكسل.</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 2: المحددات والوحدات -->
+                <div class="lesson">
+                    <h2>الدرس الثاني: المحددات والوحدات</h2>
+                    <p>المحددات تُحدد العناصر المستهدفة، والوحدات تُحدد قيم الخصائص.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>أنواع المحددات:</strong>
+                                <ul>
+                                    <li><strong>النوع:</strong> مثل <code>p</code>.</li>
+                                    <li><strong>الفئة:</strong> مثل <code>.box</code>.</li>
+                                    <li><strong>المعرف:</strong> مثل <code>#header</code>.</li>
+                                    <li><strong>العام:</strong> <code>*</code> لكل العناصر.</li>
+                                    <li><strong>المركبة:</strong> مثل <code>div p</code> (نسل)، <code>div > p</code> (ابن مباشر).</li>
+                                </ul>
+                            </li>
+                            <li><strong>الوحدات:</strong>
+                                <ul>
+                                    <li><strong>مطلقة:</strong> <code>px</code>، <code>cm</code>.</li>
+                                    <li><strong>نسبية:</strong> <code>%</code>، <code>em</code> (نسبي للخط الحالي)، <code>rem</code> (نسبي للجذر)، <code>vw</code> (عرض الشاشة)، <code>vh</code> (ارتفاع الشاشة).</li>
+                                </ul>
+                            </li>
+                            <li><strong>الأولوية:</strong> المعرف > الفئة > النوع.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.box { width: 50vw; } #id { color: red; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 3: النمط المتتالي والوراثة -->
+                <div class="lesson">
+                    <h2>الدرس الثالث: النمط المتتالي والوراثة</h2>
+                    <p>يوضح كيف تُطبق الأنماط عند التعارض وكيف تُورث الخصائص.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>النمط المتتالي:</strong>
+                                <ul>
+                                    <li><strong>الأولوية:</strong> تُحسب بناءً على نوع المحدد.</li>
+                                    <li><strong>الترتيب:</strong> آخر قاعدة تُطبق إذا تساوت الأولوية.</li>
+                                    <li><strong>!important:</strong> تتجاوز كل القواعد.</li>
+                                </ul>
+                            </li>
+                            <li><strong>الوراثة:</strong> خصائص مثل <code>color</code> تُورث، بينما <code>border</code> لا تُورث.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>div { color: blue; } p { color: green !important; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 4: نموذج الصندوق -->
+                <div class="lesson">
+                    <h2>الدرس الرابع: نموذج الصندوق (Box Model)</h2>
+                    <p>يُحدد أبعاد العناصر بناءً على المحتوى، الحشوة، الحدود، والهوامش.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>المكونات:</strong>
+                                <ul>
+                                    <li><strong>Content:</strong> <code>width</code>، <code>height</code>.</li>
+                                    <li><strong>Padding:</strong> <code>padding</code>.</li>
+                                    <li><strong>Border:</strong> <code>border</code>.</li>
+                                    <li><strong>Margin:</strong> <code>margin</code>.</li>
+                                </ul>
+                            </li>
+                            <li><strong>box-sizing:</strong> <code>content-box</code> (افتراضي) أو <code>border-box</code>.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.box { width: 200px; padding: 20px; border: 5px solid; box-sizing: border-box; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 5: التموضع -->
+                <div class="lesson">
+                    <h2>الدرس الخامس: التموضع (Positioning)</h2>
+                    <p>يُحدد مكان العناصر في الصفحة.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>الأنواع:</strong>
+                                <ul>
+                                    <li><strong>static:</strong> التدفق الطبيعي.</li>
+                                    <li><strong>relative:</strong> بالنسبة للموقع الأصلي.</li>
+                                    <li><strong>absolute:</strong> بالنسبة للأب غير static.</li>
+                                    <li><strong>fixed:</strong> بالنسبة للشاشة.</li>
+                                    <li><strong>sticky:</strong> مزيج بين relative وfixed.</li>
+                                </ul>
+                            </li>
+                            <li><strong>z-index:</strong> ترتيب الطبقات.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.sticky { position: sticky; top: 10px; z-index: 10; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 6: الخطوط -->
+                <div class="lesson">
+                    <h2>الدرس السادس: الخطوط</h2>
+                    <p>التحكم في شكل النصوص.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>font-family:</strong> نوع الخط (مثل <code>'Arial', sans-serif</code>).</li>
+                            <li><strong>font-size:</strong> الحجم (مثل <code>16px</code>).</li>
+                            <li><strong>font-weight:</strong> الوزن (مثل <code>bold</code>، <code>400</code>).</li>
+                            <li><strong>font-style:</strong> الأسلوب (مثل <code>italic</code>).</li>
+                            <li><strong>text-decoration:</strong> الزخرفة (مثل <code>underline</code>).</li>
+                            <li><strong>line-height:</strong> تباعد الأسطر (مثل <code>1.5</code>).</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>p { font-family: 'Arial'; font-size: 18px; font-weight: bold; line-height: 1.6; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 7: الألوان والخلفيات -->
+                <div class="lesson">
+                    <h2>الدرس السابع: الألوان والخلفيات</h2>
+                    <p>إضافة الألوان والصور للعناصر.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>color:</strong> لون النص (مثل <code>#ff0000</code>).</li>
+                            <li><strong>background-color:</strong> لون الخلفية.</li>
+                            <li><strong>background-image:</strong> صورة (مثل <code>url('img.jpg')</code>).</li>
+                            <li><strong>background-repeat:</strong> التكرار (مثل <code>no-repeat</code>).</li>
+                            <li><strong>background-position:</strong> الموضع (مثل <code>center</code>).</li>
+                            <li><strong>background-size:</strong> الحجم (مثل <code>cover</code>).</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>body { background: linear-gradient(to right, #ff0000, #00ff00); color: white; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 8: Flexbox -->
+                <div class="lesson">
+                    <h2>الدرس الثامن: التخطيط باستخدام Flexbox</h2>
+                    <p>نظام تخطيط مرن أحادي البعد.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>display: flex:</strong> تفعيل Flexbox.</li>
+                            <li><strong>flex-direction:</strong> الاتجاه (مثل <code>row</code>، <code>column</code>).</li>
+                            <li><strong>justify-content:</strong> محاذاة أفقية (مثل <code>center</code>، <code>space-between</code>).</li>
+                            <li><strong>align-items:</strong> محاذاة عمودية (مثل <code>center</code>).</li>
+                            <li><strong>flex-wrap:</strong> التفاف العناصر (مثل <code>wrap</code>).</li>
+                            <li><strong>flex:</strong> توزيع المساحة للأبناء (مثل <code>flex: 1</code>).</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.container { display: flex; justify-content: space-around; align-items: center; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 9: Grid -->
+                <div class="lesson">
+                    <h2>الدرس التاسع: التخطيط باستخدام Grid</h2>
+                    <p>نظام تخطيط ثنائي الأبعاد.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>display: grid:</strong> تفعيل Grid.</li>
+                            <li><strong>grid-template-columns:</strong> الأعمدة (مثل <code>1fr 1fr</code>).</li>
+                            <li><strong>grid-template-rows:</strong> الصفوف.</li>
+                            <li><strong>gap:</strong> المسافة بين الخلايا (مثل <code>20px</code>).</li>
+                            <li><strong>grid-area:</strong> تحديد مواضع العناصر.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 10: الظلال -->
+                <div class="lesson">
+                    <h2>الدرس العاشر: الظلال</h2>
+                    <p>إضافة تأثيرات ثلاثية الأبعاد.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>text-shadow:</strong> ظل النص (مثل <code>2px 2px 5px #888</code>).</li>
+                            <li><strong>box-shadow:</strong> ظل العنصر (مثل <code>0 4px 8px rgba(0,0,0,0.2)</code>).</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>h1 { text-shadow: 1px 1px 3px gray; } .box { box-shadow: 0 5px 15px rgba(0,0,0,0.3); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 11: التحولات -->
+                <div class="lesson">
+                    <h2>الدرس الحادي عشر: التحولات (Transforms)</h2>
+                    <p>تغيير شكل العناصر.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>transform:</strong>
+                                <ul>
+                                    <li><code>translate(x, y)</code>: التحريك.</li>
+                                    <li><code>rotate(deg)</code>: التدوير.</li>
+                                    <li><code>scale(n)</code>: التكبير/التصغير.</li>
+                                    <li><code>skew(deg)</code>: الانحراف.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.box { transform: translate(50px, 20px) rotate(45deg); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 12: الانتقالات -->
+                <div class="lesson">
+                    <h2>الدرس الثاني عشر: الانتقالات (Transitions)</h2>
+                    <p>تأثيرات سلسة للتغييرات.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>transition:</strong> تُحدد الخاصية، المدة، والتوقيت (مثل <code>transition: all 0.3s ease</code>).</li>
+                            <li><strong>الخصائص:</strong> مثل <code>color</code>، <code>transform</code>.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.box { transition: transform 0.5s; } .box:hover { transform: scale(1.2); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 13: الرسوم المتحركة -->
+                <div class="lesson">
+                    <h2>الدرس الثالث عشر: الرسوم المتحركة (Animations)</h2>
+                    <p>حركات مخصصة متكررة.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>@keyframes:</strong> تُحدد مراحل الحركة.</li>
+                            <li><strong>animation:</strong> تُطبق الحركة (اسم، مدة، تكرار).</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>@keyframes slide { 0% { left: 0; } 100% { left: 100px; } } .box { animation: slide 2s infinite; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 14: الاستعلامات الإعلامية -->
+                <div class="lesson">
+                    <h2>الدرس الرابع عشر: الاستعلامات الإعلامية (Media Queries)</h2>
+                    <p>تصميم متجاوب للأجهزة.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>@media:</strong> تُطبق الأنماط بناءً على الشروط (مثل حجم الشاشة).</li>
+                            <li><strong>الأمثلة:</strong> <code>max-width</code>، <code>min-width</code>.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>@media (max-width: 600px) { body { font-size: 14px; } }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 15: المتغيرات -->
+                <div class="lesson">
+                    <h2>الدرس الخامس عشر: المتغيرات (CSS Variables)</h2>
+                    <p>تخزين القيم لإعادة الاستخدام.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>--variable:</strong> تُعرف في <code>:root</code> للنطاق العام.</li>
+                            <li><strong>var():</strong> تُستخدم القيمة.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>:root { --main-color: #ff0000; } p { color: var(--main-color); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 16: الفلاتر -->
+                <div class="lesson">
+                    <h2>الدرس السادس عشر: الفلاتر (Filters)</h2>
+                    <p>تأثيرات بصرية على الصور والعناصر.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>filter:</strong> مثل <code>blur(5px)</code>، <code>brightness(150%)</code>، <code>grayscale(100%)</code>.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>img { filter: blur(2px) grayscale(50%); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 17: التدرجات -->
+                <div class="lesson">
+                    <h2>الدرس السابع عشر: التدرجات (Gradients)</h2>
+                    <p>انتقالات لونية للخلفيات.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>linear-gradient:</strong> تدرج خطي (مثل <code>to right, red, blue</code>).</li>
+                            <li><strong>radial-gradient:</strong> تدرج دائري.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>body { background: linear-gradient(45deg, #ff0000, #00ff00); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 18: الشفافية -->
+                <div class="lesson">
+                    <h2>الدرس الثامن عشر: الشفافية (Opacity)</h2>
+                    <p>التحكم في شفافية العناصر.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>opacity:</strong> من 0 (شفاف) إلى 1 (معتم).</li>
+                            <li><strong>rgba():</strong> لون مع شفافية (مثل <code>rgba(255, 0, 0, 0.5)</code>).</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.box { opacity: 0.7; background: rgba(0, 255, 0, 0.3); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 19: التحجيم والتدفق -->
+                <div class="lesson">
+                    <h2>الدرس التاسع عشر: التحجيم والتدفق</h2>
+                    <p>التحكم في سلوك العناصر في التدفق.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>display:</strong> <code>block</code>، <code>inline</code>، <code>inline-block</code>.</li>
+                            <li><strong>float:</strong> يجعل العنصر يطفو (مثل <code>left</code>).</li>
+                            <li><strong>clear:</strong> يُزيل تأثير العناصر العائمة.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>.img { float: left; } .text { clear: both; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 20: المؤشرات والتفاعل -->
+                <div class="lesson">
+                    <h2>الدرس العشرون: المؤشرات والتفاعل</h2>
+                    <p>التحكم في سلوك المؤشر والتفاعل.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>cursor:</strong> شكل المؤشر (مثل <code>pointer</code>، <code>not-allowed</code>).</li>
+                            <li><strong>:hover:</strong> عند التمرير.</li>
+                            <li><strong>:active:</strong> عند النقر.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>button:hover { cursor: pointer; background: #ddd; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 21: تحسين الأداء -->
+                <div class="lesson">
+                    <h2>الدرس الحادي والعشرون: تحسين الأداء</h2>
+                    <p>تسريع تحميل الصفحات.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>تقليل الأنماط:</strong> استخدام قواعد بسيطة.</li>
+                            <li><strong>ملفات خارجية:</strong> فصل CSS في ملفات مستقلة.</li>
+                            <li><strong>تقليل التكرار:</strong> استخدام متغيرات أو أدوات مثل Sass.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>:root { --color: #333; } p { color: var(--color); }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 22: CSS متقدم (Pseudo-elements) -->
+                <div class="lesson">
+                    <h2>الدرس الثاني والعشرون: العناصر الزائفة (Pseudo-elements)</h2>
+                    <p>إضافة محتوى إضافي دون HTML.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>::before:</strong> قبل المحتوى.</li>
+                            <li><strong>::after:</strong> بعد المحتوى.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>p::before { content: "★ "; color: gold; }</code>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- الدرس 23: الطباعة -->
+                <div class="lesson">
+                    <h2>الدرس الثالث والعشرون: تنسيق الطباعة</h2>
+                    <p>التحكم في شكل الصفحة عند الطباعة.</p>
+                    <div class="lesson-details">
+                        <strong>شرح مفصل:</strong>
+                        <ul>
+                            <li><strong>@media print:</strong> أنماط للطباعة فقط.</li>
+                            <li><strong>page-break:</strong> التحكم في فواصل الصفحات.</li>
+                        </ul>
+                        <div class="example">
+                            <strong>مثال:</strong><br>
+                            <code>@media print { body { color: black; } h1 { page-break-before: always; } }</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <a href="css.html" class="button test-button">اختبار</a>
+                <a href="https://akcode55.github.io/best-compi-Html-css-js/" class="button code-button">التطبيق</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

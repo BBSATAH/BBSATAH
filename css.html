@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+       body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #222;
+            padding: 20px;
+            margin: 0;
+            direction: rtl; /* جعل النصوص تبدأ من اليمين */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+        }
+
+        .level-title {
+            color: #20638D;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question p {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-left: 10px; /* لتناسب الاتجاه من اليمين */
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #20638D;
+        }
+
+        .evaluation-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            color: #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .evaluation-popup button {
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .evaluation-popup button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        select {
+            background-color: #20638D; /* لون خلفية أنيق */
+            color: #fff; /* لون النص */
+            border: 2px solid #20638D; /* حدود بتأثير أكثر جاذبية */
+            border-radius: 8px; /* زوايا مستديرة */
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Cairo', sans-serif;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+            appearance: none; /* إخفاء السهم الافتراضي */
+            text-align: center;
+            font-weight: bold;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="white"><polygon points="0,0 20,0 10,10"/></svg>'); /* سهم مخصص أكبر */
+            background-repeat: no-repeat;
+            background-position: left 10px center; /* موضع السهم إلى اليسار */
+            background-size: 15px; /* حجم السهم أكبر */
+        }
+
+        select:hover {
+            background-color: #6d00fc; /* تأثير عند تمرير الماوس */
+            border-color: #20638D;
+        }
+
+        select:focus {
+            background-color: #20638D; /* لون مختلف عند التحديد */
+            border-color: #fff;
+            box-shadow: 0 0 8px #20638D;
+        }
+
+        option {
+            background-color: #20638D; /* لون عناصر القائمة */
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        option:hover {
+            background-color: #1a4d7e; /* تأثير عند التحديد */
+        }
+
+        /* تحسين العرض على الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .question {
+                padding: 10px;
+            }
+
+            .result {
+                font-size: 20px;
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>امتحان CSS</h1>
+
+        <select id="levelSelect">
+            <option value="easy">المستوى السهل</option>
+            <option value="hard">المستوى المتوسط</option>
+            <option value="extra">المستوى الصعب</option>
+        </select>
+
+        <div id="easy" class="level-content">
+            <h2 class="level-title">المستوى السهل</h2>
+            <!-- الأسئلة للمستوى السهل -->
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير لون النص؟</p>
+                <input type="radio" name="q1" value="color"> color<br>
+                <input type="radio" name="q1" value="background-color"> background-color<br>
+                <input type="radio" name="q1" value="text-color"> text-color<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير حجم النص؟</p>
+                <input type="radio" name="q2" value="font-size"> font-size<br>
+                <input type="radio" name="q2" value="text-size"> text-size<br>
+                <input type="radio" name="q2" value="font-color"> font-color<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير ارتفاع السطر؟</p>
+                <input type="radio" name="q3" value="line-height"> line-height<br>
+                <input type="radio" name="q3" value="height"> height<br>
+                <input type="radio" name="q3" value="text-height"> text-height<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتوسيط النص داخل عنصر؟</p>
+                <input type="radio" name="q4" value="text-align"> text-align<br>
+                <input type="radio" name="q4" value="align-text"> align-text<br>
+                <input type="radio" name="q4" value="center-text"> center-text<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير لون خلفية العنصر؟</p>
+                <input type="radio" name="q5" value="background-color"> background-color<br>
+                <input type="radio" name="q5" value="color"> color<br>
+                <input type="radio" name="q5" value="border-color"> border-color<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لإضافة حد حول العنصر؟</p>
+                <input type="radio" name="q6" value="border"> border<br>
+                <input type="radio" name="q6" value="outline"> outline<br>
+                <input type="radio" name="q6" value="margin"> margin<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لإضافة مساحة حول العنصر من الخارج؟</p>
+                <input type="radio" name="q7" value="margin"> margin<br>
+                <input type="radio" name="q7" value="padding"> padding<br>
+                <input type="radio" name="q7" value="border"> border<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لإضافة مساحة داخل العنصر؟</p>
+                <input type="radio" name="q8" value="padding"> padding<br>
+                <input type="radio" name="q8" value="margin"> margin<br>
+                <input type="radio" name="q8" value="border"> border<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد نوع العرض للعنصر؟</p>
+                <input type="radio" name="q9" value="display"> display<br>
+                <input type="radio" name="q9" value="visibility"> visibility<br>
+                <input type="radio" name="q9" value="float"> float<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لإضافة ظل للعنصر؟</p>
+                <input type="radio" name="q10" value="box-shadow"> box-shadow<br>
+                <input type="radio" name="q10" value="text-shadow"> text-shadow<br>
+                <input type="radio" name="q10" value="shadow"> shadow<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد موقع العنصر؟</p>
+                <input type="radio" name="q11" value="position"> position<br>
+                <input type="radio" name="q11" value="top"> top<br>
+                <input type="radio" name="q11" value="left"> left<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد محاذاة العناصر الرأسية؟</p>
+                <input type="radio" name="q12" value="vertical-align"> vertical-align<br>
+                <input type="radio" name="q12" value="align-items"> align-items<br>
+                <input type="radio" name="q12" value="justify-content"> justify-content<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد مستوى العمق للعنصر؟</p>
+                <input type="radio" name="q13" value="z-index"> z-index<br>
+                <input type="radio" name="q13" value="depth"> depth<br>
+                <input type="radio" name="q13" value="stacking-order"> stacking-order<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية توزيع العناصر في الحاوية؟</p>
+                <input type="radio" name="q14" value="flex"> flex<br>
+                <input type="radio" name="q14" value="grid"> grid<br>
+                <input type="radio" name="q14" value="float"> float<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد عرض العنصر؟</p>
+                <input type="radio" name="q15" value="width"> width<br>
+                <input type="radio" name="q15" value="height"> height<br>
+                <input type="radio" name="q15" value="size"> size<br>
+            </div>
+        </div>
+
+        <div id="hard" class="level-content hidden">
+            <h2 class="level-title">المستوى المتوسط</h2>
+            <!-- الأسئلة للمستوى الصعب -->
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير ظل النص؟</p>
+                <input type="radio" name="q16" value="text-shadow"> text-shadow<br>
+                <input type="radio" name="q16" value="box-shadow"> box-shadow<br>
+                <input type="radio" name="q16" value="shadow"> shadow<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتنسيق النصوص عند التمرير؟</p>
+                <input type="radio" name="q17" value="overflow"> overflow<br>
+                <input type="radio" name="q17" value="scroll"> scroll<br>
+                <input type="radio" name="q17" value="auto"> auto<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد عدد الأعمدة في النصوص؟</p>
+                <input type="radio" name="q18" value="column-count"> column-count<br>
+                <input type="radio" name="q18" value="columns"> columns<br>
+                <input type="radio" name="q18" value="column-width"> column-width<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتوسيع المحتوى ليملأ مساحة الحاوية؟</p>
+                <input type="radio" name="q19" value="flex-grow"> flex-grow<br>
+                <input type="radio" name="q19" value="width"> width<br>
+                <input type="radio" name="q19" value="height"> height<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لإخفاء عناصر معينة فقط عند الطباعة؟</p>
+                <input type="radio" name="q20" value="display"> display<br>
+                <input type="radio" name="q20" value="visibility"> visibility<br>
+                <input type="radio" name="q20" value="media-query"> media-query<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتطبيق تأثيرات التحويل على العناصر؟</p>
+                <input type="radio" name="q21" value="transform"> transform<br>
+                <input type="radio" name="q21" value="transition"> transition<br>
+                <input type="radio" name="q21" value="animation"> animation<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير الخلفية باستخدام تدرج لوني؟</p>
+                <input type="radio" name="q22" value="linear-gradient"> linear-gradient<br>
+                <input type="radio" name="q22" value="radial-gradient"> radial-gradient<br>
+                <input type="radio" name="q22" value="background-color"> background-color<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير محاذاة العناصر على المحور الرئيسي؟</p>
+                <input type="radio" name="q23" value="justify-content"> justify-content<br>
+                <input type="radio" name="q23" value="align-items"> align-items<br>
+                <input type="radio" name="q23" value="align-content"> align-content<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير حجم النصوص بشكل استجابة؟</p>
+                <input type="radio" name="q24" value="font-size"> font-size<br>
+                <input type="radio" name="q24" value="viewport-width"> viewport-width<br>
+                <input type="radio" name="q24" value="font-weight"> font-weight<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير شكل الحافة؟</p>
+                <input type="radio" name="q25" value="border-radius"> border-radius<br>
+                <input type="radio" name="q25" value="border-style"> border-style<br>
+                <input type="radio" name="q25" value="border-width"> border-width<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد إطار ملون حول النص؟</p>
+                <input type="radio" name="q26" value="text-shadow"> text-shadow<br>
+                <input type="radio" name="q26" value="border"> border<br>
+                <input type="radio" name="q26" value="outline"> outline<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد صورة خلفية باستخدام تدرج لوني؟</p>
+                <input type="radio" name="q27" value="background-image"> background-image<br>
+                <input type="radio" name="q27" value="linear-gradient"> linear-gradient<br>
+                <input type="radio" name="q27" value="radial-gradient"> radial-gradient<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير نوع الكتابة؟</p>
+                <input type="radio" name="q28" value="font-family"> font-family<br>
+                <input type="radio" name="q28" value="font-style"> font-style<br>
+                <input type="radio" name="q28" value="font-weight"> font-weight<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير حركة النصوص داخل العنصر؟</p>
+                <input type="radio" name="q29" value="animation"> animation<br>
+                <input type="radio" name="q29" value="transition"> transition<br>
+                <input type="radio" name="q29" value="transform"> transform<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية تنسيق العناصر داخل العنصر؟</p>
+                <input type="radio" name="q30" value="font-family"> font-family<br>
+                <input type="radio" name="q30" value="text-transform"> text-transform<br>
+                <input type="radio" name="q30" value="font-style"> font-style<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية تصرف العناصر عند تصغير الحجم؟</p>
+                <input type="radio" name="q31" value="overflow"> overflow<br>
+                <input type="radio" name="q31" value="flex"> flex<br>
+                <input type="radio" name="q31" value="grid"> grid<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد شكل العنصر عند اللمس؟</p>
+                <input type="radio" name="q32" value="cursor"> cursor<br>
+                <input type="radio" name="q32" value="pointer-events"> pointer-events<br>
+                <input type="radio" name="q32" value="touch-action"> touch-action<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتغيير زاوية دوران العنصر؟</p>
+                <input type="radio" name="q33" value="transform"> transform<br>
+                <input type="radio" name="q33" value="rotate"> rotate<br>
+                <input type="radio" name="q33" value="perspective"> perspective<br>
+            </div>
+        </div>
+
+        <div id="extra" class="level-content hidden">
+            <h2 class="level-title">المستوى الصعب</h2>
+            <!-- الأسئلة للمستوى الصعب جدا -->
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية تحديد عناصر الشبكة؟</p>
+                <input type="radio" name="q34" value="grid-area"> grid-area<br>
+                <input type="radio" name="q34" value="grid-template-areas"> grid-template-areas<br>
+                <input type="radio" name="q34" value="grid-column"> grid-column<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية توزيع العناصر في الشبكة؟</p>
+                <input type="radio" name="q35" value="grid-template-columns"> grid-template-columns<br>
+                <input type="radio" name="q35" value="grid-template-rows"> grid-template-rows<br>
+                <input type="radio" name="q35" value="grid-column"> grid-column<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد اتجاه العناصر في الشبكة؟</p>
+                <input type="radio" name="q36" value="grid-auto-flow"> grid-auto-flow<br>
+                <input type="radio" name="q36" value="grid-template-areas"> grid-template-areas<br>
+                <input type="radio" name="q36" value="grid-template-columns"> grid-template-columns<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية تصرف العناصر عند التمرير؟</p>
+                <input type="radio" name="q37" value="overflow"> overflow<br>
+                <input type="radio" name="q37" value="scroll"> scroll<br>
+                <input type="radio" name="q37" value="auto"> auto<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية تأثير التفاعل مع العناصر؟</p>
+                <input type="radio" name="q38" value="pointer-events"> pointer-events<br>
+                <input type="radio" name="q38" value="touch-action"> touch-action<br>
+                <input type="radio" name="q38" value="user-select"> user-select<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد تأثير العناصر على خلفية أخرى؟</p>
+                <input type="radio" name="q39" value="mix-blend-mode"> mix-blend-mode<br>
+                <input type="radio" name="q39" value="background-blend-mode"> background-blend-mode<br>
+                <input type="radio" name="q39" value="filter"> filter<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد استجابة العنصر لحجم الشاشة؟</p>
+                <input type="radio" name="q40" value="media-query"> media-query<br>
+                <input type="radio" name="q40" value="viewport"> viewport<br>
+                <input type="radio" name="q40" value="responsive"> responsive<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد توزيع العناصر في الحاوية باستخدام الشبكة؟</p>
+                <input type="radio" name="q41" value="grid"> grid<br>
+                <input type="radio" name="q41" value="flex"> flex<br>
+                <input type="radio" name="q41" value="float"> float<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد تباعد العناصر في الشبكة؟</p>
+                <input type="radio" name="q42" value="grid-gap"> grid-gap<br>
+                <input type="radio" name="q42" value="gap"> gap<br>
+                <input type="radio" name="q42" value="spacing"> spacing<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد تأثيرات الأبعاد ثلاثية الأبعاد؟</p>
+                <input type="radio" name="q43" value="perspective"> perspective<br>
+                <input type="radio" name="q43" value="transform"> transform<br>
+                <input type="radio" name="q43" value="translate"> translate<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيف يتفاعل العنصر مع الحاوية؟</p>
+                <input type="radio" name="q44" value="contain"> contain<br>
+                <input type="radio" name="q44" value="containment"> containment<br>
+                <input type="radio" name="q44" value="overflow"> overflow<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد تأثيرات التباين في الصور؟</p>
+                <input type="radio" name="q45" value="filter"> filter<br>
+                <input type="radio" name="q45" value="contrast"> contrast<br>
+                <input type="radio" name="q45" value="brightness"> brightness<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد تأثيرات التحويل في المسافات بين العناصر؟</p>
+                <input type="radio" name="q46" value="transform"> transform<br>
+                <input type="radio" name="q46" value="transition"> transition<br>
+                <input type="radio" name="q46" value="animation"> animation<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد تأثيرات النصوص عند التمرير؟</p>
+                <input type="radio" name="q47" value="text-overflow"> text-overflow<br>
+                <input type="radio" name="q47" value="overflow"> overflow<br>
+                <input type="radio" name="q47" value="white-space"> white-space<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد كيفية تنسيق العناصر عند استخدام الشبكة؟</p>
+                <input type="radio" name="q48" value="grid-template-areas"> grid-template-areas<br>
+                <input type="radio" name="q48" value="grid-template-columns"> grid-template-columns<br>
+                <input type="radio" name="q48" value="grid-auto-flow"> grid-auto-flow<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد شكل العنصر عند التمرير؟</p>
+                <input type="radio" name="q49" value="overflow"> overflow<br>
+                <input type="radio" name="q49" value="scroll"> scroll<br>
+                <input type="radio" name="q49" value="auto"> auto<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد مستوى العمق في الشبكة؟</p>
+                <input type="radio" name="q50" value="z-index"> z-index<br>
+                <input type="radio" name="q50" value="perspective"> perspective<br>
+                <input type="radio" name="q50" value="translate"> translate<br>
+            </div>
+            <div class="question">
+                <p>ما هي خاصية CSS لتحديد تأثيرات الألوان عند الطباعة؟</p>
+                <input type="radio" name="q51" value="print-color"> print-color<br>
+                <input type="radio" name="q51" value="color"> color<br>
+                <input type="radio" name="q51" value="background-color"> background-color<br>
+            </div>
+        </div>
+
+        <button id="submitBtn">طمنى بسرعه</button>
+    </div>
+
+    <div id="popup" class="evaluation-popup">
+        <p id="resultMessage"></p>
+        <button id="closePopup">إغلاق</button>
+    </div>
+
+    <script>
+        // Toggle visibility of questions based on selected level
+        document.getElementById('levelSelect').addEventListener('change', function() {
+            const selectedLevel = this.value;
+            document.querySelectorAll('.level-content').forEach(function(content) {
+                content.classList.add('hidden');
+            });
+            document.getElementById(selectedLevel).classList.remove('hidden');
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            let score = 0;
+            // Define correct answers
+            const correctAnswers = {
+                q1: 'color',
+                q2: 'font-size',
+                q3: 'line-height',
+                q4: 'text-align',
+                q5: 'background-color',
+                q6: 'border',
+                q7: 'margin',
+                q8: 'padding',
+                q9: 'display',
+                q10: 'box-shadow',
+                q11: 'position',
+                q12: 'vertical-align',
+                q13: 'z-index',
+                q14: 'flex',
+                q15: 'width',
+                q16: 'text-shadow',
+                q17: 'overflow',
+                q18: 'column-count',
+                q19: 'flex-grow',
+                q20: 'display',
+                q21: 'transform',
+                q22: 'linear-gradient',
+                q23: 'justify-content',
+                q24: 'viewport-width',
+                q25: 'border-radius',
+                q26: 'outline',
+                q27: 'linear-gradient',
+                q28: 'font-family',
+                q29: 'animation',
+                q30: 'font-family',
+                q31: 'overflow',
+                q32: 'cursor',
+                q33: 'transform',
+                q34: 'grid-area',
+                q35: 'grid-template-columns',
+                q36: 'grid-auto-flow',
+                q37: 'overflow',
+                q38: 'pointer-events',
+                q39: 'mix-blend-mode',
+                q40: 'media-query',
+                q41: 'grid',
+                q42: 'grid-gap',
+                q43: 'perspective',
+                q44: 'contain',
+                q45: 'filter',
+                q46: 'transform',
+                q47: 'text-overflow',
+                q48: 'grid-template-areas',
+                q49: 'overflow',
+                q50: 'z-index',
+                q51: 'print-color'
+            };
+
+            // Calculate score
+            for (const [key, value] of Object.entries(correctAnswers)) {
+                const selected = document.querySelector(`input[name="${key}"]:checked`);
+                if (selected && selected.value === value) {
+                    score++;
+                }
+            }
+
+            // Show result
+            const resultMessage = `نتيجتك هي: ${score} من أصل ${Object.keys(correctAnswers).length}`;
+            document.getElementById('resultMessage').textContent = resultMessage;
+            document.getElementById('popup').style.display = 'block';
+        });
+
+        // Close popup
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

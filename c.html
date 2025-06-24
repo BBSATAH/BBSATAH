@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان C#</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+         body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #222;
+            padding: 20px;
+            margin: 0;
+            direction: rtl; /* جعل النصوص تبدأ من اليمين */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+        }
+
+        .level-title {
+            color: #20638D;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question p {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-left: 10px; /* لتناسب الاتجاه من اليمين */
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #20638D;
+        }
+
+        .evaluation-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            color: #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .evaluation-popup button {
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .evaluation-popup button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        select {
+            background-color: #20638D; /* لون خلفية أنيق */
+            color: #fff; /* لون النص */
+            border: 2px solid #20638D; /* حدود بتأثير أكثر جاذبية */
+            border-radius: 8px; /* زوايا مستديرة */
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Cairo', sans-serif;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+            appearance: none; /* إخفاء السهم الافتراضي */
+            text-align: center;
+            font-weight: bold;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="white"><polygon points="0,0 20,0 10,10"/></svg>'); /* سهم مخصص أكبر */
+            background-repeat: no-repeat;
+            background-position: left 10px center; /* موضع السهم إلى اليسار */
+            background-size: 15px; /* حجم السهم أكبر */
+        }
+
+        select:hover {
+            background-color: #6d00fc; /* تأثير عند تمرير الماوس */
+            border-color: #20638D;
+        }
+
+        select:focus {
+            background-color: #20638D; /* لون مختلف عند التحديد */
+            border-color: #fff;
+            box-shadow: 0 0 8px #20638D;
+        }
+
+        option {
+            background-color: #20638D; /* لون عناصر القائمة */
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        option:hover {
+            background-color: #1a4d7e; /* تأثير عند التحديد */
+        }
+
+        /* تحسين العرض على الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .question {
+                padding: 10px;
+            }
+
+            .result {
+                font-size: 20px;
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>امتحان #C</h1>
+        
+        <!-- القائمة المنسدلة لاختيار المستوى -->
+        <select id="levelSelect">
+            <option value="easy">المستوى السهل</option>
+            <option value="medium">المستوى المتوسط</option>
+            <option value="hard">المستوى الصعب</option>
+        </select>
+
+          <!-- أسئلة المستوى السهل -->
+        <div id="easy" class="level-content">
+            <h2 class="level-title">المستوى السهل</h2>
+            <div class="question">
+                <p>ما هي الكلمة المفتاحية لإنشاء دالة في #C؟</p>
+                <input type="radio" name="q1" value="void"> void<br>
+                <input type="radio" name="q1" value="function"> function<br>
+                <input type="radio" name="q1" value="method"> method<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة التي يتم بها تعريف متغير ثابت في #C؟</p>
+                <input type="radio" name="q2" value="const"> const<br>
+                <input type="radio" name="q2" value="readonly"> readonly<br>
+                <input type="radio" name="q2" value="final"> final<br>
+            </div>
+            <div class="question">
+                <p>ما هو النوع الأساسي للمتغيرات في #C؟</p>
+                <input type="radio" name="q3" value="int"> int<br>
+                <input type="radio" name="q3" value="String"> String<br>
+                <input type="radio" name="q3" value="boolean"> boolean<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة المستخدمة لطباعة النص في #C؟</p>
+                <input type="radio" name="q4" value="Console.WriteLine"> Console.WriteLine<br>
+                <input type="radio" name="q4" value="print"> print<br>
+                <input type="radio" name="q4" value="echo"> echo<br>
+            </div>
+            <div class="question">
+                <p>ما هي الكلمة المفتاحية لإنشاء حلقة تكرار في #C؟</p>
+                <input type="radio" name="q5" value="for"> for<br>
+                <input type="radio" name="q5" value="foreach"> foreach<br>
+                <input type="radio" name="q5" value="loop"> loop<br>
+            </div>
+            <div class="question">
+                <p>ما هي الكلمة المفتاحية التي تستخدم للتعامل مع الاستثناءات في #C؟</p>
+                <input type="radio" name="q6" value="try"> try<br>
+                <input type="radio" name="q6" value="catch"> catch<br>
+                <input type="radio" name="q6" value="finally"> finally<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف فئة جديدة في #C؟</p>
+                <input type="radio" name="q7" value="class MyClass { }"> class MyClass { }<br>
+                <input type="radio" name="q7" value="new class MyClass { }"> new class MyClass { }<br>
+                <input type="radio" name="q7" value="def MyClass { }"> def MyClass { }<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة التي يتم بها إنشاء كائن جديد من فئة في #C؟</p>
+                <input type="radio" name="q8" value="new MyClass()"> new MyClass()<br>
+                <input type="radio" name="q8" value="MyClass.Create()"> MyClass.Create()<br>
+                <input type="radio" name="q8" value="MyClass.Init()"> MyClass.Init()<br>
+            </div>
+            <div class="question">
+                <p>ما هو الوسيط الذي يستخدم لإضافة عنصر إلى قائمة في #C؟</p>
+                <input type="radio" name="q9" value="Add"> Add<br>
+                <input type="radio" name="q9" value="Insert"> Insert<br>
+                <input type="radio" name="q9" value="Append"> Append<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة المستخدمة للتعامل مع القوائم في #C؟</p>
+                <input type="radio" name="q10" value="foreach"> foreach<br>
+                <input type="radio" name="q10" value="forEach"> forEach<br>
+                <input type="radio" name="q10" value="map"> map<br>
+            </div>
+        </div>
+
+        <!-- أسئلة المستوى المتوسط -->
+        <div id="medium" class="level-content hidden">
+            <h2 class="level-title">المستوى المتوسط</h2>
+            <div class="question">
+                <p>ما هي الطريقة التي يمكن استخدامها لتعريف متغير ثابت في #C؟</p>
+                <input type="radio" name="q11" value="const"> const<br>
+                <input type="radio" name="q11" value="readonly"> readonly<br>
+                <input type="radio" name="q11" value="final"> final<br>
+            </div>
+            <div class="question">
+                <p>كيف يتم تعريف الخاصية في #C؟</p>
+                <input type="radio" name="q12" value="public int Property { get; set; }"> public int Property { get; set; }<br>
+                <input type="radio" name="q12" value="int Property { get; }"> int Property { get; }<br>
+                <input type="radio" name="q12" value="public int Property() { return value; }"> public int Property() { return value; }<br>
+            </div>
+            <div class="question">
+                <p>ما هو نوع البيانات المناسب لتخزين تاريخ في #C؟</p>
+                <input type="radio" name="q13" value="DateTime"> DateTime<br>
+                <input type="radio" name="q13" value="Date"> Date<br>
+                <input type="radio" name="q13" value="Timestamp"> Timestamp<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة الصحيحة لإنشاء مكتبة (Class Library) في #C؟</p>
+                <input type="radio" name="q14" value="class Library { }"> class Library { }<br>
+                <input type="radio" name="q14" value="namespace Library { }"> namespace Library { }<br>
+                <input type="radio" name="q14" value="public class Library { }"> public class Library { }<br>
+            </div>
+            <div class="question">
+                <p>كيف يتم التعامل مع الأحداث في #C؟</p>
+                <input type="radio" name="q15" value="event EventHandler"> event EventHandler<br>
+                <input type="radio" name="q15" value="handle EventHandler"> handle EventHandler<br>
+                <input type="radio" name="q15" value="subscribe EventHandler"> subscribe EventHandler<br>
+            </div>
+            <div class="question">
+                <p>ما هو الوسيط المناسب لإرجاع قيمة من دالة في #C؟</p>
+                <input type="radio" name="q16" value="return"> return<br>
+                <input type="radio" name="q16" value="yield"> yield<br>
+                <input type="radio" name="q16" value="break"> break<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة المناسبة لإنشاء كائن من نوع List في #C؟</p>
+                <input type="radio" name="q17" value="List<int> myList = new List<int>();"> List<int> myList = new List<int>();<br>
+                <input type="radio" name="q17" value="ArrayList myList = new ArrayList();"> ArrayList myList = new ArrayList();<br>
+                <input type="radio" name="q17" value="List myList = new List();"> List myList = new List();<br>
+            </div>
+            <div class="question">
+                <p>ما هو تعريف خاصية ReadOnly في #C؟</p>
+                <input type="radio" name="q18" value="public readonly int Property { get; }"> public readonly int Property { get; }<br>
+                <input type="radio" name="q18" value="public int Property { get; }"> public int Property { get; }<br>
+                <input type="radio" name="q18" value="public int Property { get; set; }"> public int Property { get; set; }<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة التي يمكن من خلالها استخدام الخصائص في #C؟</p>
+                <input type="radio" name="q19" value="PropertyName"> PropertyName<br>
+                <input type="radio" name="q19" value="GetPropertyName"> GetPropertyName<br>
+                <input type="radio" name="q19" value="SetPropertyName"> SetPropertyName<br>
+            </div>
+            <div class="question">
+                <p>ما هو الوسيط المناسب لإنشاء حلقة تكرار غير محددة في #C؟</p>
+                <input type="radio" name="q20" value="while"> while<br>
+                <input type="radio" name="q20" value="foreach"> foreach<br>
+                <input type="radio" name="q20" value="for"> for<br>
+            </div>
+        </div>
+
+        <!-- أسئلة المستوى الصعب -->
+        <div id="hard" class="level-content hidden">
+            <h2 class="level-title">المستوى الصعب</h2>
+            <div class="question">
+                <p>ما هي الطريقة التي يمكن استخدامها لإنشاء واجهة في #C؟</p>
+                <input type="radio" name="q21" value="interface IMyInterface { }"> interface IMyInterface { }<br>
+                <input type="radio" name="q21" value="class IMyInterface { }"> class IMyInterface { }<br>
+                <input type="radio" name="q21" value="public IMyInterface { }"> public IMyInterface { }<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكن استخدام مكتبة LINQ في #C؟</p>
+                <input type="radio" name="q22" value="from...select"> from...select<br>
+                <input type="radio" name="q22" value="select...from"> select...from<br>
+                <input type="radio" name="q22" value="query...where"> query...where<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة الصحيحة لإنشاء دالة لامبدا (Lambda) في #C؟</p>
+                <input type="radio" name="q23" value="(parameters) => expression"> (parameters) => expression<br>
+                <input type="radio" name="q23" value="expression => parameters"> expression => parameters<br>
+                <input type="radio" name="q23" value="parameters => { statements }"> parameters => { statements }<br>
+            </div>
+            <div class="question">
+                <p>ما هي الكلمة المفتاحية المستخدمة لإنشاء فصل فرعي (Subclass) في C#؟</p>
+                <input type="radio" name="q24" value=":"> :<br>
+                <input type="radio" name="q24" value="extends"> extends<br>
+                <input type="radio" name="q24" value="inherits"> inherits<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكن استخدام سمات (Attributes) في C#؟</p>
+                <input type="radio" name="q25" value="[AttributeName]"> [AttributeName]<br>
+                <input type="radio" name="q25" value="AttributeName()"> AttributeName()<br>
+                <input type="radio" name="q25" value="{AttributeName}"> {AttributeName}<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة التي يمكن استخدامها لتنفيذ تعدد الواجهات (Interface Inheritance) في C#؟</p>
+                <input type="radio" name="q26" value="class MyClass : IMyInterface1, IMyInterface2"> class MyClass : IMyInterface1, IMyInterface2<br>
+                <input type="radio" name="q26" value="class MyClass : IMyInterface1 or IMyInterface2"> class MyClass : IMyInterface1 or IMyInterface2<br>
+                <input type="radio" name="q26" value="class MyClass extends IMyInterface1, IMyInterface2"> class MyClass extends IMyInterface1, IMyInterface2<br>
+            </div>
+            <div class="question">
+                <p>ما هو نوع البيانات المناسب للتعامل مع القيم الكبيرة في C#؟</p>
+                <input type="radio" name="q27" value="BigInteger"> BigInteger<br>
+                <input type="radio" name="q27" value="Long"> Long<br>
+                <input type="radio" name="q27" value="Decimal"> Decimal<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة الصحيحة لإنشاء حدث (Event) في C#؟</p>
+                <input type="radio" name="q28" value="public event EventHandler MyEvent"> public event EventHandler MyEvent<br>
+                <input type="radio" name="q28" value="public EventHandler MyEvent"> public EventHandler MyEvent<br>
+                <input type="radio" name="q28" value="public Event MyEvent"> public Event MyEvent<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة المناسبة لإنشاء فئة عامة في C#؟</p>
+                <input type="radio" name="q29" value="public class MyClass { }"> public class MyClass { }<br>
+                <input type="radio" name="q29" value="class MyClass { }"> class MyClass { }<br>
+                <input type="radio" name="q29" value="public MyClass { }"> public MyClass { }<br>
+            </div>
+            <div class="question">
+                <p>كيف يتم تعريف واجهة تحتوي على دالة بدون تنفيذ في C#؟</p>
+                <input type="radio" name="q30" value="void MethodName();"> void MethodName();<br>
+                <input type="radio" name="q30" value="void MethodName { }"> void MethodName { }<br>
+                <input type="radio" name="q30" value="void MethodName => {}"> void MethodName => {}<br>
+            </div>
+        </div>
+        <button onclick="showResults()">طمنى بسرعه</button>
+
+        <div id="evaluationPopup" class="evaluation-popup">
+            <h2>نتائج الاختبار</h2>
+            <p id="evaluationResult"></p>
+            <button onclick="closePopup()">إغلاق</button>
+      
+    </div>
+
+    <script>
+
+
+        const correctAnswers = {
+                easy: {
+                    q1: 'void',
+                    q2: 'const',
+                    q3: 'int',
+                    q4: 'Console.WriteLine',
+                    q5: 'for',
+                    q6: 'try',
+                    q7: 'class MyClass { }',
+                    q8: 'new MyClass()',
+                    q9: 'Add',
+                    q10: 'foreach'
+                },
+                medium: {
+                    q11: 'const',
+                    q12: 'public int Property { get; set; }',
+                    q13: 'DateTime',
+                    q14: 'public class Library { }',
+                    q15: 'event EventHandler',
+                    q16: 'return',
+                    q17: 'List<int> myList = new List<int>();',
+                    q18: 'public readonly int Property { get; }',
+                    q19: 'PropertyName',
+                    q20: 'while'
+                },
+                hard: {
+                    q21: 'interface IMyInterface { }',
+                    q22: 'from...select',
+                    q23: '(parameters) => expression',
+                    q24: ':',
+                    q25: '[AttributeName]',
+                    q26: 'class MyClass : IMyInterface1, IMyInterface2',
+                    q27: 'BigInteger',
+                    q28: 'public event EventHandler MyEvent',
+                    q29: 'public class MyClass { }',
+                    q30: 'void MethodName();'
+                }
+            };
+
+            document.getElementById('levelSelect').addEventListener('change', function() {
+            document.querySelectorAll('.level-content').forEach(div => div.classList.add('hidden'));
+            document.getElementById(this.value).classList.remove('hidden');
+        });
+
+        function showResults() {
+            const selectedLevel = document.getElementById('levelSelect').value;
+            const answers = document.querySelectorAll(`#${selectedLevel} input[type="radio"]:checked`);
+            const result = Array.from(answers).reduce((score, answer) => {
+                const question = answer.name;
+                const selectedAnswer = answer.value;
+                if (correctAnswers[selectedLevel][question] === selectedAnswer) {
+                    score++;
+                }
+                return score;
+            }, 0);
+            document.getElementById('evaluationResult').innerText = `لقد حصلت على ${result} من ${Object.keys(correctAnswers[selectedLevel]).length} إجابة صحيحة.`;
+            document.getElementById('evaluationPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('evaluationPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

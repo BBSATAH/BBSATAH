@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات البرمجة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #20638D;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+          .buttons-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .test-button {
+            background-color: #20638D;
+        }
+
+        .test-button:hover {
+            background-color: #184c6e;
+        }
+
+        .code-button {
+            background-color: #28A745;
+        }
+
+        .code-button:hover {
+            background-color: #1e7d34;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .lesson { padding: 15px; }
+            .lesson h2 { font-size: 1.5em; }
+            .lesson-details { font-size: 0.95em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات البرمجة</h1>
+        <div class="course-description">
+            <p>هذه الدورة تُقدم الأساسيات التي يحتاجها كل مبتدئ لفهم البرمجة، بغض النظر عن اللغة المستخدمة. سنبدأ بمفاهيم بسيطة مثل المتغيرات والعمليات، ثم ننتقل إلى التحكم في التدفق باستخدام الشروط والحلقات، وأخيرًا ننظم البيانات باستخدام القوائم والدوال. الأمثلة عملية وبسيطة لتسهيل التعلم.</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس 1: مقدمة في البرمجة -->
+            <div class="lesson">
+                <h2>الدرس الأول: مقدمة في البرمجة</h2>
+                <p>البرمجة هي عملية كتابة تعليمات ينفذها الحاسوب لحل المشكلات أو أتمتة المهام.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>ما هي البرمجة؟</strong> البرمجة هي لغة تواصل بين الإنسان والحاسوب لتحويل الأفكار إلى أوامر تنفيذية.</li>
+                        <li><strong>أهميتها:</strong> تُستخدم في تطوير التطبيقات، المواقع، الألعاب، وأنظمة الذكاء الاصطناعي.</li>
+                        <li><strong>أول برنامج:</strong> "Hello, World!" هو تقليد بسيط لاختبار البيئة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            print("مرحبًا بالعالم!")  # ✅ مرحبًا بالعالم!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 2: المتغيرات وأنواع البيانات -->
+            <div class="lesson">
+                <h2>الدرس الثاني: المتغيرات وأنواع البيانات</h2>
+                <p>المتغيرات تُستخدم لتخزين البيانات، وأنواع البيانات تُحدد طبيعة هذه البيانات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>المتغيرات:</strong> حاويات في الذاكرة لها اسم وقيمة.</li>
+                        <li><strong>أنواع البيانات:</strong> أرقام صحيحة (int)، عشرية (float)، نصوص (str)، قيم منطقية (bool).</li>
+                        <li><strong>الاستخدام:</strong> تخزين المعلومات مثل الأسماء والأرقام لاستخدامها لاحقًا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            name = "علي"    # نص
+                            age = 25       # عدد صحيح
+                            height = 1.75  # عدد عشري
+                            is_student = True  # قيمة منطقية
+                            print(name, age)  # ✅ علي 25
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 3: العمليات والتعابير -->
+            <div class="lesson">
+                <h2>الدرس الثالث: العمليات والتعابير</h2>
+                <p>العمليات تُستخدم لمعالجة البيانات وإجراء الحسابات أو المقارنات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الحسابية:</strong> الجمع (+)، الطرح (-)، الضرب (*)، القسمة (/).</li>
+                        <li><strong>المقارنة:</strong> أكبر من (>), أصغر من (<), يساوي (==).</li>
+                        <li><strong>الاستخدام:</strong> تنفيذ العمليات الرياضية أو التحقق من الشروط.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            x = 10
+                            y = 5
+                            total = x + y      # ✅ 15
+                            is_greater = x > y # ✅ True
+                            print(total, is_greater)
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 4: التعليمات الشرطية -->
+            <div class="lesson">
+                <h2>الدرس الرابع: التعليمات الشرطية</h2>
+                <p>التعليمات الشرطية تُستخدم لاتخاذ القرارات بناءً على شروط.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>if:</strong> تنفيذ كود إذا تحقق الشرط.</li>
+                        <li><strong>else:</strong> تنفيذ كود بديل إذا لم يتحقق الشرط.</li>
+                        <li><strong>elif:</strong> للتحقق من شروط إضافية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            score = 85
+                            if score >= 90:
+                                print("ممتاز")
+                            elif score >= 70:
+                                print("جيد")
+                            else:
+                                print("حاول مرة أخرى")  # ✅ جيد
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 5: الحلقات -->
+            <div class="lesson">
+                <h2>الدرس الخامس: الحلقات</h2>
+                <p>الحلقات تُستخدم لتكرار تنفيذ الكود عدة مرات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>for:</strong> للتكرار على نطاق أو قائمة معروفة.</li>
+                        <li><strong>while:</strong> للتكرار طالما الشرط صحيح.</li>
+                        <li><strong>الاستخدام:</strong> أتمتة المهام المتكررة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            # حلقة for
+                            for i in range(3):
+                                print(f"تكرار {i}")  # ✅ تكرار 0 تكرار 1 تكرار 2
+
+                            # حلقة while
+                            count = 0
+                            while count < 3:
+                                print(f"عد: {count}")
+                                count += 1  # ✅ عد: 0 عد: 1 عد: 2
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 6: القوائم -->
+            <div class="lesson">
+                <h2>الدرس السادس: القوائم</h2>
+                <p>القوائم تُستخدم لتخزين مجموعة من البيانات في ترتيب محدد.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> مجموعة مرتبة باستخدام <code>[]</code>.</li>
+                        <li><strong>العمليات:</strong> إضافة، حذف، والوصول إلى العناصر.</li>
+                        <li><strong>الاستخدام:</strong> تنظيم البيانات مثل قوائم الطلاب أو الأرقام.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            fruits = ["تفاح", "موز", "برتقال"]
+                            fruits.append("عنب")  # إضافة
+                            fruits.remove("موز")   # حذف
+                            print(fruits[0])       # ✅ تفاح
+                            print(fruits)          # ✅ ['تفاح', 'برتقال', 'عنب']
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 7: الدوال -->
+            <div class="lesson">
+                <h2>الدرس السابع: الدوال</h2>
+                <p>الدوال تُستخدم لتنظيم الكود وإعادة استخدامه.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> كتلة كود تُعرف باسم ويمكن استدعاؤها.</li>
+                        <li><strong>المعاملات:</strong> مدخلات اختيارية للدالة.</li>
+                        <li><strong>الإرجاع:</strong> إخراج نتيجة من الدالة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            def greet(name):
+                                return f"مرحبًا، {name}!"
+                            message = greet("علي")
+                            print(message)  # ✅ مرحبًا، علي!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 8: التعامل مع الأخطاء -->
+            <div class="lesson">
+                <h2>الدرس الثامن: التعامل مع الأخطاء</h2>
+                <p>إدارة الأخطاء تُساعد على منع توقف البرنامج عند حدوث مشكلات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>try/except:</strong> لمعالجة الأخطاء المحتملة.</li>
+                        <li><strong>الاستخدام:</strong> التعامل مع مدخلات غير صحيحة أو عمليات غير ممكنة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            try:
+                                result = 10 / 0
+                            except ZeroDivisionError:
+                                print("لا يمكن القسمة على صفر!")  # ✅ لا يمكن القسمة على صفر!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 9: مشروع عملي -->
+            <div class="lesson">
+                <h2>الدرس التاسع: مشروع عملي - آلة حاسبة بسيطة</h2>
+                <p>مشروع عملي يجمع المفاهيم السابقة في تطبيق صغير.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الهدف:</strong> بناء آلة حاسبة تقوم بالعمليات الأساسية باستخدام المتغيرات، العمليات، والشروط.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            def calculator(num1, num2, operation):
+                                if operation == "+":
+                                    return num1 + num2
+                                elif operation == "-":
+                                    return num1 - num2
+                                elif operation == "*":
+                                    return num1 * num2
+                                elif operation == "/":
+                                    if num2 == 0:
+                                        return "خطأ: القسمة على صفر"
+                                    return num1 / num2
+                                else:
+                                    return "عملية غير صالحة"
+
+                            result = calculator(10, 5, "+")
+                            print(result)  # ✅ 15
+                            result = calculator(10, 0, "/")
+                            print(result)  # ✅ خطأ: القسمة على صفر
+                        </code>
+                    </div>
+                </div>
+            </div>
+              <div class="buttons-container">
+            <a href="basic.html" class="button test-button"target="_blank">اختبر نفسك</a>
+           
+        </div>
+        </div>
+    </div>
+</body>
+</html>

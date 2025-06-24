@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بساطة - لوحة التحكم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="logo">
+            <img src="logo.png" alt="بساطة" style="height: 75px; margin-left: 10px; vertical-align: middle;">
+        </div>
+        <div class="user-info">
+            <div class="user-welcome">
+                <i class="fas fa-user-circle"></i>
+                <span class="username">مرحباً، المشرف</span>
+            </div>
+            <button id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                تسجيل الخروج
+            </button>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#" data-section="dashboard" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#" data-section="courses"><i class="fas fa-graduation-cap"></i> الكورسات</a></li>
+                    <li><a href="#" data-section="lessons"><i class="fas fa-book"></i> الدروس</a></li>
+                    <li><a href="#" data-section="games"><i class="fas fa-gamepad"></i> الألعاب</a></li>
+                    <li><a href="#" data-section="roadmaps"><i class="fas fa-map"></i> خرائط التعلم</a></li>
+                    <li><a href="#" data-section="books"><i class="fas fa-book-open"></i> الكتب</a></li>
+                    <li><a href="#" data-section="projects"><i class="fas fa-project-diagram"></i> المشاريع</a></li>
+                    <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <h2>لوحة المعلومات</h2>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>الكورسات</h3>
+                        <div class="stat-number">0</div>
+                        <span class="stat-trend up">+5% هذا الشهر</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>الدروس</h3>
+                        <div class="stat-number">0</div>
+                        <span class="stat-trend up">+12% هذا الشهر</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>الألعاب</h3>
+                        <div class="stat-number">0</div>
+                        <span class="stat-trend up">+8% هذا الشهر</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>خرائط التعلم</h3>
+                        <div class="stat-number">0</div>
+                        <span class="stat-trend up">+15% هذا الشهر</span>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>إحصائيات المحتوى</h3>
+                        <canvas id="contentStatsChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>نشاط المستخدمين</h3>
+                        <canvas id="userActivityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="recent-activity">
+                        <h3><i class="fas fa-history"></i> النشاطات الأخيرة</h3>
+                        <div id="activity-list-container">
+                            <ul id="activity-list" class="activity-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h3><i class="fas fa-bolt"></i> إجراءات سريعة</h3>
+                        <div class="actions-grid">
+                            <button class="action-btn" data-action="add-course">
+                                <i class="fas fa-graduation-cap"></i>
+                                إضافة كورس جديد
+                            </button>
+                            <button class="action-btn" data-action="add-lesson">
+                                <i class="fas fa-book"></i>
+                                إضافة درس جديد
+                            </button>
+                            <button class="action-btn" data-action="add-game">
+                                <i class="fas fa-gamepad"></i>
+                                إضافة لعبة جديدة
+                            </button>
+                            <button class="action-btn" data-action="add-roadmap">
+                                <i class="fas fa-map"></i>
+                                إضافة خريطة جديدة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses" class="content-section">
+                <h2>إدارة الكورسات</h2>
+                <div class="section-header">
+                    <button id="add-course-btn" class="primary-btn">إضافة كورس جديد</button>
+                    <div class="search-box">
+                        <input type="text" id="search-courses" placeholder="بحث عن كورس...">
+                    </div>
+                </div>
+                <div id="courses-container" class="items-container"></div>
+            </section>
+
+            <!-- Lessons Section -->
+            <section id="lessons" class="content-section">
+                <h2>إدارة الدروس</h2>
+                <div class="section-header">
+                    <button id="add-lesson-btn" class="primary-btn">إضافة درس جديد</button>
+                    <div class="search-box">
+                        <input type="text" id="search-lessons" placeholder="بحث عن درس...">
+                    </div>
+                </div>
+                <div id="lessons-container" class="items-container"></div>
+            </section>
+
+            <!-- Games Section -->
+            <section id="games" class="content-section">
+                <h2>إدارة الألعاب</h2>
+                <div class="section-header">
+                    <button id="add-game-btn" class="primary-btn">إضافة لعبة جديدة</button>
+                    <div class="search-box">
+                        <input type="text" id="search-games" placeholder="بحث عن لعبة...">
+                    </div>
+                </div>
+                <div id="games-container" class="items-container"></div>
+            </section>
+
+            <!-- Roadmaps Section -->
+            <section id="roadmaps" class="content-section">
+                <h2>إدارة خرائط التعلم</h2>
+                <div class="section-header">
+                    <button id="add-roadmap-btn" class="primary-btn">إضافة خريطة جديدة</button>
+                    <div class="search-box">
+                        <input type="text" id="search-roadmaps" placeholder="بحث عن خريطة...">
+                    </div>
+                </div>
+                <div id="roadmaps-container" class="items-container"></div>
+            </section>
+
+            <!-- Books Section -->
+            <section id="books" class="content-section">
+                <h2>إدارة الكتب</h2>
+                <div class="section-header">
+                    <button id="add-book-btn" class="primary-btn">إضافة كتاب جديد</button>
+                    <div class="search-box">
+                        <input type="text" id="search-books" placeholder="بحث عن كتاب...">
+                    </div>
+                </div>
+                <div id="books-container" class="items-container"></div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section">
+                <h2>إدارة المشاريع</h2>
+                <div class="section-header">
+                    <button id="add-project-btn" class="primary-btn">إضافة مشروع جديد</button>
+                    <div class="search-box">
+                        <input type="text" id="search-projects" placeholder="بحث عن مشروع...">
+                    </div>
+                </div>
+                <div id="projects-container" class="items-container"></div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <h2>الإعدادات</h2>
+                <div class="settings-wrapper">
+                    <div class="settings-container">
+                        <div class="settings-sidebar">
+                            <ul class="settings-tabs">
+                                <li class="settings-tab active" data-tab="account-settings">
+                                    <i class="fas fa-user-cog"></i>
+                                    إعدادات الحساب
+                                </li>
+                                <li class="settings-tab" data-tab="site-settings">
+                                    <i class="fas fa-globe"></i>
+                                    إعدادات الموقع
+                                </li>
+                                <li class="settings-tab" data-tab="privacy-settings">
+                                    <i class="fas fa-shield-alt"></i>
+                                    إعدادات الخصوصية
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="settings-content">
+                            <div id="account-settings" class="settings-tab-content active">
+                                <h3>إعدادات الحساب</h3>
+                                <form id="account-settings-form">
+                                    <div class="settings-form-row">
+                                        <div class="form-group">
+                                            <label for="admin-name">اسم المشرف</label>
+                                            <input type="text" id="admin-name" placeholder="أدخل اسم المشرف" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="admin-email">البريد الإلكتروني</label>
+                                            <input type="email" id="admin-email" placeholder="example@domain.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="settings-form-row">
+                                        <div class="form-group">
+                                            <label for="admin-password">كلمة المرور الجديدة</label>
+                                            <input type="password" id="admin-password" placeholder="اترك هذا الحقل فارغًا إذا كنت لا ترغب في التغيير">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="admin-password-confirm">تأكيد كلمة المرور</label>
+                                            <input type="password" id="admin-password-confirm" placeholder="أعد كتابة كلمة المرور الجديدة">
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="primary-btn">حفظ التغييرات</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="site-settings" class="settings-tab-content">
+                                <h3>إعدادات الموقع</h3>
+                                <form id="site-settings-form">
+                                    <div class="form-group">
+                                        <label for="site-title">عنوان الموقع</label>
+                                        <input type="text" id="site-title" value="بساطة - عالم الكود العربي">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="site-description">وصف الموقع</label>
+                                        <textarea id="site-description" rows="4">موقع تعليمي يهدف إلى تقديم محتوى برمجي عالي الجودة بطريقة مبسطة ومفهومة</textarea>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="primary-btn">حفظ التغييرات</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="privacy-settings" class="settings-tab-content">
+                                <h3>إعدادات الخصوصية</h3>
+                                <form id="privacy-settings-form">
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="allow-registration" checked>
+                                            <span>السماح بالتسجيل للمستخدمين الجدد</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="public-profile" checked>
+                                            <span>السماح بعرض الملفات الشخصية للمستخدمين</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="primary-btn">حفظ التغييرات</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+                </div>
+
+    <!-- Course Form Modal -->
+    <div id="course-form-container" class="modal">
+        <div class="modal-content">
+                    <h3>إضافة كورس جديد</h3>
+                    <form id="course-form">
+                        <div class="form-group">
+                            <label for="course-title">عنوان الكورس</label>
+                            <input type="text" id="course-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course-description">وصف الكورس</label>
+                    <textarea id="course-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="course-category">التصنيف</label>
+                    <select id="course-category" required>
+                                <option value="programming">برمجة</option>
+                                <option value="design">تصميم</option>
+                                <option value="marketing">تسويق</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="course-level">المستوى</label>
+                    <select id="course-level" required>
+                                <option value="beginner">مبتدئ</option>
+                                <option value="intermediate">متوسط</option>
+                                <option value="advanced">متقدم</option>
+                            </select>
+                        </div>
+                <div class="form-group">
+                    <label for="course-image">صورة الكورس</label>
+                    <input type="file" id="course-image" accept="image/*">
+                    <div id="course-image-preview" class="image-preview"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">إضافة الكورس</button>
+                    <button type="button" id="cancel-course-btn" class="secondary-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+                </div>
+
+    <!-- Lesson Form Modal -->
+    <div id="lesson-form-container" class="modal">
+        <div class="modal-content">
+                    <h3>إضافة درس جديد</h3>
+                    <form id="lesson-form">
+                        <div class="form-group">
+                            <label for="lesson-title">عنوان الدرس</label>
+                            <input type="text" id="lesson-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lesson-course">الكورس</label>
+                    <select id="lesson-course" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lesson-content">محتوى الدرس</label>
+                    <textarea id="lesson-content" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="lesson-video">رابط الفيديو (اختياري)</label>
+                            <input type="url" id="lesson-video">
+                        </div>
+                        <div class="form-actions">
+                    <button type="submit" class="primary-btn">إضافة الدرس</button>
+                    <button type="button" id="cancel-lesson-btn" class="secondary-btn">إلغاء</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+
+    <!-- Game Form Modal -->
+    <div id="game-form-container" class="modal">
+        <div class="modal-content">
+            <h3>إضافة لعبة جديدة</h3>
+            <form id="game-form">
+                <div class="form-group">
+                    <label for="game-title">عنوان اللعبة</label>
+                    <input type="text" id="game-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="game-description">وصف اللعبة</label>
+                    <textarea id="game-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="game-category">التصنيف</label>
+                    <select id="game-category" required>
+                        <option value="programming">برمجة</option>
+                        <option value="logic">تفكير منطقي</option>
+                        <option value="problem-solving">حل المشكلات</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="game-level">المستوى</label>
+                    <select id="game-level" required>
+                        <option value="beginner">مبتدئ</option>
+                        <option value="intermediate">متوسط</option>
+                        <option value="advanced">متقدم</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="game-image">صورة اللعبة</label>
+                    <input type="file" id="game-image" accept="image/*">
+                    <div id="game-image-preview" class="image-preview"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">إضافة اللعبة</button>
+                    <button type="button" id="cancel-game-btn" class="secondary-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Roadmap Form Modal -->
+    <div id="roadmap-form-container" class="modal">
+        <div class="modal-content">
+            <h3>إضافة خريطة تعلم جديدة</h3>
+            <form id="roadmap-form">
+                <div class="form-group">
+                    <label for="roadmap-title">عنوان خريطة التعلم</label>
+                    <input type="text" id="roadmap-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="roadmap-description">وصف خريطة التعلم</label>
+                    <textarea id="roadmap-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="roadmap-category">التصنيف</label>
+                    <select id="roadmap-category" required>
+                        <option value="web-development">تطوير الويب</option>
+                        <option value="mobile-development">تطوير تطبيقات الموبايل</option>
+                        <option value="data-science">علوم البيانات</option>
+                        <option value="artificial-intelligence">الذكاء الاصطناعي</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roadmap-duration">المدة المتوقعة (بالأشهر)</label>
+                    <input type="number" id="roadmap-duration" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="roadmap-image">صورة خريطة التعلم</label>
+                    <input type="file" id="roadmap-image" accept="image/*">
+                    <div id="roadmap-image-preview" class="image-preview"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">إضافة خريطة التعلم</button>
+                    <button type="button" id="cancel-roadmap-btn" class="secondary-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Book Form Modal -->
+    <div id="book-form-container" class="modal">
+        <div class="modal-content">
+                    <h3>إضافة كتاب جديد</h3>
+                    <form id="book-form">
+                        <div class="form-group">
+                            <label for="book-title">عنوان الكتاب</label>
+                            <input type="text" id="book-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-author">المؤلف</label>
+                            <input type="text" id="book-author" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-description">وصف الكتاب</label>
+                    <textarea id="book-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-category">التصنيف</label>
+                    <select id="book-category" required>
+                                <option value="programming">برمجة</option>
+                        <option value="design">تصميم</option>
+                        <option value="marketing">تسويق</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-level">المستوى</label>
+                    <select id="book-level" required>
+                                <option value="beginner">مبتدئ</option>
+                                <option value="intermediate">متوسط</option>
+                                <option value="advanced">متقدم</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                    <label for="book-image">صورة الكتاب</label>
+                    <input type="file" id="book-image" accept="image/*">
+                    <div id="book-image-preview" class="image-preview"></div>
+                </div>
+                <div class="form-group">
+                    <label for="book-link">رابط الكتاب</label>
+                    <input type="url" id="book-link" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">إضافة الكتاب</button>
+                    <button type="button" id="cancel-book-btn" class="secondary-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+                </div>
+
+    <!-- Project Form Modal -->
+    <div id="project-form-container" class="modal">
+        <div class="modal-content">
+                    <h3>إضافة مشروع جديد</h3>
+                    <form id="project-form">
+                        <div class="form-group">
+                            <label for="project-title">عنوان المشروع</label>
+                            <input type="text" id="project-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-description">وصف المشروع</label>
+                    <textarea id="project-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-category">التصنيف</label>
+                    <select id="project-category" required>
+                                <option value="web">تطوير الويب</option>
+                        <option value="mobile">تطوير الموبايل</option>
+                        <option value="desktop">تطوير سطح المكتب</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-level">المستوى</label>
+                    <select id="project-level" required>
+                                <option value="beginner">مبتدئ</option>
+                                <option value="intermediate">متوسط</option>
+                                <option value="advanced">متقدم</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                    <label for="project-image">صورة المشروع</label>
+                    <input type="file" id="project-image" accept="image/*">
+                    <div id="project-image-preview" class="image-preview"></div>
+                        </div>
+                        <div class="form-group">
+                    <label for="project-link">رابط المشروع</label>
+                    <input type="url" id="project-link" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">إضافة المشروع</button>
+                    <button type="button" id="cancel-project-btn" class="secondary-btn">إلغاء</button>
+                            </div>
+                        </form>
+                    </div>
+    </div>
+
+    <footer class="dashboard-footer">
+        <p>جميع الحقوق محفوظة &copy; 2024</p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" title="تبديل المظهر">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

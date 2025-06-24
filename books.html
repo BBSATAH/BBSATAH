@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roadmaps</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <header class="top-header">
+        <!-- Menu Icon for Mobile -->
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
+        <!-- الشعار الجديد -->
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="0.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+
+        <!-- روابط التنقل -->
+        <nav class="top-nav" id="top-nav">
+            <ul>
+                <li><a href="roadmaps.html">خرائط التعلم</a></li>
+                <li><a href="Lessons.html">الدورات</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="games.html">ألعاب للتعلم</a></li>
+                <li><a href="books.html">كتب</a></li>
+                <li><a href="questions.html">أسئلة</a></li>
+                <li><a href="projects.html">مشاريع</a></li>
+                <li><a href="websitestocourses.html">مواقع لتعلم البرمجة</a></li>
+                <li><a href="kids programming.html">برمجة للأطفال</a></li>
+                <li><a href="developer tools.html"> ادوات المطورين</a></li>
+                <li><a href="about us.html">من نحن</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" id="toggle-dark-mode" class="icon-link">
+                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+            </a>
+            <a href="login.html">
+                <img src="user.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+    </header>
+
+    <h1>مرحبًا بك في موقع ببساطة - عالم الكود العربي! 💻✨</h1>
+
+    <!-- محتوى الصفحة -->
+    <main>
+        <h1>الكتب</h1>
+        <div class="container">
+
+            <div class="books-grid" id="all-books-grid">
+                <div class="book-card">
+                    <img src="bbasath book.PNG" alt="البرمجة ببساطة" loading="lazy">
+                    <h3> كتاب البرمجة ببساطة  </h3>
+                    <p>موسوعة تصمیم و برمجة مواقع الانترنت طریقك نحو التمیز   .</p>
+                    <a href="https://www.mediafire.com/file/ca5egaaoprn0zk1/تعلم+ببساطة+HTML+و+CSS.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="اردوينو.png" alt="كتاب اردوينو">
+                    <h3>كتاب أردوينو ببساطة</h3>
+                    <p>تعلم التحكم الآلي بسهولة للجميع .</p>
+                    <a href="https://www.mediafire.com/file/khdbih8p4hocl30/aeb81fa7-9a25-4f64-a358-cf1723027d83_SimplyArduino.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="scratch.png" alt="كتاب scratch">
+                    <h3>كتاب تعلم البرمجةسكراتش</h3>
+                    <p>برمجة الأطفال تُشجع الإبداع والتفكير.</p>
+                    <a href="https://www.mediafire.com/file/bb8m9arobx8ic5l/كتاب+تعلم+البرمجة+مع+القط+سكراتش.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="cbook.png" alt="كتاب C">
+                    <h3>كتاب تعلم لغة C</h3>
+                    <p>لغة C عملية ومتعددة الأغراض لتطوير الأنظمة والبرمجيات.</p>
+                    <a href="https://www.mediafire.com/file/y3bleosy5vlp503/cbook.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="HTMLB.png" alt="نحو فهم أعمق لتقنياتHTML5 ">
+                    <h3>   نحو فهم أعمق لتقنيات  HTML5  </h3>
+                    <p>أساسيات HTML5 ببساطة واحترافية متكاملة</p>
+                    <a href="https://www.mediafire.com/file/ylhshq3bbz2ubvi/4418e3e0-6f2f-4a4c-9a23-bc78d5b53907_Dive-Into-HTML5-Arabic-1.0.0.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="html summary.PNG" alt="نحو فهم أعمق لتقنياتHTML5 ">
+                    <h3>مراجعه كامله للغة html</h3>
+                    <p>أساسيات HTML ببساطة واحترافية متكاملة</p>
+                    <a href="https://www.mediafire.com/file/vfz6hox1fyj3k8r/Noor-Book.com__%25D8%25AA%25D8%25B9%25D9%2584%25D9%2585_%25D9%2584%25D8%25BA%25D8%25A9_html_%25D9%2585%25D9%2586_%25D8%25A7%25D9%2584%25D8%25A5%25D8%25A8%25D8%25AF%25D8%25A7%25D8%25A1_%25D8%25A5%25D9%2584%25D9%2589_%25D8%25A7%25D9%2584%25D8%25A5%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581_2_.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="Cssbook1.PNG" alt="كتاب CSS">
+                    <h3>كتاب التصميم  CSS </h3>
+                    <p>دليل شامل يعلمك كيفية كتابة تعليمات تنسيق صفحات الويب بأسلوب يمكن للحاسوب فهمه وتنفيذه لتحسين التصميم والعرض.     </p>
+                    <a href="https://www.mediafire.com/file/1sqhziix4q6svh8/Kotobati+-+تعلم+CSS.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="html css book (e).PNG" alt="كتاب CSS">
+                    <h3>كتاب التصميم HTML&CSS(E) </h3>
+                    <p>HTML & CSS: Design and Build Websites" by Jon Duckett is a comprehensive guide to mastering HTML and CSS     </p>
+                    <a href="https://www.mediafire.com/file/q1tnfmpvfd46mcx/Noor-Book.com++html+و+css+تصميم+وبناء+مواقع+الويب+pdf.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="jsbook.png" alt="كتاب Javascript">
+                    <h3>كتاب البرمجة بلغة جافاسكربت</h3>
+                    <p>كتاب يشرح كيفية كتابة تعليمات يفهمها الحاسوب لتنفيذ مهام مخصصة ومعقدة</p>
+                    <a href="https://www.mediafire.com/file/v6ab6cia0ngzyd8/jsbook.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="databook.png" alt="كتاب قواعد البيانات">
+                    <h3>  كتاب تصميم قواعد البيانات</h3>
+                    <p>تعلم كيفية إنشاء وإدارة قواعد البيانات باحترافية.</p>
+                    <a href="https://www.mediafire.com/file/7585fi13m9e703d/databook.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="pythonbook.PNG" alt="بايثون للجميع " loading="lazy">
+                    <h3>بايثون للجميع</h3>
+                    <p>تعلم البرمجة ببايثون بأسلوب بسيط.</p>
+                    <a href="https://www.mediafire.com/file/3szys5d3eik0uo8/pythonbook.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="pyhonbookحاسوب.PNG" alt="البرمجة بلغة بايثون  " loading="lazy">
+                    <h3>البرمجة بلغة بايثون</h3>
+                    <p>تعلم البرمجة وكتابة البرامج وتنقيحها بلغة بايثون</p>
+                    <a href="https://www.mediafire.com/file/gs06ulhxi7blcv9/البرمجه+بلغة+بايثون+اكادمية+حاسوب.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="degitalbook.PNG" alt="دليل الأمان الرقمي" loading="lazy">
+                    <h3> دليل الأمن الرقمي</h3>
+                    <p>حماية بياناتك ومعلوماتك على الإنترنت.</p>
+                    <a href="https://www.mediafire.com/file/svxh0pqt515qy99/دليل+الامن+الرقمي.pdf/file">تحميل الكتاب</a>
+                </div>
+                <div class="book-card">
+                    <img src="ai.PNG" alt="المدخل الى الذكاء الأصطناعي وتعلم الآله" loading="lazy">
+                    <h3>المدخل الى الذكاء الاصطناعي وتعلم الآله</h3>
+                    <p>أساسيات الذكاء الاصطناعي وتعلم الآلة.</p>
+                    <a href="https://www.mediafire.com/file/cud1nvicln60d4d/المدخل+الى+الذكاء+الاصطناعي.pdf/file">تحميل الكتاب</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="about-site">
+                    <div class="logo-goal-container">
+                        <img src="logo.png" alt="شعار الموقع" class="footer-logo">
+                        <div class="goal-text">
+                            <h2>هدف الموقع</h2>
+                            <p>
+                                موقعنا هو منصة تعليمية تهدف إلى تقديم محتوى برمجي عالي الجودة بطريقة مبسطة
+                                ومفهومة، لتساعد الجميع على تعلم البرمجة والتميز في المجال الرقمي.
+                            </p>
+                            <p class="centered-text">
+                                هدفنا أن نجعل التعلم ممتعًا ومتاحًا للجميع، مع تقديم محتوى عالي الجودة باللغة العربية. انطلق الآن واكتشف أقسام الموقع لتبدأ ببناء مستقبلك البرمجي معنا. 🚀نحن هنا لنرافقك في رحلتك لتعلم البرمجة والشبكات بكل سهولة واحترافية. سواء كنت مبتدئًا تخطو أولى خطواتك في عالم البرمجة، أو مبرمجًا يسعى لتطوير مهاراته، ستجد لدينا كل ما تحتاجه من دورات، مقالات، كتب، وأسئلة تفاعلية.
+                            </p>
+
+                            <p class="centered-text">
+                                معًا نحو مستقبل رقمي أكثر إبداعًا! 💻✨
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-media">
+                    <h3>تابعنا على وسائل التواصل الاجتماعي</h3>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </footer>
+    <!-- ملف الجافاسكريبت -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedBooksJSON = localStorage.getItem('mainSiteBooks');
+            if (savedBooksJSON) {
+                const savedBooks = JSON.parse(savedBooksJSON);
+                const booksGrid = document.getElementById('all-books-grid');
+                
+                if (booksGrid && savedBooks.length > 0) {
+                    // نضيف الكتب المضافة من لوحة التحكم
+                    savedBooks.forEach(book => {
+                        // نتحقق أولاً إذا كان الكتاب موجود بالفعل
+                        const bookExists = Array.from(booksGrid.querySelectorAll('.book-card')).some(card => 
+                            card.querySelector('h3') && 
+                            card.querySelector('h3').textContent === book.title
+                        );
+                        
+                        // إذا لم يكن موجودًا، نضيفه
+                        if (!bookExists) {
+                            const bookCard = document.createElement('div');
+                            bookCard.className = 'book-card';
+                            
+                            // إضافة صورة الكتاب
+                            if (book.image) {
+                                const img = document.createElement('img');
+                                img.src = book.image;
+                                img.alt = book.title;
+                                img.setAttribute('loading', 'lazy');
+                                bookCard.appendChild(img);
+                            } else {
+                                // استخدام صورة افتراضية إذا لم تكن هناك صورة
+                                const img = document.createElement('img');
+                                img.src = "book-default.png";
+                                img.alt = book.title;
+                                img.setAttribute('loading', 'lazy');
+                                bookCard.appendChild(img);
+                            }
+                            
+                            // إضافة عنوان الكتاب
+                            const title = document.createElement('h3');
+                            title.textContent = book.title;
+                            bookCard.appendChild(title);
+                            
+                            // إضافة وصف الكتاب
+                            const description = document.createElement('p');
+                            description.textContent = book.description;
+                            bookCard.appendChild(description);
+                            
+                            // إضافة رابط تحميل الكتاب
+                            if (book.link) {
+                                const link = document.createElement('a');
+                                link.href = book.link;
+                                link.textContent = 'تحميل الكتاب';
+                                bookCard.appendChild(link);
+                            }
+                            
+                            booksGrid.appendChild(bookCard);
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+</body>
+</html>

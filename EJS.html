@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان EJS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+font-family: 'Cairo', sans-serif;
+background-color: #f3f4f6;
+color: #222;
+padding: 20px;
+margin: 0;
+direction: rtl; /* جعل النصوص تبدأ من اليمين */
+}
+
+.container {
+max-width: 800px;
+margin: 0 auto;
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+text-align: center;
+color: #20638D;
+margin-bottom: 30px;
+}
+
+.level-title {
+color: #20638D;
+margin-top: 40px;
+text-align: center;
+}
+
+.question {
+margin-bottom: 20px;
+padding: 15px;
+border-bottom: 1px solid #ddd;
+}
+
+.question p {
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+input[type="radio"] {
+margin-left: 10px; /* لتناسب الاتجاه من اليمين */
+}
+
+button {
+display: block;
+width: 100%;
+padding: 15px;
+background-color: #20638D;
+color: #fff;
+border: none;
+border-radius: 5px;
+font-size: 18px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+button:hover {
+background-color: #20638D;
+}
+
+.result {
+text-align: center;
+font-size: 24px;
+font-weight: bold;
+margin-top: 30px;
+color: #20638D;
+}
+
+.evaluation-popup {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #fff;
+color: #20638D;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+z-index: 1000;
+text-align: center;
+}
+
+.evaluation-popup button {
+background-color: #20638D;
+color: #fff;
+border: none;
+padding: 10px 20px;
+margin-top: 15px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.evaluation-popup button:hover {
+background-color: #20638D;
+}
+
+.hidden {
+display: none;
+}
+
+select {
+background-color: #20638D; /* لون خلفية أنيق */
+color: #fff; /* لون النص */
+border: 2px solid #20638D; /* حدود بتأثير أكثر جاذبية */
+border-radius: 8px; /* زوايا مستديرة */
+padding: 12px;
+font-size: 18px;
+font-family: 'Cairo', sans-serif;
+width: 100%;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+outline: none;
+appearance: none; /* إخفاء السهم الافتراضي */
+text-align: center;
+font-weight: bold;
+}
+
+select:hover {
+background-color: #6d00fc; /* تأثير عند تمرير الماوس */
+border-color: #20638D;
+}
+
+select:focus {
+background-color: #20638D; /* لون مختلف عند التحديد */
+border-color: #fff;
+box-shadow: 0 0 8px  #20638D;
+}
+
+option {
+background-color: #20638D; /* لون عناصر القائمة */
+color: #fff;
+padding: 10px;
+font-size: 16px;
+}
+
+option:hover {
+background-color: #20638D; /* تأثير عند التحديد */
+}
+
+
+select:focus {
+animation: expand 0.3s ease-in-out;
+}
+
+@keyframes expand {
+from {
+  background-color: #333;
+}
+to {
+  background-color: #444;
+}
+}
+
+/* تحسين العرض على الشاشات الصغيرة */
+@media (max-width: 768px) {
+.container {
+  padding: 15px;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.question {
+  padding: 10px;
+}
+
+.result {
+  font-size: 20px;
+}
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>امتحان EJS</h1>
+        
+        <!-- القائمة المنسدلة لاختيار المستوى -->
+        <select id="levelSelect">
+            <option value="easy">المستوى السهل</option>
+            <option value="medium">المستوى المتوسط</option>
+            <option value="hard">المستوى الصعب</option>
+        </select>
+
+        <!-- أسئلة المستوى السهل -->
+        <div id="easy" class="level-content">
+            <h2 class="level-title">المستوى السهل</h2>
+            <div class="question">
+                <p>ما هو EJS؟</p>
+                <input type="radio" name="q1" value="محرك قوالب"> محرك قوالب<br>
+                <input type="radio" name="q1" value="مكتبة JavaScript"> مكتبة JavaScript<br>
+                <input type="radio" name="q1" value="خادم ويب"> خادم ويب<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تضمين ملف آخر في قالب EJS؟</p>
+                <input type="radio" name="q2" value="<% include file.ejs %>"> <% include file.ejs %><br>
+                <input type="radio" name="q2" value="<%= include file.ejs %>"> <%= include file.ejs %><br>
+                <input type="radio" name="q2" value="<%- include file.ejs %>"> <%- include file.ejs %><br>
+            </div>
+            <div class="question">
+                <p>ما هو الشكل الصحيح لاستخدام التعبيرات في EJS؟</p>
+                <input type="radio" name="q3" value="<%= %>"> <%= %><br>
+                <input type="radio" name="q3" value="<% %>"> <% %><br>
+                <input type="radio" name="q3" value="<%- %>"> <%- %><br>
+            </div>
+            <div class="question">
+                <p>ما هو الكود الذي يتيح لك استخدام حلقة في EJS؟</p>
+                <input type="radio" name="q4" value="<% for (let item of array) { %>"> <% for (let item of array) { %><br>
+                <input type="radio" name="q4" value="<% foreach (item in array) { %>"> <% foreach (item in array) { %><br>
+                <input type="radio" name="q4" value="<% loop (item in array) { %>"> <% loop (item in array) { %><br>
+            </div>
+            <div class="question">
+                <p>ما هو الاستخدام الصحيح لـ <%= %> في EJS؟</p>
+                <input type="radio" name="q5" value="لطباعة القيم فقط"> لطباعة القيم فقط<br>
+                <input type="radio" name="q5" value="لطباعة القيم مع معالجة HTML"> لطباعة القيم مع معالجة HTML<br>
+                <input type="radio" name="q5" value="لطباعة تعليقات"> لطباعة تعليقات<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك إدخال قيمة متغير في القالب؟</p>
+                <input type="radio" name="q6" value="<%= variable %>"> <%= variable %><br>
+                <input type="radio" name="q6" value="<% variable %>"> <% variable %><br>
+                <input type="radio" name="q6" value="<%- variable %>"> <%- variable %><br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين <%= %> و <%== %> في EJS؟</p>
+                <input type="radio" name="q7" value="<%= %> تقوم بإدخال النصوص فقط, <%== %> تقوم بإدخال النصوص والـ HTML"> <%= %> تقوم بإدخال النصوص فقط, <%== %> تقوم بإدخال النصوص والـ HTML<br>
+                <input type="radio" name="q7" value="<%= %> تقوم بإدخال النصوص والـ HTML, <%== %> تقوم بإدخال النصوص فقط"> <%= %> تقوم بإدخال النصوص والـ HTML, <%== %> تقوم بإدخال النصوص فقط<br>
+                <input type="radio" name="q7" value="<%= %> تقوم بإدخال الـ HTML, <%== %> تقوم بإدخال النصوص فقط"> <%= %> تقوم بإدخال الـ HTML, <%== %> تقوم بإدخال النصوص فقط<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك إرسال البيانات من خادم Express إلى قالب EJS؟</p>
+                <input type="radio" name="q8" value="من خلال استدعاء الدالة render()"> من خلال استدعاء الدالة render()<br>
+                <input type="radio" name="q8" value="من خلال استدعاء الدالة send()"> من خلال استدعاء الدالة send()<br>
+                <input type="radio" name="q8" value="من خلال استدعاء الدالة json()"> من خلال استدعاء الدالة json()<br>
+            </div>
+            <div class="question">
+                <p>ما هو استخدام <% %> في EJS؟</p>
+                <input type="radio" name="q9" value="لتنفيذ التعليمات البرمجية JavaScript"> لتنفيذ التعليمات البرمجية JavaScript<br>
+                <input type="radio" name="q9" value="لطباعة النصوص"> لطباعة النصوص<br>
+                <input type="radio" name="q9" value="لطباعة القيم مع معالجة HTML"> لطباعة القيم مع معالجة HTML<br>
+            </div>
+            <div class="question">
+                <p>ما هو الكود الصحيح لإدخال قيمة متغير في EJS؟</p>
+                <input type="radio" name="q10" value="<%= variable %>"> <%= variable %><br>
+                <input type="radio" name="q10" value="<% variable %>"> <% variable %><br>
+                <input type="radio" name="q10" value="<%- variable %>"> <%- variable %><br>
+            </div>
+            <!-- يمكنك إضافة المزيد من الأسئلة هنا بنفس النمط -->
+        </div>
+
+        <!-- أسئلة المستوى المتوسط -->
+        <div id="medium" class="level-content hidden">
+            <h2 class="level-title">المستوى المتوسط</h2>
+            <div class="question">
+            <p>ما هو الاستخدام الصحيح لـ <%= %> في EJS؟</p>
+            <input type="radio" name="q11" value="لطباعة القيم فقط"> لطباعة القيم فقط<br>
+            <input type="radio" name="q11" value="لطباعة القيم مع معالجة HTML"> لطباعة القيم مع معالجة HTML<br>
+            <input type="radio" name="q11" value="لطباعة تعليقات"> لطباعة تعليقات<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تضمين ملف آخر في قالب EJS؟</p>
+            <input type="radio" name="q12" value="<% include 'file.ejs' %>"> <% include 'file.ejs' %><br>
+            <input type="radio" name="q12" value="<%= include 'file.ejs' %>"> <%= include 'file.ejs' %><br>
+            <input type="radio" name="q12" value="<%- include 'file.ejs' %>"> <%- include 'file.ejs' %><br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تمرير متغيرات متعددة إلى القالب في EJS؟</p>
+            <input type="radio" name="q13" value="من خلال تمرير كائن يحتوي على المتغيرات"> من خلال تمرير كائن يحتوي على المتغيرات<br>
+            <input type="radio" name="q13" value="من خلال تمرير مصفوفة تحتوي على المتغيرات"> من خلال تمرير مصفوفة تحتوي على المتغيرات<br>
+            <input type="radio" name="q13" value="من خلال استخدام متغيرات بيئية"> من خلال استخدام متغيرات بيئية<br>
+        </div>
+        <div class="question">
+            <p>ما هي طريقة تقسيم القوالب الكبيرة في EJS؟</p>
+            <input type="radio" name="q14" value="بتقسيم القوالب إلى أجزاء صغيرة واستخدام include"> بتقسيم القوالب إلى أجزاء صغيرة واستخدام include<br>
+            <input type="radio" name="q14" value="بتكرار القوالب الكبيرة وتعديلها يدويًا"> بتكرار القوالب الكبيرة وتعديلها يدويًا<br>
+            <input type="radio" name="q14" value="باستخدام ملفات منفصلة لكل جزء من القالب"> باستخدام ملفات منفصلة لكل جزء من القالب<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك التعامل مع الترجمة في EJS؟</p>
+            <input type="radio" name="q15" value="من خلال استخدام ملفات الترجمة ودمجها مع القالب"> من خلال استخدام ملفات الترجمة ودمجها مع القالب<br>
+            <input type="radio" name="q15" value="من خلال استخدام خاصية الترجمة في المتصفح"> من خلال استخدام خاصية الترجمة في المتصفح<br>
+            <input type="radio" name="q15" value="من خلال استخدام دوال الترجمة في الخادم"> من خلال استخدام دوال الترجمة في الخادم<br>
+        </div>
+        <div class="question">
+            <p>ما هو الشكل الصحيح لاستخدام تعبيرات EJS لطباعة القيم؟</p>
+            <input type="radio" name="q16" value="<%= variableName %>"> <%= variableName %><br>
+            <input type="radio" name="q16" value="<%- variableName %>"> <%- variableName %><br>
+            <input type="radio" name="q16" value="<% variableName %>"> <% variableName %><br>
+        </div>
+        <div class="question">
+            <p>ما هو مفهوم الـ layout في EJS؟</p>
+            <input type="radio" name="q17" value="يحتوي على القالب الأساسي ويستخدم لتضمين القوالب الأخرى"> يحتوي على القالب الأساسي ويستخدم لتضمين القوالب الأخرى<br>
+            <input type="radio" name="q17" value="هو قالب منفصل لا يمكن تضمينه في قوالب أخرى"> هو قالب منفصل لا يمكن تضمينه في قوالب أخرى<br>
+            <input type="radio" name="q17" value="يستخدم لكتابة تعليقات في القوالب"> يستخدم لكتابة تعليقات في القوالب<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك معالجة الأخطاء أثناء تطوير قوالب EJS؟</p>
+            <input type="radio" name="q18" value="من خلال استخدام أدوات تصحيح الأخطاء المتوفرة في Node.js"> من خلال استخدام أدوات تصحيح الأخطاء المتوفرة في Node.js<br>
+            <input type="radio" name="q18" value="من خلال كتابة اختبارات وحدوية للقوالب"> من خلال كتابة اختبارات وحدوية للقوالب<br>
+            <input type="radio" name="q18" value="من خلال استخدام مكتبة خاصة لرصد الأخطاء"> من خلال استخدام مكتبة خاصة لرصد الأخطاء<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة المثلى لتحسين أداء القوالب في EJS؟</p>
+            <input type="radio" name="q19" value="من خلال استخدام التخزين المؤقت للقوالب"> من خلال استخدام التخزين المؤقت للقوالب<br>
+            <input type="radio" name="q19" value="من خلال ضغط الملفات وإزالة التعليقات"> من خلال ضغط الملفات وإزالة التعليقات<br>
+            <input type="radio" name="q19" value="من خلال تحسين استعلامات قاعدة البيانات"> من خلال تحسين استعلامات قاعدة البيانات<br>
+        </div>
+        <div class="question">
+            <p>ما هو الفرق بين <%= %> و <% %> في EJS؟</p>
+            <input type="radio" name="q20" value="<%= %> يعرض القيمة، <% %> لا يعرض أي شيء"> <%= %> يعرض القيمة، <% %> لا يعرض أي شيء<br>
+            <input type="radio" name="q20" value="<%= %> يعرض النصوص، <% %> يعرض الـ HTML"> <%= %> يعرض النصوص، <% %> يعرض الـ HTML<br>
+            <input type="radio" name="q20" value="<%= %> يعرض الـ HTML فقط، <% %> يعرض النصوص فقط"> <%= %> يعرض الـ HTML فقط، <% %> يعرض النصوص فقط<br>
+        </div>
+ </div>
+        <!-- أسئلة المستوى الصعب -->
+        <div id="hard" class="level-content hidden">
+            <h2 class="level-title">المستوى الصعب</h2>
+           <div class="question">
+            <p>كيف يمكنك تعريف دوال في EJS واستخدامها؟</p>
+            <input type="radio" name="q21" value="من خلال تعريف الدوال في ملفات JavaScript واستدعائها في القالب"> من خلال تعريف الدوال في ملفات JavaScript واستدعائها في القالب<br>
+            <input type="radio" name="q21" value="من خلال تعريف الدوال داخل القالب مباشرة"> من خلال تعريف الدوال داخل القالب مباشرة<br>
+            <input type="radio" name="q21" value="من خلال استخدام مكتبات خارجية فقط"> من خلال استخدام مكتبات خارجية فقط<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة المثلى للتعامل مع بيانات كبيرة في القوالب؟</p>
+            <input type="radio" name="q22" value="من خلال تقسيم البيانات إلى أجزاء صغيرة واستخدام التصفية"> من خلال تقسيم البيانات إلى أجزاء صغيرة واستخدام التصفية<br>
+            <input type="radio" name="q22" value="من خلال تحميل البيانات كاملة في الذاكرة"> من خلال تحميل البيانات كاملة في الذاكرة<br>
+            <input type="radio" name="q22" value="من خلال استخدام ملفات مؤقتة لتخزين البيانات"> من خلال استخدام ملفات مؤقتة لتخزين البيانات<br>
+        </div>
+        <div class="question">
+            <p>ما هو الاستخدام الصحيح لـ <% if (condition) { %> و <% } else { %>؟</p>
+            <input type="radio" name="q23" value="للتحكم في تدفق القوالب بناءً على شرط معين"> للتحكم في تدفق القوالب بناءً على شرط معين<br>
+            <input type="radio" name="q23" value="لطباعة قيم متعددة في سطر واحد"> لطباعة قيم متعددة في سطر واحد<br>
+            <input type="radio" name="q23" value="لاستخدام تكرار البيانات بشكل متكرر"> لاستخدام تكرار البيانات بشكل متكرر<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تجنب مشكلات أمان البيانات في EJS؟</p>
+            <input type="radio" name="q24" value="من خلال استخدام <%== %> بحذر والتأكد من تطهير البيانات"> من خلال استخدام <%== %> بحذر والتأكد من تطهير البيانات<br>
+            <input type="radio" name="q24" value="من خلال استبعاد البيانات تماماً من القوالب"> من خلال استبعاد البيانات تماماً من القوالب<br>
+            <input type="radio" name="q24" value="من خلال استخدام دالة escape() على جميع البيانات"> من خلال استخدام دالة escape() على جميع البيانات<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استخدام الدوال في قوالب EJS؟</p>
+            <input type="radio" name="q25" value="من خلال استدعاء الدوال من كائنات JavaScript المرسلة إلى القالب"> من خلال استدعاء الدوال من كائنات JavaScript المرسلة إلى القالب<br>
+            <input type="radio" name="q25" value="من خلال تعريف الدوال مباشرة في القالب"> من خلال تعريف الدوال مباشرة في القالب<br>
+            <input type="radio" name="q25" value="من خلال استخدام مكتبات خارجية فقط"> من خلال استخدام مكتبات خارجية فقط<br>
+        </div>
+        <div class="question">
+            <p>ما هو أفضل طريقة لتصحيح الأخطاء في قوالب EJS؟</p>
+            <input type="radio" name="q26" value="من خلال استخدام أدوات تصحيح الأخطاء المتوفرة في Node.js"> من خلال استخدام أدوات تصحيح الأخطاء المتوفرة في Node.js<br>
+            <input type="radio" name="q26" value="من خلال كتابة اختبارات وحدوية للقوالب"> من خلال كتابة اختبارات وحدوية للقوالب<br>
+            <input type="radio" name="q26" value="من خلال استخدام مكتبة خاصة لرصد الأخطاء"> من خلال استخدام مكتبة خاصة لرصد الأخطاء<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تحسين سرعة تحميل القوالب في EJS؟</p>
+            <input type="radio" name="q27" value="من خلال استخدام التخزين المؤقت للقوالب"> من خلال استخدام التخزين المؤقت للقوالب<br>
+            <input type="radio" name="q27" value="من خلال ضغط الملفات وإزالة التعليقات"> من خلال ضغط الملفات وإزالة التعليقات<br>
+            <input type="radio" name="q27" value="من خلال تحسين استعلامات قاعدة البيانات"> من خلال تحسين استعلامات قاعدة البيانات<br>
+        </div>
+        <div class="question">
+            <p>ما هو الفرق بين <% %> و <%- %> في EJS؟</p>
+            <input type="radio" name="q28" value="<% %> لا يعرض أي شيء، <%- %> يعرض القيم بتطهير HTML"> <% %> لا يعرض أي شيء، <%- %> يعرض القيم بتطهير HTML<br>
+            <input type="radio" name="q28" value="<% %> يعرض النصوص، <%- %> يعرض HTML"> <% %> يعرض النصوص، <%- %> يعرض HTML<br>
+            <input type="radio" name="q28" value="<% %> يعرض النصوص، <%- %> يعرض HTML بتطهير البيانات"> <% %> يعرض النصوص، <%- %> يعرض HTML بتطهير البيانات<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استخدام ملفات الترجمة في EJS؟</p>
+            <input type="radio" name="q29" value="من خلال تحميل ملفات الترجمة في الذاكرة واستخدامها في القوالب"> من خلال تحميل ملفات الترجمة في الذاكرة واستخدامها في القوالب<br>
+            <input type="radio" name="q29" value="من خلال استخدام مكتبة خارجية تدير الترجمة"> من خلال استخدام مكتبة خارجية تدير الترجمة<br>
+            <input type="radio" name="q29" value="من خلال استخدام واجهات برمجة التطبيقات لترجمة النصوص"> من خلال استخدام واجهات برمجة التطبيقات لترجمة النصوص<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لتحسين كفاءة القوالب في EJS؟</p>
+            <input type="radio" name="q30" value="من خلال تحسين أداء الخادم واستخدام التخزين المؤقت للقوالب"> من خلال تحسين أداء الخادم واستخدام التخزين المؤقت للقوالب<br>
+            <input type="radio" name="q30" value="من خلال ضغط الملفات وإزالة التعليقات"> من خلال ضغط الملفات وإزالة التعليقات<br>
+            <input type="radio" name="q30" value="من خلال تحسين استعلامات قاعدة البيانات"> من خلال تحسين استعلامات قاعدة البيانات<br>
+        </div>
+    
+        </div>
+        
+        <button onclick="checkAnswers()">  طمنى بسرعه</button>
+
+        <div id="evaluationPopup" class="evaluation-popup">
+            <div id="resultMessage"></div>
+            <button onclick="closePopup()">إغلاق</button>
+        </div>
+    </div>
+
+        <script>
+        document.getElementById('levelSelect').addEventListener('change', function() {
+            const selectedLevel = this.value;
+            document.querySelectorAll('.level-content').forEach((div) => {
+                div.classList.add('hidden');
+            });
+            document.getElementById(selectedLevel).classList.remove('hidden');
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            const correctAnswers = {
+                q1: "محرك قوالب",
+                q2: "<% include file.ejs %>",
+                q3: "<%= %>",
+                q4: "<% for (let item of array) { %>",
+                q5: "لطباعة القيم فقط",
+                q6: "<%= variable %>",
+                q7: "<%= %> تقوم بإدخال النصوص فقط, <%== %> تقوم بإدخال النصوص والـ HTML",
+                q8: "من خلال استدعاء الدالة render()",
+                q9: "لتنفيذ التعليمات البرمجية JavaScript",
+                q10: "<%= variable %>",
+                q11: "لطباعة القيم فقط",
+                q12: "<% include 'file.ejs' %>",
+                q13: "من خلال تمرير كائن يحتوي على المتغيرات",
+                q14: "بتقسيم القوالب إلى أجزاء صغيرة واستخدام include",
+                q15: "من خلال استخدام ملفات الترجمة ودمجها مع القالب",
+                q16: "<%= variableName %>",
+                q17: "يحتوي على القالب الأساسي ويستخدم لتضمين القوالب الأخرى",
+                q18: "من خلال استخدام أدوات تصحيح الأخطاء المتوفرة في Node.js",
+                q19: "من خلال استخدام التخزين المؤقت للقوالب",
+                q20: "<%= %> يعرض القيمة، <% %> لا يعرض أي شيء",
+                q21: "من خلال تعريف الدوال في ملفات JavaScript واستدعائها في القالب",
+                q22: "من خلال تقسيم البيانات إلى أجزاء صغيرة واستخدام التصفية",
+                q23: "للتحكم في تدفق القوالب بناءً على شرط معين",
+                q24: "من خلال استخدام <%== %> بحذر والتأكد من تطهير البيانات",
+                q25: "من خلال استدعاء الدوال من كائنات JavaScript المرسلة إلى القالب",
+                q26: "من خلال استخدام أدوات تصحيح الأخطاء المتوفرة في Node.js",
+                q27: "من خلال استخدام التخزين المؤقت للقوالب",
+                q28: "<% %> لا يعرض أي شيء، <%- %> يعرض القيم بتطهير HTML",
+                q29: "من خلال تحميل ملفات الترجمة في الذاكرة واستخدامها في القوالب",
+                q30: "من خلال تحسين أداء الخادم واستخدام التخزين المؤقت للقوالب"
+            };
+
+            for (let q in correctAnswers) {
+                let selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === correctAnswers[q]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('resultMessage').innerText = `لقد حصلت على ${score} من 30`;
+            document.getElementById('evaluationPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('evaluationPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

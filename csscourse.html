@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كورسات CSS</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+      .section-title {
+        margin: 20px 0;
+        font-size: 1.5em;
+        color: #000000; /* أرجواني داكن */
+      }
+      h2 {
+        font-size: 1.2em;
+        color: #000000; /* أرجواني داكن */
+      }
+  </style>
+</head>
+<body>
+  <!-- رأس الصفحة -->
+  <header class="top-header">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="0.png" alt="الشعار" class="header-logo">
+        </a>
+    </div>
+    <div class="header-icons">
+      <a href="#" id="toggle-dark-mode" class="icon-link">
+          <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon">
+      </a>
+     
+  </div>
+  </header>
+  <h1>مرحبًا بك في كورسات CSS</h1>
+  <h2>ابدأ رحلتك الآن!</h2>
+
+  <!-- محتوى الصفحة -->
+  <main>
+    <!-- قسم الكورسات للمبتدئين -->
+    <section>
+      <h2 class="section-title">كورسات المبتدئين</h2>
+      <div class="courses-grid">
+        <div class="course-card">
+          <img src="css course.png" alt="CSS Basics" loading="lazy">
+          <div class="course-card-content">
+            <h3>أساسيات CSS</h3>
+            <p>تعلم المفاهيم الأساسية لتنسيق صفحات الويب باستخدام CSS.</p>
+            <a href="https://www.youtube.com/playlist?list=PLt1JGE7mvd__uU7on8djRteYFwNvdIsNj">مشاهدة الكورس</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="selectors.png" alt="CSS Selectors" loading="lazy">
+          <div class="course-card-content">
+            <h3>محددات CSS</h3>
+            <p>اكتشف كيفية استخدام محددات CSS لتطبيق الأنماط على العناصر.</p>
+            <a href="https://www.youtube.com/watch?v=DD1nd-5PElQ">مشاهدة الكورس</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الكورسات المتقدمة -->
+    <section>
+      <h2 class="section-title">كورسات المتقدمين</h2>
+      <div class="courses-grid">
+        <div class="course-card">
+          <img src="flexbox in css.png" alt="CSS Flexbox" loading="lazy">
+          <div class="course-card-content">
+            <h3>CSS Flexbox</h3>
+            <p>تعلم كيفية إنشاء تخطيطات مرنة باستخدام Flexbox.</p>
+            <a href="https://www.youtube.com/watch?v=BjWex7Pz8iY">مشاهدة الكورس</a>
+          </div> 
+        </div>
+        <div class="course-card">
+          <img src="grid.png" alt="CSS Grid" loading="lazy">
+          <div class="course-card-content">
+            <h3>CSS Grid</h3>
+            <p>استكشف كيفية إنشاء تخطيطات معقدة باستخدام CSS Grid.</p>
+            <a href="https://www.youtube.com/watch?v=zQyuMYFLD1s">مشاهدة الكورس</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="css a to z.png" alt="CSS from A to Z" loading="lazy">
+          <div class="course-card-content">
+            <h3>CSS from A to Z</h3>
+            <p>تعلم css باللغة العربيه من الصفر الى الاحتراف .</p>
+            <a href="https://www.youtube.com/playlist?list=PLknwEmKsW8Os7rKViMCL8x6irVJT7McSS">مشاهدة الكورس</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

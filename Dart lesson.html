@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات Dart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl; /* جعل النصوص من اليمين إلى اليسار */
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color:#20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid#20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px; /* ضبط الحشو للتوافق مع RTL */
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0; /* تعديل الموضع للتوافق مع RTL */
+            color:#20638D;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+
+        /* تحسين العرض على الهواتف */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .lesson {
+                padding: 15px;
+            }
+            .lesson h2 {
+                font-size: 1.5em;
+            }
+            .lesson-details {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات Dart</h1>
+        <div class="course-description">
+            <p>Dart هي لغة برمجة قوية طورتها Google، وهي اللغة الأساسية لتطوير تطبيقات Flutter. إذا كنت تريد تعلم Dart، فإليك دليلك الشامل من الأساسيات إلى الميزات المتقدمة! 💡</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس الأول -->
+            <div class="lesson">
+                <h2>الدرس الأول: أساسيات Dart</h2>
+                <p>Dart هي لغة برمجة قوية طورتها Google، وهي اللغة الأساسية لتطوير تطبيقات Flutter. إذا كنت تريد تعلم Dart، فإليك دليلك الشامل من الأساسيات إلى الميزات المتقدمة! 💡</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>مقدمة عن Dart:</strong> Dart هي لغة كائنية التوجه (Object-Oriented). تدعم البرمجة الوظيفية والإجرائية. تستخدم في تطوير تطبيقات الويب والموبايل وسطح المكتب. تتميز بالأداء العالي وسهولة التعلم.</li>
+                        <li><strong>أساسيات Dart:</strong> طباعة النصوص، المتغيرات، والتحكم في تدفق البرنامج.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            void main() {
+                                print("مرحبًا بك في Dart!");
+                              }
+                        </code>
+                        <br>
+                        <code>
+                            void main() {
+                                int age = 18;
+                              
+                                if (age >= 18) {
+                                  print("يمكنك التصويت!");
+                                } else {
+                                  print("لا يمكنك التصويت بعد.");
+                                }
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الثاني -->
+            <div class="lesson">
+                <h2>الدرس الثاني: المحددات في Dart</h2>
+                <p>المحددات (Modifiers) هي كلمات مفتاحية تُستخدم في Dart للتحكم في الوصول إلى المتغيرات، الدوال، الكلاسات، والمكتبات. هناك أنواع مختلفة من المحددات التي تؤثر على الرؤية (Visibility)، التعديل (Mutability)، وسلوك الكود.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>محددات الوصول:</strong> في Dart، لا توجد كلمات مفتاحية صريحة مثل public, private, protected كما هو الحال في Java أو C#. بدلاً من ذلك، تعتمد Dart على نظام التسمية باستخدام _ (Underscore) لتحديد الكود الخاص.</li>
+                        <li><strong>محددات الثبات والتغيير:</strong> تحدد هذه المحددات إمكانية تغيير القيم بعد تعريفها.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            class Person {
+                                String name; // متغير عام (Public)
+                                int _age; // متغير خاص (Private)
+                              
+                                Person(this.name, this._age);
+                              
+                                void display() {
+                                  print("الاسم: $name، العمر: $_age");
+                                }
+                              }
+                              
+                              void main() {
+                                Person person = Person("أحمد", 25);
+                                print(person.name); // ✅ يمكن الوصول إليه
+                                // print(person._age); ❌ خطأ لأنه خاص
+                                person.display(); // ✅ يمكن الوصول إليه
+                              }
+                        </code>
+                        <br>
+                        <code>
+                            void main() {
+                                final String name = "أحمد"; // ثابت يمكن تعيينه مرة واحدة
+                                const double pi = 3.14; // ثابت لا يمكن تغييره أبدًا
+                              
+                                // name = "علي"; // ❌ خطأ: لا يمكن إعادة تعيين قيمة `final`
+                                // pi = 3.1415;  // ❌ خطأ: لا يمكن إعادة تعيين قيمة `const`
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الثالث -->
+            <div class="lesson">
+                <h2>الدرس الثالث: التصفح في Dart</h2>
+                <p>التصفح في Dart يتم استخدامه بشكل أساسي عند تطوير تطبيقات الويب أو الموبايل باستخدام Flutter. هناك عدة طرق للتنقل بين الصفحات وإدارة مسار التطبيق، وسنغطيها بالتفصيل.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التصفح في تطبيقات CLI:</strong> إذا كنت تعمل على تطبيق Dart بدون واجهة رسومية (مثل تطبيق سطر الأوامر - CLI)، يمكنك استخدام dart:io لمعالجة إدخال المستخدم والتنقل بين الخيارات.</li>
+                        <li><strong>التصفح في تطبيقات الويب باستخدام Dart:</strong> عند استخدام Dart لتطوير تطبيقات الويب (مثل Dart with Flutter Web)، يمكننا استخدام dart:html أو Router لإدارة التصفح.</li>
+                        <li><strong>التصفح في Flutter باستخدام Navigator:</strong> في Flutter، يتم التنقل بين الشاشات (الصفحات) باستخدام Navigator الذي يعمل مع MaterialApp و routes.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            import 'dart:io';
+
+void main() {
+  while (true) {
+    print("اختر خيارًا:");
+    print("1. عرض الصفحة الرئيسية");
+    print("2. عرض الإعدادات");
+    print("3. خروج");
+
+    String? choice = stdin.readLineSync();
+
+    switch (choice) {
+      case "1":
+        print("📌 أنت في الصفحة الرئيسية");
+        break;
+      case "2":
+        print("⚙️ أنت في صفحة الإعدادات");
+        break;
+      case "3":
+        print("👋 وداعًا!");
+        exit(0);
+      default:
+        print("❌ خيار غير صحيح، حاول مرة أخرى.");
+    }
+  }
+}
+                        </code>
+                        <br>
+                        <code>
+                            import 'dart:html';
+
+void main() {
+  querySelector('#home')?.onClick.listen((_) {
+    window.location.href = 'home.html';
+  });
+
+  querySelector('#settings')?.onClick.listen((_) {
+    window.location.href = 'settings.html';
+  });
+}
+                        </code>
+                        <br>
+                        <code>
+                            import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: HomePage(),
+  ));
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("الصفحة الرئيسية")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsPage()),
+            );
+          },
+          child: Text("الانتقال إلى الإعدادات"),
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("الإعدادات")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text("العودة"),
+        ),
+      ),
+    );
+  }
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الرابع -->
+            <div class="lesson">
+                <h2>الدرس الرابع: الأنماط المتقدمة</h2>
+                <p>في هذا الدرس، سنغطي أنماط البرمجة الكائنية (OOP)، البرمجة الوظيفية (Functional Programming)، المزج (Mixins)، البرمجة التفاعلية (Reactive Programming)، والتنفيذ المتزامن (Asynchronous Programming).</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الأنماط الكائنية:</strong> Dart لغة كائنية التوجه (OOP)، مما يعني أنها تعتمد على الكلاسات (Classes) والكائنات (Objects).</li>
+                        <li><strong>البرمجة الوظيفية:</strong> Dart تدعم البرمجة الوظيفية من خلال الدوال عالية الترتيب (Higher-Order Functions)، التعبيرات اللامية (Lambdas)، والمعادلة (Immutability).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            class Animal {
+                                String name;
+                                Animal(this.name);
+                              
+                                void makeSound() {
+                                  print("الحيوان يصدر صوتًا!");
+                                }
+                              }
+                              
+                              class Dog extends Animal {
+                                Dog(String name) : super(name);
+                              
+                                @override
+                                void makeSound() {
+                                  print("$name ينبح: Woof! Woof!");
+                                }
+                              }
+                              
+                              void main() {
+                                Dog dog = Dog("Buddy");
+                                dog.makeSound(); // ✅ Buddy ينبح: Woof! Woof!
+                              }
+                        </code>
+                        <br>
+                        <code>
+                            void applyFunction(Function(int) func, int value) {
+                                print("النتيجة: ${func(value)}");
+                              }
+                              
+                              int square(int x) => x * x;
+                              
+                              void main() {
+                                applyFunction(square, 4); // ✅ النتيجة: 16
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الخامس -->
+            <div class="lesson">
+                <h2>الدرس الخامس: التعامل مع الملفات</h2>
+                <p>Dart توفر أدوات قوية للتعامل مع الملفات، مما يسمح بقراءة وكتابة الملفات بسهولة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>قراءة الملفات:</strong> يمكن قراءة محتوى الملف باستخدام `File.readAsString`.</li>
+                        <li><strong>كتابة الملفات:</strong> يمكن كتابة محتوى إلى ملف باستخدام `File.writeAsString`.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            import 'dart:io';
+
+void main() async {
+  final file = File('example.txt');
+  String content = await file.readAsString();
+  print(content);
+}
+                        </code>
+                        <br>
+                        <code>
+                            import 'dart:io';
+
+void main() async {
+  final file = File('example.txt');
+  await file.writeAsString('Hello, Dart!');
+}
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس السادس -->
+            <div class="lesson">
+                <h2>الدرس السادس: الجمل الشرطية والحلقات</h2>
+                <p>الجمل الشرطية والحلقات هي أدوات أساسية في البرمجة تسمح باتخاذ القرارات وتكرار العمليات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الجمل الشرطية:</strong> مثل `if`، `else`، و `else if`.</li>
+                        <li><strong>الحلقات:</strong> مثل `for`، `while`، و `do-while`.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            void main() {
+                                int age = 18;
+                                if (age >= 18) {
+                                  print("أنت بالغ.");
+                                } else {
+                                  print("أنت قاصر.");
+                                }
+                              }
+                        </code>
+                        <br>
+                        <code>
+                            void main() {
+                                for (int i = 0; i < 5; i++) {
+                                  print("الرقم: $i");
+                                }
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس السابع -->
+            <div class="lesson">
+                <h2>الدرس السابع: الدوال (Functions)</h2>
+                <p>الدوال هي كتل من الكود يمكن استدعاؤها لتنفيذ مهمة محددة. تساعد في تنظيم الكود وإعادة استخدامه.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>تعريف الدوال:</strong> يتم تعريف الدوال باستخدام `void` أو نوع القيمة المرجعة.</li>
+                        <li><strong>استدعاء الدوال:</strong> يمكن استدعاء الدوال باستخدام اسمها.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            void greet(String name) {
+                                print("مرحبًا، $name!");
+                              }
+                              
+                              void main() {
+                                greet("علي"); // ✅ مرحبًا، علي!
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس الثامن -->
+            <div class="lesson">
+                <h2>الدرس الثامن: المصفوفات (Arrays)</h2>
+                <p>المصفوفات هي هياكل بيانات تخزن مجموعة من العناصر في ترتيب معين. يمكن الوصول إلى العناصر باستخدام الفهرس.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>إنشاء المصفوفات:</strong> يتم إنشاء المصفوفات باستخدام الأقواس المربعة `[]`.</li>
+                        <li><strong>الوصول إلى العناصر:</strong> يمكن الوصول إلى العناصر باستخدام الفهرس.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            void main() {
+                                List<int> numbers = [1, 2, 3, 4, 5];
+                                print(numbers[0]); // ✅ 1
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس التاسع -->
+            <div class="lesson">
+                <h2>الدرس التاسع: الهاش (Hashes)</h2>
+                <p>الهاش هو هيكل بيانات يخزن البيانات في أزواج مفتاح-قيمة. يمكن استخدامه لتخزين البيانات المرتبطة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>إنشاء الهاش:</strong> يتم إنشاء الهاش باستخدام الأقواس المعقوفة `{}`.</li>
+                        <li><strong>الوصول إلى القيم:</strong> يمكن الوصول إلى القيم باستخدام المفتاح.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            void main() {
+                                Map<String, String> person = {
+                                  'name': 'علي',
+                                  'age': '25'
+                                };
+                                print(person['name']); // ✅ علي
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس العاشر -->
+            <div class="lesson">
+                <h2>الدرس العاشر: الاستثناءات (Exceptions)</h2>
+                <p>الاستثناءات هي أخطاء تحدث أثناء تنفيذ البرنامج. يمكن التعامل معها باستخدام `try`، `catch`، و `finally`.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعامل مع الاستثناءات:</strong> يتم استخدام `try` و `catch` للتعامل مع الأخطاء.</li>
+                        <li><strong>الكود النهائي:</strong> يتم استخدام `finally` لتنفيذ كود بغض النظر عن حدوث استثناء أم لا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            void main() {
+                                try {
+                                  int result = 10 ~/ 0;
+                                } catch (e) {
+                                  print("حدث خطأ: $e");
+                                } finally {
+                                  print("هذا الكود سيتم تنفيذه دائمًا.");
+                                }
+                              }
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

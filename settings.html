@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - ببساطة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <header class="top-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="0.png" alt="الشعار" loading="lazy" class="header-logo">
+            </a>
+        </div>
+        <nav id="top-nav" class="top-nav">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="Lessons.html">الدروس</a></li>
+                <li><a href="roadmaps.html">خرائط التعلم</a></li>
+                <li><a href="projects.html">المشاريع</a></li>
+                <li><a href="kids programming.html">برمجة للأطفال</a></li>
+                <li><a href="developer tools.html">أدوات المطورين</a></li>
+                <li><a href="about us.html">من نحن</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" id="toggle-dark-mode" class="icon-link">
+                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+            </a>
+            <a href="login.html">
+                <img src="user.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <h1>الإعدادات</h1>
+
+        <div class="settings-container">
+            <div class="settings-tabs">
+                <div class="settings-tab active" data-tab="account">
+                    <i class="fas fa-user"></i>
+                    إعدادات الحساب
+                </div>
+                <div class="settings-tab" data-tab="site">
+                    <i class="fas fa-globe"></i>
+                    إعدادات الموقع
+                </div>
+                <div class="settings-tab" data-tab="privacy">
+                    <i class="fas fa-shield-alt"></i>
+                    إعدادات الخصوصية
+                </div>
+            </div>
+
+            <div class="settings-content">
+                <!-- إعدادات الحساب -->
+                <div class="settings-section active" id="account-settings">
+                    <form id="account-form">
+                        <div class="form-group">
+                            <label for="user-name">اسم المستخدم</label>
+                            <input type="text" id="user-name" placeholder="أدخل اسمك">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-email">البريد الإلكتروني</label>
+                            <input type="email" id="user-email" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-password">كلمة المرور الجديدة</label>
+                            <input type="password" id="user-password" placeholder="اترك هذا الحقل فارغًا إذا كنت لا ترغب في التغيير">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-password-confirm">تأكيد كلمة المرور الجديدة</label>
+                            <input type="password" id="user-password-confirm" placeholder="تأكيد كلمة المرور الجديدة">
+                        </div>
+                        <button type="submit" class="btn-save">حفظ التغييرات</button>
+                        <p class="success-message" id="account-success">تم حفظ التغييرات بنجاح!</p>
+                    </form>
+                </div>
+
+                <!-- إعدادات الموقع -->
+                <div class="settings-section" id="site-settings">
+                    <form id="site-form">
+                        <div class="form-group">
+                            <label for="site-language">اللغة المفضلة</label>
+                            <select id="site-language" class="form-control">
+                                <option value="ar">العربية</option>
+                                <option value="en">الإنجليزية</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="site-theme">السمة</label>
+                            <select id="site-theme" class="form-control">
+                                <option value="light">فاتح</option>
+                                <option value="dark">داكن</option>
+                                <option value="auto">تلقائي (حسب إعدادات النظام)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-save">حفظ التغييرات</button>
+                        <p class="success-message" id="site-success">تم حفظ التغييرات بنجاح!</p>
+                    </form>
+                </div>
+
+                <!-- إعدادات الخصوصية -->
+                <div class="settings-section" id="privacy-settings">
+                    <form id="privacy-form">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="privacy-activity">
+                                عرض نشاطي للمستخدمين الآخرين
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="privacy-email">
+                                إظهار بريدي الإلكتروني للمستخدمين الآخرين
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="privacy-notifications" checked>
+                                تلقي إشعارات عبر البريد الإلكتروني
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-save">حفظ التغييرات</button>
+                        <p class="success-message" id="privacy-success">تم حفظ التغييرات بنجاح!</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="Logo" class="logo">
+                <p>ببساطة - عالم الكود العربي</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="Lessons.html">الدروس</a></li>
+                        <li><a href="roadmaps.html">خرائط التعلم</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li><a href="about us.html">من نحن</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="social-media">
+                <h3>تابعنا على وسائل التواصل الاجتماعي</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ببساطة - عالم الكود العربي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تبديل التبويبات
+            const tabs = document.querySelectorAll('.settings-tab');
+            const sections = document.querySelectorAll('.settings-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // إزالة الكلاس النشط من جميع التبويبات
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // إضافة الكلاس النشط للتبويب المحدد
+                    this.classList.add('active');
+
+                    // إخفاء جميع الأقسام
+                    sections.forEach(section => section.classList.remove('active'));
+
+                    // إظهار القسم المطلوب
+                    const targetSection = document.getElementById(this.dataset.tab + '-settings');
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+
+            // تحميل بيانات المستخدم
+            loadUserSettings();
+
+            // معالجة نماذج الإعدادات
+            const accountForm = document.getElementById('account-form');
+            const siteForm = document.getElementById('site-form');
+            const privacyForm = document.getElementById('privacy-form');
+
+            accountForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveAccountSettings();
+            });
+
+            siteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveSiteSettings();
+            });
+
+            privacyForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                savePrivacySettings();
+            });
+
+            // التعامل مع الوضع المظلم
+            const darkModeIcon = document.getElementById('toggle-dark-mode');
+            darkModeIcon.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                // حفظ حالة الوضع المظلم في localStorage
+                if (document.body.classList.contains('dark-theme')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+
+            // قراءة حالة الوضع المظلم من localStorage
+            const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+            // إذا كان الوضع المظلم مفعلًا سابقًا، نضيف كلاس dark-theme للجسم
+            if (isDarkMode) {
+                document.body.classList.add('dark-theme');
+            }
+        });
+
+        // تحميل إعدادات المستخدم
+        function loadUserSettings() {
+            // التحقق من تسجيل الدخول
+            const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+            const currentUser = localStorage.getItem('currentUser');
+
+            if (!isLoggedIn || !currentUser) {
+                // إعادة توجيه المستخدم إلى صفحة تسجيل الدخول إذا لم يكن مسجل الدخول
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // تحميل بيانات المستخدم
+            const userData = JSON.parse(localStorage.getItem(currentUser) || '{}');
+
+            // تعبئة نموذج إعدادات الحساب
+            document.getElementById('user-name').value = userData.firstName || '';
+            document.getElementById('user-email').value = userData.email || '';
+
+            // تحميل إعدادات الموقع
+            const siteSettings = JSON.parse(localStorage.getItem('siteSettings_' + currentUser) || '{}');
+            document.getElementById('site-language').value = siteSettings.language || 'ar';
+            document.getElementById('site-theme').value = siteSettings.theme || 'light';
+
+            // تحميل إعدادات الخصوصية
+            const privacySettings = JSON.parse(localStorage.getItem('privacySettings_' + currentUser) || '{}');
+            document.getElementById('privacy-activity').checked = privacySettings.showActivity !== false;
+            document.getElementById('privacy-email').checked = privacySettings.showEmail === true;
+            document.getElementById('privacy-notifications').checked = privacySettings.notifications !== false;
+        }
+
+        // حفظ إعدادات الحساب
+        function saveAccountSettings() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) return;
+
+            const userData = JSON.parse(localStorage.getItem(currentUser) || '{}');
+            const userName = document.getElementById('user-name').value;
+            const userEmail = document.getElementById('user-email').value;
+            const userPassword = document.getElementById('user-password').value;
+            const userPasswordConfirm = document.getElementById('user-password-confirm').value;
+
+            // التحقق من تطابق كلمات المرور
+            if (userPassword && userPassword !== userPasswordConfirm) {
+                alert('كلمات المرور غير متطابقة');
+                return;
+            }
+
+            // تحديث بيانات المستخدم
+            userData.firstName = userName;
+            userData.email = userEmail;
+
+            // تحديث كلمة المرور إذا تم تغييرها
+            if (userPassword) {
+                userData.password = userPassword;
+            }
+
+            // حفظ البيانات
+            localStorage.setItem(currentUser, JSON.stringify(userData));
+
+            // إظهار رسالة النجاح
+            const successMessage = document.getElementById('account-success');
+            successMessage.style.display = 'block';
+
+            // إخفاء رسالة النجاح بعد 3 ثوانٍ
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        // حفظ إعدادات الموقع
+        function saveSiteSettings() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) return;
+
+            const siteLanguage = document.getElementById('site-language').value;
+            const siteTheme = document.getElementById('site-theme').value;
+
+            // حفظ إعدادات الموقع
+            const siteSettings = {
+                language: siteLanguage,
+                theme: siteTheme,
+                updatedAt: new Date().toISOString()
+            };
+
+            localStorage.setItem('siteSettings_' + currentUser, JSON.stringify(siteSettings));
+
+            // تطبيق السمة المحددة
+            if (siteTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                localStorage.setItem('darkMode', 'enabled');
+            } else if (siteTheme === 'light') {
+                document.body.classList.remove('dark-theme');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+
+            // إظهار رسالة النجاح
+            const successMessage = document.getElementById('site-success');
+            successMessage.style.display = 'block';
+
+            // إخفاء رسالة النجاح بعد 3 ثوانٍ
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        // حفظ إعدادات الخصوصية
+        function savePrivacySettings() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) return;
+
+            const showActivity = document.getElementById('privacy-activity').checked;
+            const showEmail = document.getElementById('privacy-email').checked;
+            const notifications = document.getElementById('privacy-notifications').checked;
+
+            // حفظ إعدادات الخصوصية
+            const privacySettings = {
+                showActivity: showActivity,
+                showEmail: showEmail,
+                notifications: notifications,
+                updatedAt: new Date().toISOString()
+            };
+
+            localStorage.setItem('privacySettings_' + currentUser, JSON.stringify(privacySettings));
+
+            // إظهار رسالة النجاح
+            const successMessage = document.getElementById('privacy-success');
+            successMessage.style.display = 'block';
+
+            // إخفاء رسالة النجاح بعد 3 ثوانٍ
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

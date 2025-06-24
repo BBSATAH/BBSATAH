@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة Swift من الصفر إلى الاحتراف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #20638D;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .lesson { padding: 15px; }
+            .lesson h2 { font-size: 1.5em; }
+            .lesson-details { font-size: 0.95em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة Swift من الصفر إلى الاحتراف</h1>
+        <div class="course-description">
+            <p>Swift هي لغة برمجة حديثة وقوية طورتها Apple لتطوير تطبيقات iOS وmacOS. هذه الدورة مصممة لتأخذك من الصفر إلى الاحتراف، حيث تبدأ بالأساسيات مثل المتغيرات والدوال، وتنتهي بمفاهيم متقدمة مثل البرمجة المتزامنة وSwiftUI، مع أمثلة عملية لكل خطوة.</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس 1: مقدمة وتثبيت Swift -->
+            <div class="lesson">
+                <h2>الدرس الأول: مقدمة وتثبيت Swift</h2>
+                <p>Swift هي لغة برمجة مفتوحة المصدر طورتها Apple في 2014، وهي بديل حديث لـ Objective-C.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>تثبيت Xcode:</strong> بيئة التطوير الرسمية لـ Swift، متوفرة على macOS.</li>
+                        <li><strong>Swift CLI:</strong> تثبيت Swift عبر سطر الأوامر للعمل خارج Xcode.</li>
+                        <li><strong>Playgrounds:</strong> بيئة تفاعلية لتجربة الكود.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            print("مرحبًا بك في Swift!")
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 2: المتغيرات والثوابت -->
+            <div class="lesson">
+                <h2>الدرس الثاني: المتغيرات والثوابت</h2>
+                <p>Swift يستخدم <code>var</code> للمتغيرات و<code>let</code> للثوابت مع نظام أنواع قوي.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>var:</strong> للقيم القابلة للتغيير.</li>
+                        <li><strong>let:</strong> للقيم الثابتة.</li>
+                        <li><strong>Type Inference:</strong> Swift يستنتج النوع تلقائيًا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            var name = "علي"  // متغير
+                            name = "أحمد"
+                            let age = 25      // ثابت
+                            print(name, age)
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 3: أنواع البيانات -->
+            <div class="lesson">
+                <h2>الدرس الثالث: أنواع البيانات</h2>
+                <p>Swift يوفر أنواع بيانات قوية وآمنة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Int, Double, Float:</strong> للأرقام.</li>
+                        <li><strong>String:</strong> للنصوص.</li>
+                        <li><strong>Bool:</strong> للقيم المنطقية (true/false).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let count: Int = 10
+                            let height: Double = 1.75
+                            let message: String = "مرحبًا"
+                            let isActive: Bool = true
+                            print(count, height, message, isActive)
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 4: الجمل الشرطية والحلقات -->
+            <div class="lesson">
+                <h2>الدرس الرابع: الجمل الشرطية والحلقات</h2>
+                <p>التحكم في تدفق البرنامج باستخدام الشروط والتكرار.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>if-else:</strong> لاتخاذ القرارات.</li>
+                        <li><strong>for-in:</strong> للتكرار على مجموعات.</li>
+                        <li><strong>while:</strong> للتكرار بناءً على شرط.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let score = 85
+                            if score >= 90 {
+                                print("ممتاز")
+                            } else {
+                                print("جيد")
+                            }
+
+                            for i in 1...3 {
+                                print("رقم: \(i)")
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 5: الدوال -->
+            <div class="lesson">
+                <h2>الدرس الخامس: الدوال</h2>
+                <p>الدوال تُستخدم لتنظيم الكود وإعادة استخدامه.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>تعريف:</strong> باستخدام <code>func</code>.</li>
+                        <li><strong>المعاملات:</strong> يمكن إضافة أسماء خارجية وداخلية.</li>
+                        <li><strong>الإرجاع:</strong> تحديد نوع القيمة المرجعة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            func greet(person name: String) -> String {
+                                return "مرحبًا، \(name)!"
+                            }
+                            let greeting = greet(person: "علي")
+                            print(greeting)
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 6: المجموعات (Collections) -->
+            <div class="lesson">
+                <h2>الدرس السادس: المجموعات (Collections)</h2>
+                <p>Swift يوفر أنواعًا متعددة لتخزين البيانات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Array:</strong> قائمة مرتبة.</li>
+                        <li><strong>Dictionary:</strong> مفاتيح وقيم.</li>
+                        <li><strong>Set:</strong> مجموعة فريدة غير مرتبة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            var fruits = ["تفاح", "موز"]
+                            var person = ["name": "علي", "age": "25"]
+                            var numbers: Set = [1, 2, 3, 3]
+                            print(fruits[0], person["name"]!, numbers)
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 7: الاختيارات (Optionals) -->
+            <div class="lesson">
+                <h2>الدرس السابع: الاختيارات (Optionals)</h2>
+                <p>الاختيارات تتعامل مع القيم التي قد تكون غائبة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>?</code>.</li>
+                        <li><strong>الفك:</strong> <code>!</code> لفرض القيمة أو <code>if let</code> للفحص الآمن.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            var optionalName: String? = "علي"
+                            if let name = optionalName {
+                                print("الاسم: \(name)")
+                            } else {
+                                print("لا يوجد اسم")
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 8: التعامل مع الأخطاء -->
+            <div class="lesson">
+                <h2>الدرس الثامن: التعامل مع الأخطاء</h2>
+                <p>Swift يستخدم نظامًا قويًا لإدارة الأخطاء.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>throw:</strong> لإلقاء خطأ.</li>
+                        <li><strong>do-catch:</strong> لمعالجة الأخطاء.</li>
+                        <li><strong>try?:</strong> لتحويل النتيجة إلى اختياري.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            enum MathError: Error {
+                                case divisionByZero
+                            }
+
+                            func divide(_ a: Int, by b: Int) throws -> Int {
+                                if b == 0 { throw MathError.divisionByZero }
+                                return a / b
+                            }
+
+                            do {
+                                let result = try divide(10, by: 0)
+                                print(result)
+                            } catch {
+                                print("خطأ: \(error)")
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 9: الكلاسات والهياكل -->
+            <div class="lesson">
+                <h2>الدرس التاسع: الكلاسات والهياكل</h2>
+                <p>Swift يوفر طريقتين للبرمجة الكائنية.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Class:</strong> نوع مرجعي مع وراثة.</li>
+                        <li><strong>Struct:</strong> نوع قيمي بدون وراثة.</li>
+                        <li><strong>الفرق:</strong> الكلاسات تُمرر بالمرجع، الهياكل تُنسخ.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            struct Point {
+                                var x = 0, y = 0
+                            }
+
+                            class Car {
+                                var brand = "Toyota"
+                            }
+
+                            var point = Point(x: 5, y: 10)
+                            let car = Car()
+                            car.brand = "Honda"
+                            print(point.x, car.brand)
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 10: البروتوكولات -->
+            <div class="lesson">
+                <h2>الدرس العاشر: البروتوكولات</h2>
+                <p>البروتوكولات تُحدد متطلبات للكلاسات أو الهياكل.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>protocol</code>.</li>
+                        <li><strong>التطبيق:</strong> باستخدام <code>:</code>.</li>
+                        <li><strong>الامتداد:</strong> إضافة وظائف افتراضية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            protocol Describable {
+                                func describe() -> String
+                            }
+
+                            struct Book: Describable {
+                                var title: String
+                                func describe() -> String {
+                                    return "كتاب: \(title)"
+                                }
+                            }
+
+                            let book = Book(title: "Swift")
+                            print(book.describe())
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 11: الإغلاقات (Closures) -->
+            <div class="lesson">
+                <h2>الدرس الحادي عشر: الإغلاقات (Closures)</h2>
+                <p>الإغلاقات هي كتل كود مستقلة يمكن تمريرها.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>{}</code>.</li>
+                        <li><strong>الاستخدام:</strong> كبديل للدوال المجهولة.</li>
+                        <li><strong>التقاط:</strong> الوصول للمتغيرات الخارجية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let sayHello = { (name: String) in
+                                print("مرحبًا، \(name)!")
+                            }
+                            sayHello("علي")
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 12: البرمجة المتزامنة -->
+            <div class="lesson">
+                <h2>الدرس الثاني عشر: البرمجة المتزامنة</h2>
+                <p>Swift يدعم التعامل مع المهام المتعددة بأمان.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>DispatchQueue:</strong> لإدارة الخيوط.</li>
+                        <li><strong>async/await:</strong> بنية حديثة للتعامل المتزامن.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            func fetchData() async -> String {
+                                return "بيانات"
+                            }
+
+                            Task {
+                                let data = await fetchData()
+                                print(data)
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 13: SwiftUI -->
+            <div class="lesson">
+                <h2>الدرس الثالث عشر: SwiftUI</h2>
+                <p>SwiftUI هو إطار عمل حديث لبناء واجهات المستخدم.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الأساس:</strong> بناء واجهات تفاعلية باستخدام Swift.</li>
+                        <li><strong>View:</strong> الكتل الأساسية للواجهة.</li>
+                        <li><strong>State:</strong> إدارة التغييرات.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            import SwiftUI
+
+                            struct ContentView: View {
+                                @State private var counter = 0
+                                var body: some View {
+                                    VStack {
+                                        Text("العدد: \(counter)")
+                                        Button("زيادة") { counter += 1 }
+                                    }
+                                }
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 14: مشروع عملي -->
+            <div class="lesson">
+                <h2>الدرس الرابع عشر: مشروع عملي - تطبيق قائمة مهام</h2>
+                <p>تطبيق عملي يجمع المفاهيم السابقة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الهدف:</strong> إنشاء تطبيق بسيط لإدارة المهام باستخدام SwiftUI.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            import SwiftUI
+
+                            struct Task: Identifiable {
+                                let id = UUID()
+                                var title: String
+                                var isCompleted = false
+                            }
+
+                            struct ContentView: View {
+                                @State private var tasks = [Task]()
+
+                                var body: some View {
+                                    NavigationView {
+                                        List {
+                                            ForEach(tasks) { task in
+                                                Text(task.title)
+                                            }
+                                        }
+                                        .navigationTitle("المهام")
+                                        .toolbar {
+                                            Button("إضافة") {
+                                                tasks.append(Task(title: "مهمة جديدة"))
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

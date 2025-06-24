@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات البرمجة الكائنية (OOP)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #20638D;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .lesson { padding: 15px; }
+            .lesson h2 { font-size: 1.5em; }
+            .lesson-details { font-size: 0.95em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات البرمجة الكائنية (OOP)</h1>
+        <div class="course-description">
+            <p>البرمجة الكائنية التوجه (OOP) هي أسلوب برمجي يعتمد على الكائنات والفئات لتنظيم الكود وتسهيل إعادة استخدامه. في هذه الدورة، سنغطي كل المفاهيم الأساسية والمتقدمة لـ OOP مع أمثلة عملية لفهم كيفية تطبيقها في تصميم البرمجيات.</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس 1: مقدمة في OOP -->
+            <div class="lesson">
+                <h2>الدرس الأول: مقدمة في البرمجة الكائنية</h2>
+                <p>البرمجة الكائنية (OOP) هي نمط برمجي يعتمد على الكائنات التي تجمع البيانات والسلوكيات معًا.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>ما هي OOP؟</strong> أسلوب برمجي يركز على الكائنات بدلاً من الإجراءات، مستخدمًا الفئات كقوالب.</li>
+                        <li><strong>لماذا OOP؟</strong> تحسين تنظيم الكود، إعادة الاستخدام، وتسهيل الصيانة.</li>
+                        <li><strong>المفاهيم الأساسية:</strong>
+                            <ul>
+                                <li>الفئة (Class): قالب لإنشاء الكائنات.</li>
+                                <li>الكائن (Object): نسخة فعلية من الفئة.</li>
+                                <li>الخصائص (Attributes): البيانات.</li>
+                                <li>الوظائف (Methods): السلوكيات.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Car:
+                                def __init__(self, brand):
+                                    self.brand = brand
+                                def drive(self):
+                                    print(f"{self.brand} is driving")
+                            my_car = Car("Toyota")
+                            my_car.drive()  # Toyota is driving
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 2: التغليف -->
+            <div class="lesson">
+                <h2>الدرس الثاني: التغليف (Encapsulation)</h2>
+                <p>التغليف يحمي البيانات داخل الكائن ويحد من الوصول المباشر إليها.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الخصائص الخاصة:</strong> تُسبق بـ <code>__</code> لجعلها غير قابلة للوصول مباشرة.</li>
+                        <li><strong>Getters/Setters:</strong> وظائف للوصول إلى البيانات وتعديلها.</li>
+                        <li><strong>الفائدة:</strong> حماية البيانات وتقليل الأخطاء.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Car:
+                                def __init__(self, brand):
+                                    self.__brand = brand
+                                def get_brand(self):
+                                    return self.__brand
+                                def set_brand(self, brand):
+                                    self.__brand = brand
+                            my_car = Car("BMW")
+                            print(my_car.get_brand())  # BMW
+                            my_car.set_brand("Audi")
+                            print(my_car.get_brand())  # Audi
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 3: الوراثة -->
+            <div class="lesson">
+                <h2>الدرس الثالث: الوراثة (Inheritance)</h2>
+                <p>الوراثة تتيح لفئة جديدة أن ترث خصائص ووظائف فئة أخرى.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الفئة الأم (Parent):</strong> المصدر.</li>
+                        <li><strong>الفئة الابنة (Child):</strong> ترث وتوسع.</li>
+                        <li><strong>super():</strong> استدعاء الدوال من الفئة الأم.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Vehicle:
+                                def __init__(self, brand):
+                                    self.brand = brand
+                                def move(self):
+                                    print(f"{self.brand} moves")
+                            class Car(Vehicle):
+                                def honk(self):
+                                    print("Beep!")
+                            my_car = Car("Toyota")
+                            my_car.move()  # Toyota moves
+                            my_car.honk()  # Beep!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 4: تعدد الأشكال -->
+            <div class="lesson">
+                <h2>الدرس الرابع: تعدد الأشكال (Polymorphism)</h2>
+                <p>تعدد الأشكال يسمح للكائنات المختلفة بالاستجابة لنفس الوظيفة بطرق مختلفة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Method Overriding:</strong> إعادة تعريف وظيفة في الفئة الفرعية.</li>
+                        <li><strong>الفائدة:</strong> المرونة في التعامل مع كائنات مختلفة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Animal:
+                                def sound(self):
+                                    print("Some sound")
+                            class Dog(Animal):
+                                def sound(self):
+                                    print("Woof!")
+                            class Cat(Animal):
+                                def sound(self):
+                                    print("Meow!")
+                            animals = [Dog(), Cat()]
+                            for a in animals:
+                                a.sound()  # Woof! Meow!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 5: التجريد -->
+            <div class="lesson">
+                <h2>الدرس الخامس: التجريد (Abstraction)</h2>
+                <p>التجريد يُركز على إخفاء التفاصيل الداخلية وإظهار الوظائف الأساسية فقط.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Abstract Class:</strong> فئة لا يمكن إنشاء كائنات منها مباشرة.</li>
+                        <li><strong>Abstract Method:</strong> وظيفة يجب تطبيقها في الفئات الفرعية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            from abc import ABC, abstractmethod
+                            class Shape(ABC):
+                                @abstractmethod
+                                def area(self):
+                                    pass
+                            class Circle(Shape):
+                                def __init__(self, radius):
+                                    self.radius = radius
+                                def area(self):
+                                    return 3.14 * self.radius ** 2
+                            c = Circle(5)
+                            print(c.area())  # 78.5
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 6: الواجهات -->
+            <div class="lesson">
+                <h2>الدرس السادس: الواجهات (Interfaces)</h2>
+                <p>الواجهات تحدد مجموعة من الوظائف التي يجب تطبيقها.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الغرض:</strong> فصل التصميم عن التطبيق.</li>
+                        <li><strong>التطبيق:</strong> يتم عبر فئات مجردة في Python.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            from abc import ABC, abstractmethod
+                            class Flyable(ABC):
+                                @abstractmethod
+                                def fly(self):
+                                    pass
+                            class Bird(Flyable):
+                                def fly(self):
+                                    print("Flying!")
+                            b = Bird()
+                            b.fly()  # Flying!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 7: الأنماط التصميمية -->
+            <div class="lesson">
+                <h2>الدرس السابع: الأنماط التصميمية (Design Patterns)</h2>
+                <p>حلول معيارية لمشاكل شائعة في تصميم البرمجيات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Singleton:</strong> نسخة واحدة من الفئة.</li>
+                        <li><strong>Factory:</strong> إنشاء كائنات دون تحديد الفئة.</li>
+                        <li><strong>Observer:</strong> مراقبة التغييرات.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال (Singleton):</strong><br>
+                        <code>
+                            class Singleton:
+                                _instance = None
+                                def __new__(cls):
+                                    if cls._instance is None:
+                                        cls._instance = super().__new__(cls)
+                                    return cls._instance
+                            s1 = Singleton()
+                            s2 = Singleton()
+                            print(s1 is s2)  # True
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 8: التعددية في الوراثة -->
+            <div class="lesson">
+                <h2>الدرس الثامن: التعددية في الوراثة (Multiple Inheritance)</h2>
+                <p>الوراثة من أكثر من فئة أم.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الاستخدام:</strong> دمج خصائص متعددة.</li>
+                        <li><strong>المشاكل:</strong> تعارض الأسماء (Diamond Problem).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Engine:
+                                def start(self):
+                                    print("Engine started")
+                            class Wheels:
+                                def roll(self):
+                                    print("Wheels rolling")
+                            class Car(Engine, Wheels):
+                                pass
+                            my_car = Car()
+                            my_car.start()  # Engine started
+                            my_car.roll()   # Wheels rolling
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 9: إدارة الذاكرة -->
+            <div class="lesson">
+                <h2>الدرس التاسع: إدارة الذاكرة في OOP</h2>
+                <p>كيفية تخصيص وتحرير الذاكرة للكائنات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Garbage Collection:</strong> تحرير الذاكرة تلقائيًا.</li>
+                        <li><strong>References:</strong> إدارة الإشارات إلى الكائنات.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class MyClass:
+                                def __init__(self, value):
+                                    self.value = value
+                            obj1 = MyClass(10)
+                            obj2 = obj1
+                            print(obj1.value)  # 10
+                            del obj1  # لا يزال obj2 يشير إلى الكائن
+                            print(obj2.value)  # 10
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 10: التعامل مع الاستثناءات -->
+            <div class="lesson">
+                <h2>الدرس العاشر: التعامل مع الاستثناءات</h2>
+                <p>إدارة الأخطاء في سياق OOP.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>try/except:</strong> معالجة الأخطاء.</li>
+                        <li><strong>Custom Exceptions:</strong> إنشاء استثناءات مخصصة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class BankAccount:
+                                def __init__(self, balance):
+                                    self.balance = balance
+                                def withdraw(self, amount):
+                                    if amount > self.balance:
+                                        raise ValueError("Insufficient funds")
+                                    self.balance -= amount
+                            account = BankAccount(100)
+                            try:
+                                account.withdraw(150)
+                            except ValueError as e:
+                                print(e)  # Insufficient funds
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 11: الخصائص الثابتة والوظائف -->
+            <div class="lesson">
+                <h2>الدرس الحادي عشر: الخصائص والوظائف الثابتة</h2>
+                <p>الخصائص والوظائف التي تنتمي للفئة وليس للكائنات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Static Methods:</strong> باستخدام <code>@staticmethod</code>.</li>
+                        <li><strong>Class Methods:</strong> باستخدام <code>@classmethod</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class MathUtils:
+                                @staticmethod
+                                def add(a, b):
+                                    return a + b
+                                @classmethod
+                                def class_name(cls):
+                                    return cls.__name__
+                            print(MathUtils.add(3, 4))  # 7
+                            print(MathUtils.class_name())  # MathUtils
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 12: التحميل الزائد -->
+            <div class="lesson">
+                <h2>الدرس الثاني عشر: التحميل الزائد (Overloading)</h2>
+                <p>تعريف وظائف متعددة بنفس الاسم ولكن بمعاملات مختلفة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>ملاحظة:</strong> Python لا يدعم التحميل الزائد مباشرة، لكن يمكن محاكاته باستخدام قيم افتراضية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Calculator:
+                                def add(self, a, b=0, c=0):
+                                    return a + b + c
+                            calc = Calculator()
+                            print(calc.add(5))      # 5
+                            print(calc.add(5, 3))   # 8
+                            print(calc.add(5, 3, 2))  # 10
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 13: العلاقات بين الكائنات -->
+            <div class="lesson">
+                <h2>الدرس الثالث عشر: العلاقات بين الكائنات</h2>
+                <p>كيفية ارتباط الكائنات ببعضها (تجميع، تركيب، ارتباط).</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Association:</strong> علاقة عامة بين كائنات.</li>
+                        <li><strong>Aggregation:</strong> "يحتوي على" (ضعيفة).</li>
+                        <li><strong>Composition:</strong> "جزء من" (قوية).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال (Composition):</strong><br>
+                        <code>
+                            class Engine:
+                                def start(self):
+                                    print("Engine started")
+                            class Car:
+                                def __init__(self):
+                                    self.engine = Engine()
+                                def drive(self):
+                                    self.engine.start()
+                                    print("Car is driving")
+                            my_car = Car()
+                            my_car.drive()
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 14: التطبيقات العملية -->
+            <div class="lesson">
+                <h2>الدرس الرابع عشر: التطبيقات العملية لـ OOP</h2>
+                <p>تطبيق شامل يجمع المفاهيم السابقة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>مثال عملي:</strong> نظام إدارة مكتبة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Book:
+                                def __init__(self, title, author):
+                                    self.title = title
+                                    self.author = author
+                                def info(self):
+                                    return f"{self.title} by {self.author}"
+                            class Library:
+                                def __init__(self):
+                                    self.books = []
+                                def add_book(self, book):
+                                    self.books.append(book)
+                                def list_books(self):
+                                    for book in self.books:
+                                        print(book.info())
+                            lib = Library()
+                            lib.add_book(Book("Python 101", "Ali"))
+                            lib.add_book(Book("OOP Basics", "Ahmed"))
+                            lib.list_books()
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

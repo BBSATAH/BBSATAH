@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان JavaScript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+  body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #222;
+            padding: 20px;
+            margin: 0;
+            direction: rtl; /* جعل النصوص تبدأ من اليمين */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+        }
+
+        .level-title {
+            color: #20638D;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question p {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-left: 10px; /* لتناسب الاتجاه من اليمين */
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #20638D;
+        }
+
+        .evaluation-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            color: #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .evaluation-popup button {
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .evaluation-popup button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        select {
+            background-color: #20638D; /* لون خلفية أنيق */
+            color: #fff; /* لون النص */
+            border: 2px solid #20638D; /* حدود بتأثير أكثر جاذبية */
+            border-radius: 8px; /* زوايا مستديرة */
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Cairo', sans-serif;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+            appearance: none; /* إخفاء السهم الافتراضي */
+            text-align: center;
+            font-weight: bold;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="white"><polygon points="0,0 20,0 10,10"/></svg>'); /* سهم مخصص أكبر */
+            background-repeat: no-repeat;
+            background-position: left 10px center; /* موضع السهم إلى اليسار */
+            background-size: 15px; /* حجم السهم أكبر */
+        }
+
+        select:hover {
+            background-color: #6d00fc; /* تأثير عند تمرير الماوس */
+            border-color: #20638D;
+        }
+
+        select:focus {
+            background-color: #20638D; /* لون مختلف عند التحديد */
+            border-color: #fff;
+            box-shadow: 0 0 8px #20638D;
+        }
+
+        option {
+            background-color: #20638D; /* لون عناصر القائمة */
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        option:hover {
+            background-color: #1a4d7e; /* تأثير عند التحديد */
+        }
+
+        /* تحسين العرض على الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .question {
+                padding: 10px;
+            }
+
+            .result {
+                font-size: 20px;
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>امتحان JavaScript</h1>
+        
+        <!-- القائمة المنسدلة لاختيار المستوى -->
+        <select id="levelSelect">
+            <option value="easy">المستوى السهل</option>
+            <option value="medium">المستوى المتوسط</option>
+            <option value="hard">المستوى الصعب</option>
+        </select>
+
+        <!-- أسئلة المستوى السهل -->
+        <div id="easy" class="level-content">
+            <h2 class="level-title">المستوى السهل</h2>
+                     <div class="question">
+                <p>ما هو نوع البيانات الذي يُستخدم لتخزين نصوص في JavaScript؟</p>
+                <input type="radio" name="q1" value="String"> String<br>
+                <input type="radio" name="q1" value="Text"> Text<br>
+                <input type="radio" name="q1" value="char"> char<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك كتابة تعليق في JavaScript؟</p>
+                <input type="radio" name="q2" value="// تعليق"> // تعليق<br>
+                <input type="radio" name="q2" value="<!-- تعليق -->"> <!-- تعليق --><br>
+                <input type="radio" name="q2" value="/* تعليق */"> /* تعليق */<br>
+            </div>
+            <div class="question">
+                <p>أي من التالي يمكن استخدامه للبحث عن عنصر في DOM؟</p>
+                <input type="radio" name="q3" value="document.getElementById()"> document.getElementById()<br>
+                <input type="radio" name="q3" value="document.query()"> document.query()<br>
+                <input type="radio" name="q3" value="document.find()"> document.find()<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك دمج مصفوفتين في JavaScript؟</p>
+                <input type="radio" name="q4" value="array1.concat(array2)"> array1.concat(array2)<br>
+                <input type="radio" name="q4" value="array1.merge(array2)"> array1.merge(array2)<br>
+                <input type="radio" name="q4" value="array1.combine(array2)"> array1.combine(array2)<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(2 + '2');</p>
+                <input type="radio" name="q5" value="22"> 22<br>
+                <input type="radio" name="q5" value="4"> 4<br>
+                <input type="radio" name="q5" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>أي من التالي يُستخدم لإيقاف تكرار (Loop) في JavaScript؟</p>
+                <input type="radio" name="q6" value="break"> break<br>
+                <input type="radio" name="q6" value="stop"> stop<br>
+                <input type="radio" name="q6" value="halt"> halt<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> typeof true</p>
+                <input type="radio" name="q7" value="boolean"> boolean<br>
+                <input type="radio" name="q7" value="string"> string<br>
+                <input type="radio" name="q7" value="object"> object<br>
+            </div>
+            <div class="question">
+                <p>أي من التالي يمكن استخدامه للتكرار على عناصر مصفوفة؟</p>
+                <input type="radio" name="q8" value="for loop"> for loop<br>
+                <input type="radio" name="q8" value="while loop"> while loop<br>
+                <input type="radio" name="q8" value="both"> both<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log('Hello' + 'World');</p>
+                <input type="radio" name="q9" value="HelloWorld"> HelloWorld<br>
+                <input type="radio" name="q9" value="Hello World"> Hello World<br>
+                <input type="radio" name="q9" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك مقارنة متغيرين في JavaScript؟</p>
+                <input type="radio" name="q10" value="=="> ==<br>
+                <input type="radio" name="q10" value="==="> ===<br>
+                <input type="radio" name="q10" value="!="> !=<br>
+            </div>
+            <div class="question">
+                <p>ما هي الكلمة المحجوزة التي تستخدم لتعريف دالة في JavaScript؟</p>
+                <input type="radio" name="q11" value="function"> function<br>
+                <input type="radio" name="q11" value="def"> def<br>
+                <input type="radio" name="q11" value="method"> method<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تحويل نص إلى عدد صحيح في JavaScript؟</p>
+                <input type="radio" name="q12" value="parseInt()"> parseInt()<br>
+                <input type="radio" name="q12" value="toNumber()"> toNumber()<br>
+                <input type="radio" name="q12" value="Number()"> Number()<br>
+            </div>
+        </div>
+
+        <!-- أسئلة المستوى المتوسط -->
+        <div id="medium" class="level-content hidden">
+            <h2 class="level-title">المستوى المتوسط</h2>
+              <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(0.1 + 0.2 === 0.3);</p>
+                <input type="radio" name="q13" value="true"> true<br>
+                <input type="radio" name="q13" value="false"> false<br>
+                <input type="radio" name="q13" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>أي من التالي هو استخدام غير صحيح لمشغل منطقي في JavaScript؟</p>
+                <input type="radio" name="q14" value="&&"> &&<br>
+                <input type="radio" name="q14" value="||"> ||<br>
+                <input type="radio" name="q14" value="!"> !<br>
+                <input type="radio" name="q14" value="??"> ??<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log([] + []);</p>
+                <input type="radio" name="q15" value="[]"> []<br>
+                <input type="radio" name="q15" value="0"> 0<br>
+                <input type="radio" name="q15" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة المستخدمة لإضافة عنصر إلى نهاية مصفوفة؟</p>
+                <input type="radio" name="q16" value="push()"> push()<br>
+                <input type="radio" name="q16" value="pop()"> pop()<br>
+                <input type="radio" name="q16" value="shift()"> shift()<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف كائن جديد في JavaScript؟</p>
+                <input type="radio" name="q17" value="{}"> {}<br>
+                <input type="radio" name="q17" value="[]"> []<br>
+                <input type="radio" name="q17" value="new Object()"> new Object()<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log('5' - 2);</p>
+                <input type="radio" name="q18" value="3"> 3<br>
+                <input type="radio" name="q18" value="52"> 52<br>
+                <input type="radio" name="q18" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك الوصول إلى خصائص كائن؟</p>
+                <input type="radio" name="q19" value="object.property"> object.property<br>
+                <input type="radio" name="q19" value="object['property']"> object['property']<br>
+                <input type="radio" name="q19" value="both"> both<br>
+            </div>
+            <div class="question">
+                <p>أي من التالي هو مشغل غير صحيح في JavaScript؟</p>
+                <input type="radio" name="q20" value="++"> ++<br>
+                <input type="radio" name="q20" value="--"> --<br>
+                <input type="radio" name="q20" value="**"> **<br>
+            </div>
+            <div class="question">
+                <p>ما هي الكلمة المحجوزة التي تستخدم لتعريف متغير في JavaScript؟</p>
+                <input type="radio" name="q21" value="let"> let<br>
+                <input type="radio" name="q21" value="var"> var<br>
+                <input type="radio" name="q21" value="const"> const<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك استدعاء دالة من كائن؟</p>
+                <input type="radio" name="q22" value="object.method()"> object.method()<br>
+                <input type="radio" name="q22" value="method(object)"> method(object)<br>
+                <input type="radio" name="q22" value="object[method]()"> object[method]()<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(typeof NaN);</p>
+                <input type="radio" name="q23" value="number"> number<br>
+                <input type="radio" name="q23" value="NaN"> NaN<br>
+                <input type="radio" name="q23" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين == و === في JavaScript؟</p>
+                <input type="radio" name="q24" value="== يتجاهل النوع و === لا يتجاهل النوع"> == يتجاهل النوع و === لا يتجاهل النوع<br>
+                <input type="radio" name="q24" value="لا يوجد فرق"> لا يوجد فرق<br>
+                <input type="radio" name="q24" value="== يستخدم للمقارنة و === يستخدم للتحقق من النوع"> == يستخدم للمقارنة و === يستخدم للتحقق من النوع<br>
+            </div>
+            <div class="question">
+                <p>ما هي الطريقة التي يمكن استخدامها للتكرار على خصائص كائن؟</p>
+                <input type="radio" name="q25" value="for...in"> for...in<br>
+                <input type="radio" name="q25" value="for...of"> for...of<br>
+                <input type="radio" name="q25" value="forEach()"> forEach()<br>
+            </div>
+        </div>
+
+        <!-- أسئلة المستوى الصعب -->
+        <div id="hard" class="level-content hidden">
+            <h2 class="level-title">المستوى الصعب</h2>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log([] == ![]);</p>
+                <input type="radio" name="q26" value="true"> true<br>
+                <input type="radio" name="q26" value="false"> false<br>
+                <input type="radio" name="q26" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تحويل كائن إلى JSON في JavaScript؟</p>
+                <input type="radio" name="q27" value="JSON.stringify()"> JSON.stringify()<br>
+                <input type="radio" name="q27" value="JSON.parse()"> JSON.parse()<br>
+                <input type="radio" name="q27" value="object.toJSON()"> object.toJSON()<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(1 == '1');</p>
+                <input type="radio" name="q28" value="true"> true<br>
+                <input type="radio" name="q28" value="false"> false<br>
+                <input type="radio" name="q28" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف دالة ضمن دالة أخرى في JavaScript؟</p>
+                <input type="radio" name="q29" value="function nestedFunction() {}"> function nestedFunction() {}<br>
+                <input type="radio" name="q29" value="nestedFunction = function() {}"> nestedFunction = function() {}<br>
+                <input type="radio" name="q29" value="() => function nestedFunction() {}"> () => function nestedFunction() {}<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(typeof null);</p>
+                <input type="radio" name="q30" value="object"> object<br>
+                <input type="radio" name="q30" value="null"> null<br>
+                <input type="radio" name="q30" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين var و let في JavaScript؟</p>
+                <input type="radio" name="q31" value="var يمكن إعادة تعيينه و let لا يمكن إعادة تعيينه"> var يمكن إعادة تعيينه و let لا يمكن إعادة تعيينه<br>
+                <input type="radio" name="q31" value="var لا يمكن إعادة تعيينه و let يمكن إعادة تعيينه"> var لا يمكن إعادة تعيينه و let يمكن إعادة تعيينه<br>
+                <input type="radio" name="q31" value="var له نطاق وظيفة و let له نطاق كتلة"> var له نطاق وظيفة و let له نطاق كتلة<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log([] + {});</p>
+                <input type="radio" name="q32" value="[object Object]"> [object Object]<br>
+                <input type="radio" name="q32" value="{}"> {}<br>
+                <input type="radio" name="q32" value="[]"> []<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك معالجة الأخطاء في JavaScript؟</p>
+                <input type="radio" name="q33" value="try...catch"> try...catch<br>
+                <input type="radio" name="q33" value="throw...catch"> throw...catch<br>
+                <input type="radio" name="q33" value="error...catch"> error...catch<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(1 + '1');</p>
+                <input type="radio" name="q34" value="11"> 11<br>
+                <input type="radio" name="q34" value="2"> 2<br>
+                <input type="radio" name="q34" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك التحقق من وجود خاصية في كائن؟</p>
+                <input type="radio" name="q35" value="property in object"> property in object<br>
+                <input type="radio" name="q35" value="object.hasOwnProperty(property)"> object.hasOwnProperty(property)<br>
+                <input type="radio" name="q35" value="object[property] !== undefined"> object[property] !== undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(1 === '1');</p>
+                <input type="radio" name="q36" value="true"> true<br>
+                <input type="radio" name="q36" value="false"> false<br>
+                <input type="radio" name="q36" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين function declaration و function expression في JavaScript؟</p>
+                <input type="radio" name="q37" value="function declaration يمكن استخدامها قبل تعريفها و function expression لا يمكن استخدامها قبل تعريفها"> function declaration يمكن استخدامها قبل تعريفها و function expression لا يمكن استخدامها قبل تعريفها<br>
+                <input type="radio" name="q37" value="لا يوجد فرق"> لا يوجد فرق<br>
+                <input type="radio" name="q37" value="function declaration تستخدم الكلمة المحجوزة function و function expression تستخدم الكلمة المحجوزة const"> function declaration تستخدم الكلمة المحجوزة function و function expression تستخدم الكلمة المحجوزة const<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(!![]);</p>
+                <input type="radio" name="q38" value="true"> true<br>
+                <input type="radio" name="q38" value="false"> false<br>
+                <input type="radio" name="q38" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك استخدام الدوال ككائنات في JavaScript؟</p>
+                <input type="radio" name="q39" value="باستخدام الخصائص"> باستخدام الخصائص<br>
+                <input type="radio" name="q39" value="باستخدام الدوال الداخلية"> باستخدام الدوال الداخلية<br>
+                <input type="radio" name="q39" value="لا يمكن استخدام الدوال ككائنات"> لا يمكن استخدام الدوال ككائنات<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log([] === ![]);</p>
+                <input type="radio" name="q40" value="true"> true<br>
+                <input type="radio" name="q40" value="false"> false<br>
+                <input type="radio" name="q40" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين call و apply في JavaScript؟</p>
+                <input type="radio" name="q41" value="call يقبل قائمة من المعاملات و apply يقبل مصفوفة من المعاملات"> call يقبل قائمة من المعاملات و apply يقبل مصفوفة من المعاملات<br>
+                <input type="radio" name="q41" value="لا يوجد فرق"> لا يوجد فرق<br>
+                <input type="radio" name="q41" value="call يستخدم للتكرار و apply يستخدم للتكرار"> call يستخدم للتكرار و apply يستخدم للتكرار<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(1 + 1 + '1');</p>
+                <input type="radio" name="q42" value="21"> 21<br>
+                <input type="radio" name="q42" value="11"> 11<br>
+                <input type="radio" name="q42" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف دالة ككائن في JavaScript؟</p>
+                <input type="radio" name="q43" value="باستخدام function"> باستخدام function<br>
+                <input type="radio" name="q43" value="باستخدام new Function()"> باستخدام new Function()<br>
+                <input type="radio" name="q43" value="باستخدام object.method()"> باستخدام object.method()<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(1 + [1]);</p>
+                <input type="radio" name="q44" value="11"> 11<br>
+                <input type="radio" name="q44" value="2"> 2<br>
+                <input type="radio" name="q44" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين Object.create و new Object؟</p>
+                <input type="radio" name="q45" value="Object.create ينشئ كائنًا جديدًا مع كائن موجود كـ prototype و new Object ينشئ كائنًا جديدًا باستخدام دالة المنشئ"> Object.create ينشئ كائنًا جديدًا مع كائن موجود كـ prototype و new Object ينشئ كائنًا جديدًا باستخدام دالة المنشئ<br>
+                <input type="radio" name="q45" value="لا يوجد فرق"> لا يوجد فرق<br>
+                <input type="radio" name="q45" value="Object.create ينشئ كائنًا جديدًا و new Object ينشئ كائنًا جديدًا مع خصائص إضافية"> Object.create ينشئ كائنًا جديدًا و new Object ينشئ كائنًا جديدًا مع خصائص إضافية<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log('true' == true);</p>
+                <input type="radio" name="q46" value="true"> true<br>
+                <input type="radio" name="q46" value="false"> false<br>
+                <input type="radio" name="q46" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك التعامل مع التواريخ في JavaScript؟</p>
+                <input type="radio" name="q47" value="باستخدام كائن Date"> باستخدام كائن Date<br>
+                <input type="radio" name="q47" value="باستخدام كائن DateTime"> باستخدام كائن DateTime<br>
+                <input type="radio" name="q47" value="باستخدام كائن Time"> باستخدام كائن Time<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(1 + '1' - 1);</p>
+                <input type="radio" name="q48" value="10"> 10<br>
+                <input type="radio" name="q48" value="1"> 1<br>
+                <input type="radio" name="q48" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك إنشاء نسخة عميقة من كائن؟</p>
+                <input type="radio" name="q49" value="باستخدام JSON.parse و JSON.stringify"> باستخدام JSON.parse و JSON.stringify<br>
+                <input type="radio" name="q49" value="باستخدام Object.assign()"> باستخدام Object.assign()<br>
+                <input type="radio" name="q49" value="باستخدام spread operator"> باستخدام spread operator<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log([1] == [1]);</p>
+                <input type="radio" name="q50" value="true"> true<br>
+                <input type="radio" name="q50" value="false"> false<br>
+                <input type="radio" name="q50" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين function.apply و function.call في JavaScript؟</p>
+                <input type="radio" name="q51" value="function.apply يقبل مصفوفة من المعاملات و function.call يقبل قائمة من المعاملات"> function.apply يقبل مصفوفة من المعاملات و function.call يقبل قائمة من المعاملات<br>
+                <input type="radio" name="q51" value="لا يوجد فرق"> لا يوجد فرق<br>
+                <input type="radio" name="q51" value="function.apply يستخدم للتكرار و function.call يستخدم للتكرار"> function.apply يستخدم للتكرار و function.call يستخدم للتكرار<br>
+            </div>
+        </div>
+
+
+        <button onclick="submitQuiz()">طمنى بسرعه</button>
+    </div>
+    
+    <!-- نافذة النتيجة -->
+    <div id="resultPopup" class="evaluation-popup">
+        <p id="resultText"></p>
+        <button onclick="closePopup()">إغلاق</button>
+    </div>
+    
+    <script>
+        // إظهار الأسئلة بناءً على المستوى المحدد
+        document.getElementById('levelSelect').addEventListener('change', function() {
+            document.querySelectorAll('.level-content').forEach(div => div.classList.add('hidden'));
+            document.getElementById(this.value).classList.remove('hidden');
+        });
+    
+        // الإجابات الصحيحة لكل مستوى
+            const correctAnswers = {
+               'easy': {
+                'q1': 'String',
+            'q2': '// تعليق',
+            'q3': 'document.getElementById()',
+            'q4': 'array1.concat(array2)',
+            'q5': '22',
+            'q6': 'break',
+            'q7': 'boolean',
+            'q8': 'both',
+            'q9': 'HelloWorld',
+            'q10': '===',
+            'q11': 'function',
+            'q12': 'parseInt()'
+        },
+        'medium': {
+            'q13': 'false',
+            'q14': '??',
+            'q15': '[]',
+            'q16': 'push()',
+            'q17': '{} و new Object()',
+            'q18': '3',
+            'q19': 'both',
+            'q20': '**',
+            'q21': 'let و var و const',
+            'q22': 'object.method()',
+            'q23': 'number',
+            'q24': '== يتجاهل النوع و === لا يتجاهل النوع',
+            'q25': 'for...in'
+        },
+        'hard': {
+            'q26': 'true',
+            'q27': 'JSON.stringify()',
+            'q28': 'true',
+            'q29': 'function nestedFunction() {}',
+            'q30': 'object',
+            'q31': 'var له نطاق وظيفة و let له نطاق كتلة',
+            'q32': '[object Object]',
+            'q33': 'try...catch',
+            'q34': '11',
+            'q35': 'both',
+            'q36': 'false',
+            'q37': 'function declaration يمكن استخدامها قبل تعريفها و function expression لا يمكن استخدامها قبل تعريفها',
+            'q38': 'true',
+            'q39': 'باستخدام الخصائص',
+            'q40': 'false',
+            'q41': 'call يقبل قائمة من المعاملات و apply يقبل مصفوفة من المعاملات',
+            'q42': '21',
+            'q43': 'باستخدام function',
+            'q44': '11',
+            'q45': 'Object.create ينشئ كائنًا جديدًا مع كائن موجود كـ prototype و new Object ينشئ كائنًا جديدًا باستخدام دالة المنشئ',
+            'q46': 'false',
+            'q47': 'باستخدام كائن Date',
+            'q48': '10',
+            'q49': 'باستخدام JSON.parse و JSON.stringify',
+            'q50': 'false',
+            'q51': 'function.apply يقبل مصفوفة من المعاملات و function.call يقبل قائمة من المعاملات'
+                    }
+                };
+
+  // الحصول على الإجابة الصحيحة بناءً على معرف السؤال
+  function getCorrectAnswer(questionId) {
+        const level = document.getElementById('levelSelect').value;
+        return correctAnswers[level][questionId];
+    }
+
+    // تقديم الامتحان وحساب النتيجة
+    function submitQuiz() {
+        const level = document.getElementById('levelSelect').value;
+        const questions = document.querySelectorAll(`#${level} .question`);
+        let score = 0;
+
+        questions.forEach((question) => {
+            const questionId = question.querySelector('input[type="radio"]').name;
+            const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+            if (selectedAnswer && selectedAnswer.value === getCorrectAnswer(questionId)) {
+                score++;
+            }
+        });
+
+        const resultText = `نتيجتك هي: ${score} من ${questions.length}`;
+        document.getElementById('resultText').innerText = resultText;
+        document.getElementById('resultPopup').style.display = 'block';
+    }
+
+    // إغلاق نافذة النتيجة
+    function closePopup() {
+        document.getElementById('resultPopup').style.display = 'none';
+    }
+</script>
+</body>
+</html>

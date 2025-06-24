@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>websitestocourses</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        h2 {
+            text-align: center;
+            color: rgb(5, 10, 48);
+        }
+        .dark-mode h2 {
+            color: white;
+        }
+    
+/* Remove any other duplicate .dropdowns-container or dropdown media queries */
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <header class="top-header">
+        <!-- Menu Icon for Mobile -->
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
+        <!-- الشعار الجديد -->
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="0.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+
+        <!-- روابط التنقل -->
+        <nav class="top-nav" id="top-nav">
+            <ul>
+             <li><a href="roadmaps.html">خرائط التعلم</a></li>
+                <li><a href="Lessons.html">الدورات</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="games.html">ألعاب للتعلم</a></li>
+                <li><a href="books.html">كتب</a></li>
+                <li><a href="questions.html">أسئلة</a></li>
+                <li><a href="projects.html">مشاريع</a></li>
+                <li><a href="websitestocourses.html">مواقع لتعلم البرمجة</a></li>
+                <li><a href="kids programming.html">برمجة للأطفال</a></li>     
+                <li><a href="developer tools.html"> ادوات المطورين</a></li>   
+               <li><a href="about us.html">من نحن</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" id="toggle-dark-mode" class="icon-link">
+                <img src="images/dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+            </a>
+            <a href="login.html">
+                <img src="images/user.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+    </header>
+
+    <h1>مرحبًا بك في موقع ببساطة - عالم الكود العربي! </h1>
+    
+    <!-- محتوى الصفحة -->
+    <main>
+        <h1> منصات لتعلم الكورسات وتعد مراجع للبرمجه </h1>
+        <h2>منصات تُحدث ثورة في تعلم البرمجةوتلهمك لإتقان لغات البرمجة </h2>
+
+        <div class="dropdowns-container">
+            <div class="dropdown">
+                <button class="dropdown-btn">منصات مجانية لتعلم البرمجة</button>
+                <div class="dropdown-content">
+                    <a href="https://developer.mozilla.org/ar/" target="_blank">MDN Web Docs</a>
+                    <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+                    <a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a>
+                    <a href="https://www.geeksforgeeks.org/" target="_blank">GeeksForGeeks</a>
+                    <a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a>
+                    <a href="https://www.codecademy.com/" target="_blank">Codecademy (مجاني جزئيًا)</a>
+                    <a href="https://www.coursera.org/" target="_blank">Coursera (دورات مجانية)</a>
+                    <a href="https://www.edx.org/" target="_blank">edX (دورات مجانية)</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropdown-btn">منصات بمقابل مادي لتعلم البرمجة</button>
+                <div class="dropdown-content">
+                    <a href="https://www.udemy.com/" target="_blank">Udemy</a>
+                    <a href="https://www.pluralsight.com/" target="_blank">Pluralsight</a>
+                    <a href="https://www.codecademy.com/" target="_blank">Codecademy (بخطط مدفوعة)</a>
+                    <a href="https://www.coursera.org/" target="_blank">Coursera (شهادات مدفوعة)</a>
+                    <a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a>
+                    <a href="https://www.teamtreehouse.com/" target="_blank">Treehouse</a>
+                    <a href="https://www.datacamp.com/" target="_blank">DataCamp</a>
+                    <a href="https://www.udacity.com/" target="_blank">Udacity</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ملف الجافاسكريبت -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+<script>
+    
+    document.querySelectorAll('.dropdown-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    });
+</script>
+            
+        
+
+</body>
+
+</html>

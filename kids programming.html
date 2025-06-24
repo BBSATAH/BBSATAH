@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برمجة للأطفال</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        h2 {
+            text-align: center;
+            color: rgb(5, 10, 48);
+        }
+      
+     
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <header class="top-header">
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="0.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+        <nav class="top-nav" id="top-nav">
+            <ul>
+                <li><a href="roadmaps.html">خرائط التعلم</a></li>
+                <li><a href="Lessons.html">الدورات</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="games.html">ألعاب للتعلم</a></li>
+                <li><a href="books.html">كتب</a></li>
+                <li><a href="questions.html">أسئلة</a></li>
+                <li><a href="projects.html">مشاريع</a></li>
+                <li><a href="websitestocourses.html">مواقع لتعلم البرمجة</a></li>
+                <li><a href="kids programming.html">برمجة للأطفال</a></li>
+                <li><a href="developer tools.html"> ادوات المطورين</a></li>
+                <li><a href="about us.html">من نحن</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" id="toggle-dark-mode" class="icon-link">
+                <img src="dark-mode.png" alt="Dark Mode Icon" class="header-icon" loading="lazy">
+            </a>
+            <a href="login.html">
+                <img src="user.png" alt="الشعار" class="header-logo" loading="lazy">
+            </a>
+        </div>
+    </header>
+    <h1>برمجة للأطفال - تعلم بمتعة! 💻✨</h1>
+    <div id="three-js-container"></div>
+    <main>
+        <section class="filters">
+            <button class="filter-btn" data-filter="courses">دورات</button>
+            <button class="filter-btn" data-filter="tutorials">كورسات</button>
+            <button class="filter-btn" data-filter="games">ألعاب</button>
+            <button class="filter-btn" data-filter="books">كتب</button>
+        </section>
+
+        <section class="content">
+            <!-- دورات -->
+            <a href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted" target="_blank" class="item" data-category="courses">
+                <h3>دورة برمجة Scratch</h3>
+                <p>تعلم البرمجة باستخدام Scratch من الموقع الرسمي لـ MIT Media Lab!</p>
+            </a>
+            <a href="https://www.coursera.org/learn/programming-with-scratch" target="_blank" class="item" data-category="courses">
+                <h3>دورة Scratch على Coursera</h3>
+                <p>دورة مجانية من جامعة هارفارد لتعليم الأطفال البرمجة!</p>
+            </a>
+            <a href="https://www.khanacademy.org/computing/computer-programming" target="_blank" class="item" data-category="courses">
+                <h3>دورة أساسيات البرمجة من Khan Academy</h3>
+                <p>دورة مجانية من Khan Academy تشرح أساسيات البرمجة باستخدام JavaScript!</p>
+            </a>
+            <a href="https://code.org/learn" target="_blank" class="item" data-category="courses">
+                <h3>دورات Hour of Code من Code.org</h3>
+                <p>دورات مجانية للأطفال من Code.org، مدعومة من Google والـ National Science Foundation!</p>
+            </a>
+        
+            <!-- كورسات -->
+            <a href="https://www.youtube.com/@LittleCoder/playlists" target="_blank" class="item" data-category="tutorials">
+                <h3>قوائم تشغيل لتعلم البرمجة للأطفال</h3>
+                <p>فيديوهات تعليمية على YouTube لتعليم الأطفال البرمجة بطريقة ممتعة!</p>
+            </a>
+            <a href="https://www.codecademy.com/learn/learn-python-3" target="_blank" class="item" data-category="tutorials">
+                <h3>كورس Python من Codecademy</h3>
+                <p>مقدمة مجانية لتعليم Python للمبتدئين من Codecademy!</p>
+            </a>
+            <a href="https://www.codeavengers.com/" target="_blank" class="item" data-category="tutorials">
+                <h3>كورس Code Avengers</h3>
+                <p>دروس تفاعلية لتعليم الأطفال البرمجة باستخدام JavaScript وHTML!</p>
+            </a>
+            <a href="https://tynker.com/" target="_blank" class="item" data-category="tutorials">
+                <h3>كورس Tynker للأطفال</h3>
+                <p>منصة تعليمية تقدم دروس برمجة تفاعلية للأطفال مع تجربة مجانية!</p>
+            </a>
+        
+            <!-- ألعاب -->
+            <a href="https://www.code.org/learn" target="_blank" class="item" data-category="games">
+                <h3>Code.org - ألعاب تعليمية</h3>
+                <p>تعلم البرمجة من خلال ألعاب ممتعة مثل Minecraft من Code.org!</p>
+            </a>
+            <a href="https://codemonkey.com/" target="_blank" class="item" data-category="games">
+                <h3>لعبة Code Monkey</h3>
+                <p>لعبة تفاعلية لتعليم الأطفال البرمجة باستخدام CoffeeScript!</p>
+            </a>
+            <a href="https://blockly.games/" target="_blank" class="item" data-category="games">
+                <h3>ألعاب Blockly من Google</h3>
+                <p>ألعاب مجانية من Google لتعليم الأطفال أساسيات البرمجة!</p>
+            </a>
+            <a href="https://codecombat.com/" target="_blank" class="item" data-category="games">
+                <h3>لعبة CodeCombat</h3>
+                <p>تعلم البرمجة من خلال لعبة مغامرات باستخدام Python وJavaScript!</p>
+            </a>
+        
+            <!-- كتب -->
+            <a href="https://www.mediafire.com/file/45haub0a9aj3x56/Noor-Book.com__%D8%AA%D8%B9%D9%84%D9%8A%D9%85_%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84_%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Coding for Kids"</h3>
+                <p>كتاب من DK يشرح أساسيات البرمجة بطريقة ملونة وممتعة!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/nohkfe84qymuq9l/scratch.junior.1pp.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "ScratchJr Coding"</h3>
+                <p>كتاب من No Starch Press لتعليم ScratchJr للأطفال الصغار!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/9dgcwx61lvkegrt/Hello_Scratch.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Hello Scratch!"</h3>
+                <p>كتاب من Manning يقدم دروسًا ممتعة لتعليم Scratch للأطفال!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/mfy6u9056e1w9rf/Python_for_Kids_Solutions__Briggs.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Python for Kids"</h3>
+                <p>كتاب من No Starch Press يقدم تعليم Python بطريقة ممتعة مع أمثلة تفاعلية للأطفال!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/19tqaonymwozsie/Coding_Games_in_Scratch_2016.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Coding Games in Scratch"</h3>
+                <p>كتاب من DK يعلم الأطفال تصميم ألعاب باستخدام Scratch بخطوات مرئية وممتعة!</p>
+            </a>
+            <a href="https://www.mediafire.com/file/y6s3cgeigewcmh4/Scratch-in-Easy-Steps-PDF-Sampler.pdf/file" target="_blank" class="item" data-category="books">
+                <h3>كتاب "Scratch Programming Playground"</h3>
+                <p>كتاب من No Starch Press يقدم مشاريع ممتعة للأطفال لتطوير مهاراتهم في Scratch!</p>
+            </a>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="about-site">
+                    <div class="logo-goal-container">
+                        <img src="logo.png" alt="شعار الموقع" class="footer-logo">
+                        <div class="goal-text">
+                            <h2>هدف الموقع</h2>
+                            <p>
+                                موقعنا هو منصة تعليمية تهدف إلى تقديم محتوى برمجي عالي الجودة بطريقة مبسطة
+                                ومفهومة، لتساعد الجميع على تعلم البرمجة والتميز في المجال الرقمي.
+                            </p>
+                            <p class="centered-text">
+                                هدفنا أن نجعل التعلم ممتعًا ومتاحًا للجميع، مع تقديم محتوى عالي الجودة باللغة العربية. انطلق الآن واكتشف أقسام الموقع لتبدأ ببناء مستقبلك البرمجي معنا. 🚀نحن هنا لنرافقك في رحلتك لتعلم البرمجة والشبكات بكل سهولة واحترافية. سواء كنت مبتدئًا تخطو أولى خطواتك في عالم البرمجة، أو مبرمجًا يسعى لتطوير مهاراته، ستجد لدينا كل ما تحتاجه من دورات، مقالات، كتب، وأسئلة تفاعلية.
+                            </p>
+    
+                            <p class="centered-text">
+                                معًا نحو مستقبل رقمي أكثر إبداعًا! 💻✨
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-media">
+                    <h3>تابعنا على وسائل التواصل الاجتماعي</h3>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.item');
+
+        // إظهار "دورات" افتراضيًا عند تحميل الصفحة
+        items.forEach(item => {
+            if (item.getAttribute('data-category') === 'courses') {
+                item.classList.add('visible', 'courses');
+            }
+        });
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                items.forEach(item => {
+                    item.classList.remove('visible', 'courses', 'tutorials', 'games', 'books');
+                });
+
+                items.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (category === filter) {
+                        item.classList.add('visible', category);
+                    }
+                });
+            });
+        });
+
+        // كود Three.js لتوزيع الشخصيات في كل الصفحة
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('three-js-container').appendChild(renderer.domElement);
+
+        // إضاءة
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        // دالة لإنشاء دبدوب
+        function createTeddy(x, y, z) {
+            const teddy = new THREE.Group();
+            const teddyBody = new THREE.Mesh(
+                new THREE.SphereGeometry(2.25, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 }) // أصفر
+            );
+            teddy.add(teddyBody);
+            const teddyHead = new THREE.Mesh(
+                new THREE.SphereGeometry(1.5, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyHead.position.y = 3;
+            teddy.add(teddyHead);
+            const teddyEar1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.6, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyEar1.position.set(-1.2, 4.2, 0);
+            teddy.add(teddyEar1);
+            const teddyEar2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.6, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyEar2.position.set(1.2, 4.2, 0);
+            teddy.add(teddyEar2);
+            const teddyEye1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            teddyEye1.position.set(-0.6, 3.3, 1.2);
+            teddy.add(teddyEye1);
+            const teddyEye2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            teddyEye2.position.set(0.6, 3.3, 1.2);
+            teddy.add(teddyEye2);
+            const teddyArm1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyArm1.position.set(-2.7, 1.5, 0);
+            teddy.add(teddyArm1);
+            const teddyArm2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0xffff00 })
+            );
+            teddyArm2.position.set(2.7, 1.5, 0);
+            teddy.add(teddyArm2);
+            teddy.position.set(x, y, z);
+            scene.add(teddy);
+            return { group: teddy, arm1: teddyArm1, arm2: teddyArm2 };
+        }
+
+        // دالة لإنشاء قطة
+        function createCat(x, y, z) {
+            const cat = new THREE.Group();
+            const catBody = new THREE.Mesh(
+                new THREE.SphereGeometry(2.25, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb }) // أزرق فاتح
+            );
+            cat.add(catBody);
+            const catHead = new THREE.Mesh(
+                new THREE.SphereGeometry(1.5, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catHead.position.y = 3;
+            cat.add(catHead);
+            const catEar1 = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.3, 0.3, 1.5, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catEar1.position.set(-0.9, 4.2, 0);
+            catEar1.rotation.z = -0.3;
+            cat.add(catEar1);
+            const catEar2 = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.3, 0.3, 1.5, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catEar2.position.set(0.9, 4.2, 0);
+            catEar2.rotation.z = 0.3;
+            cat.add(catEar2);
+            const catEye1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            catEye1.position.set(-0.6, 3.3, 1.2);
+            cat.add(catEye1);
+            const catEye2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            catEye2.position.set(0.6, 3.3, 1.2);
+            cat.add(catEye2);
+            const catArm1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catArm1.position.set(-2.7, 1.5, 0);
+            cat.add(catArm1);
+            const catArm2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.75, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x87ceeb })
+            );
+            catArm2.position.set(2.7, 1.5, 0);
+            cat.add(catArm2);
+            cat.position.set(x, y, z);
+            scene.add(cat);
+            return { group: cat, arm1: catArm1, arm2: catArm2 };
+        }
+
+        // دالة لإنشاء ديناصور
+        function createDino(x, y, z) {
+            const dino = new THREE.Group();
+            const dinoBody = new THREE.Mesh(
+                new THREE.SphereGeometry(2.25, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 }) // أخضر
+            );
+            dino.add(dinoBody);
+            const dinoHead = new THREE.Mesh(
+                new THREE.SphereGeometry(1.5, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoHead.position.y = 3;
+            dino.add(dinoHead);
+            const dinoEye1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            dinoEye1.position.set(-0.6, 3.3, 1.2);
+            dino.add(dinoEye1);
+            const dinoEye2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.225, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x000000 })
+            );
+            dinoEye2.position.set(0.6, 3.3, 1.2);
+            dino.add(dinoEye2);
+            const dinoArm1 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.45, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoArm1.position.set(-2.25, 1.5, 0);
+            dino.add(dinoArm1);
+            const dinoArm2 = new THREE.Mesh(
+                new THREE.SphereGeometry(0.45, 32, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoArm2.position.set(2.25, 1.5, 0);
+            dino.add(dinoArm2);
+            const dinoTail = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.3, 0.75, 2.25, 32),
+                new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            );
+            dinoTail.position.set(0, 0, -2.25);
+            dinoTail.rotation.x = 0.5;
+            dino.add(dinoTail);
+            dino.position.set(x, y, z);
+            scene.add(dino);
+            return { group: dino, arm1: dinoArm1, arm2: dinoArm2 };
+        }
+
+        // إنشاء الشخصيات بتوزيع في كل أجزاء الصفحة
+        const teddies = [
+            createTeddy(-20, 10, 5),   // أعلى يسار قريب
+            createTeddy(20, -10, -5),  // أسفل يمين بعيد
+            createTeddy(-15, -5, 0)    // أسفل يسار متوسط
+        ];
+        const cats = [
+            createCat(15, 8, 3),      // أعلى يمين قريب
+            createCat(-10, -12, -3),  // أسفل يسار بعيد
+            createCat(10, 5, -2)      // أعلى يمين متوسط
+        ];
+        const dinos = [
+            createDino(-18, 12, -4),  // أعلى يسار بعيد
+            createDino(18, -8, 4)     // أسفل يمين قريب
+        ];
+
+        // نجوم صغيرة
+        const stars = [];
+        function createStar() {
+            const geometry = new THREE.IcosahedronGeometry(0.15);
+            const material = new THREE.MeshPhongMaterial({ color: Math.random() * 0xffffff });
+            const star = new THREE.Mesh(geometry, material);
+            star.position.set(
+                (Math.random() - 0.5) * 50, // نطاق أوسع على المحور x
+                (Math.random() - 0.5) * 30, // نطاق أوسع على المحور y
+                (Math.random() - 0.5) * 15  // نطاق أوسع على المحور z
+            );
+            scene.add(star);
+            stars.push({ mesh: star, life: 0 });
+        }
+
+        for (let i = 0; i < 30; i++) {
+            createStar();
+        }
+
+        // ضبط موقع الكاميرا لعرض كل الصفحة
+        camera.position.set(0, 0, 25); // زيادة المسافة لتغطية الصفحة كلها
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // حركة الدباديب
+            teddies.forEach(teddy => {
+                teddy.group.rotation.y += 0.02;
+                teddy.group.position.y += Math.sin(Date.now() * 0.003) * 0.05;
+                teddy.arm1.rotation.z = Math.sin(Date.now() * 0.005) * 0.5;
+                teddy.arm2.rotation.z = Math.sin(Date.now() * 0.005 + 1) * 0.5;
+            });
+
+            // حركة القطط
+            cats.forEach(cat => {
+                cat.group.rotation.y += 0.01;
+                cat.group.position.y += Math.sin(Date.now() * 0.002) * 0.04;
+                cat.arm1.rotation.z = Math.cos(Date.now() * 0.004) * 0.4;
+                cat.arm2.rotation.z = Math.cos(Date.now() * 0.004 + 1) * 0.4;
+            });
+
+            // حركة الديناصورات
+            dinos.forEach(dino => {
+                dino.group.rotation.y += 0.015;
+                dino.group.position.y += Math.sin(Date.now() * 0.0035) * 0.06;
+                dino.arm1.rotation.z = Math.sin(Date.now() * 0.006) * 0.3;
+                dino.arm2.rotation.z = Math.sin(Date.now() * 0.006 + 1) * 0.3;
+            });
+
+            // تحريك النجوم
+            stars.forEach((star, index) => {
+                star.mesh.position.y += 0.05;
+                star.life += 0.05;
+                if (star.life > 5) {
+                    scene.remove(star.mesh);
+                    stars.splice(index, 1);
+                    createStar();
+                }
+            });
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // تعديل الحجم عند تغيير الشاشة
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/02/20/13/20250220132942-XANZUGHZ.js"></script>
+</body>
+</html>

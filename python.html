@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان python</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+   body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #222;
+            padding: 20px;
+            margin: 0;
+            direction: rtl; /* جعل النصوص تبدأ من اليمين */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+        }
+
+        .level-title {
+            color: #20638D;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question p {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-left: 10px; /* لتناسب الاتجاه من اليمين */
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #20638D;
+        }
+
+        .evaluation-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            color: #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .evaluation-popup button {
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .evaluation-popup button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        select {
+            background-color: #20638D; /* لون خلفية أنيق */
+            color: #fff; /* لون النص */
+            border: 2px solid #20638D; /* حدود بتأثير أكثر جاذبية */
+            border-radius: 8px; /* زوايا مستديرة */
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Cairo', sans-serif;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+            appearance: none; /* إخفاء السهم الافتراضي */
+            text-align: center;
+            font-weight: bold;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="white"><polygon points="0,0 20,0 10,10"/></svg>'); /* سهم مخصص أكبر */
+            background-repeat: no-repeat;
+            background-position: left 10px center; /* موضع السهم إلى اليسار */
+            background-size: 15px; /* حجم السهم أكبر */
+        }
+
+        select:hover {
+            background-color: #6d00fc; /* تأثير عند تمرير الماوس */
+            border-color: #20638D;
+        }
+
+        select:focus {
+            background-color: #20638D; /* لون مختلف عند التحديد */
+            border-color: #fff;
+            box-shadow: 0 0 8px #20638D;
+        }
+
+        option {
+            background-color: #20638D; /* لون عناصر القائمة */
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        option:hover {
+            background-color: #1a4d7e; /* تأثير عند التحديد */
+        }
+
+        /* تحسين العرض على الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .question {
+                padding: 10px;
+            }
+
+            .result {
+                font-size: 20px;
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+    <h1>اختبار Python3</h1>
+    <select id="levelSelect">
+        <option value="easy">المستوى السهل</option>
+        <option value="medium">المستوى المتوسط</option>
+        <option value="hard">المستوى الصعب</option>
+    </select>
+
+    <!-- أسئلة المستوى السهل -->
+    <div id="easy" class="level-content">
+        <h2 class="level-title">المستوى السهل</h2>
+        <div class="question">
+            <p>ما هي الكلمة المفتاحية لتعريف دالة في Python؟</p>
+            <input type="radio" name="q1" value="function"> function<br>
+            <input type="radio" name="q1" value="def"> def<br>
+            <input type="radio" name="q1" value="method"> method<br>
+        </div>
+        <div class="question">
+            <p>كيف يتم تعريف متغير في Python؟</p>
+            <input type="radio" name="q2" value="var"> var<br>
+            <input type="radio" name="q2" value="let"> let<br>
+            <input type="radio" name="q2" value="="> =<br>
+        </div>
+        <div class="question">
+            <p>ما هو نوع البيانات الذي يمثل نصوصًا في Python؟</p>
+            <input type="radio" name="q3" value="string"> string<br>
+            <input type="radio" name="q3" value="text"> text<br>
+            <input type="radio" name="q3" value="str"> str<br>
+        </div>
+        <div class="question">
+            <p>كيف تقوم بطباعة نص على الشاشة في Python؟</p>
+            <input type="radio" name="q4" value="echo"> echo<br>
+            <input type="radio" name="q4" value="print"> print<br>
+            <input type="radio" name="q4" value="console.log"> console.log<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة لتعريف قائمة في Python؟</p>
+            <input type="radio" name="q5" value="[]"> []<br>
+            <input type="radio" name="q5" value="{}"> {}<br>
+            <input type="radio" name="q5" value="list()"> list()<br>
+        </div>
+        <!-- الأسئلة الإضافية -->
+        <div class="question">
+            <p>كيف تعرف متغيرًا ثابتًا في Python؟</p>
+            <input type="radio" name="q6" value="const"> const<br>
+            <input type="radio" name="q6" value="let"> let<br>
+            <input type="radio" name="q6" value="CONSTANT"> CONSTANT<br>
+        </div>
+        <div class="question">
+            <p>ما هو مشغل الجمع في Python؟</p>
+            <input type="radio" name="q7" value="+"> +<br>
+            <input type="radio" name="q7" value="-"> -<br>
+            <input type="radio" name="q7" value="add"> add<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تعريف فئة جديدة في Python؟</p>
+            <input type="radio" name="q8" value="class"> class<br>
+            <input type="radio" name="q8" value="type"> type<br>
+            <input type="radio" name="q8" value="define"> define<br>
+        </div>
+        <div class="question">
+            <p>ما هي الكلمة المفتاحية التي تستخدم لإنشاء حلقة تكرار في Python؟</p>
+            <input type="radio" name="q9" value="while"> while<br>
+            <input type="radio" name="q9" value="for"> for<br>
+            <input type="radio" name="q9" value="loop"> loop<br>
+        </div>
+        <div class="question">
+            <p>ما هو نوع البيانات الذي يمثل عددًا صحيحًا في Python؟</p>
+            <input type="radio" name="q10" value="integer"> integer<br>
+            <input type="radio" name="q10" value="int"> int<br>
+            <input type="radio" name="q10" value="num"> num<br>
+        </div>
+        <div class="question">
+            <p>كيف تقوم بإغلاق ملف في Python؟</p>
+            <input type="radio" name="q11" value="close()"> close()<br>
+            <input type="radio" name="q11" value="end()"> end()<br>
+            <input type="radio" name="q11" value="finish()"> finish()<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تعريف متغير عالمي في Python؟</p>
+            <input type="radio" name="q12" value="global"> global<br>
+            <input type="radio" name="q12" value="static"> static<br>
+            <input type="radio" name="q12" value="public"> public<br>
+        </div>
+        <div class="question">
+            <p>ما هي الكلمة المفتاحية لتعريف معالج استثناء في Python؟</p>
+            <input type="radio" name="q13" value="try...except"> try...except<br>
+            <input type="radio" name="q13" value="handle"> handle<br>
+            <input type="radio" name="q13" value="catch"> catch<br>
+        </div>
+        <div class="question">
+            <p>ما هو نوع البيانات الذي يمثل عددًا عشريًا في Python؟</p>
+            <input type="radio" name="q14" value="float"> float<br>
+            <input type="radio" name="q14" value="decimal"> decimal<br>
+            <input type="radio" name="q14" value="real"> real<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تحويل نص إلى عدد صحيح في Python؟</p>
+            <input type="radio" name="q15" value="int()"> int()<br>
+            <input type="radio" name="q15" value="float()"> float()<br>
+            <input type="radio" name="q15" value="str()"> str()<br>
+        </div>
+        <div class="question">
+            <p>كيف تتعامل مع الكتابة في ملف نصي في Python؟</p>
+            <input type="radio" name="q16" value="write()"> write()<br>
+            <input type="radio" name="q16" value="append()"> append()<br>
+            <input type="radio" name="q16" value="save()"> save()<br>
+        </div>
+        <div class="question">
+            <p>ما هي الكلمة المفتاحية لتعريف متغير ثابت في Python؟</p>
+            <input type="radio" name="q17" value="final"> final<br>
+            <input type="radio" name="q17" value="static"> static<br>
+            <input type="radio" name="q17" value="const"> const<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استخدام تعبيرات القائمة في Python؟</p>
+            <input type="radio" name="q18" value="[x for x in list]"> [x for x in list]<br>
+            <input type="radio" name="q18" value="map(lambda x: x, list)"> map(lambda x: x, list)<br>
+            <input type="radio" name="q18" value="list.map(x => x)"> list.map(x => x)<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة المناسبة لإنشاء مجموعة في Python؟</p>
+            <input type="radio" name="q19" value="set()"> set()<br>
+            <input type="radio" name="q19" value="list()"> list()<br>
+            <input type="radio" name="q19" value="dict()"> dict()<br>
+        </div>
+        <div class="question">
+            <p>كيف تتعامل مع الاستثناءات في Python؟</p>
+            <input type="radio" name="q20" value="try...except"> try...except<br>
+            <input type="radio" name="q20" value="catch"> catch<br>
+            <input type="radio" name="q20" value="handle"> handle<br>
+        </div>
+    </div>
+
+    <!-- أسئلة المستوى المتوسط -->
+    <div id="medium" class="level-content hidden">
+        <h2 class="level-title">المستوى المتوسط</h2>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لتعريف فئة في Python؟</p>
+            <input type="radio" name="q21" value="class"> class<br>
+            <input type="radio" name="q21" value="struct"> struct<br>
+            <input type="radio" name="q21" value="object"> object<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استخدام خواص الكائنات في Python؟</p>
+            <input type="radio" name="q22" value="self.property"> self.property<br>
+            <input type="radio" name="q22" value="object.property"> object.property<br>
+            <input type="radio" name="q22" value="this.property"> this.property<br>
+        </div>
+        <div class="question">
+            <p>ما هي الكلمة المفتاحية التي تستخدم لتحديد خاصية في Python؟</p>
+            <input type="radio" name="q23" value="property"> property<br>
+            <input type="radio" name="q23" value="attribute"> attribute<br>
+            <input type="radio" name="q23" value="field"> field<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لإنشاء مثيل (instance) لفئة في Python؟</p>
+            <input type="radio" name="q24" value="ClassName()"> ClassName()<br>
+            <input type="radio" name="q24" value="ClassName.create()"> ClassName.create()<br>
+            <input type="radio" name="q24" value="new ClassName()"> new ClassName()<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لإضافة عنصر إلى قائمة في Python؟</p>
+            <input type="radio" name="q25" value="append()"> append()<br>
+            <input type="radio" name="q25" value="add()"> add()<br>
+            <input type="radio" name="q25" value="insert()"> insert()<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لإنشاء قاموس في Python؟</p>
+            <input type="radio" name="q26" value="{}"> {}<br>
+            <input type="radio" name="q26" value="dict()"> dict()<br>
+            <input type="radio" name="q26" value="map()"> map()<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لتحويل النص إلى عدد صحيح في Python؟</p>
+            <input type="radio" name="q27" value="int()"> int()<br>
+            <input type="radio" name="q27" value="str()"> str()<br>
+            <input type="radio" name="q27" value="float()"> float()<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكن الحصول على طول قائمة في Python؟</p>
+            <input type="radio" name="q28" value="len()"> len()<br>
+            <input type="radio" name="q28" value="length()"> length()<br>
+            <input type="radio" name="q28" value="size()"> size()<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استخدام تعبيرات القائمة في Python؟</p>
+            <input type="radio" name="q29" value="[x for x in list]"> [x for x in list]<br>
+            <input type="radio" name="q29" value="map(lambda x: x, list)"> map(lambda x: x, list)<br>
+            <input type="radio" name="q29" value="list.map(x => x)"> list.map(x => x)<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة المناسبة لإنشاء مجموعة في Python؟</p>
+            <input type="radio" name="q30" value="set()"> set()<br>
+            <input type="radio" name="q30" value="list()"> list()<br>
+            <input type="radio" name="q30" value="dict()"> dict()<br>
+        </div>
+        <div class="question">
+            <p>ما هي الكلمة المفتاحية التي تستخدم لتعريف متغير ثابت في Python؟</p>
+            <input type="radio" name="q31" value="const"> const<br>
+            <input type="radio" name="q31" value="final"> final<br>
+            <input type="radio" name="q31" value="immutable"> immutable<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة للتحقق مما إذا كان عنصر موجود في قائمة؟</p>
+            <input type="radio" name="q32" value="in"> in<br>
+            <input type="radio" name="q32" value="contains"> contains<br>
+            <input type="radio" name="q32" value="find"> find<br>
+        </div>
+        <div class="question">
+            <p>ما هي الكلمة المفتاحية التي تستخدم للتكرار عبر مجموعة؟</p>
+            <input type="radio" name="q33" value="for"> for<br>
+            <input type="radio" name="q33" value="each"> each<br>
+            <input type="radio" name="q33" value="loop"> loop<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة للتعامل مع الاستثناءات في Python؟</p>
+            <input type="radio" name="q34" value="try...except"> try...except<br>
+            <input type="radio" name="q34" value="catch"> catch<br>
+            <input type="radio" name="q34" value="handle"> handle<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لتعريف متغيرات ذات قيم افتراضية في Python؟</p>
+            <input type="radio" name="q35" value="default arguments"> default arguments<br>
+            <input type="radio" name="q35" value="optional parameters"> optional parameters<br>
+            <input type="radio" name="q35" value="pre-set values"> pre-set values<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة المناسبة لإعادة استخدام كود عبر وراثة الطبقات في Python؟</p>
+            <input type="radio" name="q36" value="inheritance"> inheritance<br>
+            <input type="radio" name="q36" value="composition"> composition<br>
+            <input type="radio" name="q36" value="aggregation"> aggregation<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لإنشاء حلقة لانهائية في Python؟</p>
+            <input type="radio" name="q37" value="while True"> while True<br>
+            <input type="radio" name="q37" value="for ever"> for ever<br>
+            <input type="radio" name="q37" value="repeat"> repeat<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك معالجة البيانات بشكل متزامن باستخدام عدة خيوط في Python؟</p>
+            <input type="radio" name="q38" value="threading"> threading<br>
+            <input type="radio" name="q38" value="multiprocessing"> multiprocessing<br>
+            <input type="radio" name="q38" value="asyncio"> asyncio<br>
+        </div>
+    </div>
+
+    <!-- أسئلة المستوى الصعب -->
+    <div id="hard" class="level-content hidden">
+        <h2 class="level-title">المستوى الصعب</h2>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لإنشاء نمط دالة في Python؟</p>
+            <input type="radio" name="q39" value="@staticmethod"> @staticmethod<br>
+            <input type="radio" name="q39" value="@classmethod"> @classmethod<br>
+            <input type="radio" name="q39" value="@property"> @property<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تعريف دالة مجهولة في Python؟</p>
+            <input type="radio" name="q40" value="lambda"> lambda<br>
+            <input type="radio" name="q40" value="function"> function<br>
+            <input type="radio" name="q40" value="def"> def<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لإنشاء سلسلة من الأوامر المتزامنة في Python؟</p>
+            <input type="radio" name="q41" value="async/await"> async/await<br>
+            <input type="radio" name="q41" value="sync/await"> sync/await<br>
+            <input type="radio" name="q41" value="defer"> defer<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لاستخدام المزيجات في Python؟</p>
+            <input type="radio" name="q42" value="mixin"> mixin<br>
+            <input type="radio" name="q42" value="merge"> merge<br>
+            <input type="radio" name="q42" value="extend"> extend<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استخدام متغيرات غير محلية في Python؟</p>
+            <input type="radio" name="q43" value="nonlocal"> nonlocal<br>
+            <input type="radio" name="q43" value="global"> global<br>
+            <input type="radio" name="q43" value="static"> static<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكن تحديد قيم افتراضية في Python؟</p>
+            <input type="radio" name="q44" value="default arguments"> default arguments<br>
+            <input type="radio" name="q44" value="optional arguments"> optional arguments<br>
+            <input type="radio" name="q44" value="preset values"> preset values<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لاستخدام خصائص الطبقة في Python؟</p>
+            <input type="radio" name="q45" value="@property"> @property<br>
+            <input type="radio" name="q45" value="@classproperty"> @classproperty<br>
+            <input type="radio" name="q45" value="@staticmethod"> @staticmethod<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لإدارة التزامن في Python؟</p>
+            <input type="radio" name="q46" value="asyncio"> asyncio<br>
+            <input type="radio" name="q46" value="threading"> threading<br>
+            <input type="radio" name="q46" value="multiprocessing"> multiprocessing<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك تزيين الدوال في Python؟</p>
+            <input type="radio" name="q47" value="decorator"> decorator<br>
+            <input type="radio" name="q47" value="wrapper"> wrapper<br>
+            <input type="radio" name="q47" value="modifier"> modifier<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استيراد مكتبات خارجية في Python؟</p>
+            <input type="radio" name="q48" value="import"> import<br>
+            <input type="radio" name="q48" value="include"> include<br>
+            <input type="radio" name="q48" value="require"> require<br>
+        </div>
+        <div class="question">
+            <p>كيف يمكنك استخدام التكرار عبر العناصر في Python؟</p>
+            <input type="radio" name="q49" value="for"> for<br>
+            <input type="radio" name="q49" value="each"> each<br>
+            <input type="radio" name="q49" value="map"> map<br>
+        </div>
+        <div class="question">
+            <p>ما هي الطريقة الصحيحة لتحديد معالج استثناء في Python؟</p>
+            <input type="radio" name="q50" value="try...except"> try...except<br>
+            <input type="radio" name="q50" value="catch"> catch<br>
+            <input type="radio" name="q50" value="handle"> handle<br>
+        </div>
+    </div>
+</div>
+
+<button onclick="submitQuiz()">طمنى بسرعه</button>
+</div>
+
+<!-- نافذة النتيجة -->
+<div id="resultPopup" class="evaluation-popup">
+<p id="resultText"></p>
+<button onclick="closePopup()">إغلاق</button>
+</div>
+
+<script>
+// إظهار الأسئلة بناءً على المستوى المحدد
+document.getElementById('levelSelect').addEventListener('change', function() {
+    document.querySelectorAll('.level-content').forEach(div => div.classList.add('hidden'));
+    document.getElementById(this.value).classList.remove('hidden');
+});
+
+// الإجابات الصحيحة لكل مستوى
+const correctAnswers = {
+                easy: {
+                    q1: 'def',
+                    q2: '=',
+                    q3: 'str',
+                    q4: 'print',
+                    q5: '[]',
+                    q6: 'CONSTANT',
+                    q7: '+',
+                    q8: 'class',
+                    q9: 'while',
+                    q10: 'int',
+                    q11: 'close',
+                    q12: 'global',
+                    q13: 'try...except',
+                    q14: 'float',
+                    q15: 'int',
+                    q16: 'write',
+                    q17: 'const',
+                    q18: '[x for x in list]',
+                    q19: 'set',
+                    q20: 'try...except'
+                },
+                medium: {
+                    q21: 'class',
+                    q22: 'self.property',
+                    q23: 'property',
+                    q24: 'ClassName()',
+                    q25: 'append',
+                    q26: '{}',
+                    q27: 'int',
+                    q28: 'len',
+                    q29: '[x for x in list]',
+                    q30: 'set',
+                    q31: 'const',
+                    q32: 'in',
+                    q33: 'for',
+                    q34: 'try...except',
+                    q35: 'default arguments',
+                    q36: 'inheritance',
+                    q37: 'while True',
+                    q38: 'threading',
+                    q39: 'decorator',
+                    q40: 'import',
+                    q41: 'int'
+                },
+                hard: {
+                    q39: '@staticmethod',
+                    q40: 'lambda',
+                    q41: 'async/await',
+                    q42: 'mixin',
+                    q43: 'nonlocal',
+                    q44: 'default arguments',
+                    q45: '@property',
+                    q46: 'asyncio',
+                    q47: 'decorator',
+                    q48: 'import',
+                    q49: 'for',
+                    q50: 'try...except'
+                }
+            };
+    // الحصول على الإجابة الصحيحة بناءً على معرف السؤال
+    function getCorrectAnswer(questionId) {
+        const level = document.getElementById('levelSelect').value;
+        return correctAnswers[level][questionId];
+    }
+
+    // تقديم الامتحان وحساب النتيجة
+    function submitQuiz() {
+        const level = document.getElementById('levelSelect').value;
+        const questions = document.querySelectorAll(`#${level} .question`);
+        let score = 0;
+
+        questions.forEach((question) => {
+            const questionId = question.querySelector('input[type="radio"]').name;
+            const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+            if (selectedAnswer && selectedAnswer.value === getCorrectAnswer(questionId)) {
+                score++;
+            }
+        });
+
+        const resultText = `نتيجتك هي: ${score} من ${questions.length}`;
+        document.getElementById('resultText').innerText = resultText;
+        document.getElementById('resultPopup').style.display = 'block';
+    }
+
+    // إغلاق نافذة النتيجة
+    function closePopup() {
+        document.getElementById('resultPopup').style.display = 'none';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات JavaScript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #20638D;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+                /* New button styles */
+                .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .custom-button {
+            background-color: #20638D;
+            color: #ffffff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .custom-button:hover {
+            background-color: #1a4f70;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .custom-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .lesson { padding: 15px; }
+            .lesson h2 { font-size: 1.5em; }
+            .lesson-details { font-size: 0.95em; }
+            .buttons-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .custom-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات JavaScript</h1>
+        <div class="course-description">
+            <p>JavaScript (JS) هي لغة برمجة ديناميكية تُستخدم لإضافة التفاعلية إلى صفحات الويب وتطوير تطبيقات حديثة على جانب العميل والخادم. في هذه الدورة، سنغطي كل شيء من الأساسيات إلى المفاهيم المتقدمة لتمكينك من بناء تطبيقات قوية وفعالة.</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس 1: مقدمة في JavaScript -->
+            <div class="lesson">
+                <h2>الدرس الأول: مقدمة في JavaScript</h2>
+                <p>JavaScript هي لغة برمجة تُضيف التفاعلية لصفحات الويب وتُستخدم على نطاق واسع في تطوير التطبيقات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>ما هي JavaScript؟</strong> لغة برمجة عالية المستوى، ديناميكية، تُفسر (interpreted) وليست تُجمّع (compiled)، تُستخدم بشكل رئيسي لإضافة التفاعلية في المتصفحات.</li>
+                        <li><strong>لماذا نحتاجها؟</strong> تُتيح التحكم في عناصر الصفحة، معالجة البيانات، والتفاعل مع المستخدم دون إعادة تحميل الصفحة.</li>
+                        <li><strong>كيفية الاستخدام؟</strong> تُدمج في HTML عبر وسم <code>&lt;script&gt;</code> داخل الصفحة أو ملف خارجي (<code>&lt;script src="app.js"&gt;</code>).</li>
+                        <li><strong>أمثلة أساسية:</strong>
+                            <ul>
+                                <li>طباعة رسالة: <code>console.log("مرحبًا!");</code></li>
+                                <li>تنبيه: <code>alert("اهلاً بك!");</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            console.log("مرحبًا بك في JavaScript!");
+                            alert("هذا مثال بسيط");
+                        </code>
+                        <p>النتيجة: رسالة في وحدة التحكم وتنبيه في المتصفح.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 2: المتغيرات وأنواع البيانات -->
+            <div class="lesson">
+                <h2>الدرس الثاني: المتغيرات وأنواع البيانات</h2>
+                <p>المتغيرات تُستخدم لتخزين البيانات، وJavaScript تدعم أنواع بيانات متعددة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>تعريف المتغيرات:</strong>
+                            <ul>
+                                <li><code>var</code>: طريقة قديمة (مشاكل في النطاق).</li>
+                                <li><code>let</code>: للمتغيرات القابلة للتغيير (block-scoped).</li>
+                                <li><code>const</code>: للثوابت (لا تتغير قيمتها).</li>
+                            </ul>
+                        </li>
+                        <li><strong>أنواع البيانات:</strong>
+                            <ul>
+                                <li>الأعداد (<code>number</code>): مثل <code>42</code>، <code>3.14</code>.</li>
+                                <li>النصوص (<code>string</code>): مثل <code>"مرحبًا"</code>.</li>
+                                <li>القيم المنطقية (<code>boolean</code>): <code>true</code>، <code>false</code>.</li>
+                                <li><code>null</code>: قيمة فارغة.</li>
+                                <li><code>undefined</code>: غير معرف.</li>
+                                <li>الكائنات (<code>object</code>): مثل <code>{name: "علي"}</code>.</li>
+                                <li>المصفوفات (<code>array</code>): مثل <code>[1, 2, 3]</code>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let name = "علي";
+                            const age = 25;
+                            let isStudent = true;
+                            console.log(name, age, isStudent);
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 3: العمليات الحسابية والمنطقية -->
+            <div class="lesson">
+                <h2>الدرس الثالث: العمليات الحسابية والمنطقية</h2>
+                <p>العمليات تُستخدم لمعالجة البيانات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>العمليات الحسابية:</strong>
+                            <ul>
+                                <li><code>+</code> (جمع)، <code>-</code> (طرح)، <code>*</code> (ضرب)، <code>/</code> (قسمة)، <code>%</code> (الباقي).</li>
+                            </ul>
+                        </li>
+                        <li><strong>العمليات المنطقية:</strong>
+                            <ul>
+                                <li><code>&&</code> (و)، <code>||</code> (أو)، <code>!</code> (ليس).</li>
+                                <li>المقارنة: <code>==</code> (تساوي)، <code>===</code> (تساوي صارم)، <code>!=</code>، <code>&gt;</code>، <code>&lt;</code>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let x = 10;
+                            let y = 5;
+                            console.log(x + y); // 15
+                            console.log(x > y && y !== 0); // true
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 4: الجمل الشرطية -->
+            <div class="lesson">
+                <h2>الدرس الرابع: الجمل الشرطية</h2>
+                <p>تُستخدم لاتخاذ القرارات بناءً على شروط.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>if/else:</strong> تنفيذ كود بناءً على شرط.</li>
+                        <li><strong>switch:</strong> للحالات المتعددة.</li>
+                        <li><strong>العامل الثلاثي (Ternary):</strong> صيغة مختصرة لـ if/else.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let score = 85;
+                            if (score >= 90) {
+                                console.log("ممتاز");
+                            } else if (score >= 75) {
+                                console.log("جيد جدًا");
+                            } else {
+                                console.log("حاول مرة أخرى");
+                            }
+                            // Ternary
+                            let result = score >= 75 ? "نجاح" : "رسوب";
+                            console.log(result);
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 5: الحلقات -->
+            <div class="lesson">
+                <h2>الدرس الخامس: الحلقات</h2>
+                <p>تُستخدم لتكرار تنفيذ الكود.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>for:</strong> تكرار محدد العدد.</li>
+                        <li><strong>while:</strong> تكرار بناءً على شرط.</li>
+                        <li><strong>do...while:</strong> تكرار ينفذ مرة واحدة على الأقل.</li>
+                        <li><strong>for...of:</strong> للمصفوفات.</li>
+                        <li><strong>for...in:</strong> للكائنات.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            for (let i = 0; i < 5; i++) {
+                                console.log(i);
+                            }
+                            let arr = [1, 2, 3];
+                            for (let val of arr) {
+                                console.log(val);
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 6: الدوال -->
+            <div class="lesson">
+                <h2>الدرس السادس: الدوال</h2>
+                <p>الدوال تُستخدم لتنظيم الكود وإعادة استخدامه.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>function</code>.</li>
+                        <li><strong>المعاملات:</strong> قيم يتم تمريرها للدالة.</li>
+                        <li><strong>الإرجاع:</strong> باستخدام <code>return</code>.</li>
+                        <li><strong>الدوال المجهولة:</strong> بدون اسم.</li>
+                        <li><strong>دوال السهم (Arrow Functions):</strong> صيغة حديثة مختصرة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            function add(a, b) {
+                                return a + b;
+                            }
+                            console.log(add(3, 4)); // 7
+                            const subtract = (x, y) => x - y;
+                            console.log(subtract(10, 3)); // 7
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 7: الكائنات -->
+            <div class="lesson">
+                <h2>الدرس السابع: الكائنات</h2>
+                <p>الكائنات تُستخدم لتخزين البيانات كمجموعات من المفاتيح والقيم.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> مثل <code>{key: value}</code>.</li>
+                        <li><strong>الوصول:</strong> عبر النقطة (<code>obj.key</code>) أو الأقواس (<code>obj["key"]</code>).</li>
+                        <li><strong>الطرق (Methods):</strong> دوال داخل الكائن.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            const user = {
+                                name: "علي",
+                                age: 25,
+                                greet: function() {
+                                    console.log(`مرحبًا، ${this.name}`);
+                                }
+                            };
+                            user.greet(); // مرحبًا، علي
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 8: المصفوفات -->
+            <div class="lesson">
+                <h2>الدرس الثامن: المصفوفات</h2>
+                <p>المصفوفات تُستخدم لتخزين قوائم من البيانات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> مثل <code>[1, 2, 3]</code>.</li>
+                        <li><strong>الطرق:</strong>
+                            <ul>
+                                <li><code>push</code>: إضافة عنصر.</li>
+                                <li><code>pop</code>: حذف آخر عنصر.</li>
+                                <li><code>map</code>: تحويل العناصر.</li>
+                                <li><code>filter</code>: تصفية العناصر.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let numbers = [1, 2, 3];
+                            numbers.push(4);
+                            console.log(numbers); // [1, 2, 3, 4]
+                            let doubled = numbers.map(n => n * 2);
+                            console.log(doubled); // [2, 4, 6, 8]
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 9: التعامل مع DOM -->
+            <div class="lesson">
+                <h2>الدرس التاسع: التعامل مع DOM</h2>
+                <p>DOM (Document Object Model) يتيح التفاعل مع عناصر HTML.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التحديد:</strong>
+                            <ul>
+                                <li><code>document.getElementById</code></li>
+                                <li><code>document.querySelector</code></li>
+                                <li><code>document.getElementsByClassName</code></li>
+                            </ul>
+                        </li>
+                        <li><strong>التغيير:</strong> مثل <code>element.style</code>، <code>element.textContent</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let para = document.querySelector("p");
+                            para.style.color = "red";
+                            para.textContent = "تم التغيير!";
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 10: الأحداث -->
+            <div class="lesson">
+                <h2>الدرس العاشر: الأحداث</h2>
+                <p>الأحداث تُتيح التفاعل مع تصرفات المستخدم.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>أمثلة:</strong> <code>onclick</code>، <code>onchange</code>، <code>onmouseover</code>.</li>
+                        <li><strong>الاستماع:</strong> باستخدام <code>addEventListener</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            document.querySelector("button").addEventListener("click", () => {
+                                alert("تم النقر!");
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 11: الوعود (Promises) -->
+            <div class="lesson">
+                <h2>الدرس الحادي عشر: الوعود (Promises)</h2>
+                <p>الوعود تُستخدم للتعامل مع العمليات غير المتزامنة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الحالات:</strong> Pending، Fulfilled، Rejected.</li>
+                        <li><strong>الاستخدام:</strong> <code>then</code> للنجاح، <code>catch</code> للأخطاء.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let promise = new Promise((resolve, reject) => {
+                                setTimeout(() => resolve("تم!"), 1000);
+                            });
+                            promise.then(result => console.log(result));
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 12: Async/Await -->
+            <div class="lesson">
+                <h2>الدرس الثاني عشر: Async/Await</h2>
+                <p>صيغة حديثة للتعامل مع الوعود.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>async:</strong> تجعل الدالة تُرجع وعدًا.</li>
+                        <li><strong>await:</strong> تنتظر نتيجة الوعد.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            async function fetchData() {
+                                let response = await fetch("https://api.example.com");
+                                let data = await response.json();
+                                console.log(data);
+                            }
+                            fetchData();
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 13: التعامل مع JSON -->
+            <div class="lesson">
+                <h2>الدرس الثالث عشر: التعامل مع JSON</h2>
+                <p>JSON هو تنسيق بيانات شائع في JavaScript.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>JSON.stringify:</strong> تحويل كائن إلى نص.</li>
+                        <li><strong>JSON.parse:</strong> تحويل نص إلى كائن.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            let obj = {name: "علي", age: 25};
+                            let json = JSON.stringify(obj);
+                            console.log(json); // {"name":"علي","age":25}
+                            let parsed = JSON.parse(json);
+                            console.log(parsed.name); // علي
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 14: التعامل مع BOM -->
+            <div class="lesson">
+                <h2>الدرس الرابع عشر: التعامل مع BOM</h2>
+                <p>BOM (Browser Object Model) يتيح التحكم في المتصفح.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>window.location:</strong> التحكم في التنقل.</li>
+                        <li><strong>window.history:</strong> السجل.</li>
+                        <li><strong>window.alert:</strong> التنبيهات.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            window.location.href = "https://example.com";
+                            window.history.back();
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 15: الترابط (This) -->
+            <div class="lesson">
+                <h2>الدرس الخامس عشر: الترابط (This)</h2>
+                <p>كلمة <code>this</code> تُحدد السياق الحالي.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الترابط الضمني:</strong> داخل كائن.</li>
+                        <li><strong>الترابط الصريح:</strong> عبر <code>call</code>، <code>apply</code>، <code>bind</code>.</li>
+                        <li><strong>افتراضي:</strong> <code>window</code> في المتصفح.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            const user = {
+                                name: "علي",
+                                greet() {
+                                    console.log(this.name);
+                                }
+                            };
+                            user.greet(); // علي
+                            let fn = user.greet;
+                            fn.bind({name: "سارة"})(); // سارة
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 16: النطاق (Scope) والإغلاق (Closures) -->
+            <div class="lesson">
+                <h2>الدرس السادس عشر: النطاق والإغلاق</h2>
+                <p>النطاق يُحدد رؤية المتغيرات، والإغلاق يحفظها.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>النطاق:</strong> Global، Local (Function)، Block.</li>
+                        <li><strong>الإغلاق:</strong> دالة تحتفظ بالمتغيرات الخارجية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            function outer() {
+                                let x = 10;
+                                return function inner() {
+                                    console.log(x);
+                                };
+                            }
+                            let fn = outer();
+                            fn(); // 10
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 17: البرمجة الكائنية (OOP) -->
+            <div class="lesson">
+                <h2>الدرس السابع عشر: البرمجة الكائنية</h2>
+                <p>تنظيم الكود باستخدام الكائنات والفئات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الفئات (Classes):</strong> تعريف مخطط للكائنات.</li>
+                        <li><strong>الوراثة:</strong> باستخدام <code>extends</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Person {
+                                constructor(name) {
+                                    this.name = name;
+                                }
+                                greet() {
+                                    console.log(`مرحبًا، ${this.name}`);
+                                }
+                            }
+                            class Student extends Person {
+                                constructor(name, grade) {
+                                    super(name);
+                                    this.grade = grade;
+                                }
+                            }
+                            let s = new Student("علي", "A");
+                            s.greet(); // مرحبًا، علي
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 18: التعامل مع الأخطاء -->
+            <div class="lesson">
+                <h2>الدرس الثامن عشر: التعامل مع الأخطاء</h2>
+                <p>إدارة الأخطاء باستخدام <code>try/catch</code>.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>try:</strong> اختبار الكود.</li>
+                        <li><strong>catch:</strong> معالجة الخطأ.</li>
+                        <li><strong>throw:</strong> إنشاء خطأ مخصص.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            try {
+                                let x = undefinedVar;
+                            } catch (error) {
+                                console.log("خطأ: " + error.message);
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 19: الدوال المتقدمة -->
+            <div class="lesson">
+                <h2>الدرس التاسع عشر: الدوال المتقدمة</h2>
+                <p>مفاهيم متقدمة في الدوال.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Rest Parameters:</strong> <code>...args</code> لعدد غير محدد من المعاملات.</li>
+                        <li><strong>Default Parameters:</strong> قيم افتراضية.</li>
+                        <li><strong>IIFE:</strong> دوال تُنفذ فورًا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            function sum(...numbers) {
+                                return numbers.reduce((a, b) => a + b);
+                            }
+                            console.log(sum(1, 2, 3)); // 6
+                            (function() { console.log("IIFE!"); })();
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 20: البرمجة الوظيفية -->
+            <div class="lesson">
+                <h2>الدرس العشرون: البرمجة الوظيفية</h2>
+                <p>استخدام الدوال كوحدات بناء.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Pure Functions:</strong> دوال خالية من الآثار الجانبية.</li>
+                        <li><strong>Higher-Order Functions:</strong> دوال تأخذ دوالًا كمعاملات.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            const add = (a, b) => a + b; // Pure
+                            const multiplyBy = (n) => (x) => x * n;
+                            let double = multiplyBy(2);
+                            console.log(double(5)); // 10
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 21: التخزين المحلي -->
+            <div class="lesson">
+                <h2>الدرس الحادي والعشرون: التخزين المحلي</h2>
+                <p>تخزين البيانات في المتصفح.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>localStorage:</strong> دائم.</li>
+                        <li><strong>sessionStorage:</strong> مؤقت.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            localStorage.setItem("name", "علي");
+                            console.log(localStorage.getItem("name")); // علي
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 22: Fetch API -->
+            <div class="lesson">
+                <h2>الدرس الثاني والعشرون: Fetch API</h2>
+                <p>جلب البيانات من الخوادم.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>fetch:</strong> طلبات HTTP.</li>
+                        <li><strong>التعامل مع الاستجابة:</strong> JSON، نصوص.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            fetch("https://api.example.com/data")
+                                .then(response => response.json())
+                                .then(data => console.log(data))
+                                .catch(error => console.error(error));
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 23: Web APIs -->
+            <div class="lesson">
+                <h2>الدرس الثالث والعشرون: Web APIs</h2>
+                <p>واجهات برمجية إضافية في المتصفح.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Geolocation:</strong> تحديد الموقع.</li>
+                        <li><strong>Canvas:</strong> رسم الرسومات.</li>
+                        <li><strong>Web Storage:</strong> التخزين.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            navigator.geolocation.getCurrentPosition(position => {
+                                console.log(position.coords.latitude, position.coords.longitude);
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+             <!-- New buttons section -->
+        <div class="buttons-container">
+            <button class="custom-button">اختبر نفسك  </button>
+            <button class="custom-button">جرب الكود </button>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

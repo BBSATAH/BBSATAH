@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Solving Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+              body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #f3f4f6;
+    color: #222;
+    padding: 20px;
+    margin: 0;
+    direction: rtl; /* جعل النصوص تبدأ من اليمين */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #3e0292;
+    margin-bottom: 30px;
+}
+
+.level-title {
+    color: #3e0292;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.question p {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-left: 10px; /* لتناسب الاتجاه من اليمين */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #3e0292;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #6d00fc;
+}
+
+.result {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #333;
+}
+
+.evaluation-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #3e0292;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+}
+
+.evaluation-popup button {
+    background-color: #3e0292;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.evaluation-popup button:hover {
+    background-color: #6d00fc;
+}
+
+.hidden {
+    display: none;
+}
+
+select {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #3e0292;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+select:hover {
+    background-color: #444;
+    border-color: #6d00fc;
+}
+
+option {
+    background-color: #222;
+    color: #fff;
+}
+
+select:focus {
+    animation: expand 0.3s ease-in-out;
+}
+
+@keyframes expand {
+    from {
+        background-color: #333;
+    }
+    to {
+        background-color: #444;
+    }
+}
+
+/* تحسين العرض على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .question {
+        padding: 10px;
+    }
+
+    .result {
+        font-size: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Problem Solving Quiz</h1>
+
+        <!-- Dropdown to select the level -->
+        <select id="levelSelect">
+            <option value="easy">Easy Level</option>
+            <option value="medium">Medium Level</option>
+            <option value="hard">Hard Level</option>
+        </select>
+
+        <!-- Easy Level Questions -->
+        <div id="easy" class="level-content">
+            <h2 class="level-title">Easy Level</h2>
+            <!-- Questions here -->
+            <div class="question">
+                <p>What is problem solving?</p>
+                <input type="radio" name="q1" value="finding solutions"> Finding solutions to problems<br>
+                <input type="radio" name="q1" value="creating problems"> Creating problems<br>
+                <input type="radio" name="q1" value="ignoring problems"> Ignoring problems<br>
+            </div>
+            <div class="question">
+                <p>What is the first step in problem solving?</p>
+                <input type="radio" name="q2" value="identify the problem"> Identify the problem<br>
+                <input type="radio" name="q2" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q2" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is a heuristic in problem solving?</p>
+                <input type="radio" name="q3" value="a rule of thumb"> A rule of thumb<br>
+                <input type="radio" name="q3" value="a guaranteed solution"> A guaranteed solution<br>
+                <input type="radio" name="q3" value="a random guess"> A random guess<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of brainstorming in problem solving?</p>
+                <input type="radio" name="q4" value="generate ideas"> Generate ideas<br>
+                <input type="radio" name="q4" value="evaluate ideas"> Evaluate ideas<br>
+                <input type="radio" name="q4" value="implement ideas"> Implement ideas<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a flowchart in problem solving?</p>
+                <input type="radio" name="q5" value="visualize the process"> Visualize the process<br>
+                <input type="radio" name="q5" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q5" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a decision tree in problem solving?</p>
+                <input type="radio" name="q6" value="visualize decisions"> Visualize decisions<br>
+                <input type="radio" name="q6" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q6" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a fishbone diagram in problem solving?</p>
+                <input type="radio" name="q7" value="identify causes"> Identify causes<br>
+                <input type="radio" name="q7" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q7" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a Pareto chart in problem solving?</p>
+                <input type="radio" name="q8" value="identify significant factors"> Identify significant factors<br>
+                <input type="radio" name="q8" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q8" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a SWOT analysis in problem solving?</p>
+                <input type="radio" name="q9" value="analyze strengths, weaknesses, opportunities, and threats"> Analyze strengths, weaknesses, opportunities, and threats<br>
+                <input type="radio" name="q9" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q9" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a root cause analysis in problem solving?</p>
+                <input type="radio" name="q10" value="identify the root cause"> Identify the root cause<br>
+                <input type="radio" name="q10" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q10" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+        </div>
+
+        <!-- Medium Level Questions -->
+        <div id="medium" class="level-content hidden">
+            <h2 class="level-title">Medium Level</h2>
+            <!-- Questions here -->
+            <div class="question">
+                <p>What is the difference between a heuristic and an algorithm?</p>
+                <input type="radio" name="q11" value="heuristic is a rule of thumb"> A heuristic is a rule of thumb<br>
+                <input type="radio" name="q11" value="algorithm is a rule of thumb"> An algorithm is a rule of thumb<br>
+                <input type="radio" name="q11" value="both are the same"> Both are the same<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a Gantt chart in problem solving?</p>
+                <input type="radio" name="q12" value="schedule tasks"> Schedule tasks<br>
+                <input type="radio" name="q12" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q12" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a mind map in problem solving?</p>
+                <input type="radio" name="q13" value="organize ideas"> Organize ideas<br>
+                <input type="radio" name="q13" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q13" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a cause-and-effect diagram in problem solving?</p>
+                <input type="radio" name="q14" value="identify causes and effects"> Identify causes and effects<br>
+                <input type="radio" name="q14" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q14" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a force field analysis in problem solving?</p>
+                <input type="radio" name="q15" value="identify forces for and against change"> Identify forces for and against change<br>
+                <input type="radio" name="q15" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q15" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a stakeholder analysis in problem solving?</p>
+                <input type="radio" name="q16" value="identify stakeholders and their interests"> Identify stakeholders and their interests<br>
+                <input type="radio" name="q16" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q16" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a risk assessment in problem solving?</p>
+                <input type="radio" name="q17" value="identify and evaluate risks"> Identify and evaluate risks<br>
+                <input type="radio" name="q17" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q17" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a cost-benefit analysis in problem solving?</p>
+                <input type="radio" name="q18" value="compare costs and benefits"> Compare costs and benefits<br>
+                <input type="radio" name="q18" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q18" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a feasibility study in problem solving?</p>
+                <input type="radio" name="q19" value="determine the feasibility of a solution"> Determine the feasibility of a solution<br>
+                <input type="radio" name="q19" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q19" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a pilot study in problem solving?</p>
+                <input type="radio" name="q20" value="test a solution on a small scale"> Test a solution on a small scale<br>
+                <input type="radio" name="q20" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q20" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+        </div>
+
+        <!-- Hard Level Questions -->
+        <div id="hard" class="level-content hidden">
+            <h2 class="level-title">Hard Level</h2>
+            <!-- Questions here -->
+            <div class="question">
+                <p>What is the difference between a top-down and a bottom-up approach in problem solving?</p>
+                <input type="radio" name="q21" value="top-down starts with the big picture"> Top-down starts with the big picture<br>
+                <input type="radio" name="q21" value="bottom-up starts with the big picture"> Bottom-up starts with the big picture<br>
+                <input type="radio" name="q21" value="both are the same"> Both are the same<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a scenario analysis in problem solving?</p>
+                <input type="radio" name="q22" value="explore different scenarios"> Explore different scenarios<br>
+                <input type="radio" name="q22" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q22" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a sensitivity analysis in problem solving?</p>
+                <input type="radio" name="q23" value="determine how different values of an independent variable affect a particular dependent variable"> Determine how different values of an independent variable affect a particular dependent variable<br>
+                <input type="radio" name="q23" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q23" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a break-even analysis in problem solving?</p>
+                <input type="radio" name="q24" value="determine the point at which total cost and total revenue are equal"> Determine the point at which total cost and total revenue are equal<br>
+                <input type="radio" name="q24" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q24" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a Monte Carlo simulation in problem solving?</p>
+                <input type="radio" name="q25" value="model the probability of different outcomes"> Model the probability of different outcomes<br>
+                <input type="radio" name="q25" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q25" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a decision matrix in problem solving?</p>
+                <input type="radio" name="q26" value="evaluate and prioritize options"> Evaluate and prioritize options<br>
+                <input type="radio" name="q26" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q26" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a PEST analysis in problem solving?</p>
+                <input type="radio" name="q27" value="analyze political, economic, social, and technological factors"> Analyze political, economic, social, and technological factors<br>
+                <input type="radio" name="q27" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q27" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a MOST analysis in problem solving?</p>
+                <input type="radio" name="q28" value="analyze mission, objectives, strategies, and tactics"> Analyze mission, objectives, strategies, and tactics<br>
+                <input type="radio" name="q28" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q28" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a VRIO analysis in problem solving?</p>
+                <input type="radio" name="q29" value="analyze value, rarity, imitability, and organization"> Analyze value, rarity, imitability, and organization<br>
+                <input type="radio" name="q29" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q29" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+            <div class="question">
+                <p>What is the purpose of a BCG matrix in problem solving?</p>
+                <input type="radio" name="q30" value="analyze business units based on their market growth rate and market share"> Analyze business units based on their market growth rate and market share<br>
+                <input type="radio" name="q30" value="implement the solution"> Implement the solution<br>
+                <input type="radio" name="q30" value="evaluate the solution"> Evaluate the solution<br>
+            </div>
+        </div>
+
+        <button onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <!-- Result Popup -->
+    <div id="resultPopup" class="evaluation-popup">
+        <p id="resultText"></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Show questions based on the selected level
+            document.getElementById('levelSelect').addEventListener('change', function() {
+                document.querySelectorAll('.level-content').forEach(div => div.classList.add('hidden'));
+                document.getElementById(this.value).classList.remove('hidden');
+            });
+
+            // Correct answers for each level
+            const correctAnswers = {
+                easy: {
+                    q1: "finding solutions",
+                    q2: "identify the problem",
+                    q3: "a rule of thumb",
+                    q4: "generate ideas",
+                    q5: "visualize the process",
+                    q6: "visualize decisions",
+                    q7: "identify causes",
+                    q8: "identify significant factors",
+                    q9: "analyze strengths, weaknesses, opportunities, and threats",
+                    q10: "identify the root cause"
+                },
+                medium: {
+                    q11: "heuristic is a rule of thumb",
+                    q12: "schedule tasks",
+                    q13: "organize ideas",
+                    q14: "identify causes and effects",
+                    q15: "identify forces for and against change",
+                    q16: "identify stakeholders and their interests",
+                    q17: "identify and evaluate risks",
+                    q18: "compare costs and benefits",
+                    q19: "determine the feasibility of a solution",
+                    q20: "test a solution on a small scale"
+                },
+                hard: {
+                    q21: "top-down starts with the big picture",
+                    q22: "explore different scenarios",
+                    q23: "determine how different values of an independent variable affect a particular dependent variable",
+                    q24: "determine the point at which total cost and total revenue are equal",
+                    q25: "model the probability of different outcomes",
+                    q26: "evaluate and prioritize options",
+                    q27: "analyze political, economic, social, and technological factors",
+                    q28: "analyze mission, objectives, strategies, and tactics",
+                    q29: "analyze value, rarity, imitability, and organization",
+                    q30: "analyze business units based on their market growth rate and market share"
+                }
+            };
+
+            // Get the correct answer based on the question ID
+            function getCorrectAnswer(questionId) {
+                const level = document.getElementById('levelSelect').value;
+                return correctAnswers[level][questionId];
+            }
+
+            // Submit the quiz and calculate the score
+            window.submitQuiz = function() {
+                const level = document.getElementById('levelSelect').value;
+                const questions = document.querySelectorAll(`#${level} .question`);
+                let score = 0;
+
+                questions.forEach((question) => {
+                    const questionId = question.querySelector('input[type="radio"]').name;
+                    const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                    if (selectedAnswer && selectedAnswer.value === getCorrectAnswer(questionId)) {
+                        score++;
+                    }
+                });
+
+                const resultText = `Your score is: ${score} out of ${questions.length}`;
+                document.getElementById('resultText').innerText = resultText;
+                document.getElementById('resultPopup').style.display = 'block';
+            };
+
+            // Close the result popup
+            window.closePopup = function() {
+                document.getElementById('resultPopup').style.display = 'none';
+            };
+        });
+    </script>
+</body>
+</html>

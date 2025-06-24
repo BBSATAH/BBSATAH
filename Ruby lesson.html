@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات Ruby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #20638D;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .lesson { padding: 15px; }
+            .lesson h2 { font-size: 1.5em; }
+            .lesson-details { font-size: 0.95em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات Ruby</h1>
+        <div class="course-description">
+            <p>Ruby هي لغة برمجة ديناميكية وكائنية التوجه طورتها يوكيهيرو ماتسوموتو في التسعينيات. تُعرف ببساطتها وقوتها، وتُستخدم بشكل واسع في تطوير الويب (مثل Ruby on Rails)، أتمتة المهام، ومعالجة البيانات. هذه الدورة سترشدك عبر الأساسيات بأمثلة عملية.</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس 1: مقدمة وتثبيت Ruby -->
+            <div class="lesson">
+                <h2>الدرس الأول: مقدمة وتثبيت Ruby</h2>
+                <p>Ruby هي لغة بسيطة وأنيقة تُركز على سهولة القراءة والكتابة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التثبيت:</strong> تثبيت Ruby من ruby-lang.org أو عبر مدير الحزم (مثل Homebrew).</li>
+                        <li><strong>التشغيل:</strong> استخدام الأمر <code>ruby</code> لتشغيل الملفات أو <code>irb</code> للتفاعل.</li>
+                        <li><strong>الإصدار:</strong> التحقق من الإصدار باستخدام <code>ruby -v</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            puts "مرحبًا بك في Ruby!"  # ✅ مرحبًا بك في Ruby!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 2: المتغيرات وأنواع البيانات -->
+            <div class="lesson">
+                <h2>الدرس الثاني: المتغيرات وأنواع البيانات</h2>
+                <p>Ruby ديناميكية ولا تحتاج إلى تعريف أنواع المتغيرات مسبقًا.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>المتغيرات:</strong> تُعرف مباشرة باستخدام اسم.</li>
+                        <li><strong>الأنواع:</strong> أرقام (Integer, Float)، نصوص (String)، منطقية (TrueClass/FalseClass).</li>
+                        <li><strong>النطاق:</strong> متغيرات محلية، عالمية ($)، كلاس (@)، مثيل (@@).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            name = "علي"
+                            age = 25
+                            price = 19.99
+                            active = true
+                            puts "#{name} عمره #{age} ونشط: #{active}"  # ✅ علي عمره 25 ونشط: true
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 3: الجمل الشرطية والحلقات -->
+            <div class="lesson">
+                <h2>الدرس الثالث: الجمل الشرطية والحلقات</h2>
+                <p>التحكم في تدفق البرنامج باستخدام الشروط والتكرار.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>if/else:</strong> لاتخاذ القرارات.</li>
+                        <li><strong>each:</strong> للتكرار على المجموعات.</li>
+                        <li><strong>while/until:</strong> للتكرار بناءً على شرط.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            age = 18
+                            if age >= 18
+                                puts "بالغ"
+                            else
+                                puts "قاصر"
+                            end
+
+                            [1, 2, 3].each { |n| puts n }  # ✅ 1 2 3
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 4: الدوال -->
+            <div class="lesson">
+                <h2>الدرس الرابع: الدوال</h2>
+                <p>الدوال تُستخدم لتنظيم الكود وإعادة استخدامه.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>def</code>.</li>
+                        <li><strong>المعاملات:</strong> اختيارية مع قيم افتراضية.</li>
+                        <li><strong>الإرجاع:</strong> آخر تعبير يُرجع تلقائيًا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            def greet(name = "زائر")
+                                "مرحبًا، #{name}!"
+                            end
+                            puts greet("علي")  # ✅ مرحبًا، علي!
+                            puts greet         # ✅ مرحبًا، زائر!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 5: المصفوفات والهاش -->
+            <div class="lesson">
+                <h2>الدرس الخامس: المصفوفات والهاش</h2>
+                <p>Ruby يوفر هياكل بيانات مرنة لتخزين العناصر.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Array:</strong> قائمة مرتبة باستخدام <code>[]</code>.</li>
+                        <li><strong>Hash:</strong> أزواج مفتاح-قيمة باستخدام <code>{}</code>.</li>
+                        <li><strong>التكرار:</strong> استخدام <code>each</code> للوصول للعناصر.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            fruits = ["تفاح", "موز"]
+                            person = { name: "علي", age: 25 }
+                            puts fruits[0]         # ✅ تفاح
+                            puts person[:name]     # ✅ علي
+                            fruits.each { |f| puts f }  # ✅ تفاح موز
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 6: التعامل مع الملفات -->
+            <div class="lesson">
+                <h2>الدرس السادس: التعامل مع الملفات</h2>
+                <p>Ruby يجعل التعامل مع الملفات سهلاً وقويًا.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>القراءة:</strong> <code>File.read</code> لقراءة محتوى الملف.</li>
+                        <li><strong>الكتابة:</strong> <code>File.write</code> لإنشاء أو تعديل ملف.</li>
+                        <li><strong>المسارات:</strong> <code>Dir</code> لإدارة المجلدات.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            File.write("test.txt", "مرحبًا، Ruby!")
+                            content = File.read("test.txt")
+                            puts content  # ✅ مرحبًا، Ruby!
+                            puts Dir.pwd  # ✅ المسار الحالي
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 7: الكائنات والكلاسات -->
+            <div class="lesson">
+                <h2>الدرس السابع: الكائنات والكلاسات</h2>
+                <p>Ruby هي لغة كائنية التوجه، وكل شيء فيها كائن.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Class:</strong> تعريف الكائنات باستخدام <code>class</code>.</li>
+                        <li><strong>الخصائص:</strong> باستخدام <code>@</code> للمتغيرات المثيلية.</li>
+                        <li><strong>الدوال:</strong> تُضاف داخل الكلاس.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Person
+                                def initialize(name)
+                                    @name = name
+                                end
+                                def greet
+                                    puts "مرحبًا، أنا #{@name}!"
+                                end
+                            end
+                            person = Person.new("علي")
+                            person.greet  # ✅ مرحبًا، أنا علي!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 8: المحددات -->
+            <div class="lesson">
+                <h2>الدرس الثامن: المحددات</h2>
+                <p>المحددات تتحكم في الوصول إلى الدوال والمتغيرات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>public:</strong> الوصول متاح للجميع (افتراضي).</li>
+                        <li><strong>private:</strong> الوصول داخل الكلاس فقط.</li>
+                        <li><strong>protected:</strong> الوصول داخل الكلاس والكلاسات الفرعية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Secret
+                                def public_method
+                                    puts "عام"
+                                end
+                                private
+                                def private_method
+                                    puts "خاص"
+                                end
+                            end
+                            s = Secret.new
+                            s.public_method   # ✅ عام
+                            # s.private_method # ❌ خطأ
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 9: الاستثناءات -->
+            <div class="lesson">
+                <h2>الدرس التاسع: الاستثناءات</h2>
+                <p>إدارة الأخطاء لضمان استمرارية البرنامج.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>begin/rescue:</strong> لمعالجة الأخطاء.</li>
+                        <li><strong>ensure:</strong> لتنفيذ كود دائمًا.</li>
+                        <li><strong>raise:</strong> لإلقاء استثناء يدويًا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            begin
+                                result = 10 / 0
+                            rescue ZeroDivisionError => e
+                                puts "خطأ: #{e}"
+                            ensure
+                                puts "تم التنفيذ"
+                            end  # ✅ خطأ: divided by 0 \n تم التنفيذ
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 10: الموديولات -->
+            <div class="lesson">
+                <h2>الدرس العاشر: الموديولات</h2>
+                <p>الموديولات تُستخدم لتنظيم الكود وإضافة وظائف مشتركة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>module</code>.</li>
+                        <li><strong>include:</strong> لإدراج الموديول في كلاس.</li>
+                        <li><strong>Mixin:</strong> إضافة سلوك مشترك.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            module Greetings
+                                def say_hello
+                                    puts "مرحبًا!"
+                                end
+                            end
+
+                            class Person
+                                include Greetings
+                            end
+
+                            p = Person.new
+                            p.say_hello  # ✅ مرحبًا!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 11: التعامل مع السلاسل -->
+            <div class="lesson">
+                <h2>الدرس الحادي عشر: التعامل مع السلاسل</h2>
+                <p>Ruby يوفر أدوات قوية لمعالجة النصوص.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التوصيل:</strong> باستخدام <code>+</code> أو <code>#{}</code>.</li>
+                        <li><strong>التعديل:</strong> دوال مثل <code>upcase</code> و<code>split</code>.</li>
+                        <li><strong>البحث:</strong> <code>include?</code> لفحص السلاسل.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            text = "مرحبًا"
+                            puts text + " Ruby"      # ✅ مرحبًا Ruby
+                            puts text.upcase        # ✅ مرحبًا
+                            puts text.include?("ح") # ✅ true
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 12: الميتا برمجة -->
+            <div class="lesson">
+                <h2>الدرس الثاني عشر: الميتا برمجة</h2>
+                <p>الميتا برمجة تتيح تعديل الكود ديناميكيًا أثناء التشغيل.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>send:</strong> استدعاء دالة ديناميكيًا.</li>
+                        <li><strong>define_method:</strong> تعريف دالة ديناميكيًا.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Dynamic
+                                def hello
+                                    puts "مرحبًا"
+                                end
+                            end
+                            d = Dynamic.new
+                            d.send(:hello)  # ✅ مرحبًا
+
+                            class Dynamic
+                                define_method(:greet) do
+                                    puts "تحية!"
+                                end
+                            end
+                            d.greet  # ✅ تحية!
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 13: مشروع عملي -->
+            <div class="lesson">
+                <h2>الدرس الثالث عشر: مشروع عملي - مدير مهام بسيط</h2>
+                <p>تطبيق عملي يجمع الأساسيات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الهدف:</strong> إنشاء برنامج لإدارة المهام.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            class Task
+                                attr_accessor :title, :done
+                                def initialize(title)
+                                    @title = title
+                                    @done = false
+                                end
+                                def complete
+                                    @done = true
+                                    puts "#{@title} تم إكمالها!"
+                                end
+                            end
+
+                            tasks = []
+                            tasks << Task.new("كتابة كود")
+                            tasks << Task.new("اختبار")
+
+                            tasks.each do |task|
+                                task.complete
+                            end  # ✅ كتابة كود تم إكمالها! \n اختبار تم إكمالها!
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>تم إنشاء هذه الدورة بواسطة Grok © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

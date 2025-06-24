@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان TypeScript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+      body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #222;
+            padding: 20px;
+            margin: 0;
+            direction: rtl; /* جعل النصوص تبدأ من اليمين */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+        }
+
+        .level-title {
+            color: #20638D;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question p {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-left: 10px; /* لتناسب الاتجاه من اليمين */
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #20638D;
+        }
+
+        .evaluation-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            color: #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .evaluation-popup button {
+            background-color: #20638D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .evaluation-popup button:hover {
+            background-color: #1a4d7e; /* لون مختلف عند التمرير */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        select {
+            background-color: #20638D; /* لون خلفية أنيق */
+            color: #fff; /* لون النص */
+            border: 2px solid #20638D; /* حدود بتأثير أكثر جاذبية */
+            border-radius: 8px; /* زوايا مستديرة */
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Cairo', sans-serif;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+            appearance: none; /* إخفاء السهم الافتراضي */
+            text-align: center;
+            font-weight: bold;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="white"><polygon points="0,0 20,0 10,10"/></svg>'); /* سهم مخصص أكبر */
+            background-repeat: no-repeat;
+            background-position: left 10px center; /* موضع السهم إلى اليسار */
+            background-size: 15px; /* حجم السهم أكبر */
+        }
+
+        select:hover {
+            background-color: #6d00fc; /* تأثير عند تمرير الماوس */
+            border-color: #20638D;
+        }
+
+        select:focus {
+            background-color: #20638D; /* لون مختلف عند التحديد */
+            border-color: #fff;
+            box-shadow: 0 0 8px #20638D;
+        }
+
+        option {
+            background-color: #20638D; /* لون عناصر القائمة */
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        option:hover {
+            background-color: #1a4d7e; /* تأثير عند التحديد */
+        }
+
+        /* تحسين العرض على الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .question {
+                padding: 10px;
+            }
+
+            .result {
+                font-size: 20px;
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>امتحان TypeScript</h1>
+        
+        <!-- القائمة المنسدلة لاختيار المستوى -->
+        <select id="levelSelect">
+            <option value="easy">المستوى السهل</option>
+            <option value="medium">المستوى المتوسط</option>
+            <option value="hard">المستوى الصعب</option>
+        </select>
+
+        <!-- أسئلة المستوى السهل -->
+        <div id="easy" class="level-content">
+            <h2 class="level-title">المستوى السهل</h2>
+            <div class="question">
+                <p>ما هو نوع البيانات الذي يُستخدم لتخزين نصوص في TypeScript؟</p>
+                <input type="radio" name="q1" value="string"> string<br>
+                <input type="radio" name="q1" value="text"> text<br>
+                <input type="radio" name="q1" value="char"> char<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك كتابة تعليق في TypeScript؟</p>
+                <input type="radio" name="q2" value="// تعليق"> // تعليق<br>
+                <input type="radio" name="q2" value="<!-- تعليق -->"> <!-- تعليق --><br>
+                <input type="radio" name="q2" value="/* تعليق */"> /* تعليق */<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف نوع في TypeScript؟</p>
+                <input type="radio" name="q3" value="type MyType = string;"> type MyType = string;<br>
+                <input type="radio" name="q3" value="interface MyType {}"> interface MyType {}<br>
+                <input type="radio" name="q3" value="class MyType {}"> class MyType {}<br>
+            </div>
+            <div class="question">
+                <p>ما هو نوع البيانات الذي يمثل مجموعة من القيم في TypeScript؟</p>
+                <input type="radio" name="q4" value="Array"> Array<br>
+                <input type="radio" name="q4" value="List"> List<br>
+                <input type="radio" name="q4" value="Set"> Set<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(2 + '2');</p>
+                <input type="radio" name="q5" value="22"> 22<br>
+                <input type="radio" name="q5" value="4"> 4<br>
+                <input type="radio" name="q5" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف دالة في TypeScript؟</p>
+                <input type="radio" name="q6" value="function myFunction() {}"> function myFunction() {}<br>
+                <input type="radio" name="q6" value="const myFunction = () => {}"> const myFunction = () => {}<br>
+                <input type="radio" name="q6" value="class MyFunction {}"> class MyFunction {}<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> typeof true</p>
+                <input type="radio" name="q7" value="boolean"> boolean<br>
+                <input type="radio" name="q7" value="string"> string<br>
+                <input type="radio" name="q7" value="object"> object<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك التعامل مع القيم الفارغة في TypeScript؟</p>
+                <input type="radio" name="q8" value="null"> null<br>
+                <input type="radio" name="q8" value="undefined"> undefined<br>
+                <input type="radio" name="q8" value="both"> both<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log('Hello' + 'World');</p>
+                <input type="radio" name="q9" value="HelloWorld"> HelloWorld<br>
+                <input type="radio" name="q9" value="Hello World"> Hello World<br>
+                <input type="radio" name="q9" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك مقارنة نوعين في TypeScript؟</p>
+                <input type="radio" name="q10" value="=="> ==<br>
+                <input type="radio" name="q10" value="==="> ===<br>
+                <input type="radio" name="q10" value="!=="> !==<br>
+            </div>
+        </div>
+
+        <!-- أسئلة المستوى المتوسط -->
+        <div id="medium" class="level-content hidden">
+            <h2 class="level-title">المستوى المتوسط</h2>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log(0.1 + 0.2 === 0.3);</p>
+                <input type="radio" name="q11" value="true"> true<br>
+                <input type="radio" name="q11" value="false"> false<br>
+                <input type="radio" name="q11" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك استخدام المعاملات اللامتناهية في TypeScript؟</p>
+                <input type="radio" name="q12" value="...args"> ...args<br>
+                <input type="radio" name="q12" value="args"> args<br>
+                <input type="radio" name="q12" value="args..."> args...<br>
+            </div>
+            <div class="question">
+                <p>ما هي كلمة السر المحجوزة في TypeScript التي تُستخدم لتعريف واجهة؟</p>
+                <input type="radio" name="q13" value="interface"> interface<br>
+                <input type="radio" name="q13" value="type"> type<br>
+                <input type="radio" name="q13" value="class"> class<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف واجهة في TypeScript؟</p>
+                <input type="radio" name="q14" value="interface MyInterface {}"> interface MyInterface {}<br>
+                <input type="radio" name="q14" value="type MyInterface = {};"> type MyInterface = {};<br>
+                <input type="radio" name="q14" value="class MyInterface {}"> class MyInterface {}<br>
+            </div>
+            <div class="question">
+                <p>ما هو النوع الذي يُستخدم لتمثيل الأعداد الصحيحة في TypeScript؟</p>
+                <input type="radio" name="q15" value="number"> number<br>
+                <input type="radio" name="q15" value="integer"> integer<br>
+                <input type="radio" name="q15" value="float"> float<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تحديد نوع القيم المسموح بها في TypeScript؟</p>
+                <input type="radio" name="q16" value="enum"> enum<br>
+                <input type="radio" name="q16" value="type"> type<br>
+                <input type="radio" name="q16" value="interface"> interface<br>
+            </div>
+            <div class="question">
+                <p>ما هو النوع الذي يُستخدم لتعريف كائن في TypeScript؟</p>
+                <input type="radio" name="q17" value="object"> object<br>
+                <input type="radio" name="q17" value="interface"> interface<br>
+                <input type="radio" name="q17" value="class"> class<br>
+            </div>
+            <div class="question">
+                <p>ما هي الكلمة المحجوزة التي تُستخدم لتعريف نوع غير محدد في TypeScript؟</p>
+                <input type="radio" name="q18" value="any"> any<br>
+                <input type="radio" name="q18" value="unknown"> unknown<br>
+                <input type="radio" name="q18" value="void"> void<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> console.log('5' * 2);</p>
+                <input type="radio" name="q19" value="10"> 10<br>
+                <input type="radio" name="q19" value="52"> 52<br>
+                <input type="radio" name="q19" value="undefined"> undefined<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تحديد نوع قيمة في TypeScript؟</p>
+                <input type="radio" name="q20" value="type"> type<br>
+                <input type="radio" name="q20" value="interface"> interface<br>
+                <input type="radio" name="q20" value="class"> class<br>
+            </div>
+        </div>
+
+        <!-- أسئلة المستوى الصعب -->
+        <div id="hard" class="level-content hidden">
+            <h2 class="level-title">المستوى الصعب</h2>
+            <div class="question">
+                <p>ما هو الفرق بين 'type' و 'interface' في TypeScript؟</p>
+                <input type="radio" name="q21" value="type is for complex types and interface is for simple types."> type is for complex types and interface is for simple types.<br>
+                <input type="radio" name="q21" value="type is for defining new types, interface is for defining object shapes."> type is for defining new types, interface is for defining object shapes.<br>
+                <input type="radio" name="q21" value="there is no difference"> there is no difference<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك استخدام النوع الجنيريك في TypeScript؟</p>
+                <input type="radio" name="q22" value="function myFunction<T>(arg: T): T { return arg; }"> function myFunction<T>(arg: T): T { return arg; }<br>
+                <input type="radio" name="q22" value="function myFunction(arg: any): any { return arg; }"> function myFunction(arg: any): any { return arg; }<br>
+                <input type="radio" name="q22" value="function myFunction(arg: string): string { return arg; }"> function myFunction(arg: string): string { return arg; }<br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> type MyType = { name: string; age: number; } & { address: string; }</p>
+                <input type="radio" name="q23" value="{ name: string; age: number; address: string; }"> { name: string; age: number; address: string; }<br>
+                <input type="radio" name="q23" value="{ name: string; age: number; }"> { name: string; age: number; }<br>
+                <input type="radio" name="q23" value="{ address: string; }"> { address: string; }<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك استخدام الـ 'type' مع الـ 'interface' في TypeScript؟</p>
+                <input type="radio" name="q24" value="type MyType = interface MyInterface {};"> type MyType = interface MyInterface {};<br>
+                <input type="radio" name="q24" value="interface MyType extends MyInterface {}"> interface MyType extends MyInterface {}<br>
+                <input type="radio" name="q24" value="both ways are correct"> both ways are correct<br>
+            </div>
+            <div class="question">
+                <p>ما هو معنى الكلمة المحجوزة 'readonly' في TypeScript؟</p>
+                <input type="radio" name="q25" value="The property cannot be changed after initialization."> The property cannot be changed after initialization.<br>
+                <input type="radio" name="q25" value="The property can be changed but not reassigned."> The property can be changed but not reassigned.<br>
+                <input type="radio" name="q25" value="The property is ignored by the TypeScript compiler."> The property is ignored by the TypeScript compiler.<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف نوع Tuple في TypeScript؟</p>
+                <input type="radio" name="q26" value="[string, number]"> [string, number]<br>
+                <input type="radio" name="q26" value="Array<string, number>"> Array<string, number><br>
+                <input type="radio" name="q26" value="tuple<string, number>"> tuple<string, number><br>
+            </div>
+            <div class="question">
+                <p>ما هو مخرجات الكود التالي؟ <br> type A = { x: number; }; type B = { y: string; }; type C = A & B;</p>
+                <input type="radio" name="q27" value="{ x: number; y: string; }"> { x: number; y: string; }<br>
+                <input type="radio" name="q27" value="{ x: number; }"> { x: number; }<br>
+                <input type="radio" name="q27" value="{ y: string; }"> { y: string; }<br>
+            </div>
+            <div class="question">
+                <p>ما هو الفرق بين 'interface' و 'type' في تعريف الدوال في TypeScript؟</p>
+                <input type="radio" name="q28" value="interface is used for defining shapes of objects and classes while type is used for defining more complex types."> interface is used for defining shapes of objects and classes while type is used for defining more complex types.<br>
+                <input type="radio" name="q28" value="type can be used to define object shapes and primitive types but interface cannot be used for primitive types."> type can be used to define object shapes and primitive types but interface cannot be used for primitive types.<br>
+                <input type="radio" name="q28" value="there is no difference"> there is no difference<br>
+            </div>
+            <div class="question">
+                <p>كيف يمكنك تعريف نوع Union في TypeScript؟</p>
+                <input type="radio" name="q29" value="type MyType = string | number;"> type MyType = string | number;<br>
+                <input type="radio" name="q29" value="type MyType = string & number;"> type MyType = string & number;<br>
+                <input type="radio" name="q29" value="type MyType = (string, number);"> type MyType = (string, number);<br>
+            </div>
+            <div class="question">
+                <p>ما هو معنى الكلمة المحجوزة 'never' في TypeScript؟</p>
+                <input type="radio" name="q30" value="The type that represents values that never occur."> The type that represents values that never occur.<br>
+                <input type="radio" name="q30" value="The type that represents values that always occur."> The type that represents values that always occur.<br>
+                <input type="radio" name="q30" value="The type that represents values that may or may not occur."> The type that represents values that may or may not occur.<br>
+            </div>
+        </div>
+        
+        <button onclick="submitQuiz()">طمنى بسرعه</button>
+    </div>
+    
+    <!-- نافذة النتيجة -->
+    <div id="resultPopup" class="evaluation-popup">
+        <p id="resultText"></p>
+        <button onclick="closePopup()">إغلاق</button>
+    </div>
+    
+    <script>
+        // إظهار الأسئلة بناءً على المستوى المحدد
+        document.getElementById('levelSelect').addEventListener('change', function() {
+            document.querySelectorAll('.level-content').forEach(div => div.classList.add('hidden'));
+            document.getElementById(this.value).classList.remove('hidden');
+        });
+    
+        // الإجابات الصحيحة لكل مستوى
+        const correctAnswers = {
+    'easy': {
+        'q1': 'string',
+        'q2': '// تعليق',
+        'q3': 'type MyType = string;',
+        'q4': 'Array',
+        'q5': '22',
+        'q6': 'function myFunction() {}',
+        'q7': 'boolean',
+        'q8': 'both',
+        'q9': 'HelloWorld',
+        'q10': '==='
+    },
+    'medium': {
+        'q11': 'false',
+        'q12': '...args',
+        'q13': 'interface',
+        'q14': 'interface MyInterface {}',
+        'q15': 'number',
+        'q16': 'enum',
+        'q17': 'object',
+        'q18': 'any',
+        'q19': '10',
+        'q20': 'type'
+    },
+    'hard': {
+        'q21': 'type is for defining new types, interface is for defining object shapes.',
+        'q22': 'function myFunction<T>(arg: T): T { return arg; }',
+        'q23': '{ name: string; age: number; address: string; }',
+        'q24': 'both ways are correct',
+        'q25': 'The property cannot be changed after initialization.',
+        'q26': '[string, number]',
+        'q27': '{ x: number; y: string; }',
+        'q28': 'interface is used for defining shapes of objects and classes while type is used for defining more complex types.',
+        'q29': 'type MyType = string | number;',
+        'q30': 'The type that represents values that never occur.'
+    }
+};
+
+        // الحصول على الإجابة الصحيحة بناءً على معرف السؤال
+    function getCorrectAnswer(questionId) {
+        const level = document.getElementById('levelSelect').value;
+        return correctAnswers[level][questionId];
+    }
+
+    // تقديم الامتحان وحساب النتيجة
+    function submitQuiz() {
+        const level = document.getElementById('levelSelect').value;
+        const questions = document.querySelectorAll(`#${level} .question`);
+        let score = 0;
+
+        questions.forEach((question) => {
+            const questionId = question.querySelector('input[type="radio"]').name;
+            const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+            if (selectedAnswer && selectedAnswer.value === getCorrectAnswer(questionId)) {
+                score++;
+            }
+        });
+
+        const resultText = `نتيجتك هي: ${score} من ${questions.length}`;
+        document.getElementById('resultText').innerText = resultText;
+        document.getElementById('resultPopup').style.display = 'block';
+    }
+
+    // إغلاق نافذة النتيجة
+    function closePopup() {
+        document.getElementById('resultPopup').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة أساسيات Java</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl; /* جعل النصوص من اليمين إلى اليسار */
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color:#20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid#20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D; /* لتناسب الاتجاه من اليمين إلى اليسار */
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px; /* ضبط الحشو للتوافق مع RTL */
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0; /* تعديل الموضع للتوافق مع RTL */
+            color:#20638D;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+
+        /* تحسين العرض على الهواتف */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .lesson {
+                padding: 15px;
+            }
+            .lesson h2 {
+                font-size: 1.5em;
+            }
+            .lesson-details {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة أساسيات java</h1>
+        <div class="course-description">
+            <p>Java هي لغة برمجة كائنية التوجه (Object-Oriented)، متعددة المنصات، مصممة لتكون مستقلة عن النظام الأساسي (platform-independent). يمكن استخدام Java لتطوير التطبيقات المختلفة من تطبيقات الويب والهواتف إلى التطبيقات المكتبية.            </p>
+        </div>
+        <div class="lessons">
+            <div class="lesson">
+                <h2>الدرس الأول: أساسيات java</h2>
+                <p>Java هي لغة برمجة كائنية التوجه (Object-Oriented)، متعددة المنصات، مصممة لتكون مستقلة عن النظام الأساسي (platform-independent). يمكن استخدام Java لتطوير التطبيقات المختلفة من تطبيقات الويب والهواتف إلى التطبيقات المكتبية.
+
+                </p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. أساسيات Java: "مرحبًا بالعالم"</strong>أول خطوة في أي لغة برمجة هي كتابة برنامج "مرحبًا بالعالم". </li>
+                        <li><strong>2. التعليقات (Comments)
+                        </strong>تستخدم التعليقات لشرح الكود </li>
+                        <li><strong>3. المتغيرات (Variables)
+                        </strong>المتغيرات هي مساحة لتخزين القيم. يجب تحديد نوع المتغير. </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            public class HelloWorld {
+                                public static void main(String[] args) {
+                                    System.out.println("مرحبًا بالعالم!");
+                                }
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            // هذا تعليق
+
+                        </code>                            
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثاني: المحددات في java</h2>
+                <p>المحددات (Modifiers) هي كلمات رئيسية في Java تُستخدم لتحديد خصائص الفئات (Classes)، المتغيرات (Variables)، الأساليب (Methods)، أو المُنشئين (Constructors). تنقسم إلى نوعين رئيسيين:
+
+                </p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. محددات الوصول (Access Modifiers)
+                        </strong>
+                        محدد الوصول	مستوى الوصول
+                        public	يمكن الوصول إلى الكائن من أي مكان.
+                        protected	يمكن الوصول إليه داخل نفس الحزمة (package) وفي الفئات الفرعية (subclasses) حتى لو كانت خارج الحزمة.
+                        default	(بدون كتابة أي محدد) يمكن الوصول إليه فقط داخل نفس الحزمة.
+                        private	يمكن الوصول إليه فقط داخل نفس الفئة (class).
+                        
+                        </li>
+                        <li><strong>2. المحددات غير الوصولية (Non-Access Modifiers)
+                        </strong>ass Modifiers)
+                        المحدد	الوصف
+                        final	تجعل الفئة غير قابلة للوراثة.
+                        </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            public class AccessModifiersExample {
+                                public String publicVar = "عام";
+                                protected String protectedVar = "محمي";
+                                String defaultVar = "افتراضي";
+                                private String privateVar = "خاص";
+                            
+                                public void displayAccess() {
+                                    System.out.println("Public: " + publicVar);
+                                    System.out.println("Protected: " + protectedVar);
+                                    System.out.println("Default: " + defaultVar);
+                                    System.out.println("Private: " + privateVar);
+                                }
+                            }
+                            
+                            class TestAccess {
+                                public static void main(String[] args) {
+                                    AccessModifiersExample obj = new AccessModifiersExample();
+                            
+                                    // الوصول إلى المتغيرات
+                                    System.out.println(obj.publicVar);      // مسموح
+                                    System.out.println(obj.protectedVar);   // مسموح (إذا كان في نفس الحزمة)
+                                    System.out.println(obj.defaultVar);     // مسموح (إذا كان في نفس الحزمة)
+                                    // System.out.println(obj.privateVar);  // غير مسموح - خطأ في الكود
+                                }
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            class MethodModifiersExample {
+                                // أسلوب ثابت
+                                static void staticMethod() {
+                                    System.out.println("هذا أسلوب ثابت");
+                                }
+                            
+                                // أسلوب نهائي
+                                final void finalMethod() {
+                                    System.out.println("هذا أسلوب نهائي");
+                                }
+                            
+                                // أسلوب متزامن
+                                synchronized void synchronizedMethod() {
+                                    System.out.println("هذا أسلوب متزامن");
+                                }
+                            }
+                            
+                            class TestMethods extends MethodModifiersExample {
+                                // محاولة إعادة تعريف الأسلوب النهائي (غير مسموح)
+                                // void finalMethod() { }
+                            }
+                            
+                        </code>                            
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>الدرس الثالث: التصفح في java</h2>
+                <p>التصفح في Java يشير إلى عملية المرور عبر عناصر البيانات في هياكل مثل المصفوفات (Arrays)، القوائم (Lists)، المجموعات (Collections)، أو الخرائط (Maps). تُستخدم هذه العملية للوصول إلى العناصر أو تعديلها أو معالجتها.
+
+                </p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. تصفح المصفوفات (Arrays Traversal)
+                        </strong>1. باستخدام حلقة for العادية
+                    </li>
+                    <li><strong>2. باستخدام حلقة for-each
+                    </strong>حلقة for-each تُستخدم لتصفح العناصر بسهولة.
+
+                </li>
+                <li><strong>2. تصفح القوائم (List Traversal)
+                </strong>القوائم (Lists) هي جزء من مكتبة Java Collections.
+
+            </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            public class ArrayTraversal {
+                                public static void main(String[] args) {
+                                    int[] numbers = {10, 20, 30, 40, 50};
+                            
+                                    for (int i = 0; i < numbers.length; i++) {
+                                        System.out.println("العدد: " + numbers[i]);
+                                    }
+                                }
+                            }
+                        </code>
+                        <br>
+                        <code>
+                            public class ArrayTraversalForEach {
+                                public static void main(String[] args) {
+                                    int[] numbers = {10, 20, 30, 40, 50};
+                            
+                                    for (int number : numbers) {
+                                        System.out.println("العدد: " + number);
+                                    }
+                                }
+                            }
+                            
+                        </code>               
+                    </div>
+                </div>
+            </div>
+            <div class="lesson">
+                <h2>الدرس الخامس: الأنماط المتقدمة</h2>
+                <p>تتضمن الأنماط المتقدمة في Java تقنيات ومفاهيم تُستخدم لإنشاء وتصميم أنظمة برمجية معقدة. هذه الأنماط تساعد في تحسين هيكل الكود وقابليته للصيانة وإعادة الاستخدام.
+
+                </p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>1. الأنماط التصميمية (Design Patterns)
+                        </strong>يضمن وجود كائن واحد فقط من فئة معينة في البرنامج.
+        
+                    </li>
+                        <li><strong>1.2. Factory Pattern
+                        </strong>يُستخدم لإنشاء الكائنات دون الكشف عن المنطق وراء إنشائها.
+
+                    </li>
+                      <li><strong>1.3. Observer Pattern
+                    </strong>يسمح لكائن واحد (Subject) بإبلاغ كائنات متعددة (Observers) عند حدوث تغيير.
+
+                </li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong>
+                        <br>
+                        <code>
+                            class Singleton {
+                                private static Singleton instance;
+                            
+                                private Singleton() {
+                                    // Constructor خاص
+                                }
+                            
+                                public static Singleton getInstance() {
+                                    if (instance == null) {
+                                        instance = new Singleton();
+                                    }
+                                    return instance;
+                                }
+                            
+                                public void showMessage() {
+                                    System.out.println("مرحبًا من Singleton!");
+                                }
+                            }
+                            
+                            public class SingletonExample {
+                                public static void main(String[] args) {
+                                    Singleton singleton = Singleton.getInstance();
+                                    singleton.showMessage();
+                                }
+                            }
+
+                        </code>
+                        <br>
+                        <code>
+                            interface Shape {
+                                void draw();
+                            }
+                            
+                            class Circle implements Shape {
+                                public void draw() {
+                                    System.out.println("رسم دائرة");
+                                }
+                            }
+                            
+                            class Square implements Shape {
+                                public void draw() {
+                                    System.out.println("رسم مربع");
+                                }
+                            }
+                            
+                            class ShapeFactory {
+                                public static Shape getShape(String shapeType) {
+                                    if (shapeType.equalsIgnoreCase("CIRCLE")) {
+                                        return new Circle();
+                                    } else if (shapeType.equalsIgnoreCase("SQUARE")) {
+                                        return new Square();
+                                    }
+                                    return null;
+                                }
+                            }
+                            
+                            public class FactoryPatternExample {
+                                public static void main(String[] args) {
+                                    Shape circle = ShapeFactory.getShape("CIRCLE");
+                                    circle.draw();
+                            
+                                    Shape square = ShapeFactory.getShape("SQUARE");
+                                    square.draw();
+                                }
+                            }
+                            
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

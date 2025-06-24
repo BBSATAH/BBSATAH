@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح دورة Objective-C</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #20638D;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            border-bottom: 4px solid #20638D;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .course-description {
+            background-color: #f9f9f9;
+            border-right: 6px solid #20638D;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .lesson {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lesson h2 {
+            color: #20638D;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-bottom: 2px solid #20638D;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .lesson-details {
+            margin-top: 15px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .example {
+            background-color: #f2f2f2;
+            border-right: 6px solid #20638D;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 20px;
+        }
+        ul li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #20638D;
+            font-size: 1.2em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #777;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .lesson { padding: 15px; }
+            .lesson h2 { font-size: 1.5em; }
+            .lesson-details { font-size: 0.95em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شرح دورة Objective-C</h1>
+        <div class="course-description">
+            <p>Objective-C هي لغة برمجة كائنية التوجه تُستخدم بشكل رئيسي لتطوير تطبيقات macOS وiOS. تعتمد على لغة C مع إضافة مفاهيم البرمجة الكائنية مثل الفئات والرسائل. هذه الدورة ستأخذك في رحلة شاملة لتعلم Objective-C من الأساسيات إلى المفاهيم المتقدمة مع أمثلة عملية.</p>
+        </div>
+        <div class="lessons">
+            <!-- الدرس 1: مقدمة في Objective-C -->
+            <div class="lesson">
+                <h2>الدرس الأول: مقدمة في Objective-C</h2>
+                <p>Objective-C هي لغة برمجة تم تطويرها في الثمانينيات وأصبحت أساس تطوير تطبيقات Apple.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الأساس:</strong> تعتمد على C مع إضافة ميزات كائنية.</li>
+                        <li><strong>الاستخدام:</strong> تطوير تطبيقات iOS وmacOS باستخدام إطار عمل Cocoa.</li>
+                        <li><strong>البنية:</strong> ملفات .h (واجهة) و.m (تطبيق).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+                            int main(int argc, const char * argv[]) {
+                                @autoreleasepool {
+                                    NSLog(@"مرحبًا بالعالم!");
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 2: الفئات والكائنات -->
+            <div class="lesson">
+                <h2>الدرس الثاني: الفئات والكائنات</h2>
+                <p>الفئات هي القوالب التي تُنشئ منها الكائنات في Objective-C.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>@interface:</strong> تعريف الفئة (الخصائص والوظائف).</li>
+                        <li><strong>@implementation:</strong> تنفيذ الوظائف.</li>
+                        <li><strong>إنشاء الكائنات:</strong> باستخدام <code>alloc</code> و<code>init</code>.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @interface Person : NSObject
+                            - (void)sayHello;
+                            @end
+
+                            @implementation Person
+                            - (void)sayHello {
+                                NSLog(@"مرحبًا، أنا شخص!");
+                            }
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    Person *person = [[Person alloc] init];
+                                    [person sayHello];
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 3: الخصائص -->
+            <div class="lesson">
+                <h2>الدرس الثالث: الخصائص (Properties)</h2>
+                <p>الخصائص تُستخدم لإدارة البيانات داخل الفئات مع تحكم في الوصول.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>@property:</strong> تعريف الخاصية مع سمات (مثل strong، weak).</li>
+                        <li><strong>nonatomic:</strong> تحسين الأداء في بيئة غير متعددة الخيوط.</li>
+                        <li><strong>الوصول:</strong> باستخدام النقطة (dot syntax) أو الرسائل.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @interface Car : NSObject
+                            @property (nonatomic, strong) NSString *brand;
+                            @property (nonatomic, assign) int year;
+                            @end
+
+                            @implementation Car
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    Car *myCar = [[Car alloc] init];
+                                    myCar.brand = @"Toyota";
+                                    myCar.year = 2020;
+                                    NSLog(@"السيارة: %@، السنة: %d", myCar.brand, myCar.year);
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 4: الرسائل والوظائف -->
+            <div class="lesson">
+                <h2>الدرس الرابع: الرسائل والوظائف</h2>
+                <p>الرسائل هي طريقة استدعاء الوظائف في Objective-C.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الصيغة:</strong> <code>[object method]</code>.</li>
+                        <li><strong>معاملات:</strong> يمكن إضافة معاملات متعددة باستخدام النقاط.</li>
+                        <li><strong>الإرجاع:</strong> تحديد نوع القيمة المرجعة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @interface Calculator : NSObject
+                            - (int)addNumber:(int)a toNumber:(int)b;
+                            @end
+
+                            @implementation Calculator
+                            - (int)addNumber:(int)a toNumber:(int)b {
+                                return a + b;
+                            }
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    Calculator *calc = [[Calculator alloc] init];
+                                    int result = [calc addNumber:5 toNumber:3];
+                                    NSLog(@"النتيجة: %d", result);
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 5: إدارة الذاكرة -->
+            <div class="lesson">
+                <h2>الدرس الخامس: إدارة الذاكرة</h2>
+                <p>Objective-C يستخدم ARC لإدارة الذاكرة تلقائيًا، مع خيار الإدارة اليدوية.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>ARC:</strong> Automatic Reference Counting لتحرير الكائنات بدون مراجع.</li>
+                        <li><strong>Manual Retain-Release:</strong> استخدام <code>retain</code> و<code>release</code> (قديم).</li>
+                        <li><strong>ضعف المراجع (weak):</strong> تجنب دورات الاحتفاظ (retain cycles).</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @interface Example : NSObject
+                            @property (nonatomic, strong) NSString *data;
+                            @end
+
+                            @implementation Example
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    Example *ex = [[Example alloc] init];
+                                    ex.data = @"بيانات";
+                                    NSLog(@"%@", ex.data);
+                                    // ARC يحرر ex تلقائيًا
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 6: البروتوكولات -->
+            <div class="lesson">
+                <h2>الدرس السادس: البروتوكولات (Protocols)</h2>
+                <p>البروتوكولات تُحدد مجموعة من الوظائف التي يجب تطبيقها.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>@protocol</code>.</li>
+                        <li><strong>إلزامي/اختياري:</strong> <code>@required</code> و<code>@optional</code>.</li>
+                        <li><strong>التطبيق:</strong> إضافته بين <code><></code> في تعريف الفئة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @protocol Movable
+                            @required
+                            - (void)move;
+                            @optional
+                            - (void)stop;
+                            @end
+
+                            @interface Robot : NSObject <Movable>
+                            @end
+
+                            @implementation Robot
+                            - (void)move {
+                                NSLog(@"الروبوت يتحرك");
+                            }
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    Robot *robot = [[Robot alloc] init];
+                                    [robot move];
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 7: الكتل -->
+            <div class="lesson">
+                <h2>الدرس السابع: الكتل (Blocks)</h2>
+                <p>الكتل هي دوال مجهولة تُستخدم كبديل للمعاملات أو الردود.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>التعريف:</strong> باستخدام <code>^</code>.</li>
+                        <li><strong>الاستخدام:</strong> تمريرها كمعاملات أو تخزينها.</li>
+                        <li><strong>المتغيرات:</strong> يمكنها التقاط المتغيرات المحلية.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            int main() {
+                                @autoreleasepool {
+                                    void (^sayHello)(NSString *) = ^(NSString *name) {
+                                        NSLog(@"مرحبًا، %@", name);
+                                    };
+                                    sayHello(@"علي");
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 8: الفئات الفرعية والوراثة -->
+            <div class="lesson">
+                <h2>الدرس الثامن: الفئات الفرعية والوراثة</h2>
+                <p>الوراثة تسمح بتوسيع الفئات الأساسية.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>الفئة الأم:</strong> المصدر.</li>
+                        <li><strong>الفئة الفرعية:</strong> ترث وتضيف وظائف جديدة.</li>
+                        <li><strong>تجاوز (Override):</strong> إعادة تعريف الوظائف.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @interface Animal : NSObject
+                            - (void)speak;
+                            @end
+
+                            @implementation Animal
+                            - (void)speak {
+                                NSLog(@"صوت حيوان");
+                            }
+                            @end
+
+                            @interface Dog : Animal
+                            @end
+
+                            @implementation Dog
+                            - (void)speak {
+                                NSLog(@"ووف!");
+                            }
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    Dog *dog = [[Dog alloc] init];
+                                    [dog speak];
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 9: المصفوفات والقواميس -->
+            <div class="lesson">
+                <h2>الدرس التاسع: المصفوفات والقواميس</h2>
+                <p>هياكل بيانات لتخزين مجموعات من العناصر.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>NSArray:</strong> قائمة غير قابلة للتعديل.</li>
+                        <li><strong>NSMutableArray:</strong> قائمة قابلة للتعديل.</li>
+                        <li><strong>NSDictionary:</strong> مفاتيح وقيم.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            int main() {
+                                @autoreleasepool {
+                                    NSArray *colors = @[@"أحمر", @"أزرق"];
+                                    NSLog(@"اللون الأول: %@", colors[0]);
+
+                                    NSMutableArray *numbers = [NSMutableArray array];
+                                    [numbers addObject:@1];
+                                    [numbers addObject:@2];
+                                    NSLog(@"الأرقام: %@", numbers);
+
+                                    NSDictionary *person = @{@"name": @"علي", @"age": @25};
+                                    NSLog(@"الاسم: %@", person[@"name"]);
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 10: التعامل مع الأخطاء -->
+            <div class="lesson">
+                <h2>الدرس العاشر: التعامل مع الأخطاء</h2>
+                <p>إدارة الأخطاء باستخدام NSError أو try-catch.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>NSError:</strong> تمرير كائن للأخطاء عبر المعاملات.</li>
+                        <li><strong>@try/@catch:</strong> معالجة الاستثناءات مباشرة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            int main() {
+                                @autoreleasepool {
+                                    @try {
+                                        NSArray *array = @[@"item"];
+                                        [array objectAtIndex:5]; // خطأ خارج النطاق
+                                    }
+                                    @catch (NSException *exception) {
+                                        NSLog(@"خطأ: %@", exception);
+                                    }
+                                    @finally {
+                                        NSLog(@"تم التنفيذ");
+                                    }
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 11: الكاتيجوري والإكستنشن -->
+            <div class="lesson">
+                <h2>الدرس الحادي عشر: الكاتيجوري والإكستنشن</h2>
+                <p>توسيع الفئات الموجودة دون تعديلها.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>Category:</strong> إضافة وظائف لفئة موجودة.</li>
+                        <li><strong>Extension:</strong> إضافة وظائف خاصة داخل الفئة.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @interface NSString (Reverse)
+                            - (NSString *)reverseString;
+                            @end
+
+                            @implementation NSString (Reverse)
+                            - (NSString *)reverseString {
+                                NSMutableString *reversed = [NSMutableString string];
+                                for (NSInteger i = self.length - 1; i >= 0; i--) {
+                                    [reversed appendFormat:@"%C", [self characterAtIndex:i]];
+                                }
+                                return reversed;
+                            }
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    NSString *text = @"مرحبًا";
+                                    NSLog(@"%@", [text reverseString]);
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 12: التعددية المتزامنة -->
+            <div class="lesson">
+                <h2>الدرس الثاني عشر: التعددية المتزامنة (Concurrency)</h2>
+                <p>تنفيذ مهام متعددة في وقت واحد.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>GCD:</strong> Grand Central Dispatch لإدارة الخيوط.</li>
+                        <li><strong>Queues:</strong> تنظيم المهام في طوابير.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            int main() {
+                                @autoreleasepool {
+                                    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                                    dispatch_async(queue, ^{
+                                        NSLog(@"مهمة في الخلفية");
+                                    });
+                                    NSLog(@"مهمة في المقدمة");
+                                }
+                                sleep(1); // للسماح برؤية النتيجة
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 13: إطار عمل Foundation -->
+            <div class="lesson">
+                <h2>الدرس الثالث عشر: إطار عمل Foundation</h2>
+                <p>إطار عمل يوفر أدوات أساسية للتعامل مع البيانات.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>NSString:</strong> للنصوص.</li>
+                        <li><strong>NSNumber:</strong> للأرقام.</li>
+                        <li><strong>NSDate:</strong> للتواريخ.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            int main() {
+                                @autoreleasepool {
+                                    NSNumber *num = @42;
+                                    NSDate *now = [NSDate date];
+                                    NSLog(@"الرقم: %@, التاريخ: %@", num, now);
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الدرس 14: تطبيق عملي -->
+            <div class="lesson">
+                <h2>الدرس الرابع عشر: تطبيق عملي</h2>
+                <p>إنشاء تطبيق بسيط يجمع المفاهيم السابقة.</p>
+                <div class="lesson-details">
+                    <strong>شرح مفصل:</strong>
+                    <ul>
+                        <li><strong>مثال:</strong> برنامج لإدارة قائمة مهام.</li>
+                    </ul>
+                    <div class="example">
+                        <strong>مثال:</strong><br>
+                        <code>
+                            #import <Foundation/Foundation.h>
+
+                            @interface Task : NSObject
+                            @property (nonatomic, strong) NSString *title;
+                            @property (nonatomic, assign) BOOL completed;
+                            - (void)markAsCompleted;
+                            @end
+
+                            @implementation Task
+                            - (void)markAsCompleted {
+                                self.completed = YES;
+                                NSLog(@"المهمة %@ تم إكمالها", self.title);
+                            }
+                            @end
+
+                            int main() {
+                                @autoreleasepool {
+                                    NSMutableArray *tasks = [NSMutableArray array];
+                                    Task *task1 = [[Task alloc] init];
+                                    task1.title = @"كتابة الكود";
+                                    [tasks addObject:task1];
+
+                                    Task *task2 = [[Task alloc] init];
+                                    task2.title = @"اختبار التطبيق";
+                                    [tasks addObject:task2];
+
+                                    for (Task *task in tasks) {
+                                        [task markAsCompleted];
+                                    }
+                                }
+                                return 0;
+                            }
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
